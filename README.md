@@ -35,6 +35,8 @@ It's a project with django. Try to own a blog simply and make it easy to use.
 
 You can make it work for you with [apache2](http://httpd.apache.org/) and [mod_wsgi](https://code.google.com/p/modwsgi/).
 
+If you don't know Django, you can learn from [here](http://www.djangobook.com/en/2.0/index.html).
+
 ##Contact me
 
 mysite:[http://www.0x01f.com](http://www.0x01f.com)
