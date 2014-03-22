@@ -5,20 +5,22 @@ It's a project with django. Try to own a blog simply and make it easy to use.
 ##File tree of the project.
 
 *mysite/
-    *blog/
-    *data/
-    *default/
-    *.git/
-    *.gitignore
-    *manage.py
-    *mysite/
-    *README
-    *static/
-    *templates/
-    *tinymce/
-    *ustvs/
-    *words/
-    *wsgi/
+   *blog/
+   *data/
+   *default/
+   *.git/
+   *.gitignore
+   *manage.py
+   *mysite/
+   *README
+   *static/
+   *templates/
+   *tinymce/
+   *ustvs/
+   *words/
+   *wsgi/
+   
+
 `default`,`blog`,`words` and `ustvs` are apps.
 `tinymce` is the editor which use.
 `static` saves all the static files such as *.html,*.css,*.js
