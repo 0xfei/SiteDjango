@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <body>
+    <h2>碎言碎语</h2>
+    {% for word in words %}
+        <h4>{{ word.date }}</h4>
+        <p>{{ word.message }}</p>
+    {% endfor %}
+    </body>
+{% endblock %}

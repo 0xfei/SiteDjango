@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <body>
+    <h2>追剧</h2>
+    {% for tv in tvs %}
+        <a href={{ tv.search }}>{{ tv.name }}</a>
+        <img src='/{{ tv.picture }}'/>
+    {% endfor %}
+    </body>
+{% endblock %}

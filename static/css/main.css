@@ -1,0 +1,114 @@
+body {
+    font-family: STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
+    font-size: 18px;
+    margin: 5% 5% 10% 10%;
+    width: 75%;
+    line-height: normal;
+}
+
+H1 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+	color: #003366;
+}
+
+H2 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+	font-size: 27px;
+    margin-bottom: 40px;
+    padding: 1px;
+    border-bottom: 3px LightGrey solid;
+    width: 76%;
+    line-height: 200%;
+    color: #003366;
+}
+
+
+H3 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+	font-size: 25px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-bottom: 2px LightGrey solid;
+    width: 75%;
+    line-height: 150%;
+    color: #003366;
+}
+
+
+H4 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    width: 75%;
+    line-height: 150%;
+    color: #003366;
+}
+
+
+li {
+    margin-left: 1%;
+}
+
+
+blockquote {
+    border-left: 4px lightgrey solid;
+    padding-left: 5px;
+    margin-left: 20px;
+}
+
+
+pre {
+    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+    font-size: 75%;
+    border: solid 1px lightgrey;
+    background-color: Ivory;
+    padding: 5px;
+    line-height: 120%;
+    margin-left: 5px;
+    width: 73%;
+}
+
+
+code {
+    font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+    font-size: 90%;
+}
+
+
+a {
+    text-decoration: none;
+    padding: 4px;
+    color: #585858;
+}
+
+
+a:hover {
+	background-color: #282828;
+}
+
+img {
+    margin-left: 10px;
+    display: block;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+hr {
+    width: 75%;
+    color: #585858;
+}
+
+ul {
+	list-style-type : circle
+}
+
+li {
+	font-size: 110%;
+}
+
+p {
+	font-size: 90%;
+	width: 75%;
+}

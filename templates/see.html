@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+<body>
+
+<h2>{{ page.title }}</h2>
+{% autoescape off %}
+{{ page.blog}}
+{% endautoescape %}
+
+</body>
+{% endblock %}

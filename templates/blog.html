@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <body>
+    <h2>所有博客</h2>
+    {% for blog in blogs %}
+        <li><a href='{{ blog.id }}'>{{ blog.title }}</a></li>
+    {% endfor %}
+    </body>
+{% endblock %}
