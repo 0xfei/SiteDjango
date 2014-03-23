@@ -9,6 +9,6 @@ class WordsAdmin(admin.ModelAdmin):
     search_fields = ('label', 'date')
     list_filter = ('label', )
     date_hierarchy = 'date'
-    ordering = ('-date', )
+    ordering = ('date', )
 
 admin.site.register(Words, WordsAdmin)
