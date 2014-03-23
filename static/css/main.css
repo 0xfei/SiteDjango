@@ -77,10 +77,12 @@ code {
 a {
     text-decoration: none;
     color: #585858;
+    transition: 0.25s ease-out;
 }
 
 
 a:hover {
+    font-size: 150%;
 	background-color: #282828;
 }
 
@@ -90,6 +92,12 @@ img {
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    transition: 1s ease-out;
+}
+
+img:hover {
+    height: 105%;
+    width: 105%;
 }
 
 
