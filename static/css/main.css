@@ -4,6 +4,7 @@ body {
     margin: 5% 5% 10% 10%;
     width: 75%;
     line-height: normal;
+    background-color: #88AACC;
 }
 
 H1 {
@@ -13,10 +14,10 @@ H1 {
 
 H2 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-	font-size: 27px;
+    font-size: 27px;
     margin-bottom: 40px;
     padding: 1px;
-    border-bottom: 3px LightGrey solid;
+    border-bottom: 3px rgb(51, 68, 75) solid;
     width: 76%;
     line-height: 200%;
     color: #003366;
@@ -25,10 +26,8 @@ H2 {
 
 H3 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
-	font-size: 25px;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    border-bottom: 2px LightGrey solid;
+    margin-top: 20px;
+    margin-bottom: -10px;
     width: 75%;
     line-height: 150%;
     color: #003366;
@@ -41,7 +40,7 @@ H4 {
     margin-bottom: -10px;
     width: 75%;
     line-height: 150%;
-    color: #003366;
+    color: #753F12;
 }
 
 
@@ -61,7 +60,7 @@ pre {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 75%;
     border: solid 1px lightgrey;
-    background-color: Ivory;
+    background-color: rgb(144, 155, 156);
     padding: 5px;
     line-height: 120%;
     margin-left: 5px;
@@ -72,18 +71,19 @@ pre {
 code {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 90%;
+    width: 73%;
 }
 
 a {
     text-decoration: none;
-    color: #585858;
+    color: #141010;
     transition: 0.25s ease-out;
 }
 
 
 a:hover {
-    font-size: 150%;
-	background-color: #B8B8B8;
+    font-size: 145%;
+    background-color: #B8B8B8;
 }
 
 img {
@@ -92,14 +92,7 @@ img {
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    transition: 1s ease-out;
 }
-
-img:hover {
-    height: 105%;
-    width: 105%;
-}
-
 
 hr {
     width: 75%;
@@ -112,6 +105,7 @@ ul {
 
 li {
 	font-size: 110%;
+	padding: 3px;
 }
 
 p {

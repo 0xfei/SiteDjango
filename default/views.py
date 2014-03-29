@@ -22,6 +22,7 @@ def google(request):
     return render_to_response('google.html')
 
 
+<<<<<<< HEAD
 def send_android(request):
     filename = os.path.join(STATIC_ROOT, r'0x01f.apk')
     temp = tempfile.TemporaryFile()
@@ -34,3 +35,8 @@ def send_android(request):
     response['Content-Length'] = temp.tell()
     temp.seek(0)
     return response
+=======
+def baidu(request):
+    return render_to_response('baidu.html')
+
+>>>>>>> e84e874848f0cca5bc8706e1a6c8bce933d90c83
