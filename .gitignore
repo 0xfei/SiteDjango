@@ -5,3 +5,5 @@
 # my database, you should make one for you
 *.db
 
+.idea/*
+
