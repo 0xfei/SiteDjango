@@ -15,3 +15,4 @@ class Words(models.Model):
     class Meta:
         verbose_name = u'碎言碎语'
         verbose_name_plural = u'碎言碎语'
+        ordering = ['date']

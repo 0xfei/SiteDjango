@@ -38,7 +38,7 @@ H3 {
 H4 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
     margin-top: 20px;
-    margin-bottom: 0px;
+    margin-bottom: -10px;
     width: 75%;
     line-height: 150%;
     color: #003366;
@@ -74,16 +74,16 @@ code {
     font-size: 90%;
 }
 
-
 a {
     text-decoration: none;
-    padding: 4px;
     color: #585858;
+    transition: 0.25s ease-out;
 }
 
 
 a:hover {
-	background-color: #282828;
+    font-size: 150%;
+	background-color: #B8B8B8;
 }
 
 img {
@@ -92,6 +92,12 @@ img {
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    transition: 1s ease-out;
+}
+
+img:hover {
+    height: 105%;
+    width: 105%;
 }
 
 
