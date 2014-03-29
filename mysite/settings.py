@@ -15,6 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SITE_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
 MEDIA_ROOT = SITE_ROOT
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static/')
 DATA_ROOT = os.path.join(SITE_ROOT, 'data/')
 
 # Quick-start development settings - unsuitable for production

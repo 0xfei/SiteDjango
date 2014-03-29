@@ -1,9 +1,12 @@
 from django.shortcuts import render_to_response
-from django.core.mail import send_mail
-from django.http import HttpResponse, Http404, HttpResponseRedirect
-from forms import ContactForm
-import datetime
+from django.http import HttpResponse, Http404
+from django.core.servers.basehttp import FileWrapper
+from mysite.settings import STATIC_ROOT
+import os
 from blog.models import Blog
+import tempfile
+import zipfile
+
 
 def home(request):
     page = Blog.objects.all()
@@ -28,3 +31,16 @@ def see(request, number):
 def google(request):
     return render_to_response('google.html')
 
+
+def send_android(request):
+    filename = os.path.join(STATIC_ROOT, r'0x01f.apk')
+    temp = tempfile.TemporaryFile()
+    archive = zipfile.ZipFile(temp, 'w', zipfile.ZIP_DEFLATED)
+    archive.write(filename)
+    archive.close()
+    wrapper = FileWrapper(temp)
+    response = HttpResponse(wrapper, content_type='application/zip')
+    response['Content-Disposition'] = 'attachment; filename=file.zip'
+    response['Content-Length'] = temp.tell()
+    temp.seek(0)
+    return response
