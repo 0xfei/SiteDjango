@@ -24,7 +24,7 @@ DATA_ROOT = os.path.join(SITE_ROOT, 'data/')
 SECRET_KEY = '#agm-@c_^badm)hzj+k#%(mt1&2ae#8v21#36^&5k*m7lpae@o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True 
+DEBUG = False 
 
 TEMPLATE_DEBUG = True
 

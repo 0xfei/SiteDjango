@@ -3,7 +3,7 @@ from django.contrib import admin
 from blog.views import blog, see
 from ustvs.views import us_tvs
 from words.views import words, see_words
-from default.views import home, contact, google
+from default.views import home, contact, google, baidu
 
 
 
@@ -21,6 +21,7 @@ urlpatterns = patterns(
     url(r'^words/(\d{1,4})', see_words),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^google.*$', google),
+    url(r'^tc_.*$', baidu),
 )
 
 urlpatterns += patterns(
