@@ -3,7 +3,7 @@ from django.contrib import admin
 from blog.views import blog, see
 from ustvs.views import us_tvs
 from words.views import words, see_words
-from default.views import home, contact, google, baidu
+from default.views import home, contact, google, baidu, send_android
 
 
 
@@ -22,6 +22,7 @@ urlpatterns = patterns(
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^google.*$', google),
     url(r'^tc_.*$', baidu),
+    url(r'^send_android', send_android)
 )
 
 urlpatterns += patterns(

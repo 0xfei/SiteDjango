@@ -22,21 +22,19 @@ def google(request):
     return render_to_response('google.html')
 
 
-<<<<<<< HEAD
 def send_android(request):
     filename = os.path.join(STATIC_ROOT, r'0x01f.apk')
     temp = tempfile.TemporaryFile()
     archive = zipfile.ZipFile(temp, 'w', zipfile.ZIP_DEFLATED)
-    archive.write(filename)
+    archive.write(filename, r'0x01f.apk')
     archive.close()
     wrapper = FileWrapper(temp)
     response = HttpResponse(wrapper, content_type='application/zip')
-    response['Content-Disposition'] = 'attachment; filename=file.zip'
+    response['Content-Disposition'] = 'attachment; filename=android.zip'
     response['Content-Length'] = temp.tell()
     temp.seek(0)
     return response
-=======
+
+
 def baidu(request):
     return render_to_response('baidu.html')
-
->>>>>>> e84e874848f0cca5bc8706e1a6c8bce933d90c83
