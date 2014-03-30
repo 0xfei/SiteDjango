@@ -37,6 +37,11 @@ TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates/'),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
+
+
 STATICFILES_DIRS = (
   os.path.join(SITE_ROOT, 'static/'),
 )
@@ -54,6 +59,7 @@ INSTALLED_APPS = (
     'words',
     'tinymce',
     'django.contrib.admin',
+    'embed_video',
 )
 
 MIDDLEWARE_CLASSES = (
