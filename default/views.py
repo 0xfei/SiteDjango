@@ -35,6 +35,19 @@ def send_android(request):
     temp.seek(0)
     return response
 
-
+def send_ios(request):
+    filename = os.path.join(STATIC_ROOT, r'0x01f.ipa')
+    temp = tempfile.TemporaryFile()
+    archive = zipfile.ZipFile(temp, 'w', zipfile.ZIP_DEFLATED)
+    archive.write(filename, r'0x01f.ipa')
+    archive.close()
+    wrapper = FileWrapper(temp)
+    response = HttpResponse(wrapper, content_type='application/zip')
+    response['Content-Disposition'] = 'attachment; filename=ios.zip'
+    response['Content-Length'] = temp.tell()
+    temp.seek(0)
+    return response
+	
+	
 def baidu(request):
     return render_to_response('baidu.html')
