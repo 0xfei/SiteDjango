@@ -55,7 +55,6 @@ INSTALLED_APPS = (
     'words',
     'tinymce',
     'django.contrib.admin',
-    'embed_video',
 )
 
 MIDDLEWARE_CLASSES = (

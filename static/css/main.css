@@ -4,7 +4,7 @@ body {
     margin: 5% 5% 10% 10%;
     width: 75%;
     line-height: normal;
-    background-color: #88AACC;
+    background-color: #E0F0FF;
 }
 
 H1 {
@@ -40,7 +40,7 @@ H4 {
     margin-bottom: -10px;
     width: 75%;
     line-height: 150%;
-    color: #753F12;
+    color: #EB6222;
 }
 
 
@@ -60,7 +60,7 @@ pre {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 75%;
     border: solid 1px lightgrey;
-    background-color: rgb(144, 155, 156);
+    background-color: rgb(252, 252, 196);
     padding: 5px;
     line-height: 120%;
     margin-left: 5px;
