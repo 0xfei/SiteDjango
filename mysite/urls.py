@@ -22,7 +22,7 @@ urlpatterns = patterns(
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^google.*$', google),
     url(r'^tc_.*$', baidu),
-    url(r'^send_android', send_android)
+    url(r'^send_android', send_android),
 )
 
 urlpatterns += patterns(

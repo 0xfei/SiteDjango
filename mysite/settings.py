@@ -27,7 +27,7 @@ SECRET_KEY = '#agm-@c_^badm)hzj+k#%(mt1&2ae#8v21#36^&5k*m7lpae@o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False 
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,9 +37,6 @@ TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates/'),
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.request',
-)
 
 
 STATICFILES_DIRS = (
