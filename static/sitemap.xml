@@ -32,68 +32,13 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.0x01f.com/blog/3</loc>
+  <loc>http://www.0x01f.com/blog/6</loc>
   <changefreq>daily</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.0x01f.com/blog/2</loc>
+  <loc>http://www.0x01f.com/blog/5</loc>
   <changefreq>daily</changefreq>
   <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/blog/1</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/1</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/2</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/3</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/4</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/5</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/6</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/7</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/8</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/9</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.0x01f.com/words/10</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.64</priority>
 </url>
 </urlset>

@@ -15,7 +15,7 @@ H1 {
 H2 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
     font-size: 27px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding: 1px;
     border-bottom: 3px rgb(51, 68, 75) solid;
     width: 76%;
@@ -104,7 +104,7 @@ ul {
 }
 
 li {
-	font-size: 110%;
+	font-size: 100%;
 	padding: 3px;
 }
 
