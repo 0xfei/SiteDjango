@@ -7,7 +7,7 @@ from models import Blog
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title', 'date', 'label', 'id')
     search_fields = ('label', )
-    fields = ('title', 'blog', 'label', 'date')
+    fields = ('title', 'blog', 'pic', 'label', 'date')
     list_filter = ('title', )
     date_hierarchy = 'date'
     ordering = ('date',)

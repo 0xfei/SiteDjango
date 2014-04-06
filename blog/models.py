@@ -10,6 +10,7 @@ class Blog(models.Model):
     label = models.CharField(max_length=128, verbose_name=u'标签')
     date = models.DateField(auto_created=True, verbose_name=u'日期')
     blog = HTMLField(max_length=65536, verbose_name=u'正文')
+    pic = models.ImageField(upload_to='static/image', null=True, blank=True)
 
     def __unicode__(self):
         return r'title: %s label: %s date: %s' % (self.title, self.label, self.date)
