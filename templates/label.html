@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <body>
+    <h2>所有标签</h2>
+    {% for label in labels %}
+        <a href="/label/{{ label }}">{{ label }}</a>
+    {% endfor %}
+    </body>
+{% endblock %}
