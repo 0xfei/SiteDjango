@@ -6,7 +6,7 @@ from models import Blog
 
 
 def blog(request):
-    page = Blog.objects.all()
+    page = Blog.objects.order_by('id')
     return render_to_response('blog.html', {'blogs': page})
 
 
