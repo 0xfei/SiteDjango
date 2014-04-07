@@ -18,4 +18,4 @@ class Blog(models.Model):
     class Meta:
         verbose_name = u'博客管理'
         verbose_name_plural = u'博客管理'
-        ordering = ['-date']
+        ordering = ['-id']

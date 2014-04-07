@@ -10,6 +10,6 @@ class BlogAdmin(admin.ModelAdmin):
     fields = ('title', 'blog', 'pic', 'label', 'date')
     list_filter = ('title', )
     date_hierarchy = 'date'
-    ordering = ('date',)
+    ordering = ('-id',)
 
 admin.site.register(Blog, BlogAdmin)
