@@ -77,12 +77,10 @@ code {
 a {
     text-decoration: none;
     color: #141010;
-    transition: 0.25s ease-out;
 }
 
 
 a:hover {
-    font-size: 145%;
     background-color: #B8B8B8;
 }
 
