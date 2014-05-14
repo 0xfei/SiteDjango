@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'ustvs',
     'words',
     'tinymce',
+    'books',
     'django.contrib.admin',
 )
 
