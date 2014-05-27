@@ -8,12 +8,12 @@ body {
 }
 
 H1 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+    font-family: Heiti, sans-serif;
 	color: #003366;
 }
 
 H2 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+    font-family: Heiti, sans-serif;
     font-size: 27px;
     margin-bottom: 20px;
     padding: 1px;
@@ -25,7 +25,7 @@ H2 {
 
 
 H3 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+    font-family: Heiti, sans-serif;
     margin-top: 20px;
     margin-bottom: -10px;
     width: 75%;
@@ -35,7 +35,7 @@ H3 {
 
 
 H4 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif;
+    font-family: Heiti, sans-serif;
     margin-top: 20px;
     margin-bottom: -10px;
     width: 75%;
@@ -45,11 +45,13 @@ H4 {
 
 
 li {
+    font-family: Heiti, sans-serif;
     margin-left: 1%;
 }
 
 
 blockquote {
+    font-family: Heiti, sans-serif;
     border-left: 4px lightgrey solid;
     padding-left: 5px;
     margin-left: 20px;
@@ -76,15 +78,18 @@ code {
 
 a {
     text-decoration: none;
+    font-family: Heiti, sans-serif;
     color: #141010;
 }
 
 
 a:hover {
+    font-family: Heiti, sans-serif;
     background-color: #B8B8B8;
 }
 
 img {
+    font-family: Heiti, sans-serif;
     margin-left: 10px;
     display: block;
     margin-right: auto;
@@ -98,17 +103,20 @@ hr {
 }
 
 ul {
+    font-family: Heiti, sans-serif;
 	list-style-type : circle
 	width: 73%;
 }
 
 li {
+    font-family: Heiti, sans-serif;
 	font-size: 90%;
 	padding: 3px;
 	width: 73%;
 }
 
 p {
+    font-family: Heiti, sans-serif;
 	font-size: 90%;
 	width: 75%;
 }
