@@ -37,6 +37,31 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>http://www.0x01f.com/blog/24</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/blog/23</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/blog/22</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/blog/21</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/blog/20</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>http://www.0x01f.com/blog/19</loc>
   <changefreq>daily</changefreq>
   <priority>0.80</priority>
@@ -197,6 +222,46 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>http://www.0x01f.com/words/14</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/words/15</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/words/16</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/words/17</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/words/18</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/words/19</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/words/20</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/words/21</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>http://www.0x01f.com/label/Windows机制</loc>
   <changefreq>daily</changefreq>
   <priority>0.64</priority>
@@ -223,6 +288,11 @@
 </url>
 <url>
   <loc>http://www.0x01f.com/label/随笔心情</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.0x01f.com/label/windows驱动</loc>
   <changefreq>daily</changefreq>
   <priority>0.64</priority>
 </url>

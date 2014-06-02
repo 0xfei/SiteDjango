@@ -3,8 +3,10 @@
 {% block body %}
     <body>
     <h2>所有标签</h2>
+    <p>
     {% for label in labels %}
         <a href="/label/{{ label }}">{{ label }}</a>
     {% endfor %}
+    </p>
     </body>
 {% endblock %}
