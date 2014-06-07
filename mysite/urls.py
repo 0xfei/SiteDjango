@@ -1,12 +1,10 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from blog.views import blog, see, all_label, deal_label
+from blog.views import blog, see, deal_label
 from ustvs.views import us_tvs
 from words.views import words, see_words
 from books.views import books
-from default.views import home, contact, google, baidu, send_android, send_ios
-
-
+from default.views import home, contact, google, baidu, page
 
 admin.autodiscover()
 
@@ -23,15 +21,12 @@ urlpatterns = patterns(
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^google.*$', google),
     url(r'^tc_.*$', baidu),
-    url(r'^send_android', send_android),
-    url(r'^send_ios', send_ios),
-    url(r'^all_label', all_label),
     url(r'^label/(.{1,20})', deal_label),
     url(r'^books/$', books),
+    url(r'^page/(\d{1,4})', page)
 )
 
 urlpatterns += patterns(
     '',
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': 'static'}),
 )
-

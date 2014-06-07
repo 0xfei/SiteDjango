@@ -1,12 +1,31 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <body>
-    <h2>我的书们</h2>
     {% for book in books %}
-        <h3>{{ book.title }}</h3>
-        <h4>{{ book.author }}</h4>
-        <p>{{ book.type }}</p>
+		<div id="article">
+			<h1>{{ book.title }}</h1>
+			<div class="info">
+            	<span class="meat_span">{{ book.author }}</span>
+			</div>
+			<div class="text">
+                <p>{{ book.type }}</p>
+			</div>
+		</div>
     {% endfor %}
-    </body>
+{% endblock %}
+
+{% block categories %}
+    <ul>
+    {% for label in labels %}
+	    <li class="cat-item cat-item-29"><a href="/label/{{ label }}">{{ label }}</a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block recent %}
+    <ul>
+    {% for recent in recents %}
+	    <li><a href="/blog/{{ recent.id }}">{{ recent.title }}</a></li>
+    {% endfor %}
+    </ul>
 {% endblock %}

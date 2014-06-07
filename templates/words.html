@@ -1,11 +1,29 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <body>
-    <h2>碎言碎语</h2>
     {% for word in words %}
-        <h4><a href='{{ word.id }}'>{{ word.date }}</a></h4>
-        <p>{{ word.message }}</p>
+		<div class="post_list">
+			<h2><a href="/words/{{ word.id }}">{{ word.date }}</a></h2>
+			<div class="excerpt">{{ word.message }}...
+			<span class="more">[<a href="/words/{{ word.date }}" rel="bookmark">展开
+                </a>]</span>
+			</div>
+		</div>
     {% endfor %}
-    </body>
+{% endblock %}
+
+{% block categories %}
+    <ul>
+    {% for label in labels %}
+	    <li class="cat-item cat-item-29"><a href="/label/{{ label }}">{{ label }}</a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block recent %}
+    <ul>
+    {% for recent in recents %}
+	    <li><a href="/blog/{{ recent.id }}">{{ recent.title }}</a></li>
+    {% endfor %}
+    </ul>
 {% endblock %}

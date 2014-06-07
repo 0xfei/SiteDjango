@@ -1,10 +1,56 @@
 {% extends "base.html" %}
-
 {% block body %}
-    <body>
-    <h2>所有博客</h2>
     {% for blog in blogs %}
-        <li><a href='/blog/{{ blog.id }}'>{{ blog.title }}</a></li>
+		<div class="post_list">
+			<h2><a href="/blog/{{ blog.id }}">{{ blog.title }}</a></h2>
+            <div class="info"><a href="/label/{{ blog.label }}" rel="category tag">{{ blog.label }}
+                </a> | {{ blog.date }}</div>
+			<div class="excerpt">{{ blog.display }}...
+			<span class="more">[<a href="/blog/{{ blog.id }}" title="阅读全文" rel="bookmark">阅读全文
+                </a>]</span>
+			</div>
+			<div class="meta">
+               	<span class="meat_span"><i class="iconfont">{{ blog.label }}</i></span>
+				<span class="meat_span"><i class="iconfont">*_*</i></span>
+			</div>
+		</div>
     {% endfor %}
-    </body>
+
+
+	<div class="navigation">
+		<div class="pagination">
+            <a href="/page/1" class="fir_las">首页</a>
+            {% if page_prev %}
+			    <a href="/page/{{ page_prev }}" class="page_previous">上一页</a>
+            {% endif %}
+            {% for i in range %}
+                {% if i == page_now %}
+                    <span class="current">{{ page_now }}</span>
+                {% else %}
+			        <a href="/page/{{ i }}" class="inactive">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if page_next %}
+			    <a href="/page/{{ page_next }}" class="page_next">下一页</a>
+            {% endif %}
+			<a href="/page/{{ page_max }}" class="fir_las">最后</a>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block categories %}
+    <ul>
+    {% for label in labels %}
+	    <li class="cat-item cat-item-29"><a href="/label/{{ label }}">{{ label }}</a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block recent %}
+    <ul>
+    {% for recent in recents %}
+	    <li><a href="/blog/{{ recent.id }}">{{ recent.title }}</a></li>
+    {% endfor %}
+    </ul>
 {% endblock %}

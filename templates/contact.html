@@ -1,12 +1,43 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <body>
-    <h2>联系我</h2>
-    <p>QQ挺好，603651942，QQ上说话其实是很随意的。如果你觉得有什么重要的事情或者比较庄重的事情要跟我说，还要提高格调，那就发邮件吧。</p>
-    <a href="mailto:HhxLoveTY@gmail.com">给我发邮件</a>
-    <a href="https://github.com/0xfei">GitHub</a>
-    <a href="/send_android">Android客户端</a>
-	<a href="/send_ios">ios客户端</a>
-    </body>
+	<div id="article">
+		<h1>关于我</h1>
+		<div class="info">
+           	<span class="meat_span">QQ:603651942</span>
+            <span class="meat_span">其他:如下</span>
+		</div>
+		<div class="text">
+            <p>爱好很多，足球，网球，台球，美剧等等，喜欢看到所有美好的事情。在成都某校上大学，学习计算机安全。目前主要是Windows平台，逆向、漏洞分析、驱动等都比较感兴趣，也喜欢学习算法，学习各种语言。</p>
+            <br/>
+            <p>常常对各种事情不满，对大学，中学，小学尤其不满，喜欢多出去走，但是又出去的很少。
+                    喜欢刷知乎，不过基本上从来不会回答问题；喜欢读书，或者说喜欢买书；
+                    喜欢吐槽，不过上大学之后好像没有高中那么方便吐了。
+                    有时候会有点儿偏执和强迫症，对某些品质很看重。
+                    我喜欢韩寒，他的几乎每一篇文章我都看过，那对我影响很大，陪着我走过了最难受的那段日子。
+                    虽然我不太认同他现在的生活和一些表现，不过他还是我的精神领袖。
+            </p>
+            <br/>
+            <p>希望能和大家多多交流。</p>
+            <br/>
+            <a href="mailto:HhxLoveTY@gmail.com">给我发邮件</a>
+            <a href="https://github.com/0xfei">GitHub</a>
+		</div>
+	</div>
+{% endblock %}
+
+{% block categories %}
+    <ul>
+    {% for label in labels %}
+	    <li class="cat-item cat-item-29"><a href="/label/{{ label }}">{{ label }}</a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block recent %}
+    <ul>
+    {% for recent in recents %}
+	    <li><a href="/blog/{{ recent.id }}">{{ recent.title }}</a></li>
+    {% endfor %}
+    </ul>
 {% endblock %}

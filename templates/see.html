@@ -1,13 +1,45 @@
 {% extends "base.html" %}
-
 {% block body %}
-<body>
+		<div id="article">
+			<h1><a href="/blog/{{ page.id }}">{{ page.title }}</a></h1>
+			<div class="info">
+            	<span class="meat_span">作者: 0x01f</span>
+                <span class="meat_span">分类:
+                    <a href="/label/{{ page.label }}" rel="category tag">
+                        {{ page.label }}
+                    </a></span>
+                <span class="meat_span">发布时间: {{ page.date }}</span>
+			</div>
+			<div class="text">
+                {% autoescape off %}
+                    {{ page.blog }}
+                {% endautoescape %}
+			</div>
+			<div class="meta"><i class="iconfont">转载请说明出处 0x01f原创</i></div>
+		</div>
 
-<h2>{{ page.title }}</h2>
-{% autoescape off %}
-<p>{{ page.date }}</p>
-{{ page.blog}}
-{% endautoescape %}
+		<div class="post_link">
+        {% if prev %}
+			<div class="prev">« <a href="/blog/{{ prev }}" rel="prev">上一篇</a></div>
+        {% endif %}
+        {% if next %}
+			<div class="next">« <a href="/blog/{{ next }}" rel="next">下一篇</a></div>
+        {% endif %}
+        </div>
+{% endblock %}
 
-</body>
+{% block categories %}
+    <ul>
+    {% for label in labels %}
+	    <li class="cat-item cat-item-29"><a href="/label/{{ label }}">{{ label }}</a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block recent %}
+    <ul>
+    {% for recent in recents %}
+	    <li><a href="/blog/{{ recent.id }}">{{ recent.title }}</a></li>
+    {% endfor %}
+    </ul>
 {% endblock %}

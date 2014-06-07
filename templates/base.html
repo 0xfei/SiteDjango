@@ -1,13 +1,97 @@
-<html>
+<!DOCTYPE html>
+<html class="js">
 <head>
-   <meta name=viewport content="width=device-width, initial-scale=1"/>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <link href="/static/css/main.css" rel="stylesheet" type="text/css"/>
-   <link rel="shortcut icon" href="/static/image/0x01f.jpg" type="image/x-icon"/>
-   <title>0x01f</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>0x01f</title> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/static/css/style_002.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/static/css/highlight.css">
+<link rel="shortcut icon" href="/static/image/0x01f.jpg" type="image/x-icon">
+<link rel="canonical" href="http://www.0x01f.com/">
+
+<link rel="stylesheet" id="wm-css" href="/static/css/style.css" type="text/css" media="all">
+<script type="text/javascript" src="/static/js/widget.js"></script>
+
+<script src="/static/js/shCore.js"></script>
 </head>
 
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="logo"><a href="/">0x01f</a></div>
+		<div id="navigation">
+		<ul id="nav">
+			<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-617">
+                <a href="/">首页</a></li>
+			<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-617">
+                <a href="/words/">碎言碎语</a></li>
+			<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-617">
+                <a href="/us_tvs/">追剧</a></li>
+			<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-617">
+                <a href="/books/">书们</a></li>
+			<li id="menu-item-617" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-617">
+                <a href="/contact/">关于我</a></li>
+		</ul>
+		</div>
+	</div>
 
-{% block body %}{% endblock %}
+	<div id="content">
 
+	<div id="main">
+        {% block body %}
+        {% endblock %}
+	</div>
+	
+	<div id="sidebar">
+		<div class="sidebar">
+			<div id="categories-2" class="widget widget_categories">
+				<h3>分类目录</h3>
+                {% block categories %}
+                {% endblock %}
+			</div>
+			<div id="recent-posts-2" class="widget widget_recent_entries">		
+				<h3>近期文章</h3>
+                {% block recent %}
+                {% endblock %}
+			</div>
+			<div id="tag_cloud-2" class="widget widget_tag_cloud">
+				<h3>推荐文章</h3>
+				<div class="tagcloud">
+                    <a href="/blog/28"style="color:#FFA488;font-size: 8pt;;">PspCidTable</a>
+					<a href="/blog/30"style="color:#37961d;font-size: 11pt;;">高考往事</a>
+                    <a href="/blog/25"style="color:#FFBB00;font-size: 12pt;;">Anti-debug</a>
+                    <a href="/blog/21"style="color:#88AA00;font-size: 9pt;;">Hook</a>
+                    <a href="/blog/9"style="color:#FFBB66;font-size: 12pt;;">二十自序</a>
+                    <a href="/blog/7"style="color:#888800;font-size: 9pt;;">GDT</a>
+                    <a href="/blog/3"style="color:#33FF44;font-size: 8pt;;">Windows访问控制</a>
+				</div>
+			</div>
+			
+			<div id="nav_menu-2" class="widget widget_nav_menu">
+				<h3>友情链接</h3>
+				<div class="menu-1-container">
+					<ul id="menu-1" class="menu">
+						<li id="menu-item-772"><a href="https://cnssuestc.org/">cnss</a></li>
+						<li id="menu-item-772"><a href="http://www.ijophy.com/">jophy</a></li>
+						<li id="menu-item-772"><a href="http://42.cnssuestc.org/">42</a></li>
+						<li id="menu-item-772"><a href="http://www.0x01f.com/">伟哥</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/theme.js"></script>
+	<script src="/static/js/shCore.js"></script>
+</div>
+
+<div id="footer">
+	Copyright 2014-2015 CNSS 0x01f.
+	Powered by <a href="http://www.0x01f.com/" rel="external nofollow" target="_blank">0x01f</a>.
+</div>
+
+</body>
 </html>

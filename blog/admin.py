@@ -5,9 +5,9 @@ from models import Blog
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date', 'label', 'id')
+    list_display = ('title', 'date', 'label', 'id', 'display')
     search_fields = ('label', )
-    fields = ('title', 'blog', 'pic', 'label', 'date')
+    fields = ('title', 'blog', 'pic', 'display', 'label', 'date')
     list_filter = ('title', )
     date_hierarchy = 'date'
     ordering = ('-id',)

@@ -1,10 +1,27 @@
 {% extends "base.html" %}
 
 {% block body %}
-<body>
+	<div id="article">
+		<div class="text">
+            {% autoescape off %}
+                {{ page.message }}
+            {% endautoescape %}
+        </div>
+	</div>
+{% endblock %}
 
-<h3>{{ page.date }}</h3>
-<p>{{ page.message }}</p>
+{% block categories %}
+    <ul>
+    {% for label in labels %}
+	    <li class="cat-item cat-item-29"><a href="/label/{{ label }}">{{ label }}</a></li>
+	{% endfor %}
+	</ul>
+{% endblock %}
 
-</body>
+{% block recent %}
+    <ul>
+    {% for recent in recents %}
+	    <li><a href="/blog/{{ recent.id }}">{{ recent.title }}</a></li>
+    {% endfor %}
+    </ul>
 {% endblock %}
