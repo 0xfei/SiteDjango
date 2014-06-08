@@ -750,6 +750,8 @@ del {
 }
 
 pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
     border: solid 1px lightgrey;
     padding: 5px;
 	width: 95%;
