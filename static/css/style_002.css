@@ -776,7 +776,8 @@ code{
 	html {
 	-webkit-text-size-adjust: none
 }
-#navigation #nav,#navigation .my,#header p,.sidebar,.meat_max,.text_add .share,.comment_meta .time,.totop {
+
+#navigation .my,#header p,.sidebar,.meat_max,.text_add .share,.comment_meta .time,.totop {
 	display: none
 }
 .selectnav {
@@ -802,6 +803,14 @@ code{
 	text-shadow: 0 -1px 1px #333;
 	font-size: 20px
 }
+#navigation #nav {
+	margin: 100px 0 0 0px;
+}
+#navigation #nav a {
+	font-size: 10px;
+}
+
+
 #content {
 	width: 100%
 }
