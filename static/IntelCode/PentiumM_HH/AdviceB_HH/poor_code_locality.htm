@@ -1,0 +1,152 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>代码区域性不佳</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 12, 2003 3:53:57 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=394>
+<meta name=layout-width content=676>
+<meta name=x-ignored-words content="TLB;prefetch;developer.intel.com.;Pentium;lll;Mispredictions;Micro-Ops;PGBO;Qxi;cmov;fcmov;read(;write(;setcc;SIMD;Chroma;MMX;mispredictions;inlining;BTB;eax;Clockticks;Microsoft*;int;DRDY;Mis-aligned;misaligned;DCU;codecs;Misaligned;MOVs;SHIFTs">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 17px; height: 18px; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; border-style: none;}
+ul.whs3 {list-style: disc;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs2 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n关于英特尔(R) 奔腾(R) M 处理器的建议\n代码区域性不佳");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔(R) 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">代码区域性不佳</h1>
+
+<p>频繁发生一级指令缓存未命中，表示可能存在通过减少执行的指令工作集（也就是说，通过改善代码区域性）来改善性能的机会。</p>
+
+<p><span style="font-weight: bold;"><B>在以下情况中，此细节具有实质性意义：</B></span><br>计数器的商（<a href="../EventsB/l2_cache_instruction_fetches.htm" style="x-condition: eclipse;">二级缓存指令获取</a>/<a href="../EventsB/instructions_retired.htm" style="x-condition: eclipse;">失效的指令</a>）不佳。值 0.01 应视为良好，值 0.05 应视为不佳。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><span style="font-weight: bold;"><B><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='tip.gif' width='17px' height='18px' border='0' class='img_whs2'>");}
+else
+{   document.write("<img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs2'>");}
+//--></script><noscript><img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs2'></noscript> 建议</B></span></h3>
+
+<ol>
+	
+	<ul type="disc" class="whs3">
+		
+		<li class=kadov-p><p>考虑通过代码编译指示或编译器开关减少内嵌的方法。内嵌会导致代码膨胀。如果减少内嵌可以使执行的指令工作集能更好地适合一级指令缓存的大小，这可能会改善性能。</p></li>
+		
+		<li class=kadov-p><p>设法重新调整代码结构且/或更改算法，以确保在进入下一个代码区段之前，每个有效代码区段都已充分利用。不过请注意，有时可能需要在代码区域性与数据区域性之间进行折衷。</p></li>
+		
+		<li class=kadov-p><p>考虑使用大小优化进行编译。&ldquo;优化大小&rdquo;编译标志将减少执行的指令工作集 - 不过，优化大小选项可能会在其它方面降低性能，所以在进行此项优化之后，请务必检查性能。</p></li>
+	</ul>
+</ol>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

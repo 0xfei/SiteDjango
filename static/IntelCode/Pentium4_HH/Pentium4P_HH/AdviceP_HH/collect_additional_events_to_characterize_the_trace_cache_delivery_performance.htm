@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=GB2312">
+
+<title>采集附加事件以确定跟踪缓存传递性能特征</title>
+  <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+ <meta name="topic-status" content="In Progress">
+  <meta name="topic-priority" content="0">
+  <meta name="topic-time-estimate" content="0">
+  <meta name="topic-comment" content="">
+  <meta name="topic-id" content="Collect_Additional_Events_to_Characterize_the_Trace_Cache_Delivery_Performance.htm">
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whtopic.js"></script>
+</head>
+
+<body>
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的建议\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的建议\n采集附加事件以确定跟踪缓存传递性能特征");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔&#xAE; 调优助手主题" x-maintain-ratio="TRUE" style="border: none; width: 36px; height: 36px; float: right;" width="36" height="36" align="right" border="0">采集附加事件以确定跟踪缓存传递性能特征</h1><br>
+
+<p>要确定跟踪缓存传递性能问题的来源，必须获取一些附加的信息。跟踪缓存传递性能问题的特征可使用以下方法确定：</p>
+
+  <ul class="noindent">
+<li>首先，确保没有总线带宽问题。要检查总线利用率，同时研究一下&ldquo;跟踪缓存传递百分比&rdquo;，请采集以下事件：所有代理的总线利用率、时钟信号、跟踪缓存传递模式。</li>
+
+<li>如果总线利用率不是导致此&ldquo;跟踪缓存&rdquo;问题的原因，请通过采集以下事件，研究跟踪缓存未命中数与分支预测比率，同时也看一下&ldquo;跟踪缓存传递百分比&rdquo;：时钟信号、跟踪缓存传递模式、失效的分支、失效的预测失误分支、跟踪缓存未命中。</li>
+
+<li>要确定此代码区域中产生微操作的位置的特征，同时也看一下&ldquo;跟踪缓存未命中&rdquo;，则可以采集以下事件：推测性 TC 传递微操作、推测性 TC 构建微操作、推测性微代码微操作、跟踪缓存传递模式、时钟信号。<br> <br></li>
+  </ul>
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+</html>

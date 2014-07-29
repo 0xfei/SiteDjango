@@ -1,0 +1,167 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>每失效指令时钟信号数（非休眠 CPI）</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="07 28, 2002 9:53:10 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="Clockticks per Instructions Retired">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=763>
+<meta name=layout-width content=678>
+<meta name=x-ignored-words content="MMX;Aliasing;Clockticks;aliasing;Pentium;denormal;misprediction;Mispredict;Mispredicted;Mispredictions;Misprediction;mispredicted;microcode;Pentium(R;VTune;Studio*">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: ; 48: px; height: 60px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+table.whs3 {width: 60%; border-spacing: 0px; border-spacing: 0px;}
+td.whs4 {x-cell-content-align: TOP; width: 50%; padding-left: 2px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px;}
+img_whs5 {border: none; width: 20px; height: 20px; float: none; border-style: none; border-style: none;}
+p.whs6 {margin-left: 40px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n英特尔(R) 奔腾(R) 4 处理器的事件比率\n基本性能调整比率\n主要 CPI 限制事件比率\n时钟信号/失效的指令");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="p4p60hw.gif" alt="奔腾(R) 4 处理器主题" x-maintain-ratio="TRUE" height="60px" align="right" border="0" class="img_whs1"><img src="er_logo.gif" alt="事件比率主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs2">每失效指令时钟信号数 (CPI)</h1>
+
+<p><a href="../Events4/Clockticks.htm">时钟信号（非休眠）</a> / <a href="../Events4/Instructions_retired.htm">失效的指令</a></p>
+
+<p>一般来说，这些数字源自经验丰富的性能工程师的经验：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="60%" class="whs3">
+
+<tr>
+<td valign="top" width="50%" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">下限</td>
+<td valign="top" width="50%" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">上限</td></tr>
+
+<tr>
+<td valign="top" width="50%" class="whs4">
+<p>1</td>
+<td valign="top" width="50%" class="whs4">
+<p>5</td></tr>
+</table>
+
+<p>此比率的值较高时，表示在当前的代码区域内，指令的执行花费的处理器时钟周期较高。如果大多数指令都不是延迟较高的指令，且/或来自微代码 ROM，则这可能表示存在问题。备注：在英特尔(R) 奔腾(R) 4 处理器上，使用最新的编译器可以显著改善性能。</p>
+
+<p><span style="font-weight: bold;"><B>建议</B></span>：CPI 较高通常表示应用程序的某个区域存在一个或多个问题，需要进一步研究。在&ldquo;VTune(TM) 性能分析器&rdquo;中，采集基本与辅助调整事件组的数据。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="note.gif" x-maintain-ratio="TRUE" width="20px" height="20px" border="0" class="img_whs5"> 备注</h3>
+
+<p class="whs6">对于含&ldquo;超线程技术&rdquo;的处理器，此比率测量物理封装不处于任何休眠模式（也就是说，至少正在使用物理封装中的一个逻辑处理器）的各阶段的 CPI。 </p>
+
+<p class="whs6">即便逻辑处理器处于暂停状态（不在执行指令），仍继续在逻辑处理器上统计时钟信号。因为在&ldquo;失效的指令&rdquo;事件保持不变期间，&ldquo;时钟信号&rdquo;事件仍继续累加，所以这会影响逻辑处理器的 CPI 比率。CPI 较高仍表示存在性能问题，不过特定逻辑处理器上的 CPI 值较高，则可能表示 CPU 利用率不高，而表示不是执行问题。执行问题可以使用<a HREF="non-halted_clockticks_instructions_retired_(non-halted_cpi).htm">非暂停 CPI</a> 更好地检测。 &nbsp;</p>
+
+<p class="whs6">如果应用程序是多线程程序，则所有代码级别的 CPI 与&ldquo;非暂停 CPI&rdquo;均会受到影响。&ldquo;时钟信号&rdquo;事件在每个逻辑处理器上单独统计，不考虑并行执行的情况。 </p>
+
+<p class="whs6">例如，考虑以下情况：</p>
+
+<p class="whs6">逻辑处理器 0 上的函数 XYZ &#xA0;&#xA0;|------------------------| 4000 时钟信号/1000 指令</p>
+
+<p class="whs6">逻辑处理器 1 上的函数 XYZ &#xA0;&#xA0;|------------------------| 4000 时钟信号/1000 指令</p>
+
+<p class="whs6">函数 XYZ 的 CPI 是 ( 8000 / 2000 ) 4.0。如果在&ldquo;时钟信号&rdquo;中考虑并行执行，则 CPI 将是 ( 4000 / 2000 ) 2.0。在解释&ldquo;时钟信号&rdquo;事件数据时，了解应用程序的行为很有必要。</p>
+
+<p class="whs6">&ldquo;非暂停 CPI&rdquo;（非暂停时钟信号/失效的指令）测量特定逻辑处理器处于使用状态的各阶段的 CPI。</p>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

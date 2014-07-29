@@ -1,0 +1,227 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>CBW/CWDE - 字节转换成字/字转换成双字</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="03 6, 2002 11:28:26 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="CBW/CWDE--Convert Byte to Word/Convert Word to Doubleword">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=708>
+<meta name=layout-width content=792>
+<meta name=x-ignored-words content="PACKSSWB;PACKSSDW--Pack;Opcode;r;PACKSSDW;doubleword;doublewords;quadword;XMM;SaturateSignedWordToSignedByte;SaturateSignedDoublewordToSignedWord;SaturateSignedDwordToSignedWord;DS;ES;FS;GS;SS;UD;OSFXSR;CPUID;TS;MF;FPU;FFFFH;PF;Vol;microarchitecture;CMPPD--Compare;ib;CMPPD;SIMD;CMPPS;NaN;QNaN;eq;lt;le;unord;neq;nlt;nle;ord;pseudo-ops;CMPEQPD;CMPLTPD;CMPLEPD;CMPUNORDPD;CMPNEQPD;CMPNLTPD;CMPNLEPD;CMPORDPD;EQ;LT;LE;UNORD;NEQ;NLT;NLE;ORD;FFFFFFFFFFFFFFFFH;FI;SNaN;denormal;PF(fault-code;XM;OSXMMEXCPT;CMPS;CMPSB;CMPSW;CMPSD--Compare;E;SI;DI;CMPSD;ESI;EDI;decremented;DF;ECX;REPE;REPZ;REPNE;REPNZ--Repeat;SetStatusFlags(temp;comparison*;CF;SF;ZF;AF;GP;CWD;CDQ--Convert;Doubleword;Quadword;DX;CDQ;EDX;EAX;opcode;OperandSize;SignExtend(AX;SignExtend(EAX;CBW;CWDE--Convert;CWDE;SignExtend(AL">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px; margin-top: 14pt; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px;}
+td.whs2 {x-cell-content-align: CENTER; padding-left: 3px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px;}
+img_whs3 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; width: 13px; height: 16px;}
+p.whs4 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs3 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs4 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\nIA-32 指令\nC - 指令\nCBW/CWDE - 字节转换成字/字转换成双字");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>CBW/CWDE - 字节转换成字/字转换成双字</h1>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">操作码</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">指令</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">98</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CBW</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">AX <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> AL 的符号扩展</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">98</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CWDE</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">EAX <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> AX 的符号扩展</td></tr>
+</table>
+
+<h2>说明</h2>
+
+<p>通过符号扩展将源操作数的大小加倍（请参阅&ldquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 						face=Verdana>IA-32 英特尔(R) 体系结构软件开发人员手册</font>&rdquo;第 1 卷的&ldquo;图 6-5&rdquo;）。CBW（字节转换成字）指令将源操作数中的符号（位 7）复制到 AH 寄存器中的每个位。CWDE（字转换成双字）指令将 AX 寄存器中字的符号（位 15）复制到 EAX 寄存器的高 16 位。</p>
+
+<p>CBW 与 CWDE 助记符引用相同的操作码。CBW 指令旨在用于操作数大小属性为 16 时；CWDE 指令旨在用于操作数大小属性为 32 时。某些汇编器在使用 CBW 时将操作数大小强制变成 16，在使用 CWDE 时将操作数大小强制变成 32。其它汇编器可能会将这些助记符看作同义词 (CBW/CWDE)，并使用操作数大小属性的当前设置确定要转换的值的大小，而不管使用哪一个助记符。</p>
+
+<p>CWDE 指令与 CWD（字转换成双字）指令有所不同。CWD 指令将一对寄存器 DX:AX 用作目标操作数；而 CWDE 指令则将 EAX 寄存器用作目标操作数。</p>
+
+<h2>操作</h2>
+
+<p class=Preformatted>IF OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 16 (* instruction <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CBW *)<br> THEN AX <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> SignExtend(AL);<br> ELSE (* OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 32, instruction <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CWDE *)<br> EAX <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> SignExtend(AX);<br> FI;</p>
+
+<h2>影响的标志</h2>
+
+<p>无。</p>
+
+<h2>异常（所有操作模式）</h2>
+
+<p class="whs4">无。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

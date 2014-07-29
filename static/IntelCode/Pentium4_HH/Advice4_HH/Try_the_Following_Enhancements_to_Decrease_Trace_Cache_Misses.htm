@@ -1,0 +1,126 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>尝试以下增强手段以降低跟踪缓存未命中</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=367>
+<meta name=layout-width content=605>
+<meta name=x-ignored-words content="Pentium;Clockticks">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="Try the Following Enhancements to Decrease Trace Cache Misses"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n关于英特尔(R) 奔腾(R) 4 处理器的建议\n关于英特尔(R) 奔腾(R) 4 处理器的建议\n尝试以下增强手段以降低跟踪缓存未命中");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>降低缓存未命中</h1>
+
+&nbsp;<br>
+
+<li class=kadov-p
+	class=kadov-p>仔细调整代码结构可以增强缓存与内存的区域性。相似的基本指令块序列应该布置到内存中连续的位置。这可能涉及将不相似的代码（如处理错误情况的代码）放到该序列之外。如需有关详细信息，请参阅&ldquo;英特尔(R) 奔腾(R) 4 处理器优化参考手册&rdquo;的第 2 章。</li>
+
+<li class=kadov-p
+	class=kadov-p>通过采集以下事件，检查相同代码区域的分支预测性能：时钟信号、跟踪缓存未命中、失效的分支、失效的预测失误分支。</li>
+
+<li class=kadov-p
+	class=kadov-p>尽可能避免自我修改代码。总是将代码与数据放在不同的页上。如果要修改代码，请尽量一次性完成，并确保执行修改的代码与要修改的代码处在不同的页上，或至少在相隔 1K 的区域中。如需有关详细信息，请参阅&ldquo;英特尔(R) 奔腾(R) 4 处理器优化参考手册&rdquo;的第 2 章。</li>
+
+<li class=kadov-p
+	class=kadov-p>
+使用档案导引优化 (PGO) 将常用代码路径一直保留在缓存中，以减少指令获取次数，这样可以改善代码区域性。如需有关详细信息，请参阅编译器文档。 
+
+<p>如需有关常规优化技术的详细信息，请参阅 <i>Intel(R) Pentium(R) 4 and Intel(R) Xeon(TM) Processor Optimization Manual</i>（英特尔(R) 奔腾(R) 4 与英特尔(R) 至强(TM) 处理器优化手册）的第 7 章。</p>
+</li>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

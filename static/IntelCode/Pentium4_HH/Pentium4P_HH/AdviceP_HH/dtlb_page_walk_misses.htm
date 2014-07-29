@@ -1,0 +1,128 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>DTLB 页查询未命中</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=DTLB_Page_Walk_Misses.htm>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=797>
+<meta name=layout-width content=712>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的建议\n关于含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的细节\nDTLB 页查询未命中");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔&#xAE; 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">DTLB 页查询未命中</h1>
+
+<p>此数字代表执行加载或存储微操作时，由于&ldquo;数据转译查询缓冲区&rdquo;(DTLB) 未命中导致的页查询请求造成的估计影响。处理器提交 32 位线性数据地址时，首先将它提交到 DTLB。在执行缓存查询之前，DTLB 将加载或存储单元产生的 32 位线性地址转换成 36 位物理内存地址。DTLB 大小与结构取决于处理器的设计。为转译 32 位线性地址，DTLB 未命中要求进行内存访问，以获取操作系统页目录与表格信息。此事件统计由 DTLB 未命中导致的页查询请求数。页查询是指硬件遍历操作系统页表以转译 32 位线性地址。页查询未命中会导致页错误，这样操作系统便需要将所需的页加载到表格中。DTLB 未命中并不一定意味着缓存未命中。<br>对于采用&ldquo;超线程技术&rdquo;的系统或多处理器系统，估计的影响代表总计处理器时间影响（系统上所有逻辑/物理处理器之和），而不是&ldquo;实际执行&rdquo;时间影响。因此，在采用&ldquo;超线程技术&rdquo;的系统或多处理器系统上，很可能会看到细节的时间影响大于对负载实际执行时间的影响。请注意，在单处理器系统上，处理器时间与实际执行时间相同。<br>英特尔(R) 奔腾(R) 4 处理器能够取得高性能的方法之一是，乐观地假设有一种能实现更佳性能的条件。它实现这点的方法之一是预测分支的结果，并且在分支得到解析之前，凭推测沿一条路径执行。另一种方法是无序执行某些内存操作。有些内存相关的性能监视事件同时统计推测性操作以及非推测性操作，因此产生的计数比不统计推测性操作时的更大。无序执行内存操作会导致更多的推测性操作（计为事件），这可能会导致计数比未发生此推测时获得的计数值更大。例如，处理器可能会尝试凭推测无序执行加载。假设由于代码正在进行指针跟踪，并且还没有获得正确的地址，因此处理器的加载地址还是错误的。如果加载导致&ldquo;DTLB 页查询&rdquo;事件，则&ldquo;DTLB 页查询&rdquo;事件递增。由于推测的缘故，这里会发生&ldquo;DTLB 页查询&rdquo;事件，而如果没有推测，则不会发生此事件。从体系结构的角度看，这是统计过量的情况：即使在没有推测时指令不会遇到&ldquo;DTLB 页查询&rdquo;，但由于推测活动，指令也会报告说遇到&ldquo;DTLB 页查询&rdquo;。事实上，它是微体系结构级发生的事件的精确表示：此指令确实导致了&ldquo;DTLB 页查询&rdquo;。</p>
+
+&nbsp; 
+
+<br>&nbsp; 
+ 
+
+<br><b>计数器相关性：</b><br><br>此细节与以下性能计数器函数相关：<br> <br> PageWalkDTLBAllMisses = ((<a href="../../Events4/page_walk_dtlb_all_misses.htm" style="x-condition: eclipse;">DTLB 页查询 (TI)</a>*36)/<a href="../../Events4/Clockticks.htm" style="x-condition: eclipse;">时钟信号</a>)*100<b><br> 较低值：</b>0.2<b><br> 较高值：</b>2<br><br>在 PageWalkDTLBAllMisses <b>较高</b>时，此细节具有实质性意义。<b><br><br> 建议：</b> 
+
+<ul>
+	
+	<li class=kadov-p
+		class=kadov-p><a href="../../Advice4_HH/avoiding_dtlb_page_walk_misses.htm" style="x-condition: eclipse;">避免 DTLB 页查询未命中</a></li>
+</ul>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

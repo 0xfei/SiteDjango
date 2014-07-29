@@ -1,0 +1,242 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>MWAIT - 监视器等待</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="05 12, 2003 2:15:01 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="MWAIT--Monitor Wait">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1565>
+<meta name=layout-width content=792>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {margin-top: 14pt; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px;}
+td.whs2 {x-cell-content-align: CENTER; padding-left: 3px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\nIA-32 指令\nM - 指令\nMWAIT - 监视器等待");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>MWAIT - 监视器等待</h1>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">&nbsp;</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">指令</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td colspan="1" rowspan="1" valign="middle" class="whs2">
+<p CLASS=TableCell>&nbsp;</td>
+<td colspan="1" rowspan="1" valign="middle" class="whs2">
+<p CLASS=TableCell>MWAIT EAX, ECX</td>
+<td colspan="1" rowspan="1" valign="middle" class="whs2">
+<p CLASS=TableCell>这是一个提示，允许处理器停止指令执行，并进入取决于具体版本的优化状态，直到发生某类事件。 </td></tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h2>说明</h2>
+
+<p>MWAIT 指令设计用于配合 <a HREF="MONITOR--Setup_Monitor_Address.htm">MONITOR</a> 指令使用，以便允许处理器发出以下信号：等待的地址 (MONITOR) 与导致等待操作开始的指令 (MWAIT)。MWAIT 指令也是一个提示，在处理器等待事件，或等待对地址范围（由程序流中的前一条 MONITOR 指令设置）的存储期间，它提示处理器可以选择进入取决于具体版本的状态。 </p>
+
+<p>具体版本可能会选择忽略此提示，继续执行下一条指令。将来具体的处理器版本可能会实现多个优化的等待状态，并根据提示参数选择这些状态。</p>
+
+<p>在将来的处理器设计中，EAX 与 ECX 将用于同 MWAIT 指令就其它信息进行通讯，如处理器应该进入的优化状态种类。ECX 指定 MWAIT 指令可选的扩展。EAX 可能包含一些提示，如处理器应该进入的首选优化状态。对于含 SSE3 的英特尔<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 													face=Verdana>(R)</font> 奔腾<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 				face=Verdana>(R)</font> 4 处理器，EAX 与 ECX 的所有非零值都是保留值。如果在 ECX 等于保留值的情况下执行 MWAIT 指令，处理器将生成一般保护性错误。处理器忽略 EDX 中保留位的设置。</p>
+
+<p>对 MONITOR 指令设置的地址范围的存储、中断、NMI、SMI、调试异常、机器检查异常、BINIT# 信号、INIT# 信号或 RESET# 信号都将退出优化状态。请注意，仅当优化状态是在启用中断的情况下进入的，中断才会导致处理器退出优化的状态。如果对地址范围的存储导致处理器退出，则会从跟在 MWAIT 指令后面的指令处恢复执行。如果中断（包括 NMI）导致处理器退出优化状态，则处理器将退出优化状态并处理该中断。如果 SMI 导致处理器退出优化状态，则在处理完 SMI 之后，从跟在 MWAIT 后面的指令处恢复执行。与 HALT 指令不同，MWAIT 指令不支持在 MWAIT 指令处重新启动。可能还有其它一些取决于具体版本的事件或超时会导致处理器退出优化状态，并从跟在 MWAIT 后面的指令处恢复执行。 </p>
+
+<p>如果前一条 MONITOR 指令未成功设置地址范围，或是执行 MWAIT 之前，未执行 MONITOR 指令，则处理器将不会进入优化状态。此时将从跟在 MWAIT 后面的指令处恢复执行。</p>
+
+<p>MWAIT 指令可以在任何特权级别执行。MONITOR CPUID 功能标志（在 EAX=1 的情况下执行 CPUID 时，是 ECX 的位 3）指示处理器是否支持此指令。操作系统或系统 BIOS 可以通过 IA32_MISC_ENABLES MSR 禁用此指令；禁用此指令会清除 CPUID 功能标志，并导致执行 MWAIT 指令时生成非法操作码异常</p>
+
+<h2>操作 </h2>
+
+<p class=Preformatted>// MWAIT takes the argument inEAX as a hint extension and is </p>
+
+<p class=Preformatted>// architected to take the argument in ECX as an instruction extension  </p>
+
+<p class=Preformatted>// MWAIT EAX, ECX  </p>
+
+<p class=Preformatted>{ WHILE (! (&quot;monitor_event_pending_flag&quot; OR &quot;monitor_not_active&quot;)) {  </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">implementation_dependent_optimized_state(EAX, ECX);  </p>
+
+<p class=Preformatted
+	style="margin-left: 0px;">} </p>
+
+<p class=Preformatted
+	style="margin-left: 0px;">Clear monitor_event_pending_flag;  </p>
+
+<p class=Preformatted
+	style="margin-left: 0px;">} </p>
+
+<h2>示例</h2>
+
+因为执行 MWAIT 指令将清除监视器地址范围，所以 MONITOR 与 MWAIT 指令必须在相同的循环中编码。不可能在循环中执行 MONITOR 一次，然后再执行 MWAIT。设置 MONITOR 而不执行 MWAIT 时，没有任何负面影响。假设存在一个全局共享的可变整数触发器，它在处理器进入 MWAIT 之前写入零 (0x0)，并由要唤醒此触发器的其它线程/处理器写入一 (0x1)。 
+
+<p class=Preformatted>Trigger = 0;</p>
+
+<p class=Preformatted>If ( !trigger) {  </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">EAX = &amp;trigger  </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">ECX = 0 </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">EDX = 0 </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">MONITOR EAX, ECX, EDX </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">If ( !trigger ) <span style="margin-left: 0px;">{ </span></p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">EAX = 0 </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">ECX = 0 </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">MWAIT EAX, ECX </p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">} </p>
+
+<p class=Preformatted
+	style="margin-left: 0px;"><span style="margin-left: 40px;">} </span></p>
+
+上述代码序列确保在第一次检查触发器与执行监视器指令之间，不会进行触发存储。如果没有第二次检查，触发存储将暗中进行。MONITOR 与 MWAIT 的典型用法是上述循环中的代码序列。 
+
+<h2>异常</h2>
+
+无
+
+<h2>数值异常</h2>
+
+无
+
+<h2>保护模式异常</h2>
+
+#GP(0) - ECX 的值不是 0。
+
+<br>#UD - 如果 CPUID 功能标志 MONITOR 为 0。如果使用 LOCK 前缀。 
+
+<h2>实地址模式异常</h2>
+
+#GP(0) - ECX 的值不是 0。
+
+<br>#UD - 如果 CPUID 功能标志 MONITOR 为 0。如果使用 LOCK 前缀。 
+
+<h2>虚 8086 模式异常</h2>
+
+#GP(0) - ECX 的值不是 0。
+
+<br>#UD - 如果 CPUID 功能标志 MONITOR 为 0。如果使用 LOCK 前缀。 
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

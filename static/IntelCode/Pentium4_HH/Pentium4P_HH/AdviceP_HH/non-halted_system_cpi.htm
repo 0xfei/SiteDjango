@@ -1,0 +1,140 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>非暂停系统 CPI</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=Non-Halted_System_CPI.htm>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=644>
+<meta name=layout-width content=676>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的建议\n关于含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的细节\n非暂停系统 CPI");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔&#xAE; 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">非暂停系统 CPI</h1>
+
+<p>此比率代表每指令非暂停时钟信号数 (CPI)。非暂停时钟信号统计逻辑处理器未暂停时的时钟周期。对于关闭&ldquo;超线程技术&rdquo;(HT 技术) 的处理器，由于处理器每个时钟周期最多可以让 3 条指令失效，因此非暂停 CPI 的理论下限是 0.33。打开&ldquo;HT 技术&rdquo;时，由于每物理时钟信号可以统计到 2 个逻辑时钟信号，因此理论下限是 0.66。实际上，应用程序很少能够逼近 CPI 的理论值。对于单物理处理器系统，关闭&ldquo;HT 技术&rdquo;时，1.0 左右的 CPI 应视为良好；打开&ldquo;HT 技术&rdquo;时，2.0 左右应视为良好。使用 Microsoft 或英特尔的最新编译器可以显著改善英特尔(R) 奔腾(R) 4 处理器上的性能。<br>备注： </p>
+
+<li class=kadov-p
+	class=kadov-p>CPI 基于系统进行计算。它代表系统中所有逻辑处理器的时钟信号总数除以系统中所有逻辑处理器失效的指令总数。</li>
+
+<li class=kadov-p
+	class=kadov-p>如果每个物理封装支持一个逻辑处理器，在大多数情况下，&ldquo;非暂停&rdquo;与&ldquo;非休眠&rdquo;尺度产生的计数是等价的。打开&ldquo;HT 技术&rdquo;时，如果逻辑处理器暂停，则非暂停时钟信号事件将不再递增，直到处理器退出暂停状态，而在暂停状态中，非休眠时钟信号事件将继续递增。 </li>
+
+<li class=kadov-p
+	class=kadov-p>
+每个含&ldquo;HT 技术&rdquo;的物理处理器每物理时钟信号生成两个逻辑处理器时钟信号。比较具有不同数量逻辑或物理 CPU 的系统的 CPI 时，必须将这一点考虑进去。 
+
+<br>&nbsp; 
+ 
+
+<br>&nbsp; 
+ 
+
+<br><b>计数器相关性：</b><br><br>此细节与以下性能计数器函数相关：<br> <br> 非暂停 CPI = <a href="../../Events4/non-halted_clocktick.htm" style="x-condition: eclipse;">非暂停时钟信号</a>/<a href="../../Events4/Instructions_retired.htm" style="x-condition: eclipse;">失效的指令</a><b><br> 较低值：</b>0.01<b><br> 较高值：</b>0.1 <br><br>在&ldquo;非暂停 CPI&rdquo;<b>较高</b>时，此细节具有实质性意义。<b><br><br> 建议： </b>
+
+<ul>
+	
+	<li class=kadov-p
+		class=kadov-p><a href="../../Advice4_HH/more_measurements.htm" style="x-condition: eclipse;">确定具体应采取哪些步骤以改善性能时要执行的更多测量</a></li>
+</ul>
+</li>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

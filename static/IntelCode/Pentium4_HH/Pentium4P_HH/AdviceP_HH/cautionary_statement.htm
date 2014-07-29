@@ -1,0 +1,115 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>注意事项声明</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=Cautionary_Statement.htm>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=435>
+<meta name=layout-width content=712>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的建议\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的建议\n注意事项声明");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔(R) 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">注意事项声明</h1>
+
+注意事项声明：此报告中的数字是估计值，不是精确值。它们旨在帮助确定代码更改的优先顺序，以便在最少的时间内取得最大的速度提升。要了解精确度，首先要了解用于生成估计值的处理器与数据。英特尔(R) 奔腾(R) 4 处理器是无序机。这表示，处理器执行一系列指令时，每次的执行顺序可能会不同。这就使得难以估计特定事件（如&ldquo;二级缓存未命中&rdquo;）对应用程序负载运行时间的影响。此外，&ldquo;VTune(TM) 性能分析器&rdquo;使用采样来获取某个地址的事件总数的估计值。由于采样的具体实现，大多数事件可能会在该地址（或其附近）发生，但不太可能所有的事件都在该地址上发生。因此，由于处理器无序执行指令，且 VTune 分析器的数据是估计值，此报告中的估计值虽然不精确，但在确定更改的优先顺序以快速提高代码速度方面，仍然是很有用的。<br>对于采用&ldquo;超线程技术&rdquo;的系统或多处理器系统，估计的影响代表总计处理器时间影响（系统上所有逻辑/物理处理器之和），而不是&ldquo;实际执行&rdquo;时间影响。因此，在采用&ldquo;超线程技术&rdquo;的系统或多处理器系统上，很可能会看到细节的时间影响大于对负载实际执行时间的影响。请注意，在单处理器系统上，处理器时间与实际执行时间相同。<br>在比较&ldquo;超线程技术&rdquo;（HT 技术）与非&ldquo;HT 技术&rdquo;的系统时，请注意，每个采用&ldquo;HT 技术&rdquo;的物理处理器每个物理时钟信号会生成两个逻辑处理器时钟信号。此种现象的结果是，在&ldquo;HT 技术&rdquo;系统上，许多代码区域显示的时钟信号数将是相同区域在非&ldquo;HT 技术&rdquo;系统上的两倍。 
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

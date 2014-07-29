@@ -1,0 +1,175 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>MONITOR - 设置监视器地址</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="05 12, 2003 11:52:41 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="MONITOR--Setup Monitor Address">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1070>
+<meta name=layout-width content=792>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {margin-top: 14pt; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px;}
+td.whs2 {x-cell-content-align: CENTER; padding-left: 3px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\nIA-32 指令\nM - 指令\nMONITOR - 设置监视器地址");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>MONITOR - 设置监视器地址</h1>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">&nbsp;</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">指令</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td colspan="1" rowspan="1" valign="middle" class="whs2">
+<p CLASS=TableCell>&nbsp;</td>
+<td colspan="1" rowspan="1" valign="middle" class="whs2">
+<p CLASS=TableCell>MONITOR EAX, ECX, EDX</td>
+<td colspan="1" rowspan="1" valign="middle" class="whs2">
+<p CLASS=TableCell>设置硬件要监视的线性地址范围，并激活监视器。地址范围应该是写回内存缓存型。</td></tr>
+</table>
+
+<h2>说明</h2>
+
+MONITOR 指令依赖处理器中称为监视器事件未决标志的状态。监视器事件未决标志或是设置为 1，或是清除；除非通过 MWAIT 指令的行为进行特殊设置，否则它的值并不是体系结构范围可见的。监视器事件未决标志由多个事件（包括向监视的地址范围的写入）设置，并由 MONITOR 指令复位。MONITOR 指令使用 EAX 中指定的地址设置地址监视硬件，并复位监视器事件未决标志。硬件检查存储的地址范围可以通过调用 CPUID 确定。如需有关设置此地址范围以避免错误唤醒的详细信息，请参阅。监视硬件检测对该地址范围内的地址进行的存储，并在检测到写入时设置监视器事件未决标志。监视器事件未决标志的状态由 <a HREF="MWAIT--Monitor_Wait.htm">MWAIT</a> 指令使用。其它事件也会设置监视器事件未决标志。地址范围必须在写回缓存型内存中。只有对监视的地址范围的写回内存型存储才会设置监视器事件未决标志。EAX 的内容是逻辑地址。默认情况下，DS 段用于创建随后要监视的线性地址。段覆盖可以同 MONITOR 指令一起使用。ECX 与 EDX 用于同 MONITOR 指令就其它信息进行通讯。ECX 指定 MONITOR 指令可选的扩展。EDX 可能包含提示，且不会更改指令的体系结构行为。对于含&ldquo;第三代数据流单指令多数据扩展指令集&rdquo;(SSE3) 的英特尔<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 	face=Verdana>(R)</font> 奔腾<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 										face=Verdana>(R)</font> 4 处理器，没有定义扩展或提示，ECX 与 EDX 的值应该为零。ECX 与 EDX 的非零值属于保留值，在 ECX 为保留值时执行 MONITOR 指令，处理器将生成一般保护性错误异常。处理器忽略 EDX 中保留位的设置。MONITOR 指令作为加载操作根据其它内存事务确定顺序。此指令可以在所有的特权级别使用，并且所有的权限检查，以及同字节加载有关的错误都会影响它。同加载一样，MONITOR 指令在页表中设置 A 位而不是 D 位。MONITOR CPUID 功能标志（在 EAX=1 的情况下执行 CPUID 时，是 ECX 的位 3）指示处理器是否支持此指令。操作系统或系统 BIOS 可以通过 IA32_MISC_ENABLES MSR 禁用此指令；禁用此指令会清除 CPUID 功能标志，并导致执行 MONITOR 指令时生成非法操作码异常。 
+
+<br>另请参阅：<a href="guideline_for_monitor_mwait.htm">MONITOR/MWAIT 指导原则</a>。 
+ 
+
+<h2>操作</h2>
+
+<p>MONITOR 使用 EAX 的内容（逻辑地址）为监视器硬件设置地址范围，并复位监视器事件未决标志。内存地址范围应该在写回缓存型内存中。对指定的地址范围进行存储时，将设置监视器事件未决标志。ECX 与 EDX 的内容用于同 MONITOR 指令就其它信息进行通讯。 </p>
+
+<h2>异常</h2>
+
+无
+
+<h2>保护模式异常</h2>
+
+#GP(0) - CS、DS、ES、FS 或 GS 段中的内存操作数有效地址非法。#GP(0) - ECX 的值不是 0。#SS(0) - SS 段中的地址非法。#PF(错误代码) - 页错误 (TBD)。#UD - 如果 CPUID 功能标志 MONITOR 为 0。如果使用 LOCK、REP、REPNE/NZ 及&ldquo;操作数大小&rdquo;覆盖前缀。 
+
+<h2>实地址模式异常</h2>
+
+#GP - 如果操作数的任何部分位于 0 到 FFFFH 的有效地址空间之外。 
+
+<br>#GP(0) - ECX 的值不是 0。
+
+<br>#UD - 如果 CPUID 功能标志 MONITOR 为 0。如果使用 LOCK、REP、REPNE/NZ 及&ldquo;操作数大小&rdquo;覆盖前缀。 
+
+<h2>虚 8086 模式异常</h2>
+
+<p>#GP - 如果操作数的任何部分位于 0 到 FFFFH 的有效地址空间之外。 </p>
+
+<p>#GP(0) - ECX 的值不是 0； </p>
+
+<p>#UD - 如果 CPUID 功能标志 MONITOR 为 0。 </p>
+
+<p>#UD - 如果使用 LOCK、REP、REPNE/NZ 及&ldquo;操作数大小&rdquo;覆盖。#PF(错误代码) - 页错误。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

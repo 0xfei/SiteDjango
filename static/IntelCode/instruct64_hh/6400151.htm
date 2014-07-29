@@ -1,0 +1,149 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>loop 分支类型</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=514>
+<meta name=layout-width content=605>
+<meta name=date content="07 1, 2002 2:49:46 PM">
+<meta name=x-ignored-words content="qp;one_byte_form;high_form;two_byte_form;four_byte_form;low_form;GR;CTOP;CEXIT;WTOP;WEXIT;Prefetch;Deallocation;ALAT;UNC;czx;pc;sf;fcmp;fmerge;fpcmp;fpmerge;fsxt;getf;Significand;fsz;lftype;lfhint;mux;padd;Completers;pavg;pavgsub;pcmp;pmax;pmin;pmpy;pmpyshr;pshl;psub;setf;shladdp;shrp;st;xsz;NaT;xchg;C;register_form;imm;addl;GRs;PR[qp;check_target_register;tmp_src;tmp_nat;nat;tmp_res;alloc;tmp_sor;r;tmp_sof;tmp_sol;illegal_operation_fault(;CFM.sor;CFM.rrb.gr;CFM.rrb.fr;CFM.rrb.pr;reserved_register_field_fault(;CFM.sof;rse_new_frame(CFM.sof;RSE;CFM.sol;AR[PFS;ANDed;andcm;bp;br.btype.bwh.ph.dh;IP_relative_form;call_form;counted_form;br.ph.dh;indirect_form;IP-relative;IP;pseudo-ops;btype;COND;bwh;sptk;cond;ia;BRs;PRs;PFS;LC;EC;RRBs;br.wtop;br.wexit;cloop;br.ctop;br.cexit;completers;Hint(ph;dh;CFM;callee;PSR.lp;PSR.is;PSR.di;CSD.base.;PSR.dfh;FP;CSD;EIP;GPFault;CSD.base;EFLAG.rf;PSR.da;PSR.id;PSR.ia;PSR.dd;PSR.ed;br.ia;mf;Itanium;FRs;ARs;Itanium-based;flushrs;Unimplemented;IIP;decremented;modulo-scheduled;software-pipelined;ctop;wtop;cexit;wexit;pipelined;?;CLOOP">
+
+
+ <meta name="topic-status" content="Complete">
+ <meta name="topic-priority" content="2">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content=""><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+ul.whs1 {list-style: disc;}
+p.whs2 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs2 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h2>loop 分支类型</h2>
+
+<p><span style="font-weight: bold;"><B>cloop</B></span> 分支类型针对简单的计数循环而提供。此分支类型使用&ldquo;循环计数&rdquo;应用寄存器 (LC) 确定分支条件，而不使用限定谓词：</p>
+
+<p>如果 LC 寄存器不等于零，则它将递减并执行分支。</p>
+
+<p>除这些简单的分支类型以外，还有四种用于加速模数调度循环的分支类型。其中两个是计数循环（使用 LC 寄存器），另外两个是 while 循环（使用限定谓词）。这些循环类型使用寄存器循环移位提供寄存器重命名功能，并且它们使用断定关闭对应空管道阶段的指令。</p>
+
+<p>&ldquo;结束计数&rdquo;应用寄存器 (EC) 用于统计结束阶段；对于某些 while 循环，则是起始阶段的一部分。在结束阶段 EC 每次都会递减，对于大部分的循环，EC 为一时，管道已排放且循环已退出。对于特定类型展开的软件管道优化循环，br.cexit 或 br.wexit 的目标会设置为序列中的下一个指令束。在此种情况下，EC 为一时，管道可能未完全排放，并继续排放到 EC 为零。</p>
+
+<p>对于这些模数调度循环类型，分支是否执行的计算取决于核心分支条件（LC 用于计数型，限定谓词用于 while 型）以及结束条件（EC 是否大于一）。</p>
+
+<p>这些分支类型分为两类：顶置与出口。循环决定位于循环主体的底部时，使用顶置型（ctop 与 wtop），这样，执行分支将继续循环，而不执行的分支则退出循环。循环决定位于循环主题底部之外的某个位置时，使用出口型（cexit 与 wexit），这样不执行的分支将继续循环，而执行的分支则退出循环。出口型也可以用在展开的管道式循环中的中间点上。</p>
+
+<p>模数调度循环类型包括：</p>
+
+<ul type="disc" class="whs1">
+	
+	<li class=kadov-p><p><a HREF="6400152.htm">ctop 与 cexit</a></p></li>
+	
+	<li class=kadov-p><p><a HREF="6400153.htm">wtop 与 wexit</a></p></li>
+</ul>
+
+<p class="whs2">循环型分支（CLOOP、CTOP、CEXIT、WTOP 及 WEXIT）仅允许在指令束的指令槽 2 中使用。在指令槽 0 或 1 中执行这类指令将导致&ldquo;非法操作&rdquo;错误，无论分支是否执行。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

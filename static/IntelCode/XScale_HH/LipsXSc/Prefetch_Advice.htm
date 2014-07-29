@@ -1,0 +1,250 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>PLD 警告与建议</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 16, 2003 12:39:52 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1357>
+<meta name=layout-width content=720>
+<meta name=x-ignored-words content="XSC_LDRSTR_RES;Coprocessor;XSC_COPROCESSOR_RES;coprocessor;XSC_DATAPROC_RES;XSC_DEAD_CODE;STMFD;LR;destination*;LDMFD;XSC_DEAD_CODE*;XSC_MUL_CONDITION;MLAS;XSC_MUL_CONDITION*;UMLALS;XSC_RESOURCE;Accumulate(MAC;pipelined;LDRD;MLA;XSC_RESOURCE*;XSC_MULTIPLY_RES;XSC_REG_DEP;REG;XSC_REG_REG;UMLAL;MOV;RSB;SBC;lsl;MUL;XSC_MULTIPLY_RES*;QDSUB;ADC;lsr;XSC_SATURATED_RES*;LDR;XSC_LDRSTR_RES*;XSC_SATURATED_RES;SA;XSC_STATUS_RES;XSC_LDMSTM_N;XSC_SWP;SWP;SWPB;STR;LDM;STM;STRD">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_STYL_ns.CSS'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_STYL.CSS'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 17px; height: 18px; border-style: none; border-style: none;}
+ul.whs3 {list-style: disc;}
+img_whs4 {width: 20px; height: 20px; border-style: none; border-style: none;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs1 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔 XScale(R) 微体系结构 \n英特尔 XScale(R) 微体系结构惩罚\nPLD 警告与建议");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+else
+{   document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+//--></script><noscript><img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'></noscript>避免数据缓存未命中的预取建议</h1>
+
+<h2>XSC_PLD_Advice</h2>
+
+<h3>解释</h3>
+
+<p class=msonormal>如果要加载的数据不在数据缓存中，加载指令产生的延迟会长相当多。数据缓存未命中事件过多将导致性能急剧下降。使用 PLD 指令可以预先获取所需的数据，有效地消除数据缓存未命中现象。 
+ </p>
+
+<h3><img src="tip.gif" width="17px" height="18px" border="0" class="img_whs2"> 建议</h3>
+
+<ul type="disc" class="whs3">
+	
+	<li class=kadov-p-Cmsonormal><p class=msonormal>XSC_PLD_S1 - 预取连续加载</p></li>
+</ul>
+
+<p class=msonormal
+	style="margin-left: 40px;">连续发出 4 次以上的加载容易产生数据缓存未命中。 </p>
+
+<ul type="disc" class="whs3">
+	
+	<li class=kadov-p-Cmsonormal><p class=msonormal>XSC_PLD_S2 - 预取连续存储</p></li>
+</ul>
+
+<p class=msonormal
+	style="margin-left: 40px;">指定写回缓存时，连续发出 8 次以上的存储容易产生数据缓存未命中。</p>
+
+<ul type="disc" class="whs3">
+	
+	<li class=kadov-p-Cmsonormal><p class=msonormal>XSC_PLD_S3 - 预取跨越缓存线的相邻加载指令的内存地址。</p></li>
+</ul>
+
+<p class=msonormal
+	style="margin-left: 40px;">如果两条加载指令的内存地址跨越缓存线（32 个字节），并且这两条加载指令相邻，则很可能产生数据缓存未命中。</p>
+
+<h3 class=NoteTipHead><img src="note.gif" width="20px" height="20px" border="0" class="img_whs4"> 备注</h3>
+
+<ul type="disc" class="whs3">
+	
+	<li class=kadov-p-Cmsonormal><p class=msonormal>从理论上说，每条&ldquo;加载&rdquo;指令都可能发生数据缓存未命中，而在实际执行时，可能性高的指令未必就会导致数据缓存未命中。</p></li>
+	
+	<li class=kadov-p-Cmsonormal><p class=msonormal>PLD 是一条提示指令，它不保证将加载数据。 </p></li>
+	
+	<li class=kadov-p-Cmsonormal><p class=msonormal>&ldquo;VTune(TM) 性能分析器&rdquo;仅指出需要 PLD 指令，它不会建议应该在哪里插入 PLD 指令。</p></li>
+	
+	<li class=kadov-p-Cmsonormal><p class=msonormal>不显示 PLD 指令的 XSC_PLD_advice</p></li>
+</ul>
+
+<h3>示例 1</h3>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R0, [R1, #0x0] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R2, [R1, R3] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R4, [R1, #-0xef1]</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R6, [R1], R5</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R7, [R1, #-0xfff] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SUCC_LoadStore, XSC_PLD_S1</span></p>
+
+<h3>示例 2</h3>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R1, #0x0] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R1, #0xef1] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R1, #-0xef1]</span></p>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R1, #0xfff]</span></p>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R1, #0xfff]</span></p>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R1, R2]</span></p>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R1, -R2]</span></p>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R1], -R2, ROR #30</span></p>
+
+<p class=Preformatted><span class=Code>STR &#xA0;R0, [R3, R4, LSL #30] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SUCC_LoadStore, XSC_PLD_S2</span> </p>
+
+<h3 class=Preformatted>示例 3</h3>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R0, [R1, #0x0] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R2, [R1, #0xef1] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_PLD_S3</span></p>
+
+<h3 class=Preformatted>示例 4</h3>
+
+<p class=Preformatted><span class=Code>LDC &#xA0;p6,C4,[R0,#0x1*4]</span></p>
+
+<p class=Preformatted><span class=Code>ADD &#xA0;r2, r3, r4</span></p>
+
+<p class=Preformatted><span class=Code>LDC &#xA0;p6,C6,[R0,#0xe1*4] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_PLD_S3</span></p>
+
+<h3 class=Preformatted>示例 5</h3>
+
+<p class=Preformatted><span class=Code>LDC &#xA0;p6,C4,[R0,#0x1*4]</span></p>
+
+<p class=Preformatted><span class=Code>ADD &#xA0;r0, r3, r4</span></p>
+
+<p class=Preformatted><span class=Code>LDC &#xA0;p6,C6,[R0,#0xe1*4] &#xA0;&#xA0;&#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>//not showing XSC_PLD_S3 for base register R0 changed</span></p>
+
+<h3>示例 6</h3>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R0, [R1, #0x0] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R2, [R1, #0xef1] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R3, [R1, #-0xef1]</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;R4, [R1, #0x0]</span></p>
+
+<p class=Preformatted><span class=Code>PLD &#xA0;[R1, #0xfff] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SUCC_LoadStore</span></p>
+
+<p class=Preformatted><span class=Code>//not showing XSC_PLD_Advice for PLD instruction</span></p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

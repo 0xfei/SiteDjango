@@ -1,0 +1,172 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>关于英特尔(R) 奔腾(R) M 处理器的事件比率</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 22, 2003 1:10:33 AM">
+<meta name=topic-status content="Ready for Review">
+<meta name=topic-check-list content="First Draft,Added To TOC,Links,Index keywords,See Also keywords,Images,Browse Sequences">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content="Put What's new link back in">
+<meta name=topic-id content>
+<meta name=MS-HAID content="IA32 proc ref info">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=594>
+<meta name=layout-width content=676>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+}
+
+-->
+</style>
+
+
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+p.whs2 {margin-bottom: 0;}
+ol.whs3 {list-style: decimal;}
+img_whs4 {border: none; width: 20px; height: 20px; float: none; border-style: none; border-style: none;}
+p.whs5 {margin-bottom: 0; margin-left: 40px;}
+p.whs6 {margin-top: 102px; margin-bottom: 0pt; font-style: italic;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs2 {margin-bottom:1; }";
+  strNSS += "p.whs5 {margin-bottom:1; }";
+  strNSS += "p.whs6 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body BGPROPERTIES=FIXED>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n英特尔(R) 奔腾(R) M 处理器的事件比率\n关于英特尔(R) 奔腾(R) M 处理器的事件比率");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1 class=Overview><img src="er_logo.gif" alt="事件比率主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">关于英特尔(R) 奔腾(R) M 处理器的事件比率</h1>
+
+<p class="whs2">在许多情况下，如果不检查事件比率同其它事件的关系，应用程序执行期间发生的原始事件数量没有什么意义。事件比率有助于更好地了解应用程序的性能。</p>
+
+<h2>确定优化机会</h2>
+
+<p class="whs2">使用事件比率确定优化机会时，这些是应该执行的基本步骤：</p>
+
+<ol type="1" class="whs3">
+	
+	<li class=kadov-p><p class="whs2">检查每指令时钟周期数 (CPI) 比率，以了解优化机会的一般指示。</p></li>
+	
+	<li class=kadov-p><p class="whs2">如果 CPI 比率较高，则检查微操作/指令比率。如果此比率较高，则此代码中可能没有任何优化机会。</p></li>
+	
+	<li class=kadov-p><p class="whs2">如果 CPI 比率较高，而微操作/指令比率较低，则表示此代码中存在优化机会。检查与代码有关的比率：浮点代码的浮点比率，MMX 技术代码的 MMX(TM) 技术比率。</p></li>
+</ol>
+
+<p class="whs2">每个处理器都有一组可以监视的事件。因此，每个处理器可以使用的事件比率有所不同。</p>
+
+<p class="whs2">为方便起见，每个处理器都提供一组预定义的事件比率。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="note.gif" x-maintain-ratio="TRUE" alt="备注" width="20px" height="20px" border="0" class="img_whs4"> 备注</h3>
+
+<p class="whs5">这些性能监视事件旨在用作性能调整时的参考。报告的计数器值无法保证绝对准确，只能用作调整时的相对参考。已知的不一致现象会在相关的位置作记述。</p>
+
+<p class="whs6">更新日期：25 January 2006 A</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

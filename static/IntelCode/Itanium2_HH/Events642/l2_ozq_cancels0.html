@@ -1,0 +1,183 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>l2_ozq_cancels0</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=L2_OZQ_CANCELS0>
+<meta name=MS-HAID content="一体化二级缓存事件">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=594>
+<meta name=layout-width content=550>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 20px; height: 20px; border-style: none; border-style: none;}
+table.whs2 {width: 100%;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\n内存事件\n一体化二级缓存事件\nL2_OZQ_CANCELS0");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>L2_OZQ_CANCELS0</h1>
+
+<b style="font-weight: bold;">标题：</b>L2 OZQ 取消（延迟或任意）<b   style="font-weight: bold;"><br> 类别：</b>一体化二级缓存事件<b style="font-weight: bold;"><br> IAR/DAR/OPC：</b>Y/Y/Y<b style="font-weight: bold;"><br> 事件代码：</b>0xA0<b style="font-weight: bold;"><br> 最大每周期增量：</b>4 
+
+<p><b style="font-weight: bold;">定义：</b>统计&ldquo;L2 OZ 队列取消&rdquo;（不论任何原因）或特定原因（基于单元掩码）导致的&ldquo;L2 OZ 队列取消&rdquo;的总数。</p>
+
+<h3 class=NoteTipHead><img src="note.gif" width="20px" height="20px" border="0" class="img_whs1"> 备注</h3>
+
+这是有限组 0 的&ldquo;二级缓存&rdquo;事件。在任何给定时间，3 个 L1_OZQ_CANCEL 事件中仅可能测量一个。要测量此事件，<a HREF="l2_ifet_cancels.html">L2_IFET_CANCELS</a> 或此事件必须使用 PMD4 测量。 
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells width="100%" class="whs2">
+
+<tr>
+<td>
+<h3 CLASS=TableHead>扩展</td>
+<td>
+<h3 CLASS=TableHead>PMC.umask</td>
+<td>
+<h3 CLASS=TableHead>说明</td></tr>
+
+<tr>
+<td>
+<p>ANY</td>
+<td>
+<p>bx000</td>
+<td>
+<p>统计&ldquo;OZ 队列&rdquo;取消总计</td></tr>
+
+<tr>
+<td>
+<p>LATE_SPEC_BYP</td>
+<td>
+<p>bx001</td>
+<td>
+<p>统计推测性旁路导致的延迟取消</td></tr>
+
+<tr>
+<td>
+<p>LATE_RELEASE</td>
+<td>
+<p>bx010</td>
+<td>
+<p>统计释放导致的延迟取消</td></tr>
+
+<tr>
+<td>
+<p>LATE_ACQUIRE</td>
+<td>
+<p>bx011</td>
+<td>
+<p>统计获取导致的延迟取消</td></tr>
+
+<tr>
+<td>
+<p>LATE_BYP_EFFRELEASE</td>
+<td>
+<p>bx100</td>
+<td>
+<p>统计 L1D 到 L2A 的旁路有效释放导致的延迟取消</td></tr>
+
+<tr>
+<td>
+<p>---</td>
+<td>
+<p>bx101-bx111</td>
+<td>
+<p>（*不统计*）</td></tr>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

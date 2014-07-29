@@ -1,0 +1,156 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>关于英特尔(R) 奔腾(R) M 处理器的建议</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 12, 2003 11:41:11 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=661>
+<meta name=layout-width content=676>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 17px; height: 18px; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; border-style: none;}
+ul.whs2 {list-style: disc;}
+p.whs3 {font-weight: bold;}
+p.whs4 {font-weight: normal;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs1 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n关于英特尔(R) 奔腾(R) M 处理器的建议\n关于英特尔(R) 奔腾(R) M 处理器的建议");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>关于英特尔(R) 奔腾(R) M 处理器的建议</h1>
+
+<h3 class=NoteTipHead><span style="font-weight: bold;"><B><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='tip.gif' width='17px' height='18px' border='0' class='img_whs1'>");}
+else
+{   document.write("<img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs1'>");}
+//--></script><noscript><img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs1'></noscript> 建议</B></span></h3>
+
+<ul type="disc" class="whs2">
+	
+	<li class=kadov-p><p><span style="font-weight: bold;"><B>要获取更精确的测量值，请禁用 Geyserville，然后重新运行采样&ldquo;活动&rdquo;。</B></span>Geyserville 转换的设计目的是通过降低频率来节省电池并影响机器。结果，与频率相关的某些事件比率与时间计算就变得不精确。<br> </p></li>
+	
+	<li class=kadov-p><p class="whs3">使用&ldquo;过程间优化&rdquo;(IPO) 开关进行编译。<span style="font-weight: normal;">使用&ldquo;过程间优化&rdquo;(IPO) 开关进行编译时，编译器有机会进行更多的优化，包括分支消除、函数内嵌、常数传播以及循环不变量等等。</span></p></li>
+	
+	<ul type="disc" class="whs2">
+		
+		</ul>
+	
+	<li class=kadov-p><p class="whs4"><span style="font-weight: bold;"><B>考虑减少抽象类以及虚拟与纯虚拟方法的数量</B></span>。在 C++ 中使用它们时，编译器生成一个 VTable，将使用的每个方法编译成处理器很难预测的间接调用。尽可能减少抽象类与虚拟方法的使用。</p></li>
+	
+	<li class=kadov-p><p class="whs4"><span style="font-weight: bold;"><B>如果可能，请考虑使用显式函数调用</B></span>。在 C++ 中使用继承时，从基类调用方法编译成从类的 VTable 进行间接调用。处理器很难预测这些调用，并且会导致性能惩罚。如果可以，请将这些调用替换成对实际对象类的显式调用。</p></li>
+	
+	<li class=kadov-p><p class="whs4"><span style="font-weight: bold;"><B>考虑减少函数指针的使用</B></span>。函数指针编译成处理器很难预测的间接调用，并且会导致性能惩罚。尽可能减少函数指针的使用。</p></li>
+	
+	<li class=kadov-p><p class="whs4"><span style="font-weight: bold;"><B>通过基类处理对象时，考虑按类型给对象排序</B></span>。处理从基类衍生的大量对象时，尝试首先按类型给它们排序或分组。这可以使分支预测机制能够正确预测在此种情况下生成的间接调用。</p></li>
+	
+	<li class=kadov-p><p class="whs4"><span style="font-weight: bold;"><B>尽可能消除分支</B></span>。</p></li>
+</ul>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

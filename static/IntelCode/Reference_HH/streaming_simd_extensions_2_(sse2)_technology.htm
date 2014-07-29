@@ -1,0 +1,137 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>第二代数据流单指令多数据扩展指令集 (SSE2)</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 6, 2003 3:40:04 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=811>
+<meta name=layout-width content=654>
+<meta name=x-ignored-words content="AGI;Pentium;MMX;EAX;EBC;ECX;EDX;EBP;ESI;EDI;misaligned;micro-ops;mispredictions;misprediction;mispredicted;BTB;LRU;callee;clocktick;CMPXCH;CPUID;movzx;ebx;ptr;ecx;dword;associativity;dataset;NaNs;denormals;denormalized;significand;denormalization;&#8734;;Denormalized;denormal;denormal-operand;IP;EBS;APIC;INT;FP_ADD;FP_MUL;MMX_SHFT;FP_EXECUTE;eax;VTune;Microsoft*;exehdr.exe;C++*;MS-DOS*;hotspot;NetBurst;ALUs;Pipelined;scalability;mis-prediction;scalable;GB;Superscalar;superscalar;developer.intel.com;index.htm;KBytes;MByte;Uops;SIMD;doubleword;pipelined;decoupled;superpipeline;decouples;FPU;pipelining;microarchitecture;microarchitectural;prefetching;prefetches;prefetch;vpj;RVA;resteer;SSE;XMM;cacheability;quadword;FXSAVE;FXRSTOR">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+ul.whs1 {list-style: disc;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>第二代数据流单指令多数据扩展指令集 (SSE2)</h1>
+
+<p>英特尔(R) 奔腾(R) 4 处理器引入 SSE2 扩展指令集，为&ldquo;英特尔 MMX(TM)&rdquo;技术与&ldquo;数据流单指令多数据扩展指令集&rdquo;提供了多项增强。这些增强包括：</p>
+
+<ul type="disc" class="whs1">
+	
+	<li class=kadov-p><p>在新的压缩数据格式上进行运算，对于整数 SIMD（单指令多数据技术）运算，使用 128 位宽寄存器，改善了 SIMD 计算性能。 </p></li>
+	
+	<li class=kadov-p><p>随多种压缩 128 位整型数据类型一起，引入压缩双精度浮点数据类型。这些新的数据类型可用于在 XMM 寄存器中执行压缩双精度与单精度浮点值以及压缩整数计算。</p></li>
+</ul>
+
+<p>IA-32 体系结构中引入的新 SIMD 指令包括：浮点 SIMD 指令、整数 SIMD 指令、SIMD 浮点数据与 SIMD 整型数据之间的转换、以及 XMM 寄存器与 MMX 寄存器之间的压缩数据转换。</p>
+
+<p>新的浮点 SIMD 指令可供在压缩双精度浮点值（每个 XMM 寄存器两个双精度值）上执行计算。SIMD 浮点指令的计算以及单精度与双精度浮点格式均与&ldquo;IEEE 754 二进制浮点值算术标准&rdquo;兼容。</p>
+
+<p>新的整数 SIMD 指令支持在压缩双字与四字数据上执行算术运算，同时还支持在压缩字节、字、双字、四字以及双四字数据上执行其它运算，提供了非常高的灵活性与极大的动态范围计算威力。</p>
+
+<p>除上段介绍的新的 128 位 SIMD 指令之外，还有对 68 条整数 SIMD 指令的 128 位增强，这些指令单独工作于奔腾 II 与奔腾 <span style="font-family: Arial, sans-serif;">III</span> 处理器的 64 位 MMX 寄存器中。这些 64 位整数 SIMD 指令经过增强，可以支持奔腾 4 处理器中 128 位 XMM 寄存器上的运算。这些整数 SIMD 指令经过增强之后，在实现浮点与整数算法时，可以让软件开发人员获得新的性能水平，通过使用 XMM 寄存器或 MMX 寄存器编写 SIMD 代码，还能享有最大的灵活性。</p>
+
+<p>为加快处理速度，并改善缓存的使用，SSE2 扩展指令集提供多条新的指令，供应用程序程序员控制数据的缓存能力。这些指令提供促使数据流进、出寄存器而不干扰缓存的功能，以及在实际使用之前预取数据的功能。</p>
+
+<p>SSE2 扩展指令集引入的一些新体系结构功能不需要新操作系统的支持。这是因为 SSE2 扩展指令集并未引入新的体系结构状态，支持 SSE 扩展指令集的 FXSAVE/FXRSTOR 也支持 SSE2 扩展指令集，对于在上下文切换期间保存与还原 XMM 寄存器、MMX 寄存器及 x87 FPU 寄存器的状态，它们已经够用。CPUID 指令已经过增强，可供操作系统或应用程序识别 SSE 与 SSE2 功能存在与否。</p>
+
+<p>SSE2 扩展指令集在英特尔奔腾 4 处理器的所有 IA-32 体系结构操作模式中均可使用。奔腾 4 处理器保持了 IA-32 软件兼容性。现有的所有软件仍能继续正确运行，而不必在奔腾 4 处理器以及将来会引入 SSE2 指令集的 IA-32 处理器上作任何修改。同样，在利用 SSE2 指令的应用程序中，现有的软件也仍能继续正确运行。</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

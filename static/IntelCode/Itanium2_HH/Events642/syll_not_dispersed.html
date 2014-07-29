@@ -1,0 +1,104 @@
+<HTML><HEAD>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+<TITLE>SYLL_NOT_DISPERSED</TITLE>
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="SYLL_NOT_DISPERSED">
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</HEAD>
+<BODY>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\n指令分派事件\nSYLL_NOT_DISPERSED");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<H1>SYLL_NOT_DISPERSED</H1>
+<BR><B style="font-weight: bold;">标题：</B>未分派的指令节<BR><B style="font-weight: bold;"> 类别：</B>指令分派事件<BR><B style="font-weight: bold;"> IAR/DAR/OPC：</B>Y/N/N<BR><B style="font-weight: bold;"> 事件代码：</B>0x4E<BR><B style="font-weight: bold;">最大每周期增量：</B>5<BR><P><B style="font-weight: bold;">定义：</B>统计由于所有的原因（暂停除外）而导致未分派的指令节数。通过单元掩码可以将它细分为 4 种类别之一。</P>
+
+
+<BR><BR><TABLE x-use-null-cells style="width: 100%;" width=100%>
+<TR><TD><H3 CLASS=TableHead>扩展</TD>
+<TD><H3 CLASS=TableHead>PMC.umask</TD>
+<TD><H3 CLASS=TableHead>说明</TD></TR>
+<TR><TD><P>ALL</TD>
+<TD><P>b1111</TD>
+<TD><P>统计未分派的所有指令节。备注：b0000-b1111 的任何组合都有效。</TD></TR>
+<TR><TD><P>MLI</TD>
+<TD><P>b1xxx</TD>
+<TD><P>统计由于 MLI 指令束与重新定址到非 0 指令节而导致未分派的指令节数。对于每个 MLI 指令束，分派过程会执行 1 个指令节命中。根据重新定址到哪个指令节，分派过程可能会执行 0-2 个指令节命中。在此会统计拆分时发生前端错误的指令束 1（0-2 个指令节命中）。</TD></TR>
+<TR><TD><P>FE</TD>
+<TD><P>bx1xx</TD>
+<TD><P>统计由于前端未提供有效指令束或提供有效的非法模板而导致未分派的指令节。对于前端提供的每个无效指令束或有效的非法模板，分派过程会执行 3 个指令节命中。此处统计发生前端错误的指令束 1（3 个指令节命中）。</TD></TR>
+<TR><TD><P>IMPL</TD>
+<TD><P>bxx1x</TD>
+<TD><P>统计由于隐式停止位而导致未分派的指令节。这些是由所有的非架构型停止位（不对称、超额预订、隐式）组成。对于指令束 0(1) 中的每个隐式停止位，分派过程会执行 6 个指令节（3 个指令节）命中。</TD></TR>
+<TR><TD><P>EXPL</TD>
+<TD><P>bxxx1</TD>
+<TD><P>统计由于显式停止位而导致未分派的指令节。这些由程序员指定的架构型 S 位与模板 1 和 5 组成。对于指令束 0(1) 中的每个模板 1/5，分派过程会执行 6 个指令节（3 个指令节）命中。对于指令束 0(1) 中的每个 S 位，分派过程执行 3 个指令节（0 个指令节）命中。</TD></TR>
+</TABLE>
+
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</BODY></HTML>

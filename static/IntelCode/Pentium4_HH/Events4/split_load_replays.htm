@@ -1,0 +1,174 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>拆分加载重发</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 6, 2003 4:40:44 PM">
+<meta name=topic-status content=Complete>
+<meta name=topic-priority content=-1>
+<meta name=topic-time-estimate content=-1>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=MS-HAID content=Events4>
+<meta name=MS-HAID content="E4 Split Load Replays">
+<meta name=MS-HAID content="Pentium4_内存事件">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=500>
+<meta name=layout-width content=550>
+<meta name=x-ignored-words content="MMX;SIMD;Aliasing;modulo;aliasing;Pentium;pipelined;mispredicted;NetBurst;irets;BTB;DTLB;Micro-ops;lookaside;TLB;Lookaside;mispredictions;cmov;setcc;MH;M;C;ebx;and-ed;fcmov;CMOV;eax;cpuid;UC;uncacheable;WC;MMNP;MMNM;Mispredicted;MMTP;MMTM;IO;reads|writes;writebacks;HARD_FAIL;NO_DATA;Clockticks;clocktick;VTune;clockticks;MOCLEAR;prefetching;NO_STA;NO_STD;PARTIAL_DATA;UNALGN_ADDR;Non-prefetch;prefetch;LSC;SSC;USC;ULC">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: ; 48: px; height: 60px; border-style: none; float: right; border-style: none; float: right;}
+table.whs2 {margin-top: 14pt; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 1px; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 1px;}
+td.whs3 {x-cell-content-align: CENTER; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n英特尔(R) 奔腾(R) 4 处理器事件\n性能调整事件 - 高级事件\n内存事件\n拆分加载重发");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="p4p60hw.gif" alt="奔腾(R) 4 处理器主题" x-maintain-ratio="TRUE" height="60px" align="right" border="0" class="img_whs1">拆分加载重发</h1>
+
+<p><span style="font-weight: bold;"><B>线程特定性</B></span>：<a href="Thread_Specific.htm">TS</a></p>
+
+<p>此事件统计由拆分加载导致的内部机器重发数。读取数据值时，如果部分数据在一个缓存线中，而另一部分数据在另一个缓存线中，则此时会发生拆分加载。请注意，此事件统计重发数，而不是指令数。一条指令可能生成多个重发，甚至伪指令也能生成重发，伪指令是发生分支预测失误之后按推测执行的指令。因此，相关的事件<a HREF="split_loads_retired.htm">失效的拆分加载</a>会更常用，并且通常比此事件提供的信息更有用。</p>
+
+<h3>高级：更改此事件测量的对象</h3>
+
+<p>默认情况下，&ldquo;拆分加载重发&rdquo;事件只统计拆分加载。您还可以通过设置事件掩码位，将它配置成统计拆分存储、不可缓存 (UC) 拆分或 UC 加载，具体如下表所示：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="1" border="1" class="whs2">
+
+<tr>
+<td valign="middle" class="whs3">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">事件掩码位</td>
+<td valign="middle" class="whs3">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td valign="middle" class="whs3">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">位 0：LSC</td>
+<td valign="middle" class="whs3">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">加载拆分完成</td></tr>
+
+<tr>
+<td valign="middle" class="whs3">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">位 1：SSC</td>
+<td valign="middle" class="whs3">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">存储拆分完成</td></tr>
+
+<tr>
+<td valign="middle" class="whs3">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">位 2：USC</td>
+<td valign="middle" class="whs3">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">UC 拆分完成</td></tr>
+
+<tr>
+<td valign="middle" class="whs3">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">位 3：ULC</td>
+<td valign="middle" class="whs3">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">UC 加载完成</td></tr>
+</table>
+
+<p>如需有关详细信息，请参阅最新处理器<a href="../../Reference_HH/Intel_s_Software_Developer_s_Manuals.htm" style="x-condition: eclipse;">优化参考手册</a>。</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" 
+ xmlns="http://www.w3.org/TR/REC-html40">
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>按寄存器移位的指令选择</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="05 28, 2003 11:13:09 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=400>
+<meta name=layout-width content=688>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_STYL_ns.CSS'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_STYL.CSS'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 32px; height: 32px; border-style: none; float: right; border-style: none; float: right;}
+table.whs2 {width: 100.0%; mso-cellspacing: 0cm; x-cell-content-align: top; border-spacing: 0px; border-spacing: 0px;}
+col.whs3 {width: 46.439%;}
+col.whs4 {width: 53.561%;}
+tr.whs5 {x-cell-content-align: top;}
+td.whs6 {width: 46.439%; x-cell-content-align: top; border: solid #000000 .75pt; padding: .75pt 7.5pt .75pt 7.5pt; padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;}
+td.whs7 {width: 53.561%; x-cell-content-align: top; border: solid #000000 .75pt; border-left: none; padding: .75pt 7.5pt .75pt 7.5pt; padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;}
+td.whs8 {width: 46.439%; x-cell-content-align: top; border: solid #000000 .75pt; border-top: none; padding: .75pt 7.5pt .75pt 7.5pt; padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;}
+td.whs9 {width: 53.561%; x-cell-content-align: top; border-top: none; border-left: none; border-bottom: solid #000000 .75pt; border-right: solid #000000 .75pt; padding: .75pt 7.5pt .75pt 7.5pt; padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body lang=EN-US style="tab-interval: 36.0pt;">
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔 XScale(R) 微体系结构 \n指令选择\n按寄存器移位");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="XS_logo.gif" alt="英特尔 XScale(R) 技术主题" v:shapes="_x0000_s1026" width="32px" height="32px" align="right" border="0" class="img_whs1">按寄存器移位的指令选择</h1>
+
+<h2>XSC_IS_ShiftByREG</h2>
+
+<h3>解释</h3>
+
+<p>对于&ldquo;英特尔 XScale(R)&rdquo;技术指令，如果移位器操作数是按寄存器移位，则会发生额外的发出延迟而导致暂停。&ldquo;指令选择&rdquo;扫描等价常数以替换按寄存器移位，同时确保语义不变。</p>
+
+<h3>示例</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="100%" class="whs2">
+<col class="whs3">
+<col class="whs4">
+
+<tr valign="top" class="whs5">
+<td valign="top" width="46.439%" class="whs6">
+<h3 class=TableHead>原始代码</td>
+<td valign="top" width="53.561%" class="whs7">
+<h3 class=TableHead>指令选择</td></tr>
+
+<tr valign="top" class="whs5">
+<td valign="top" width="46.439%" class="whs8">
+<p><span class=code>MOV &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R2, #0x4 </span></p>
+<p><span class=code>ADD &#xA0;&#xA0;&#xA0;&#xA0;R1, R3, R4</span></p>
+<p><span class=code>SUB &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R6, R7, R8</span></p>
+<p><span class=code>EORGTS &#xA0;&#xA0;R0, R4, R5, ROR R2 </span></td>
+<td valign="top" width="53.561%" class="whs9">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class=code>EORGTS &#xA0;&#xA0;R0, R4, R5, ROR #0x4</span></td></tr>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

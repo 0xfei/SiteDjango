@@ -1,0 +1,232 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>FDIV/FLDCW 指令</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta NAME=MS-HAID CONTENT="浮点惩罚">
+<meta name=date content="03 7, 2002 5:22:09 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=592>
+<meta name=layout-width content=759>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 17px; height: 18px; border-style: none; border-style: none;}
+p.whs3 {margin-left: 40px;}
+ul.whs4 {list-style: disc;}
+td.whs5 {x-cell-content-align: TOP; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+td.whs6 {x-cell-content-align: TOP; width: 250px; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+p.whs7 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs7 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js" name="EHELP_DHTM"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" width="36px" height="36px" align="right" border="0" class="img_whs1"> FDIV/FLDCW 指令</h1>
+
+<p><span style="font-weight: bold;"><B>fdiv/fldcw_Stall</B></span> 表示一种惩罚状态。</p>
+
+<p>为其发出 <span style="font-weight: bold;"><B>fdiv/fldcw_Stall</B></span> 的浮点指令在前一个 FDIV 或 FLDCW 指令完成执行其<a href="../../../../../../vtglossary_hh/vtglossary.htm#latency" style="x-condition: WebHelp;">延迟</a>时钟周期之前无法开始执行。FDIV 或 FLDCW 在执行时，无法执行其它任何浮点指令。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="tip.gif" width="17px" height="18px" border="0" class="img_whs2"> <span style="font-weight: bold;"><B>建议</B></span></h3>
+
+<p class="whs3">按照以下指导原则避免这种惩罚状态：</p>
+
+<ol>
+	
+	<ul type="disc" class="whs4">
+		
+		<li class=kadov-p><p>调整代码结构，使得在 FLDCW 或 FDIV 指令执行其延迟时钟周期期间执行整数指令。</p></li>
+		
+		<li class=kadov-p><p>将其它浮点指令仅安排在 FLDCW 或 FDIV 指令执行完毕之后执行。</p></li>
+	</ul>
+</ol>
+
+<p>示例：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td valign="top" class="whs5">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">原始代码</td>
+<td valign="top" class="whs5">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">周期</td>
+<td valign="top" class="whs5">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">优化代码</td>
+<td valign="top" class="whs5">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">周期</td></tr>
+
+<tr>
+<td valign="top" class="whs5">
+<pre CLASS=Code>
+<p class=Preformatted><span style="font-weight: bold;">
+<B>1. fdiv DWORD PTR [ebp-4]</B></span><span style="font-weight: bold;">
+<B>2. fadd st(0), st(1)</B></span>
+3. mov eax, 1
+4. mov ebx, 1
+5. mov ecx, 1</p>
+</pre></td>
+<td valign="top" class="whs5">
+<pre CLASS=Code>
+<p class=Preformatted>
+1
+39
+40
+41
+42</p>
+</pre></td>
+<td valign="top" width="250px" class="whs6">
+<pre CLASS=Code>
+<p class=Preformatted><span style="font-weight: bold;">
+<B>1. fdiv DWORD PTR [ebp-4]</B></span>
+3. mov eax, 1
+4. mov ebx, 1
+5. mov ecx, 1<span style="font-weight: bold;">
+<B>2. fadd st(0), st(1)</B></span></p>
+</pre></td>
+<td valign="top" class="whs5">
+<pre CLASS=Code>
+<p class=Preformatted>
+1
+2
+3
+4
+39</p>
+</pre></td></tr>
+
+<tr>
+<td COLSPAN="2" valign="top" class="whs5">
+<p class="whs7">FDIV 在执行时，无法执行其它任何<i><span style="font-style: normal;">浮点</span></i><span   style="font-style: normal;"></span> 指令。因此，&ldquo;指令 2&rdquo;暂停 38 个周期，直至 FDIV 完成执行。<b><br>执行时间总计：42 个周期</td>
+<td COLSPAN="2" valign="top" class="whs5">
+<p class="whs7">代码结构已重新整理，这样整数指令便可以同 FDIV 并行执行。<b><br>执行时间总计：39 个周期</b></td>
+</tr>
+</table>
+
+<p class="whs7">
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','FMUL 暂停','lipsfmul_stall.htm','MMX(TM) 技术代码转换','lipspro_mmx_trans.htm','整数指令在 FXCH 之后','lipsint_fxch.htm','浮点暂停以等待 FST 操作数','lipsfst_dep.htm','浮点相关','lipsfp_dep.htm');return false;" title="浮点惩罚"><img src="../../ss_btn_浮点惩罚.gif" border=0 height=20 width=58 alt="浮点惩罚"></a>
+
+
+ </p>
+
+<p class="whs7">
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','含 MMX(TM) 技术的奔腾(R) 处理器','pentium(r)_with_mmx(tm_technology_processor.htm','奔腾(R) 处理器','pentium(r)_processor.htm');return false;" title="影响的处理器"><img src="../../ss_btn_影响的处理器.gif" border=0 height=20 width=82 alt="影响的处理器"></a>
+
+
+ </p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

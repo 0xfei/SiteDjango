@@ -1,0 +1,190 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>连续加载/存储指令惩罚</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 16, 2003 12:40:53 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="Unnecessary_Store/Load_of_a_Return_Address_Penalty">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=839>
+<meta name=layout-width content=820>
+<meta name=x-ignored-words content="XSC_LDRSTR_RES;Coprocessor;XSC_COPROCESSOR_RES;coprocessor;XSC_DATAPROC_RES;XSC_DEAD_CODE;STMFD;LR;destination*;LDMFD;XSC_DEAD_CODE*;XSC_MUL_CONDITION;MLAS;XSC_MUL_CONDITION*;UMLALS;XSC_RESOURCE;Accumulate(MAC;pipelined;LDRD;MLA;XSC_RESOURCE*;XSC_MULTIPLY_RES;XSC_REG_DEP;REG;XSC_REG_REG;UMLAL;MOV;RSB;SBC;lsl;MUL;XSC_MULTIPLY_RES*;QDSUB;ADC;lsr;XSC_SATURATED_RES*;LDR;XSC_LDRSTR_RES*;XSC_SATURATED_RES;SA;XSC_STATUS_RES;XSC_LDMSTM_N;XSC_SWP;SWP;SWPB;STR;LDM;STM;STRD">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_STYL_ns.CSS'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_STYL.CSS'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+h3.whs2 {margin-left: 40px;}
+img_whs3 {width: 17px; height: 18px; border-style: none; border-style: none;}
+p.whs4 {margin-left: 40px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs1 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔 XScale(R) 微体系结构 \n英特尔 XScale(R) 微体系结构惩罚\n连续加载/存储指令惩罚");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+else
+{   document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+//--></script><noscript><img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'></noscript>连续存储/加载指令惩罚/警告</h1>
+
+<h2>XSC_SUCC_LoadStore</h2>
+
+<h3>解释</h3>
+
+<p>基于&ldquo;英特尔(R) XScale&rdquo;微体系结构的处理器有四个填充缓冲区，用于在发生数据缓存未命中时从外部内存获取数据。所有的填充缓冲区都在使用时，处理器将暂停。存在四个以上未决的加载并等待从内存获取时，便会发生这种情况。</p>
+
+<p>类似地，写入缓冲区的数量也限制能发出的连续写入数，超过此限处理器将会暂停。存储缓冲区有八个，因此不能发出八个以上的存储。</p>
+
+<h3 class="whs2"><img src="tip.gif" width="17px" height="18px" border="0" class="img_whs3"> 建议</h3>
+
+<p class="whs4">重新调整指令顺序，以避免同时使用所有的填充缓冲区。 &nbsp;</p>
+
+<p class="whs4">使用 PLD 指令预先获取数据也是可行的办法。PLD 指令也需要使用填充缓冲区，因此请勿连续使用 PLD 及其它加载指令。请参阅 <a href="Prefetch_Advice.htm">XSC_PLD_Advice</a>。</p>
+
+<h3>示例 1</h3>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R0, [R1, #0x0] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R2, [R1, #0xef1] &#xA0;</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R3, [R1, #0xfff]</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R6, [R7, R8]</span></p>
+
+<p class=Preformatted><span class=Code>LDR &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R4, [R1, #-0xfff] &#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SUCC_LoadStore, XSC_PLD_S1</span></p>
+
+<h3 class=Preformatted>示例 2</h3>
+
+<p class=Preformatted><span class=Code>STMDA &#xA0;&#xA0;&#xA0;R0,{R1,R2} &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_LDMSTM_2</span></p>
+
+<p class=Preformatted><span class=Code>SWP &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R0,R1,[R3] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP</span></p>
+
+<p class=Preformatted><span class=Code>SWP &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;SP,LR,[R4] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP</span></p>
+
+<p class=Preformatted><span class=Code>STMIA &#xA0;&#xA0;&#xA0;R0,{R5-R10} &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SUCC_LoadStore, XSC_PLD_S2, XSC_LDMSTM_3</span></p>
+
+<h3 class=Preformatted>示例 3</h3>
+
+<p class=Preformatted><span class=Code>SWP &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R0,R1,[R3] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP</span></p>
+
+<p class=Preformatted><span class=Code>SWP &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;SP,LR,[R4] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP</span></p>
+
+<p class=Preformatted><span class=Code>SWP &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R5,R5,[R6] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP</span></p>
+
+<p class=Preformatted><span class=Code>SWPB &#xA0;&#xA0;&#xA0;&#xA0;R7,R7,[R8] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP</span></p>
+
+<p class=Preformatted><span class=Code>SWPB &#xA0;&#xA0;&#xA0;&#xA0;R9,R9,[R2] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP, XSC_SUCC_LoadStore, XSC_PLD_S1</span></p>
+
+<p class=Preformatted><span class=Code>SWPVCB &#xA0;&#xA0;R3,LR,[SP] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP, XSC_SUCC_LoadStore, XSC_PLD_S1</span></p>
+
+<p class=Preformatted><span class=Code>SWPHIB &#xA0;&#xA0;R1,R1,[R3] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP, XSC_SUCC_LoadStore, XSC_PLD_S1</span></p>
+
+<p class=Preformatted><span class=Code>SWPLTB &#xA0;&#xA0;R5,R5,[R7] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP, XSC_SUCC_LoadStore, XSC_PLD_S1</span></p>
+
+<p class=Preformatted><span class=Code>SWPGTB &#xA0;&#xA0;R0,R1,[R9] &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;; XSC_SWP, XSC_SUCC_LoadStore, XSC_PLD_S1, XSC_PLD_S2</span></p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

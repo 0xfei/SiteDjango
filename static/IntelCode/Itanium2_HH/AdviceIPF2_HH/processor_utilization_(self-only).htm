@@ -1,0 +1,144 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>处理器利用率（仅自身）</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="Processor Utilization (Self-Only)">
+<meta name=MS-HAID content=insight_ipf2>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=893>
+<meta name=layout-width content=702>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 453px; height: 240px; border-style: none; border-style: none;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器的建议\n关于英特尔(R) 安腾(R) 2 处理器的细节\n处理器利用率（仅自身）");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔&#xAE; 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">处理器利用率（仅自身）</h1>
+
+此统计数据代表仅考虑目标代码区域中的活动时，目标代码区域（当前所选内容）发生的处理器利用率。它计算为这样的一个比率：整个采样期间，目标区域中测得的时钟信号样本数，除以该区域中可能发生的时钟信号样本数。<br> 下图使用三个不同代码区域（蓝色、绿色及红色）的随时间时钟信号样本的简单表示来阐述这个概念。水平轴代表时间，每个时间格的宽度代表时钟信号样本之间的差异（采样频率值）。垂直轴代表系统上的逻辑处理器 (CPU)。请注意，这可以是每个处理器都采用&ldquo;超线程技术&rdquo;的四处理器系统或双处理器系统。假设蓝色代码区域是感兴趣的区域，仅自身处理器利用率等于：在此期间，蓝色时钟信号样本总数除以蓝色区域可能的时钟信号总数（处理器数乘以至少测量到一个蓝色时钟信号样本的时间格数）。使用图中数字的计算是：<br>仅自身处理器利用率 = 10/24 = 42%<br>备注：
+
+<ul>
+	
+	<li class=kadov-p
+		class=kadov-p>蓝色时钟信号总计 = 10：t1 = 2、t3 = 2、t6 = 1、t7 = 3、t9 = 1、t12 = 1（总计 10 个）</li>
+	
+	<li class=kadov-p
+		class=kadov-p>可能的时钟信号数 = 4 * 6 = 24<br>系统上的处理器数 = 4<br>&ldquo;蓝色&rdquo;时间格数 = 6（t1、t3、t6、t7、t9 及 t12）</li>
+	
+	<li class=kadov-p
+		class=kadov-p>即使分析整个负载，也只有运行蓝色代码区域的时间格才是大家感兴趣的：t1、t3、t6、t7、t9、t12（总计 6 个）。</li>
+	
+	<li class=kadov-p
+		class=kadov-p>此计算的目的在于显示，蓝色代码区域正在运行时，所有处理器<i>仅由</i> 蓝色代码区域利用的良好程度。</li>
+</ul>
+
+<img src="sot.gif" width="453px" height="240px" border="0" class="img_whs2"><b><br> <br>计数器相关性：</b><br> <br>此细节依赖于以下性能计数器函数：<br><br>仅自身处理器利用率 = 100*时钟信号样本/(活动时间格*NumCPU)<b><br> 较低值：</b>0<b><br> 较高值：</b>0.1<br><br>在&ldquo;仅自身处理器利用率&rdquo;<b>较高</b>时，此细节具有实质性意义。 
+ 
+
+<br> 
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','后端 BRU 清除暂停','back-end_bru_flush_stalls.htm','后端 EXE FRALL 暂停','back-end_exe_frall_stalls.htm','后端 EXE GRALL 暂停','back-end_exe_grall_stalls.htm','后端 EXE GRGR 暂停','back-end_exe_grgr_stalls.htm','后端 EXE 暂停','back-end_exe_stalls.htm','后端 FE 暂停','back-end_fe_stalls.htm','后端 FPU 暂停','back-end_fpu_stalls.htm','后端 L1d FPU 暂停','back-end_l1d_fpu_stalls.htm','后端 L1d 暂停','back-end_l1d_stalls.htm','后端 RSE 暂停','back-end_rse_stalls.htm','后端 XPN 清除暂停','back-end_xpn_flush_stalls.htm','后端暂停','back-end_stalls.htm','后端清除暂停','back-end_flush_stalls.htm','处理器利用率','processor_utilization.htm','并行活动（仅自身）','parallel_activity_(self-only).htm','每指令时钟周期数','cycles_per_instruction.htm');return false;" title="关于英特尔(R) 安腾(R) 2 处理器的细节"><img src="../../ss_btn_关于英特尔(r)_安腾(r)_2_处理器的细节.gif" border=0 height=20 width=226 alt="关于英特尔(R) 安腾(R) 2 处理器的细节"></a>
+
+
+ 
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" 
+ xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>条件检查的指令选择</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="05 28, 2003 11:12:45 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=723>
+<meta name=layout-width content=688>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_STYL_ns.CSS'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_STYL.CSS'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 32px; height: 32px; border-style: none; float: right; border-style: none; float: right;}
+h3.whs2 {margin-left: 40px;}
+img_whs3 {width: 20px; height: 20px; border-style: none; border-style: none;}
+p.whs4 {margin-left: 40px;}
+table.whs5 {width: 100.0%; mso-cellspacing: 0cm; x-cell-content-align: top; border-spacing: 0px; border-spacing: 0px;}
+col.whs6 {width: 50%;}
+tr.whs7 {x-cell-content-align: top;}
+td.whs8 {x-cell-content-align: top; width: 50.0%; border: solid #000000 .75pt; padding: .75pt 7.5pt .75pt 7.5pt; padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;}
+td.whs9 {x-cell-content-align: top; width: 50.0%; border: solid #000000 .75pt; border-left: none; padding: .75pt 7.5pt .75pt 7.5pt; padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;}
+td.whs10 {x-cell-content-align: top; width: 50.0%; border: solid #000000 .75pt; border-top: none; padding: .75pt 7.5pt .75pt 7.5pt; padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;}
+td.whs11 {x-cell-content-align: top; width: 50.0%; border-top: none; border-left: none; border-bottom: solid #000000 .75pt; border-right: solid #000000 .75pt; padding: .75pt 7.5pt .75pt 7.5pt; padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body lang=EN-US style="tab-interval: 36.0pt;">
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔 XScale(R) 微体系结构 \n指令选择\n条件检查");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="XS_logo.gif" alt="英特尔 XScale(R) 技术主题" v:shapes="_x0000_s1026" width="32px" height="32px" align="right" border="0" class="img_whs1">条件检查的指令选择</h1>
+
+<h2>XSC_IS_CONCheck</h2>
+
+<h3>解释</h3>
+
+<span>&ldquo;英特尔 XScale(R)&rdquo;技术指令可以有选择性地修改条件代码的状态。此 </span><span class=Code>IS</span><span> 模式主要注重检查条件设置（S 标记）是否必要。</span> 
+
+<h3 class="whs2"><img id="_x0000_i1025" src="note.gif" x-maintain-ratio="TRUE" width="20px" height="20px" border="0" class="img_whs3"> 备注 </h3>
+
+<p class="whs4">对于乘法指令，此&ldquo;指令选择&rdquo;与 <a HREF="Multiply_Instruction_Condition_Code_Penalty.htm">XSC_MUL_CONDITION</a> 惩罚/警告配合使用。 </p>
+
+<h3>示例 1</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="100%" class="whs5">
+<col class="whs6">
+<col class="whs6">
+
+<tr valign="top" class="whs7">
+<td valign="top" width="50%" class="whs8">
+<h3 class=TableHead>原始代码</td>
+<td valign="top" width="50%" class="whs9">
+<h3 class=TableHead>指令选择</td></tr>
+
+<tr valign="top" class="whs7">
+<td valign="top" width="50%" class="whs10">
+<p><span class=Code>ADDS &#xA0;&#xA0;&#xA0;&#xA0;R2, R2, #0X4</span></p>
+<p><span class=Code>EOR &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R1, R3, R4</span></p>
+<p><span class=Code>SUB &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R6, R7, R8</span></p>
+<p><span class=Code>CMP &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R2, #0</span> &#xA0;</td>
+<td valign="top" width="50%" class="whs11">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>此指令可以去除！</td></tr>
+</table>
+
+<h3>示例 2</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="100%" class="whs5">
+<col class="whs6">
+<col class="whs6">
+
+<tr valign="top" class="whs7">
+<td valign="top" width="50%" class="whs8">
+<h3 class=TableHead>原始代码</td>
+<td valign="top" width="50%" class="whs9">
+<h3 class=TableHead>指令选择</td></tr>
+
+<tr valign="top" class="whs7">
+<td valign="top" width="50%" class="whs10">
+<p><span class=code>MULS &#xA0;&#xA0;&#xA0;&#xA0;R2, R3, R4 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span></p>
+<p><span class=code>SUB &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R5, R6, #0X1</span></p>
+<p><span class=code>ADDS &#xA0;&#xA0;&#xA0;&#xA0;R0, R7, R8</span></td>
+<td valign="top" width="50%" class="whs11">
+<p><span class=code>MUL &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;R2, R3, R4</span></td></tr>
+</table>
+
+<h3>示例 3</h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="100%" class="whs5">
+<col class="whs6">
+<col class="whs6">
+
+<tr valign="top" class="whs7">
+<td valign="top" width="50%" class="whs8">
+<h3 class=TableHead>原始代码</td>
+<td valign="top" width="50%" class="whs9">
+<h3 class=TableHead>指令选择</td></tr>
+
+<tr valign="top" class="whs7">
+<td valign="top" width="50%" class="whs10">
+<p><span class=code>MULS &#xA0;&#xA0;&#xA0;&#xA0;R2, R3, R4 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span></p>
+<p><span class=code>QADD &#xA0;&#xA0;&#xA0;&#xA0;R8, R9, R10</span></p>
+<p><span class=code>ADDEQ &#xA0;&#xA0;&#xA0;R0, R7, R6</span></td>
+<td valign="top" width="50%" class="whs11">
+<p><span class=code>MUL R2, R3, R4; CMP R2, #0</span></td></tr>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

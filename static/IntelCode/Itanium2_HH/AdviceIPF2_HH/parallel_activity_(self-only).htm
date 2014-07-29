@@ -1,0 +1,142 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>并行活动（仅自身）</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="Parallel Activity (Self-Only)">
+<meta name=MS-HAID content=insight_ipf2>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1140>
+<meta name=layout-width content=702>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 453px; height: 240px; border-style: none; border-style: none;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器的建议\n关于英特尔(R) 安腾(R) 2 处理器的细节\n并行活动（仅自身）");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔(R) 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">并行活动（仅自身）</h1>
+
+此统计数据代表代码区域与自身并行操作的处理器时间百分比。它的计算方式是：目标代码区域在每个时间格中的时钟信号样本数之和，除以目标区域中可能发生的总计时钟信号样本数。简单地说，它是仅限所选代码区域的<i>实际</i> 并行工作除以<i>可能的</i> 并行工作。<br> 下图使用三个不同代码区域（蓝色、绿色及红色）的随时间时钟信号样本的简单表示来阐述这个概念。水平轴代表时间，每个时间格的宽度代表时钟信号样本之间的差异（采样频率值）。垂直轴代表系统上的逻辑处理器 (CPU)。请注意，这可以是每个处理器都采用&ldquo;超线程技术&rdquo;的四处理器系统或双处理器系统。假设蓝色代码区域是感兴趣的区域（所选的代码区域），则可以检查 t1 与 t7 这两个不同的时间格，并确定自身并行活动。由于蓝色代码区域是感兴趣的区域，我们希望了解何时蓝色区域的工作在多处理器上同时发生（也就是，在相同的时间格中，大于一个蓝色区域）。在时间格 t1 中，蓝色代码区域在 CPU 0 与 2 上有时钟信号样本。使用 CPU 0 作为参考处理器来判断并行化时，其它三个处理器在蓝色区域有发生并行工作的&ldquo;可能性&rdquo;。因此，<i>可能的</i> 蓝色区域并行工作是 3 个时钟信号样本。对于 t1，因为其它 CPU 中只有一个 (CPU 2) 有蓝色代码区域的时钟信号样本，所以发生的<i>实际</i> 蓝色区域工作是 1 个时钟信号样本。这表示，对于时间格 t1，并行活动等于 1/3 或 33%。使用相同的算法检查时间格 t7。与 t1 一样，一个 CPU 必须运行蓝色区域代码，其余的三个处理器可能会运行蓝色区域代码。因此，<i>可能的</i> 蓝色区域并行工作不会改变，仍是 3 个时钟信号样本。在时间格 t7 中，有三个处理器在运行蓝色区域代码，因此可以使用任何一个作为参考 CPU。因为其余两个 CPU 有蓝色区域的时钟信号样本，所以<i>实际的</i> 并行蓝色区域工作是 2 个时钟信号样本。因此，对于时间格 t7，并行活动等于 2/3 或 67%。请注意，自身并行活动计算仅包含所选代码区域与自身并行运行的时间，不包括其它代码区域的活动。使用图中整个负载的计算是：<br>自身并行活动 = 4/18 = 22%
+
+<h3 class=NoteTipHead>备注</h3>
+
+<ul>
+	
+	<li class=kadov-p
+		class=kadov-p>实际并行蓝色区域工作 = 4 个时钟信号样本<br>对于每个时间格，我们将 1 个蓝色区域用作参考，将其余的蓝色区域相加：t1 = 1、t3 = 1、t6 = 0、t7 = 2、t9 = 0、t12 = 0（总计 4 个）</li>
+	
+	<li class=kadov-p
+		class=kadov-p>可能的蓝色区域并行工作 = 6 * 3 = 18 个时钟信号样本<br>使用蓝色代码区域的时间格数 = 6（t1、t3、t6、t7、t9 及 t12）<br>可用于并行工作的处理器数 = 3。（系统上有 4 个处理器，其中一个必须运行蓝色代码区域，其余 3 个处理器可能会处理并行工作。） </li>
+	
+	<li class=kadov-p
+		class=kadov-p>即使分析整个负载，也只有运行蓝色代码区域的时间格才是大家感兴趣的：t1、t3、t6、t7、t9、t12（总计 6 个）。</li>
+</ul>
+
+<img src="sot.gif" width="453px" height="240px" border="0" class="img_whs2"> <b><br> <br>计数器相关性：</b><br> <br>此细节依赖于以下性能计数器函数：<br><br>自身并行活动 = 100*(时钟信号样本 - 活动时间格)/(活动时间格*(CPU 数-1))<b><br> 较低值：</b>0<b><br> 较高值：</b>0.1<br><br>在&ldquo;自身并行活动&rdquo;<b>较高</b>时，此细节具有实质性意义。 
+
+<br> 
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','后端 BRU 清除暂停','back-end_bru_flush_stalls.htm','后端 EXE FRALL 暂停','back-end_exe_frall_stalls.htm','后端 EXE GRALL 暂停','back-end_exe_grall_stalls.htm','后端 EXE GRGR 暂停','back-end_exe_grgr_stalls.htm','后端 EXE 暂停','back-end_exe_stalls.htm','后端 FE 暂停','back-end_fe_stalls.htm','后端 FPU 暂停','back-end_fpu_stalls.htm','后端 L1d FPU 暂停','back-end_l1d_fpu_stalls.htm','后端 L1d 暂停','back-end_l1d_stalls.htm','后端 RSE 暂停','back-end_rse_stalls.htm','后端 XPN 清除暂停','back-end_xpn_flush_stalls.htm','后端暂停','back-end_stalls.htm','后端清除暂停','back-end_flush_stalls.htm','处理器利用率','processor_utilization.htm','处理器利用率（仅自身）','processor_utilization_(self-only).htm','每指令时钟周期数','cycles_per_instruction.htm');return false;" title="关于英特尔(R) 安腾(R) 2 处理器的细节"><img src="../../ss_btn_关于英特尔(r)_安腾(r)_2_处理器的细节.gif" border=0 height=20 width=226 alt="关于英特尔(R) 安腾(R) 2 处理器的细节"></a>
+
+
+ 
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

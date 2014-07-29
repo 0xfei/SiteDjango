@@ -1,0 +1,189 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>cmp - 比较指令</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="01 16, 2003 10:49:03 AM">
+<meta name=topic-status content="Ready for Review">
+<meta name=topic-priority content=1>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content=TOC>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=811>
+<meta name=layout-width content=771>
+<meta name=x-ignored-words content="qp;one_byte_form;high_form;two_byte_form;four_byte_form;low_form;GR;CTOP;CEXIT;WTOP;WEXIT;Prefetch;Deallocation;ALAT;UNC;czx;pc;sf;fcmp;fmerge;fpcmp;fpmerge;fsxt;getf;Significand;fsz;lftype;lfhint;mux;padd;Completers;pavg;pavgsub;pcmp;pmax;pmin;pmpy;pmpyshr;pshl;psub;setf;shladdp;shrp;st;xsz;NaT;xchg;C;register_form;imm;addl;GRs;PR[qp;check_target_register;tmp_src;tmp_nat;nat;tmp_res;alloc;tmp_sor;r;tmp_sof;tmp_sol;illegal_operation_fault(;CFM.sor;CFM.rrb.gr;CFM.rrb.fr;CFM.rrb.pr;reserved_register_field_fault(;CFM.sof;rse_new_frame(CFM.sof;RSE;CFM.sol;AR[PFS;ANDed;andcm;bp;br.btype.bwh.ph.dh;IP_relative_form;call_form;counted_form;br.ph.dh;indirect_form;IP-relative;IP;pseudo-ops;btype;COND;bwh;sptk;cond;ia;BRs;PRs;PFS;LC;EC;RRBs;br.wtop;br.wexit;cloop;br.ctop;br.cexit;completers;Hint(ph;dh;CFM;callee;PSR.lp;PSR.is;PSR.di;CSD.base.;PSR.dfh;FP;CSD;EIP;GPFault;CSD.base;EFLAG.rf;PSR.da;PSR.id;PSR.ia;PSR.dd;PSR.ed;br.ia;mf;Itanium;FRs;ARs;Itanium-based;flushrs;Unimplemented;IIP;decremented;modulo-scheduled;software-pipelined;ctop;wtop;cexit;wexit;pipelined;?;CLOOP;ip_relative_form;tmp_IP;lower_priv_transition;tmp_taken;pfm;pec;AR[EC;ppl;PSR.cpl;alat_frame_update(CFM.sol;rse_preserve_frame(CFM.sol;tmp_growth;up*;sizeof(previous;sizeof(current;pfm.sof;pfm.sol;alat_frame_update(-AR[PFS;rse_fatal;rse_restore_frame(AR[PFS;rse_enable_current_frame_load(;AR[BSPSTORE;AR[BSP;disabled_instruction_set_transition_fault(;rse_invalidate_non_current_regs(;AR[CSD;AR[LC;rotate_regs(;taken_branch;PSR.it;unimplemented_virtual_address(tmp_IP;unimplemented_physical_address(tmp_IP;unimplemented_instruction_address_trap(lower_priv_transition;lower_privilege_transfer_trap(;PSR.tb;taken_branch_trap(;M;F;break.i;i-unit_form;break.b;b-unit_form;break.m;m-unit_form;break.f;f-unit_form;break.x;x_unit_form;IIM;L;MLI-template;if(b-unit_form;break_instruction_fault(immediate;chk;chk.s;chk.s.i;control_form;gr_form;chk.s.m;fr_form;chk.a.aclr;data_form;FR;NaTVal;chk.a;unimplemented;M-unit;aclr;tmp_isrcode;disabled_fp_register_fault(tmp_isrcode;check_type;CHKS_GENERAL;CHKS_FLOAT;NATVAL;reg_type;CHKA_GENERAL;alat_index;always_fail;CHKA_FLOAT;alat_cmp(reg_type;check_branch_implemented(check_type;unimplemented_virtual_address(IP;unimplemented_physical_address(IP;speculation_fault(check_type;clr;alat_inval_single_entry(reg_type;RRB;clrrrb;all_form;clrrrb.pr;pred_form;followed_by_stop(;cmp;cmp.crel.ctype;parallel_inequality_form;crel;ctype;unc">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 52px; height: 60px; float: right; border-style: none; float: right;}
+hr.whs2 {height: 2px; width: 100%; float: aligncenter;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔(R) 安腾(R) 指令\nC - 指令\ncmp - 比较指令");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script><!--(Generated Script Links)========================================--> <!--(Generated Code)================================================--> <!--(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)==================--> 
+<script type="text/javascript" language="JavaScript1.2" src="../ehlpdhtm.js" x-save-method="compute-relative" name="EHELP_DHTM"></script>
+<script type="text/javascript"
+		language=JavaScript1.2>
+<!-- 
+if( typeof( kadovInitEffects ) != 'function' ) kadovInitEffects = new Function();if( typeof( kadovInitTrigger ) != 'function' ) kadovInitTrigger = new Function();if( typeof( kadovFilePopupInit ) != 'function' ) kadovFilePopupInit = new Function();if( typeof( kadovTextPopupInit ) != 'function' ) kadovTextPopupInit = new Function();
+ //-->
+</script>
+
+ <!--(==============================================================)-->
+
+
+<h1><img src="itanium60hw.gif" alt="安腾(R) 处理器主题" x-maintain-ratio="TRUE" width="52px" height="60px" align="right" border="0" class="img_whs1">比较指令</h1>
+
+<p><span style="font-weight: bold;"><B>cmp</B></span></p>
+
+<p><a HREF="6400162.htm">操作</a> <a HREF="6400126.htm">字体惯例</a>
+ </p>
+
+<p>指令类型 A</p>
+
+<p><span style="font-weight: bold;"><B>格式</B></span></p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) cmp.<a HREF="6400013.htm"><span style="font-style: italic;"><I>crel</I></span></a>.<span style="x-condition: eclipse;">ctype</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A1');
+//--></script> <span style="font-style: italic;"><I>p1</I></span>, <span style="font-style: italic;"><I>p2</I></span> = <span style="font-style: italic;"><I>r2</I></span>, <span style="font-style: italic;"><I>r3 </I></span>register_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) cmp.<span style="font-style: italic;"><I>crel</I></span>.<span style="font-style: italic;"><I>ctype</I></span> <span style="font-style: italic;"><I>p1</I></span>, <span style="font-style: italic;"><I>p2</I></span> = <span style="font-style: italic;"><I>imm8</I></span>, <span style="font-style: italic;"><I>r3</I></span> imm8_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) cmp.<span style="font-style: italic;"><I>crel</I></span>.<span style="font-style: italic;"><I>ctype</I></span> <span style="font-style: italic;"><I>p1</I></span>, <span style="font-style: italic;"><I>p2</I></span> = r0, <span style="font-style: italic;"><I>r3</I></span> parallel_inequality_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) cmp.<span style="font-style: italic;"><I>crel</I></span>.<span style="font-style: italic;"><I>ctype</I></span> <span style="font-style: italic;"><I>p1</I></span>, <span style="font-style: italic;"><I>p2</I></span> = <span style="font-style: italic;"><I>r3</I></span>, r0 pseudo-op</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<p><span style="font-weight: bold;"><B>说明</B></span></p>
+
+<p>按照 <span style="font-style: italic;"><I>crel</I></span> 指定的十种关系之一比较两个源操作数。如果比较条件为真，则产生的布尔结果为 1，反之则为 0。此结果写入两个谓词寄存器目的地 <span   style="font-style: italic;"><I>p1</I></span> 与 <span style="font-style: italic;"><I>p2</I></span>。结果写入目的地的方式由 <span style="x-condition: eclipse;">ctype</span> 指定的比较类型确定。<script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A2');
+//--></script></p>
+
+<p>比较类型描述如何随根据比较结果更新谓词目标。常规类型仅将比较结果写入一个目标，而在另一个目标中写入相反的内容。并行类型只更新特定比较结果的目标。这样便可以针对相同的谓词寄存器同时进行多个&ldquo;或&rdquo;型或多个&ldquo;与&rdquo;型比较。</p>
+
+<p>unc 首先将谓词目标初始化为 0，而不管限定谓词如何，因此比较特殊。然后它与常规类型的行为方式相同。比较类型的行为在<span style="x-condition: eclipse;"><a href="6400010.htm">比较类型表格</a></span>中介绍。<script type="text/javascript"
+										language=JavaScript1.2><!--
+kadovFilePopupInit('A3');
+//--></script>。空白项目表示谓词目标保持不变。</p>
+
+<p>在 register_form 中，第一个操作数是 <span style="x-condition: eclipse;">GR</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A4');
+//--></script> <span style="font-style: italic;"><I>r2</I></span>；在 imm8_form 中，第一个操作数取自符号扩展的 <span style="font-style: italic;"><I>imm8</I></span> 编码字段；在 parallel_inequality_form 中，第一个操作数必须是 GR 0。只有比较类型是并行类型之一，且关系是不等式（&gt;、&gt;=、&lt;、&lt;=）时，才会使用 parallel_inequality_form。请参阅下文。</p>
+
+<p>如果两个谓词寄存器目的地相同（<span style="font-style: italic;"><I>p1</I></span> 与 <span style="font-style: italic;"><I>p2</I></span> 指定相同的谓词寄存器）、限定谓词已设置或比较类型为 unc，则指令都将执行&ldquo;非法操作&rdquo;错误的处理。</p>
+
+<p>在这十种关系中，并非所有都直接在硬件中实现。有一些实际上是伪操作。对于这些情况，汇编器只是切换一下源操作数指示符且/或切换谓词目标指示符，然后使用实现的关系。对于 imm8_form 形式的一些伪操作比较，汇编器从立即数中减 1，使得允许的立即数范围略有不同。在六种并行比较类型中，有三种类型实际上是伪操作。汇编器只是使用与实现的类型相反的关系。具体实现的关系以及这些伪操作与这些关系之间的对应情况，详见<a href="6400011.htm" style="x-condition: eclipse;">标准与 UNC 类型比较的 64 位比较关系</a><script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A5');
+//--></script>与<a href="6400012.htm" style="x-condition: eclipse;">并行类型比较的 64 位比较关系</a>。<script type="text/javascript"
+															language=JavaScript1.2><!--
+kadovFilePopupInit('A6');
+//--></script></p>
+
+<p>并行比较类型仅可用于一组受限制的关系与操作数。它们可以在两个寄存器或者一个寄存器与一个立即数之间进行相等与不等比较，或是在寄存器与 GR 0 之间进行不等比较。因为其中一个操作数为零时，它们没有大多作用，因此不提供无符号关系。对于并行不等式比较，硬件仅直接实现第一个操作数 (GR <span style="font-style: italic;"><I>r2</I></span>) 为 GR 0 情况。第二个操作数为 GR 0 的比较是伪操作，为此汇编器会切换寄存器指示符并使用相反的关系...</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

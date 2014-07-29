@@ -1,0 +1,172 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>关于静态汇编惩罚</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=MS-HAID content=Overview>
+<meta name=MS-HAID content="Static Assembly Analysis">
+<meta name=MS-HAID content="About Static Analysis">
+<meta name=MS-HAID content="Assembly Code Advice">
+<meta name=MS-HAID content="advice overviews">
+<meta name=date content="05 25, 2003 2:28:06 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=424>
+<meta name=layout-width content=668>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 36px; height: 36px; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; float: right; border-style: none; float: right;}
+ul.whs2 {list-style: disc;}
+img_whs3 {border: none; width: 8px; height: 16px; float: none; border-style: none; border-style: none;}
+img_whs4 {border: none; width: 17px; height: 18px; float: none; border-style: none; border-style: none;}
+p.whs5 {margin-left: 40px;}
+p.whs6 {margin-bottom: 0;}
+p.whs7 {margin-bottom: 0; font-style: italic;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs1 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs6 {margin-bottom:1; }";
+  strNSS += "p.whs7 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n英特尔(R) 奔腾(R) 4 处理器的惩罚\n关于静态汇编器惩罚");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1 CLASS=Overview><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='over.gif' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+else
+{   document.write("<img src='over.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+//--></script><noscript><img src='over.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'></noscript><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='TA_logo.gif' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+else
+{   document.write("<img src='TA_logo.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+//--></script><noscript><img src='TA_logo.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'></noscript>关于静态汇编惩罚</h1>
+
+<p>&ldquo;VTune(TM) 性能分析器&rdquo;可以执行<a HREF="Static_Assembly_Analysis.htm">静态分析</a>。分析之后，VTune 分析器显示关于代码性能的信息：</p>
+
+<ul type="disc" class="whs2">
+	
+	<li class=kadov-p><p>&ldquo;惩罚&rdquo;<img src="penalty.gif" x-maintain-ratio="TRUE" width="8px" height="16px" border="0" class="img_whs3"> 指特定的问题以及它们如何影响性能，例如影响的周期数。</p></li>
+	
+	<li class=kadov-p><p>&ldquo;警告&rdquo;<img src="warning.gif" x-maintain-ratio="TRUE" width="8px" height="16px" border="0" class="img_whs3"> 指在特定的情况下，可能会导致性能降低的潜在问题。 </p></li>
+</ul>
+
+<p>不过，因为分析是静态的，所以对运行时的实际影响是未知的。</p>
+
+<p>要查看静态汇编惩罚与警告，请在&ldquo;混合&rdquo;或&ldquo;仅反汇编代码&rdquo;模式中打开源代码视图。每行代码的惩罚与警告列在 <span   style="font-weight: bold;"><B>Penalties and Warnings</B></span>（惩罚与警告）列中。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="tip.gif" x-maintain-ratio="TRUE" width="17px" height="18px" border="0" class="img_whs4"> 提示</h3>
+
+<p class="whs5">要验证惩罚与警告的实际影响，请使用相关的事件运行基于事件的采样。</p>
+
+<p class="whs6">&nbsp;</p>
+
+<p class="whs6">&nbsp;</p>
+
+<p class="whs7">更新日期 January 25, 2006 A</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

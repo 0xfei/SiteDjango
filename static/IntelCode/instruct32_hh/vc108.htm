@@ -1,0 +1,601 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>FPREM - 部分余数</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="05 11, 2003 11:39:44 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="FPREM--Partial Remainder">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1670>
+<meta name=layout-width content=792>
+<meta name=x-ignored-words content="PACKSSWB;PACKSSDW--Pack;Opcode;r;PACKSSDW;doubleword;doublewords;quadword;XMM;SaturateSignedWordToSignedByte;SaturateSignedDoublewordToSignedWord;SaturateSignedDwordToSignedWord;DS;ES;FS;GS;SS;UD;OSFXSR;CPUID;TS;MF;FPU;FFFFH;PF;Vol;microarchitecture;CMPPD--Compare;ib;CMPPD;SIMD;CMPPS;NaN;QNaN;eq;lt;le;unord;neq;nlt;nle;ord;pseudo-ops;CMPEQPD;CMPLTPD;CMPLEPD;CMPUNORDPD;CMPNEQPD;CMPNLTPD;CMPNLEPD;CMPORDPD;EQ;LT;LE;UNORD;NEQ;NLT;NLE;ORD;FFFFFFFFFFFFFFFFH;FI;SNaN;denormal;PF(fault-code;XM;OSXMMEXCPT;CMPS;CMPSB;CMPSW;CMPSD--Compare;E;SI;DI;CMPSD;ESI;EDI;decremented;DF;ECX;REPE;REPZ;REPNE;REPNZ--Repeat;SetStatusFlags(temp;comparison*;CF;SF;ZF;AF;GP;EFLAGS;CWD;CDQ--Convert;Doubleword;Quadword;DX;CDQ;EDX;EAX;opcode;OperandSize;SignExtend(AX;SignExtend(EAX;CBW;CWDE--Convert;CWDE;SignExtend(AL;FCOM;FCOMP;FCOMPP--Compare;ST(i;FCOMPP;Unordered*;FXAM--Examine;FUCOM;QNaNs;ESAC;FPUControlWord.IM;PopRegisterStack;FADD;FADDP;FIADD--Add;FIADD;DEST;F;±F;ConvertExtendedReal(SRC;FICOM;FICOMP--Compare;FICOMP;FDIV;FDIVP;FIDIV--Divide;FIDIV;Z;±;FDIVR;FDIVRP;FIDIVR--Reverse;FIDIVR;FMUL;FMULP;FIMUL--Multiply;FIMUL;FISTP--Store;FISTP;RC;FISUB--Subtract;FSUB;FSUBP;FISUB;Dest;FSUBR;FSUBRP;FISUBR;FLDZ--Load;EB;EC;EE;FLDZ;FLDPI;FCLEX;FNCLEX--Clear;FNCLEX*;PE;UE;OE;ZE;IE;FNCLEX;MS-DOS*;MXCRS;FNINIT*;coprocessor;FPUControlWord;FPUStatusWord;FPUTagWord;FPUDataPointer;FPUInstructionPointer;FPULastInstructionOpcode;FINIT;FNINIT;MXCSR;FSAVE;FNSAVE--Store;FNSAVE*;FNSAVE;FNINIT--Initialize;coprocessors;FPUs;FWAIT;DEST[FPUControlWord;DEST[FPUStatusWord;DEST[FPUTagWord;DEST[FPUDataPointer;DEST[FPUInstructionPointer;DEST[FPULastInstructionOpcode;nonwritable;FSTCW;FNSTCW--Store;FNSTCW*;FNSTCW;FNSTENV--Store;FSTENV;FNSTENV*;FNSTENV;FNSTSW--Store;FNSTSW*;FNSTSW;FPREM;FXAM;FSTSW;denormalized;MOV--Move;ModR;M;m;PG;PGE;PSE;PAE;PDPTRs;MOV;reg;TLB;Lookaside;TLBs;GD;FSTP--Store;FST;FSTP;significand;FUCOMIP--Compare;FUCOMIP;FCOMI;FCOMIP;FUCOMI;FUCOMPP--Unordered;FUCOMP;FUCOMPP;FWAIT--Wait;MP;INSB;INSW;INSD--Input;INSD;CPL;IOPL;VM;TSS;CL;BL;CH;DH;BH;CX;BX;SP;EBX;EBP;mm--An;XLAT;LIDT;LGDT;GDTR;IDTR;ith;DPL=;C;W;Y;INTRA-PRIVILEGE-LEVEL-INTERRUPT;flag*;Push(CS;Push(IP;IDT(Descriptor;vector_number;GP((DEST;EXT;GP((vector_number;NP((vector_number;GDT;GP(TSS;NP(TSS;Push(error;GP(selector;NP(selector;GP(new;GP(CodeSegmentSelector;INTER-PREVILEGE-LEVEL-INTERRUPT;TSSstackAddress;TS(current;NewSS;NewESP;TS(EXT;RPL;TS(SS;LDT;SS(SS;selector+EXT;SS(segment;TSS(NewSS;Gate(CS;IP;Push(far;Push(EFLAGS;Push(ErrorCode;ELSE(*;CodeSegmentDescriptor(DPL;CS(RPL;RF;tempEFLAGS;TempSS;TempESP;Push(GS;Push(FS;Push(DS;Push(ES;Push(TempSS;Push(TempESP;Push(TempEFlags;Push(EIP;Gate(instruction;ErrorCode;SS(selector;TS(selector;TSS's;INT;n;CE;IDT;VME;Microsoft*;EIP;IRET;DPL;GOTO;TF;CMC;LIDT--Load;SFENCE--Store;IDTR(Limit;IDTR(Base;GDTR(Limit;GDTR(Base;SIDT--Store;SGDT;SIDT;mm_loadr_ps;mm_cmpgt_ss;Intrinsics;intrinsics;xmm;declspec;ps;ss;z;y;w;t;mm_load_ps(a;immediates;Intra-privilege;Pop(;tempEIP;tempCS;tempEFLAGS(VM;VIF;EFLAGS(IF;EFLAGS(IOPL;EFLAGS(VM;RETURN-TO-OUTER-PRIVILGE-LEVEL;GP(SSselector;LODSD--Load;LODSD;LOOPcc--Loop;LOOPE;LOOPZ;LOOPNE;LOOPNZ;AddressSize;BranchCond;SignExtend(DEST;LSS--Load;SegmentRegister(DescriptorValidBit;Offset(SRC;XCHG--Exchange;MOVSD--Move;rw;rb;SI's;AddressSize--The;StackAddrSize--Represents;SRC--Represents;DEST--Represents;ZeroExtend(value;ZeroExtend;SignExtend(value;SignExtend;SaturateSignedWordToSignedByte--Converts;SaturateSignedDwordToSignedWord--Converts;SaturateSignedWordToUnsignedByte--Converts;FFH;SaturateToSignedByte--Represents;SaturateToSignedWord--Represents;SaturateToUnsignedByte--Represents;SaturateToUnsignedWord--Represents;LowOrderWord(DEST;HighOrderWord(DEST;Push(value;PUSH--Push;POP--Pop;PopRegisterStack--Marks;Switch-Tasks--Performs;Bit(BitBase;BitOffset;Bit[EAX;BIT[EAX;BitBase;GBits;DIV;EWBE#;EFLAGS(RF;SegmentSelector;IRETD;LODS;LODSB;LODSW;cb;LOOPcc;LDS;LES;LFS;LGS;LSS;ProtectedMode;SegementSelector;SegmentSelector(SRC;SegmentDescriptor([SRC;SegmentRegister;NullSelector;software*;XCHG;BSWAP;MOVSB;MOVSW;MOVS;MOVSD;Encodings;OUTSB;OUTSW;OUTSD;prefetched;PADDB;PADDW;FC;FD;FE;PADDD;PADDSW--Packed;SaturateToSignedByte;SaturateToSignedWord;PADDSB;PADDSW;PADDUSW--Packed;SaturateToUnsignedByte;SaturateToUnSignedByte;SaturateToUnsignedWord;SaturateToUnSignedWord;PADDUSB;PADDUSW;PAVGW--Packed;PAVGB;PAVGW;PCMPEQB;PCMPEQW;PCMPEQD;PCMPGTD--Packed;FFFFFFFFH;DCMPGTD;PCMPGTB;PCMPGTW;PCMPGTD;POPA;POPAD;PUSHA;PUSHAD;POPFD--Pop;POPF;POPFD;PUSHF;PUSHFD;unaffected*;PSLLQ--Packed;ZeroExtend(DEST;PSLLW;PSLLD;PSLLQ;quadwords;int;PSRAD--Packed;PSRAW;PSRAD;PSRLQ--Packed;PSRLW;PSRLD;PSRLQ;PSUBD--Packed;PSUBB;PSUBW;PSUBD;PSUBSW--Packed;PSUBSB;PSUBSW;PSUBUSW--Packed;MMX;PSUBUSB;PSUBUSW;PUNPCKHQDQ--;PUNPCKHW;PUNPCKHBW;PUNPCKHWD;PUNPCKHDQ;PUNPCKHQDQ;PUNPCKLQDQ--;PUNPCKLBW;PUNPCKLWD;PUNPCKLDQ;PUNPCKLQDQ;Push(ECX;Push(EDX;Push(EBX;Push(Temp;Push(EBP;Push(ESI;Push(EDI;Push(AX;Push(CX;Push(DX;Push(BX;Push(BP;Push(SI;Push(DI;Push(EAX;PUSHFD--Push;push(EFLAGS;stack*;EFLAG;IDIV;Coprocessor;NMI;INTR;NP;MC;XF;STOS;nonmatching;AE;SCAS;non-EAX;REPNZ;JECXZ;JZ;JNZ;JNE;CountReg;LSB(DEST;LSB(SRC;MSB;RCL;RCR;ROL;ROR;tempCOUNT;tempCF;MSB(DEST;ELIHW;XOR;ROR--Rotate;SCASB;SCASD--Scan;ES(E;SCASW;SCASD;SAL;SAR;divide*;SHL;SHR;tempDEST;infinity*;Denormalized;misaligned;MOVUPS;Denormal;CPUID.XMM;mm_setcsr(unsigned;EFLAGS.AC;CPUID.XMM(EDX;LDMXCSR;FZ;underflows;FXRSTOR;STOSD--Store;STOSB;STOSW;STOSD;FLD--Load;ExtendedReal(SRC;FLD;FLDCW--Load;FLDCW;FPU's;FLDENV--Load;SRC[FPUControlWord;SRC[FPUStatusWord;SRC[FPUTagWord;SRC[FPUDataPointer;SRC[FPUInstructionPointer;SRC[FPULastInstructionOpcode;FLDENV;FNOP--No;FNOP;FPATAN--Partial;Arctangent;arctangent;FPATAN;FPREM--Partial;LeastSignificantBits(Q;modulus;Q;Std;N;QQ">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px; margin-top: 14pt; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px;}
+td.whs2 {x-cell-content-align: CENTER; padding-left: 3px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px;}
+img_whs3 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; float: none; border-style: none; width: 13px; height: 16px;}
+img_whs4 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; width: 9px; height: 16px;}
+img_whs5 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; width: 17px; height: 15px;}
+img_whs6 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; width: 13px; height: 16px;}
+p.whs7 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs3 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "img_whs4 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "img_whs5 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "img_whs6 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs7 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\nIA-32 指令\nF - 指令\nFPREM - 部分余数");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>FPREM - 部分余数</h1>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">操作码</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">指令</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">D9 F8</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FPREM</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">将 ST(0) 替换成 ST(0) 除以 ST(1) 的余数。</td></tr>
+</table>
+
+<h2>说明</h2>
+
+<p>计算将 ST(0) 寄存器中的值（被除数）除以 ST(1) 寄存器中的值（除数或<span style="font-weight: bold;"><B>模</B></span>）所得到的余数，结果存储到 ST(0)。余数表示以下值：</p>
+
+<p>Remainder <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> ST(0) - (Q * ST(1))</p>
+
+<p>这里，Q 是一个整数值，通过将 [ST(0) / ST(1)] 的实数商向零截断得到。余数的符号与被除数的相同。除非计算部分余数（如下所述），否则余数的值比模的小。</p>
+
+<p>此指令会产生精确的结果；不会产生精度（不精确）异常，且不受取整控制的影响。下表显示计算各类数值的余数时得到的结果（假设未发生下溢）。</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">&nbsp;</td>
+<td COLSPAN="8" valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>ST(1)</td>
+</tr>
+
+<tr>
+<td ROWSPAN="8" valign="middle" class="whs2">
+<p CLASS=TableCell>&nbsp;</p>
+<p CLASS=TableCell>&nbsp;</p>
+<p CLASS=TableCell>&nbsp;</p>
+<p CLASS=TableCell>&nbsp;</p>
+<p CLASS=TableCell>&nbsp;</p>
+<p CLASS=TableCell>&nbsp;</p>
+<p CLASS=TableCell
+	style="margin-bottom: 0;">ST(0)</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">&nbsp;</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-<script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='infinity.gif' width='9px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'></noscript></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-F</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+F</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+<script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='infinity.gif' width='9px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'></noscript></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-<script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='infinity.gif' width='9px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'></noscript></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-F</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>ST(0)</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-F 或 -0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>**</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>**</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-F 或 -0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>ST(0)</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>-0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+F</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>ST(0)</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+F 或 +0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>**</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>**</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+F 或 +0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>ST(0)</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>+<script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='infinity.gif' width='9px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'></noscript></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>*</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td></tr>
+</table>
+
+<p>备注：F 表示有限实数。</p>
+
+<p>* 表示浮点算术操作数无效 (#IA) 异常。</p>
+
+<p>** 表示浮点除零 (#Z) 异常。</p>
+
+<p>结果为 0 时，其符号与被除数的相同。模为 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='infinity.gif' width='9px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'></noscript> 时，结果与 ST(0) 中的值相同。</p>
+
+<p>FPREM 指令不计算 IEEE 754 标准中规定的余数。IEEE 规定的余数可以使用 FPREM1 指令计算。提供 FPREM 指令是为了同英特尔<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 				face=Verdana>(R)</font> 8087 及 Intel287 数学协处理器保持兼容。</p>
+
+<p>FPREM 指令因计算余数的方式而得名&ldquo;部分余数&rdquo;。此指令通过反复执行减法得到余数。不过在指令的一次执行中，它可以将 ST(0) 的指数减去不超过 63 的值。如果指令成功产生小于模的余数，则操作完成，并清除 FPU 状态字中的 C2 标志。否则将设置 C2，此时 ST(0) 中的结果称为<span style="font-weight: bold;"><B>部分余数</B></span>。部分余数的指数将比原始被除数的指数至少小 32。软件可以重复执行指令（将 ST(0) 中的部分余数用作被除数），直到清除 C2。（请注意，执行这样的余数计算循环时，在循环的指令之间，需要 FPU 且优先级更高的中断例程可能会强制进行上下文切换）。</p>
+
+<p>FPREM 指令的重要用途之一是减少周期函数的参数。减法完成时，指令将商的三个最低有效位存储到 FPU 状态字的 C3、C1 及 C0 标志。由于减少正切函数的参数（使用模 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='pi.gif' width='17px' height='15px' border='0' class='img_whs5'>");}
+else
+{   document.write("<img src='pi.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='15px' border='0' class='img_whs5'>");}
+//--></script><noscript><img src='pi.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='15px' border='0' class='img_whs5'></noscript>/4）时，会将原始角度定位到单位圆的八个扇区之一，所以此信息非常重要。</p>
+
+<h2>操作</h2>
+
+<p class=Preformatted>D <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> exponent(ST(0)) - exponent(ST(1));<br> IF D &lt; 64<br> THEN<br> Q <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> Integer(TruncateTowardZero(ST(0) / ST(1)));<br> ST(0) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> ST(0) - (ST(1) * Q);<br> C2 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> 0;<br> C0, C3, C1 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> LeastSignificantBits(Q); (* Q2, Q1, Q0 *)<br> ELSE<br> C2 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> 1;<br> N <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> an implementation-dependent number between 32 and 63;<br> QQ <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> Integer(TruncateTowardZero((ST(0) / ST(1)) / 2(D-N)<span style="font-size: 10.0pt;"><font size=2 style="font-size:10pt;">)</font></span>);<br> ST(0) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs6'></noscript> ST(0) - (ST(1) * QQ * 2(D-N)<span style="font-size: 10.0pt;"><font size=2 style="font-size:10pt;">)</font></span>; <br> FI;</p>
+
+<h2>影响的 FPU 标志</h2>
+
+<p>C0 - 设置为商的位 2 (Q2)。</p>
+
+<p>C1 - 如果发生堆栈下溢，则设置为 0；否则设置为商的最低有效位 (Q0)。</p>
+
+<p>C2 - 如果减法完成，则设置为 0；如果未完成，则设置为 1。</p>
+
+<p>C3 - 设置为商的位 1 (Q1)。</p>
+
+<h2>浮点异常</h2>
+
+<p>#IS - 发生堆栈下溢。</p>
+
+<p>#IA - 源操作数是 SNaN 值、模是 0、被除数是 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='infinity.gif' width='9px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='infinity.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='9px' height='16px' border='0' class='img_whs4'></noscript>，或是不支持的格式。</p>
+
+<p>#D - 源操作数是非规格化值。</p>
+
+<p>#U - 结果对于目标格式而言太小。</p>
+
+<h2>保护模式异常</h2>
+
+<p>#NM - 如果 CR0 中的 EM 或 TS 设置为 1。</p>
+
+<h2>实地址模式异常</h2>
+
+<p>#NM - 如果 CR0 中的 EM 或 TS 设置为 1。</p>
+
+<h2>虚 8086 模式异常</h2>
+
+<p class="whs7">#NM - 如果 CR0 中的 EM 或 TS 设置为 1。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

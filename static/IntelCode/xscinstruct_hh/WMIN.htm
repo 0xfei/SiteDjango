@@ -1,0 +1,546 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>WMIN</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=WMIN.htm>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1538>
+<meta name=layout-width content=1035>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+table.whs2 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 0px; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 0px;}
+td.whs3 {padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px;}
+tr.whs4 {background-color: #CCCCCC; text-align: center;}
+th.whs5 {padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px;}
+div.whs6 {text-align: center;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs1 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n指令\n32 位指令\nW - 指令\nWMIN");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+else
+{   document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+//--></script><noscript><img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'></noscript>WMIN - 矢量最小值</h1>
+
+<h2>语法</h2>
+
+<p class=Preformatted>WMINsignlength[condition] dest, op1, op2  </p>
+
+<p>其中： </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" border="1" class="whs2">
+
+<tr>
+<td class="whs3">sign</td>
+<td class="whs3">确定进行&ldquo;有符号&rdquo;还是&ldquo;无符号&rdquo;算术运算：<br>S - 有符号<br> U - 无符号</td></tr>
+
+<tr>
+<td class="whs3"><i style="font-style: italic;">length</i></td>
+<td class="whs3">所需的数据长度，可以由以下字符之一指定：<br>B - 操作 8 位（字节）SIMD 数据<br> H - 操作 16 位（半字）SIMD 数据<br> W - 操作 32 位（字）SIMD 数据</td></tr>
+
+<tr>
+<td class="whs3"><i style="font-style: italic;">condition</i></td>
+<td class="whs3">可选。16 个条件之一。请参阅<a HREF="Conditional_Execution.htm">条件执行</a></td></tr>
+
+<tr>
+<td class="whs3">dest</td>
+<td class="whs3">目标，&ldquo;英特尔(R) 无线 MMX&#x2122;&rdquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 	face=Verdana>技术</font>数据寄存器</td></tr>
+
+<tr>
+<td class="whs3">op1</td>
+<td class="whs3">第一个源操作数，&ldquo;英特尔(R) 无线 MMX&#x2122;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 		face=Verdana>&rdquo;技术</font>数据寄存器</td></tr>
+
+<tr>
+<td class="whs3">op2</td>
+<td class="whs3">第二个源操作数，&ldquo;英特尔(R) 无线 MMX&#x2122;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 		face=Verdana>&rdquo;技术</font>数据寄存器</td></tr>
+</table>
+
+&nbsp; 
+
+<h2>说明</h2>
+
+<p>在 op1 与 op2 内的每个&ldquo;矢量&rdquo;中选择最小值，并将产生的最小值放入目标寄存器 dest。此指令可以在有符号或无符号的 8 位、16 位或 32 位数据值上执行。<br><br>指令中指定的任何条件必须与条件代码状态匹配，否则不执行指令。 </p>
+
+<h2>编码</h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" border="1" class="whs2">
+
+<tr bgcolor="#CCCCCC" align="center" class="whs4">
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>31</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>30</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>29</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>28</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>27</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>26</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>25</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>24</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>23</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>22</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>21</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>20</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>19</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>18</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>17</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>16</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>15</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>14</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>13</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>12</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>11</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>10</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>9</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>8</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>7</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>6</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>5</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>4</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>3</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>2</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>1</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>0</font> 
+</div></th></tr>
+
+<tr>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs6">
+Cond 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs6">
+1110 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs6">
+wws1 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs6">
+<i style="font-style: italic;"><b style="font-weight: bold;">op1</b></i> 
+ 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs6">
+<i style="font-style: italic;"><b style="font-weight: bold;">dest</b></i> 
+ 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs6">
+0001 
+</div></td>
+<td colspan="3" rowspan="1" class="whs3">
+<div align="center" class="whs6">
+011 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+0 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs6">
+<i style="font-style: italic;"><b style="font-weight: bold;">op2</b></i> 
+ 
+</div></td>
+</tr>
+</table>
+
+&nbsp; 
+
+<h2>子字段编码</h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" border="1" class="whs2">
+
+<tr bgcolor="#CCCCCC" align="center" class="whs4">
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>限定符</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>字段</font> 
+</div></th>
+<th class="whs5">
+<div align="center" class="whs6">
+<font style="font-family: Verdana, Arial, Helvetica, sans-serif;"
+		face=Verdana>值</font> 
+</div></th></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs6">
+B 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+ww 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+00 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs6">
+H 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+ww 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+01 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs6">
+W 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+ww 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+10 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs6">
+保留
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+ww 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+11 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs6">
+S 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+s 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+1 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs6">
+U 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+s 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs6">
+0 
+</div></td></tr>
+</table>
+
+<h2>影响的 SIMD 标志</h2>
+
+不影响 SIMD PSR 标志 (wCASF) 或&ldquo;饱和&rdquo;标志 (wCSSF)。 
+ 
+
+<h2>操作</h2>
+
+<p class=Preformatted
+	style="font-family: 'Courier New';">if (B Specified) then</p>
+
+<p class=Preformatted><font style="font-family: 'Courier New';"
+							face="Courier New"><i style="font-style: italic;">dest</i></font>[byte 7] = (o<i>p1</i>[byte 7] &lt; <i>op2</i>[byte 7]) ? o<i>p1</i>[byte 7] : <i>op2</i>[byte 7]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[byte 6] = (o<i>p1</i>[byte 6] &lt; <i>op2</i>[byte 6]) ? o<i>p1</i>[byte 6] : <i>op2</i>[byte 6]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[byte 5] = (o<i>p1</i>[byte 5] &lt; <i>op2</i>[byte 5]) ? o<i>p1</i>[byte 5] : <i>op2</i>[byte 5]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[byte 4] = (o<i>p1</i>[byte 4] &lt; <i>op2</i>[byte 4]) ? o<i>p1</i>[byte 4] : <i>op2</i>[byte 4]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[byte 3] = (o<i>p1</i>[byte 3] &lt; <i>op2</i>[byte 3]) ? o<i>p1</i>[byte 3] : <i>op2</i>[byte 3]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[byte 2] = (o<i>p1</i>[byte 2] &lt; <i>op2</i>[byte 2]) ? o<i>p1</i>[byte 2] : <i>op2</i>[byte 2]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[byte 1] = (o<i>p1</i>[byte 1] &lt; <i>op2</i>[byte 1]) ? o<i>p1</i>[byte 1] : <i>op2</i>[byte 1]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[byte 0] = (o<i>p1</i>[byte 0] &lt; <i>op2</i>[byte 0]) ? o<i>p1</i>[byte 0] : <i>op2</i>[byte 0]</p>
+
+<p class=Preformatted>else if (H Specified)then</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[half 3] = (o<i>p1</i>[half 3] &lt; <i>op2</i>[half 3]) ? o<i>p1</i>[half 3] : <i>op2</i>[half 3]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[half 2] = (o<i>p1</i>[half 2] &lt; <i>op2</i>[half 2]) ? o<i>p1</i>[half 2] : <i>op2</i>[half 2]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[half 1] = (o<i>p1</i>[half 1] &lt; <i>op2</i>[half 1]) ? o<i>p1</i>[half 1] : <i>op2</i>[half 1]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[half 0] = (o<i>p1</i>[half 0] &lt; <i>op2</i>[half 0]) ? o<i>p1</i>[half 0] : <i>op2</i>[half 0]</p>
+
+<p class=Preformatted>else if (W Specified) then</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[word 1] = (o<i>p1</i>[word 1] &lt; <i>op2</i>[word 1]) ? o<i>p1</i>[word 1] : <i>op2</i>[word 1]</p>
+
+<p class=Preformatted><i style="font-style: italic;">dest</i>[word 0] = (o<i>p1</i>[word 0] &lt; <i>op2</i>[word 0]) ? o<i>p1</i>[word 0] : <i>op2</i>[word 0]</p>
+
+<h2>更多信息</h2>
+
+<a href="WACC.htm">WACC</a> 
+
+<br><a href="WADD.htm">WADD</a> 
+
+<br><a href="WAVG2.htm">WAVG2</a> 
+
+<br><a HREF="WMAX.htm">WMAX</a><a href="WMOV.htm"><br> WMOV</a><a href="WSAD.htm"><br> WSAD</a><a href="WSUB.htm"><br> WSUB</a><a href="WZERO.htm"><br> WZERO</a> 
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

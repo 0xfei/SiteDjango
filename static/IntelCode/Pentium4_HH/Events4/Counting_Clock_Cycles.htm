@@ -1,0 +1,173 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>统计时钟周期</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="03 6, 2002 9:21:57 AM">
+<meta NAME=MS-HAID CONTENT=Events4>
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="Counting Clock Cycles">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=945>
+<meta name=layout-width content=668>
+<meta name=x-ignored-words content="MMX;SIMD;Aliasing;modulo;aliasing;Pentium;pipelined;mispredicted;NetBurst;irets;BTB;DTLB;micro-ops;lookaside;TLB;Lookaside;mispredictions;cmov;setcc;MH;M;C;ebx;and-ed;fcmov;CMOV;eax;cpuid;UC;uncacheable;WC;MMNP;MMNM;Mispredicted;MMTP;MMTM;IO;reads|writes;writebacks;HARD_FAIL;NO_DATA;Clockticks;clocktick;VTune;clockticks;MOCLEAR;prefetching;misprediction;PGO;pseudo-LRU;developer.intel.com;index.htm;Vol;RFO;NBOGUSNTAG;NBOGUSTAG;BOGUSNTAG;BOGUSTAG;prefetch;Micro-ops;NO_STA;NO_STD;PARTIAL_DATA;UNALGN_ADDR;Non-prefetch;LSC;SSC;USC;ULC;SSE;denormal;denormaled;DELIVERBit;;BSQ;writeback;Uncacheable;encodings;ITLB;PGO's;RGBA;C++*;?;a(i;y;enddo;cacheability;index.htm.;μops;μop;prefetched;CPUID;resynchronize;Memory_Flag;ELIHW;TC-built;TC-delivered;uops;declspec(align(n;intrinsics;Uops;NBOGUS;EMON_UOPS_RETIRED;WB;WB-type;microarchitecture;RFOs;IOQ;SMP;prefetcher;frontside;FSB;XAPIC;FSB's;IOQ_allocation;BSQ_allocation;BSQ_active_entries;BSQ_cache_reference;Writeback;IOQ_active_entries;Writebacks;chipset;non-prefetch;prefetches;BSQ_cache_rerference;Prefetches;overcounting;allocation-to-deallocation;deallocation;dqword;RDTSC;CCCR">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: ; 48: px; height: 60px; border-style: none; float: right; border-style: none; float: right;}
+ul.whs2 {list-style: disc;}
+img_whs3 {border: none; width: 20px; height: 20px; float: none; border-style: none; border-style: none;}
+p.whs4 {margin-left: 40px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n英特尔(R) 奔腾(R) 4 处理器事件\n性能调整事件 - 基本\n主要 CPI 限制事件\n统计时钟周期");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="p4p60hw.gif" alt="奔腾(R) 4 处理器主题" x-maintain-ratio="TRUE" height="60px" align="right" border="0" class="img_whs1">统计时钟周期</h1>
+
+<p>周期计数，也就是时钟信号，是测量程序执行时间的基础，也是每指令时钟周期数 (CPI) 等效率比率的一部分。在英特尔(R) 奔腾(R) 4 与英特尔(R) 至强(TM) 处理器上，某些处理器时钟可能会在特定的情况下停止&ldquo;跳动&rdquo;：</p>
+
+<ul type="disc" class="whs2">
+	
+	<li class=kadov-p><p>处理器暂停，例如在 I/O 期间，给磁盘读取请求提供服务时 CPU 没有其它任务，此时处理器可能会暂停，以便节省电能。</p></li>
+	
+	<li class=kadov-p><p>处理器处于休眠状态，或是因为已暂停一段时间，或是作为电源管理方案的一部分。 &nbsp;</p></li>
+</ul>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="note.gif" x-maintain-ratio="TRUE" width="20px" height="20px" border="0" class="img_whs3"> 备注</h3>
+
+<p class="whs4">休眠有不同的层次，在深层休眠中，处理器的时间标签计数器停止计数。</p>
+
+<p>&nbsp;</p>
+
+<p>监视性能时使用的时钟周期统计机制有三种：</p>
+
+<ul type="disc" class="whs2">
+	
+	<li class=kadov-p><p>非暂停时钟信号 - 指定的逻辑处理器不处于暂停状态的周期数</p></li>
+	
+	<li class=kadov-p><p>非休眠时钟信号 - 物理处理器不处于任何休眠模式的周期数</p></li>
+	
+	<li class=kadov-p><p>时间标签计数器 - 物理处理器不处于深层休眠状态的周期数</p></li>
+</ul>
+
+<p>前两种机制使用性能计数器。时间标签计数器通过指令 RDTSC 访问。 &nbsp;</p>
+
+<p>对于有相当 I/O 量的应用程序，您可能会对这些比率感兴趣：</p>
+
+<ul type="disc" class="whs2">
+	
+	<li class=kadov-p><p>非暂停 CPI：非暂停时钟信号/失效指令测量 CPU 正在使用时各阶段的 CPI。</p></li>
+	
+	<li class=kadov-p><p>非休眠 CPI：非休眠时钟信号/失效指令测量物理封装不处于任何休眠模式时各阶段的 CPI。</p></li>
+	
+	<li class=kadov-p><p>名义 CPI：时间标签计数器信号/失效指令测量整个程序持续时间的 CPI，包括等待 I/O 时机器暂停的那些时段。</p></li>
+</ul>
+
+<h2>非休眠时钟信号与非暂停时钟信号</h2>
+
+<p>如果每个物理封装支持一个逻辑处理器，在大多数情况下，非暂停与非休眠时钟信号产生的计数是等价的。在支持&ldquo;超线程技术&rdquo;的处理器上，每个物理封装可支持两个或更多逻辑处理器。&ldquo;超线程技术&rdquo;仅为每个物理处理器提供两个逻辑处理器。尽管这两个逻辑处理器都能同时执行两个线程，但一个逻辑处理器可能会暂停，以便去执行另一个逻辑处理器，而不会在这两个逻辑处理器之间共享执行资源。 </p>
+
+<p>非暂停时钟信号可加以限定，以统计每个逻辑处理器的处理器时钟周期数，只要逻辑处理器不在暂停状态（它可能包含一部分逻辑处理器完成到暂停状态的转换所用的时钟周期）。 </p>
+
+<p>非休眠时钟信号基于 CCCR 中的过滤机制，只要一个逻辑处理器未暂停，它就会持续递增。</p>
+
+<h2>时间标签计数器</h2>
+
+<p>只要未声言休眠引脚，或系统总线上存在活动的时钟信号，时间标签计数器便会递增。它可以使用 RDTSC 指令读取。两次读取的值之间的差异（模数 2**64）给出两次读取之间的时钟周期数。</p>
+
+<p>时间标签计数器与非休眠时钟信号计数在所有情况下应保持事实上的一致。不过，物理封装中的两个逻辑处理器可能同时暂停，此时会导致芯片中的大部分组件（包括性能监视硬件）断电。在这种情况下，因为系统总线上仍存在活动的时钟信号，时间标签计数器可能仍持续递增；但因为性能监视硬件已然断电，非休眠时钟信号便不再递增。</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

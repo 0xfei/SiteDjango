@@ -1,0 +1,190 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>浮点与整数指令无法配对</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 25, 2002 3:45:17 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=478>
+<meta name=layout-width content=759>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 17px; height: 18px; border-style: none; border-style: none;}
+p.whs3 {margin-left: 40px;}
+td.whs4 {x-cell-content-align: TOP; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+p.whs5 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs5 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js" name="EHELP_DHTM"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" width="36px" height="36px" align="right" border="0" class="img_whs1"> 浮点与整数指令无法配对</h1>
+
+<p><span style="font-weight: bold;"><B>FP_Doesnt_Pair</B></span> 表示一种配对限制冲突。</p>
+
+<p>为其发出 <span style="font-weight: bold;"><B>FP_Doesnt_Pair</B></span> 的指令是一个浮点指令。它无法与前一个整数指令配对。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="tip.gif" width="17px" height="18px" border="0" class="img_whs2"> <span style="font-weight: bold;"><B>建议</B></span></h3>
+
+<p class="whs3">调整代码结构，使得浮点指令跟在一对整数指令后面。</p>
+
+<p>示例：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td valign="top" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">原始代码</td>
+<td valign="top" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">优化代码</td></tr>
+
+<tr>
+<td valign="top" class="whs4">
+<pre CLASS=Code>
+<p class=Preformatted>
+1. inc ebx<span style="font-weight: bold;">
+<B>2. fadd fl1</B></span>
+3. inc ecx</p>
+</pre></td>
+<td valign="top" class="whs4">
+<pre CLASS=Code>
+<p class=Preformatted>
+1. inc ebx
+3. inc ecx<span style="font-weight: bold;">
+<B>2. fadd fl1</B></span></p>
+</pre></td></tr>
+
+<tr>
+<td valign="top" class="whs4">
+<p class="whs5">INC 发到 <a href="../../../../../../vtglossary_hh/vtglossary.htm#U_pipe" style="x-condition: WebHelp;">U 管道</a>。FADD 是浮点指令，因此未同 FADD 配对。它无法与整数指令配对。</td>
+<td valign="top" class="whs4">
+<p class="whs5">在优化的代码中，INC ECX 与 INC ECX 配对。FADD 在后一个周期中执行。</td></tr>
+</table>
+
+<p class="whs5">
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','FDIV/FLDCW 指令','lipsfdiv_stall.htm','FMUL 暂停','lipsfmul_stall.htm','MMX(TM) 技术代码转换','lipspro_mmx_trans.htm','整数指令在 FXCH 之后','lipsint_fxch.htm','浮点暂停以等待 FST 操作数','lipsfst_dep.htm','浮点相关','lipsfp_dep.htm');return false;" title="相关惩罚"><img src="../../ss_btn_相关惩罚.gif" border=0 height=20 width=58 alt="相关惩罚"></a>
+
+
+ </p>
+
+<p class="whs5">
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','含 MMX(TM) 技术的奔腾(R) 处理器','pentium(r)_with_mmx(tm_technology_processor.htm','奔腾(R) 处理器','pentium(r)_processor.htm');return false;" title="影响的处理器"><img src="../../ss_btn_影响的处理器.gif" border=0 height=20 width=82 alt="影响的处理器"></a>
+
+
+ </p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

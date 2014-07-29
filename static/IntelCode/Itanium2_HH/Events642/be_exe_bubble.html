@@ -1,0 +1,217 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>be_exe_bubble</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=BE_EXE_BUBBLE>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=733>
+<meta name=layout-width content=668>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 20px; height: 20px; border-style: none;}
+table.whs2 {width: 100%;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\n暂停事件\nBE_EXE_BUBBLE");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>BE_EXE_BUBBLE</h1>
+
+&nbsp;
+
+<br><b   style="font-weight: bold;">标题：</b>主管道中执行单元暂停导致的全管道气泡<b style="font-weight: bold;"><br> 类别：</b>暂停事件<b style="font-weight: bold;"><br> IAR/DAR/OPC：</b>N/N/N<b style="font-weight: bold;"><br> 事件代码：</b>0x02<b style="font-weight: bold;"><br> 最大每周期增量：</b>1 
+
+<p><b style="font-weight: bold;">定义：</b>统计主管道中&ldquo;执行单元&rdquo;引起的暂停导致的全管道气泡数。</p>
+
+<h3 class=NoteTipHead><img src="note.gif" width="20px" height="20px" border="0" class="img_whs1"> 备注</h3>
+
+此事件的各个产生原因之间不排优先级，因为不需要这么做（各个产生原因之间彼此独立，其中有一些是同时触发的，因此都应该加以统计）。 <br>
+
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells width="100%" class="whs2">
+
+<tr>
+<td>
+<h3 CLASS=TableHead>扩展</td>
+<td>
+<h3 CLASS=TableHead>PMC.umask</td>
+<td>
+<h3 CLASS=TableHead>说明</td></tr>
+
+<tr>
+<td>
+<p>ALL</td>
+<td>
+<p>b0000</td>
+<td>
+<p>后端被 exe 暂停</td></tr>
+
+<tr>
+<td>
+<p>GRALL</td>
+<td>
+<p>b0001</td>
+<td>
+<p>由于 GR/GR 或 GR/加载相关，后端被 exe 暂停</td></tr>
+
+<tr>
+<td>
+<p>FRALL</td>
+<td>
+<p>b0010</td>
+<td>
+<p>由于 FR/FR 或 FR/加载相关，后端被 exe 暂停</td></tr>
+
+<tr>
+<td>
+<p>PR</td>
+<td>
+<p>b0011</td>
+<td>
+<p>由于 PR 相关，后端被 exe 暂停</td></tr>
+
+<tr>
+<td>
+<p>ARCR</td>
+<td>
+<p>b0100</td>
+<td>
+<p>由于 AR 或 CR 相关，后端被 exe 暂停</td></tr>
+
+<tr>
+<td>
+<p>GRGR</td>
+<td>
+<p>b0101</td>
+<td>
+<p>由于 GR/GR 相关，后端被 exe 暂停</td></tr>
+
+<tr>
+<td>
+<p>CANCEL</td>
+<td>
+<p>b0110</td>
+<td>
+<p>由于取消加载，后端被 exe 暂停</td></tr>
+
+<tr>
+<td>
+<p>BANK_SWITCH</td>
+<td>
+<p>b0111</td>
+<td>
+<p>由于寄存器库切换，后端被 exe 暂停</td></tr>
+
+<tr>
+<td>
+<p>ARCR_PR_CANCEL_BANK</td>
+<td>
+<p>b1000</td>
+<td>
+<p>ARCR、PR、CANCEL 或 BANK_SWITCH</td></tr>
+
+<tr>
+<td>
+<p>---</td>
+<td>
+<p>b1001-b1111</td>
+<td>
+<p>（*不统计*）</td></tr>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

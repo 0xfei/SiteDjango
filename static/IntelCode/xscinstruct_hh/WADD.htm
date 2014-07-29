@@ -1,0 +1,764 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>WADD</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=WADD.htm>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=2049>
+<meta name=layout-width content=804>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+table.whs2 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 0px; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 0px;}
+td.whs3 {padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px;}
+div.whs4 {color: #000000; font-style: italic; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 3pt; text-align: left; x-text-underline: off; x-text-overline: off; x-text-line-through: off; text-indent: 0pt; text-transform: none; vertical-align: baseline; /*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ }
+div.whs5 {color: #000000; font-style: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 3pt; text-align: left; x-text-underline: off; x-text-overline: off; x-text-line-through: off; text-indent: 0pt; text-transform: none; vertical-align: baseline; /*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ }
+div.whs6 {color: #0000ff; font-size: 10pt; font-weight: bold; margin-bottom: 10pt; margin-top: 10pt; text-indent: -47pt; margin-left: 7px;}
+table.whs7 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-spacing: 0px; text-indent: 0px; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 0px;}
+tr.whs8 {background-color: #CCCCCC;}
+th.whs9 {padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px;}
+div.whs10 {color: #000000; font-size: 7pt; font-style: normal; font-weight: bold; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: center; x-text-underline: off; x-text-overline: off; x-text-line-through: off; text-indent: 0pt; text-transform: none; vertical-align: baseline; /*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ }
+div.whs11 {color: #000000; font-size: 10pt; font-style: normal; font-weight: normal; margin-bottom: 10pt; margin-left: 0pt; margin-right: 0pt; margin-top: 24pt; text-align: left; x-text-underline: off; x-text-overline: off; x-text-line-through: off; text-indent: 0pt; text-transform: none; vertical-align: baseline; /*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ }
+div.whs12 {color: #0000ff; font-style: normal; font-weight: bold; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt; text-align: center; x-text-underline: off; x-text-overline: off; x-text-line-through: off; text-indent: 0pt; text-transform: none; vertical-align: baseline; /*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ }
+div.whs13 {color: #000000; font-style: normal; font-weight: normal; margin-bottom: 0pt; margin-left: 0pt; margin-right: 0pt; margin-top: 3pt; text-align: center; x-text-underline: off; x-text-overline: off; x-text-line-through: off; text-indent: 0pt; text-transform: none; vertical-align: baseline; /*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ }
+p.whs14 {font-size: 10pt; font-style: normal; font-weight: normal; x-text-overline: off; x-text-line-through: off; text-transform: none; vertical-align: baseline; /*begin!kadov{{*/ text-decoration: none none; /*}}end!kadov*/ }
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs1 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "div.whs4 {margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "div.whs5 {margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "div.whs6 {text-indent:1; }";
+  strNSS += "div.whs10 {margin-bottom:1;margin-left:1;margin-right:1;margin-top:1; }";
+  strNSS += "div.whs11 {margin-left:1;margin-right:1; }";
+  strNSS += "div.whs12 {margin-bottom:1;margin-left:1;margin-right:1;margin-top:1; }";
+  strNSS += "div.whs13 {margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n指令\n32 位指令\nW - 指令\nWADD");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+else
+{   document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'>");}
+//--></script><noscript><img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='36px' height='36px' align='right' border='0' class='img_whs1'></noscript>WADD - 矢量加法</h1>
+
+<h2 class=Body>语法</h2>
+
+<p class=Preformatted>WADD<span style="font-size: 10pt; font-style: italic;"><font size=2 style="font-size:10pt;"><I>lengthsign</I></font></span>[<span style="font-size: 10pt; font-style: italic;"><font size=2 style="font-size:10pt;"><I>Condition</I></font></span>] <span style="font-size: 10pt; font-style: italic;"><font size=2 style="font-size:10pt;"><I>dest, op1, op2</I></font></span> &#xA0;</p>
+
+<p>其中：<span style="font-size: 12pt;"><font size=3 style="font-size:12pt;"></font></span></p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" border="1" class="whs2">
+
+<tr>
+<td class="whs3">
+<div align="left" class="whs4">
+<span style="color: #000000;
+				font-style: italic;
+				font-weight: normal;
+				x-text-underline: off;
+				x-text-overline: off;
+				x-text-line-through: off;
+				text-transform: none;
+				vertical-align: baseline;
+				/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font color=black ><I>length</I></font></span> 
+ 
+</div></td>
+<td class="whs3">
+<div align="left" class="whs5">
+所需的数据长度，可以由以下字符之一指定：
+ 
+</div>
+<div align="left" class="whs5">
+B -- 操作 8 位（字节）SIMD 字段
+</div>
+<div align="left" class="whs5">
+H -- 操作 16 位（半字）SIMD 字段
+</div>
+<div align="left" class="whs5">
+W -- 操作 32 位（字）SIMD 字段
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="left" class="whs4">
+sign 
+</div></td>
+<td class="whs3">
+<div align="left" class="whs5">
+饱和选项。如果应用：
+</div>
+<div align="left" class="whs5">
+US -- 无符号饱和
+</div>
+<div align="left" class="whs5">
+SS -- 有符号饱和
+</div>
+<div align="left" class="whs5">
+其它情况则不应用&ldquo;饱和&rdquo;选项
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="left" class="whs4">
+<span style="color: #000000;
+				font-style: italic;
+				font-weight: normal;
+				x-text-underline: off;
+				x-text-overline: off;
+				x-text-line-through: off;
+				text-transform: none;
+				vertical-align: baseline;
+				/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font color=black ><I>condition</I></font></span> 
+ 
+</div></td>
+<td class="whs3">
+<div align="left" class="whs5">
+可选。16 个条件之一。请参阅：<a HREF="Conditional_Execution.htm">条件执行</a>。 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="left" class="whs4">
+dest 
+</div></td>
+<td class="whs3">
+<div align="left" class="whs5">
+目标，&ldquo;英特尔<span>(R)</span><span style="vertical-align: super;"></span> 无线 MMX&#x2122;&rdquo;技术数据寄存器
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="left" class="whs4">
+op1 
+</div></td>
+<td class="whs3">
+<div align="left" class="whs5">
+第一个源操作数，&ldquo;英特尔<span>(R)</span> 无线 <span style="vertical-align: super;"></span>MMX&#x2122;&rdquo;技术数据寄存器
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="left" class="whs4">
+op2 
+</div></td>
+<td class="whs3">
+<div align="left" class="whs5">
+第二个源操作数，&ldquo;英特尔<span>(R)</span> 无线 <span style="vertical-align: super;"></span>MMX&#x2122;&rdquo;技术数据寄存器
+</div></td></tr>
+</table>
+
+<h2>说明</h2>
+
+给 8、16 或 32 位有符号或无符号矢量数据执行 op1 与 op2 的矢量加法，并将结果放入 dest。&ldquo;饱和&rdquo;是可选项，但如果指定，则既可以是有符号，也可以是无符号的。<br><br> 指令中指定的任何条件必须与条件代码状态相匹配，否则不执行该指令。 
+
+<h2>编码 </h2>
+
+<div class="whs6">
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" border="1" class="whs7">
+
+<tr bgcolor="#CCCCCC" class="whs8">
+<th class="whs9">
+<div align="center" class="whs10">
+31 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+30 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+29 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+28 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+27 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+26 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+25 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+24 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+23 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+22 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+21 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+20 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+19 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+18 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+17 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+16 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+15 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+14 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+13 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+12 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+11 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+10 
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th>
+<th class="whs9">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></th></tr>
+
+<tr>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs10">
+Cond 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs10">
+1110 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs10">
+wwss 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs10">
+<span style="color: #000000;
+				font-size: 7pt;
+				font-style: italic;
+				font-weight: bold;
+				x-text-underline: off;
+				x-text-overline: off;
+				x-text-line-through: off;
+				text-transform: none;
+				vertical-align: baseline;
+				/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font size=1 color=black style="font-size:7.000000pt;"><I><B>op1</B></I></font></span> 
+ 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs10">
+<span style="color: #000000;
+				font-size: 7pt;
+				font-style: italic;
+				font-weight: bold;
+				x-text-underline: off;
+				x-text-overline: off;
+				x-text-line-through: off;
+				text-transform: none;
+				vertical-align: baseline;
+				/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font size=1 color=black style="font-size:7.000000pt;"><I><B>dest</B></I></font></span> 
+ 
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs10">
+0001 
+</div></td>
+<td colspan="3" rowspan="1" class="whs3">
+<div align="center" class="whs10">
+100 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs10">
+<p>&nbsp;</p>
+</div></td>
+<td colspan="4" rowspan="1" class="whs3">
+<div align="center" class="whs10">
+<span style="color: #000000;
+				font-size: 7pt;
+				font-style: italic;
+				font-weight: bold;
+				x-text-underline: off;
+				x-text-overline: off;
+				x-text-line-through: off;
+				text-transform: none;
+				vertical-align: baseline;
+				/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font size=1 color=black style="font-size:7.000000pt;"><I><B>op2</B></I></font></span> 
+ 
+</div></td>
+</tr>
+</table>
+
+&nbsp; 
+</div>
+
+<div align="left" class="whs11">
+<h2>子字段编码 </h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" border="1" class="whs2">
+
+<tr bgcolor="#CCCCCC" class="whs8">
+<th class="whs9">
+<div align="center" class="whs12">
+限定符
+</div></th>
+<th class="whs9">
+<div align="center" class="whs12">
+字段
+</div></th>
+<th class="whs9">
+<div align="center" class="whs12">
+值
+</div></th></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+<p>B</p>
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+ww 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+00 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+<p>H</p>
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+ww 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+01 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+<p>W</p>
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+ww 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+10 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+保留
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+ww 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+11 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+US 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+ss 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+01 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+SS 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+ss 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+11 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+无饱和
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+ss 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+00 
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+保留
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+ss 
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+10 
+</div></td></tr>
+</table>
+
+&nbsp; 
+</div>
+
+<h2>影响的 SIMD 标志</h2>
+
+在加法 <span style="color: #000000; 	font-size: 10pt; 	font-style: italic; 	font-weight: normal; 	x-text-underline: off; 	x-text-overline: off; 	x-text-line-through: off; 	text-transform: none; 	vertical-align: baseline; 	/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font size=2 color=black style="font-size:10.000000pt;"><I>op1</I></font></span> + <span style="color: #000000; 				font-size: 10pt; 				font-style: italic; 				font-weight: normal; 				x-text-underline: off; 				x-text-overline: off; 				x-text-line-through: off; 				text-transform: none; 				vertical-align: baseline; 				/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font size=2 color=black style="font-size:10.000000pt;"><I>op2</I></font></span> 结果上设置 SIMD (wCASF) 标志。如果指定 US/SS 且饱和发生，则在饱和后（最终）的值上设置 SIMD (wCASF) 标志。如果指定 US/SS 限定符，并相应的字段发生饱和，则设置饱和标志 (wCSSF)。<span style="color: #000000;
+						font-size: 12pt;
+						font-style: normal;
+						font-weight: normal;
+						x-text-underline: off;
+						x-text-overline: off;
+						x-text-line-through: off;
+						text-transform: none;
+						vertical-align: baseline;
+						/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font size=3 color=black style="font-size:12.000000pt;"></font></span>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" border="1" class="whs2">
+
+<tr bgcolor="#CCCCCC" class="whs8">
+<th class="whs9">
+<div align="center" class="whs12">
+标志
+</div></th>
+<th class="whs9">
+<div align="center" class="whs12">
+未指定饱和
+</div></th>
+<th class="whs9">
+<div align="center" class="whs12">
+指定 US/SS 但未产生饱和
+</div></th>
+<th class="whs9">
+<div align="center" class="whs12">
+指定 US/SS 且产生饱和
+</div></th></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+<p>N</p>
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+<p>Z</p>
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+<p>C</p>
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+清除
+</div></td></tr>
+
+<tr>
+<td class="whs3">
+<div align="center" class="whs13">
+<p>V</p>
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+根据最终结果设置
+</div></td>
+<td class="whs3">
+<div align="center" class="whs13">
+清除
+</div></td></tr>
+</table>
+
+&nbsp; 
+
+<h2>操作</h2>
+
+<p class=Preformatted
+	style="font-size: 9pt;">if (B Specified) then</p>
+
+&nbsp; 
+
+<p class=Preformatted
+	style="margin-left: 40px;"><span style="font-style: italic;"><I>dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 7] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 7] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 7], {US,SS}, 8)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 6] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 6] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 6], {US,SS}, 8)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 5] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 5] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 5], {US,SS}, 8)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 4] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 4] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 4], {US,SS}, 8)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 3] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 3] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 3], {US,SS}, 8)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 2] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 2] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 2], {US,SS}, 8)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 1] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 1] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 1], {US,SS}, 8)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 0] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 0] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[byte 0], {US,SS}, 8)</font></span></p>
+
+<p class=Preformatted
+	style="margin-left: 0px; font-size: 9pt;">else if (H Specified)then</p>
+
+<p class=Preformatted
+	style="margin-left: 40px;"><span style="font-style: italic;"><I>dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 3] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 3] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 3], {US,SS}, 16)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 2] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 2] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 2], {US,SS}, 16)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 1] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 1] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 1], {US,SS}, 16)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 0] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 0] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[half 0], {US,SS}, 16)</font></span></p>
+
+<p class=Preformatted
+	style="margin-left: 0px; font-size: 9pt;">else if (W Specified) then</p>
+
+<p class=Preformatted
+	style="margin-left: 40px;"><span style="font-style: italic;"><I>dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[word 1] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[word 1] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[word 1], {US,SS}, 32)</font></span><span style="font-style: italic;"><I><br> dest</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[word 0] = saturate(o</font></span><span style="font-style: italic;"><I>p1</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[word 0] + </font></span><span style="font-style: italic;"><I>op2</I></span><span style="font-size: 9pt;"><font size=1 style="font-size:9pt;">[word 0], {US,SS}, 32)</font></span></p>
+
+<h2>更多信息</h2>
+
+<span style="color: #0000ff;
+				font-size: 10pt;
+				font-style: normal;
+				font-weight: normal;
+				x-text-underline: off;
+				x-text-overline: off;
+				x-text-line-through: off;
+				text-transform: none;
+				vertical-align: baseline;
+				/*begin!kadov{{*/ text-decoration: none none none; /*}}end!kadov*/ "><font size=2 color=blue style="font-size:10.000000pt;"><a HREF="WACC.htm">WACC</a></font></span> 
+
+<p class="whs14"><span 
+ style="color: #0000ff;"><font color=blue ><a HREF="WAVG2.htm">WAVG2</a></font></span></p>
+
+<p><a HREF="WMAX.htm">WMAX</a> </p>
+
+<p><a HREF="WMIN.htm">WMIN</a> </p>
+
+<p><a HREF="WMOV.htm">WMOV</a></p>
+
+<p><a HREF="WSAD.htm">WSAD</a></p>
+
+<p><a HREF="WSUB.htm">WSUB</a></p>
+
+<p><a HREF="WZERO.htm">WZERO</a> </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

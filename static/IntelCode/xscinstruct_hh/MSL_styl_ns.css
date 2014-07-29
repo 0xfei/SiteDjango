@@ -1,0 +1,165 @@
+body { 
+      color:#000000; 
+      background-color:#ffffff; 
+      font-family:Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"; 
+      font-size:90%;  }
+a:link { 
+        color:#0033ff;  }
+a:active { 
+          color:#000000;  }
+a:visited { 
+           color:#9900cc;  }
+a:hover { 
+         color:#000000; 
+         background-color:#ffffcc;  }
+p { 
+   margin-bottom:.6em; 
+   margin-top:.6em; 
+   font-family:Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"; 
+   font-size:90%; 
+   color:#000000;  }
+P.TableCell { 
+             padding-left:3pt; 
+             margin-bottom:1; 
+             margin-top:1;  }
+P.Note { 
+        margin-left:5em; 
+        margin-top:1;  }
+P.Indent { 
+          margin-left:1.6em; 
+          margin-top:1; 
+          margin-bottom:1;  }
+P.SubBullet { 
+             list-style-type:circle; 
+             margin-left:1;  }
+P.LinkBul { 
+           list-style-type:square; 
+           color:#0033ff;  }
+H1 { 
+    background-color:#0033ff; 
+    color:#ffffff; 
+    margin-top:1.0em; 
+    margin-bottom:1; 
+    font-size:130%; 
+    padding-left:2pt; 
+    font-family:Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"; 
+    font-weight:bold;  }
+H2 { 
+    color:#0033ff; 
+    margin-top:1.0em; 
+    margin-bottom:1; 
+    font-size:120%; 
+    font-family:Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"; 
+    font-weight:bold;  }
+h3 { 
+    font-size:100%; 
+    font-weight:bold; 
+    margin-bottom:1; 
+    font-family:Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"; 
+    color:#000000;  }
+H3.NoteTipHead { 
+                font-size:100%; 
+                font-weight:bold;  }
+H3.TableHead { 
+              background-color:#eeeeee; 
+              padding-left:3pt; 
+              text-align:left;  }
+HR { 
+    border-top:1pt solid; 
+    color:#800040; 
+    margin-bottom:0em; 
+    margin-top:0em;  }
+ul { 
+    margin-bottom:0em; 
+    margin-top:.0em; 
+    font-family:Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"; 
+    font-size:90%; 
+    color:#000000;  }
+ol { 
+    margin-bottom:0em; 
+    margin-left:1.5em; 
+    margin-top:.0em; 
+    font-family:Tahoma, Verdana, Arial, Helvetica, "MS Sans Serif"; 
+    font-size:90%; 
+    color:#000000;  }
+li p { 
+      margin-bottom:0.2em; 
+      margin-top:0.2em; 
+      margin-left:0em;  }
+table { 
+       font-size:100%; 
+       margin-bottom:0pt;  }
+th {  }
+tr { 
+    vertical-align:top;  }
+td { 
+    border:1pt #808080 solid; 
+    vertical-align:top;  }
+dt { 
+    font-weight:bold; 
+    margin-left:0em; 
+    margin-top:1em;  }
+dl li { 
+       margin-bottom:.7em;  }
+dl dl { 
+       margin-left:0em; 
+       margin-top:0em;  }
+SPAN.Big { 
+          font-weight:bold; 
+          font-size:105%;  }
+indent li p { 
+             margin-bottom:0.2em; 
+             margin-top:0.2em; 
+             margin-left:1;  }
+P.Preformatted { 
+                line-height:normal; 
+                x-text-tab-stops:repeat 1in; 
+                white-space:nowrap; 
+                margin-top:1; 
+                margin-bottom:1; 
+                font-size:100%; 
+                font-family:"Courier New"  , Courier, monospace; 
+                background-color:#eeeeee;  }
+A.expandspot { 
+              font-style:normal; 
+              cursor:hand; 
+              color:#0033ff;  }
+SPAN.expandtext { 
+                 font-weight:normal; 
+                 font-style:italic; 
+                 color:#0033ff;  }
+A.dropspot { 
+            cursor:hand; 
+            color:#0033ff; 
+            x-text-underline:normal; 
+            font-style:normal; 
+            text-decoration:underline;  }
+A.glossterm { 
+             x-text-underline:normal; 
+             font-style:normal; 
+             cursor:hand; 
+             color:#0033ff; 
+             text-decoration:underline;  }
+SPAN.glosstext { 
+                font-weight:normal; 
+                font-style:italic; 
+                color:#0033ff;  }
+SPAN.Code { 
+           font-size:100%; 
+           font-family:"Courier New"  , Courier, monospace;  }
+P.SpecialMarker { 
+                 x-next-type:p; 
+                 background-color:#ffffcb; 
+                 margin-left:18pt;  }
+ol ol { 
+       margin-top:.6em; 
+       margin-bottom:.6em;  }
+ol ul { 
+       margin-top:.6em; 
+       margin-bottom:.6em;  }
+ul ul { 
+       margin-top:.6em; 
+       margin-bottom:.6em;  }
+ul ol { 
+       margin-top:.6em; 
+       margin-bottom:.6em;  }

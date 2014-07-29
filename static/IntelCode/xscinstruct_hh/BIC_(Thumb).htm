@@ -1,0 +1,282 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>BIC (Thumb)</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=769>
+<meta name=layout-width content=699>
+<meta name=date content="01 21, 2003 1:18:27 PM">
+<meta name=x-ignored-words content="dest;N;Z;C;Q;F;T;M;globl;funadd;READONLY;MOV;OxAE;ADC;funadc;OxFF;OxFE;SP;SP-relative;NCT;submodes;Coprocessor;ASR;sh_imm;addr_mode;shifter_carry_out;Arithmetic_Shift_right;opcode;basereg;Arithmetic_Shift_Right;Submode;imm;LSL;LSR;ROR;RRX;encodings;rt_imm;FF;start_addr;Bit_Number_Of(reglist;end_addr;ConditionPassed;W;reglist;decremented;L;immH;immL;addr;SWP;SWPB;LDRB;LDRBT;STRB;STRBT;STRH;Rotate_Right;immediates;rt_amount;LDRT;STRT;NotFinished;coprocessor[cpnum;coprocessor;coprocessor-defined;cpdest;cpnum;coprocessor-dependent;IB;cpname;LDC;STC;LDM|STM;basereg[;register(s;Submodes;CPSR;SPSR;EA;FD;coprocessors;LDR|STR;LDR;STR;indexreg;PLD;U==;Logical_Shift_Left;Logical_Shift_Right;H|SH|SB|D;LDRH;SH;LDRSH;SB;LDRSB;LDRD;STRD;Post-indexed(AM;SBZ;XScale;Microarchitecture;funand;Bitwise;EOR;ORR;funasr;OxC;B[condition;NOP;funb;crossMOV;BPL;BAL;BNE;BL;BX;TST;BIC;ANDed;bitwise;funbic;Thumb*">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="BIC_(Thumb).htm"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate;}
+td.whs2 {padding-right: 5px; border-left-width: 1pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt;}
+table.whs3 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n指令\n16 位指令\nB - 指令\nBIC (Thumb)");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><IMG SRC="XS_logo.gif" ALIGN="RIGHT" VSPACE="0" HSPACE="0" BORDER="0" alt="英特尔 XScale(R) 技术主题">BIC (Thumb*) - 位清除</h1>
+
+<h2>语法</h2>
+
+<div>
+<div>
+<p class=Preformatted><span class=Code>BIC dest, op</span></p>
+</div>
+
+<div>
+<p>其中：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">dest</em> </td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyLeft>包含第一个操作数的寄存器，也是目标寄存器</td></tr>
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">op</em> </td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyLeft>包含要进行求补和&ldquo;与&rdquo;运算的操作数的寄存器</td></tr>
+</table>
+</div>
+
+<div>
+<h2>说明</h2>
+
+<p>BIC 指令将 <em CLASS=SourceItalic>dest</em> 同 <em CLASS=SourceItalic>op</em> 的补码进行位&ldquo;与&rdquo;运算，并将结果存储到 <em CLASS=SourceItalic>dest</em>。</p>
+
+<h2>寻址模式 </h2>
+
+<p>无操作数。 </p>
+</div>
+
+<div>
+<h2>影响的标志</h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>N</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>Z</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>C</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>V</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>Q</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>S</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>I</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>F</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>T</td></tr>
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>M</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>M</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td></tr>
+</table>
+</div>
+
+<div>
+<h2>编码</h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs3">
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>15</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>14</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>13</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>12</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>11</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>10</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>9</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>8</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>7</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>6</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>5</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>3</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>2</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>0</td></tr>
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>0</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>0</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>0</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>0</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&gt;0</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>0</td>
+<td ROWSPAN="1" COLSPAN="3" class="whs2">
+<p CLASS=CellBodyCenter>op</td>
+<td ROWSPAN="1" COLSPAN="3" class="whs2">
+<p CLASS=CellBodyCenter>dest</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div>
+<div>
+<h2>示例 </h2>
+</div>
+
+<p class=Preformatted><span class=Code>1 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.text<br> 2 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.globl funbic <br> 3 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.align 0 <br> 4 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; <br> 5 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AREA example,CODE,READONLY <br> 6 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;CODE16 <br> 7<br> 8 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;label1 <br> 9 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Bitwise logical AND NOT.<br> 10 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; R6 = R4 AND (NOT R6) <br> 11 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Result hex 80 &#xA0;<br> 12 &#xA0;&#xA0;&#xA0;00000000 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;F7C4 &#xA0;&#xA0;&#xA0;MOV &#xA0;&#xA0;&#xA0;&#xA0;R4, #OxFE <br> 13 &#xA0;&#xA0;&#xA0;00000002 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;F7C6 &#xA0;&#xA0;&#xA0;MOV &#xA0;&#xA0;&#xA0;&#xA0;R6, #Ox7F <br> 14 &#xA0;&#xA0;&#xA0;00000004 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;43A6 &#xA0;&#xA0;&#xA0;BIC &#xA0;&#xA0;&#xA0;&#xA0;R6, R4</span> </p>
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

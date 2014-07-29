@@ -1,0 +1,247 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>BL/BLX(1) (Thumb) - 带链接的分支/带链接与交换的分支</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1274>
+<meta name=layout-width content=760>
+<meta name=date content="01 21, 2003 1:19:19 PM">
+<meta name=x-ignored-words content="dest;N;Z;C;Q;F;T;M;globl;funadd;READONLY;MOV;OxAE;ADC;funadc;OxFF;OxFE;SP;SP-relative;NCT;submodes;Coprocessor;ASR;sh_imm;addr_mode;shifter_carry_out;Arithmetic_Shift_right;opcode;basereg;Arithmetic_Shift_Right;Submode;imm;LSL;LSR;ROR;RRX;encodings;rt_imm;FF;start_addr;Bit_Number_Of(reglist;end_addr;ConditionPassed;W;reglist;decremented;L;immH;immL;addr;SWP;SWPB;LDRB;LDRBT;STRB;STRBT;STRH;Rotate_Right;immediates;rt_amount;LDRT;STRT;NotFinished;coprocessor[cpnum;coprocessor;coprocessor-defined;cpdest;cpnum;coprocessor-dependent;IB;cpname;LDC;STC;LDM|STM;basereg[;register(s;Submodes;CPSR;SPSR;EA;FD;coprocessors;LDR|STR;LDR;STR;indexreg;PLD;U==;Logical_Shift_Left;Logical_Shift_Right;H|SH|SB|D;LDRH;SH;LDRSH;SB;LDRSB;LDRD;STRD;Post-indexed(AM;SBZ;XScale;Microarchitecture;funand;Bitwise;EOR;ORR;funasr;OxC;B[condition;NOP;funb;crossMOV;BPL;BAL;BNE;BL;BX;TST;BIC;ANDed;bitwise;funbic;BKPT;prefetch;B[L;funcbl;EAFFFFFE;BLX;Thumb*;funblx;LR;ARM*">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="BLX(1)_(Thumb).htm"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate;}
+td.whs2 {padding-right: 5px; border-left-width: 1pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt;}
+table.whs3 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n指令\n16 位指令\nB - 指令\nBL/BLX(1) (Thumb)");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><IMG SRC="XS_logo.gif" ALIGN="RIGHT" VSPACE="0" HSPACE="0" BORDER="0" alt="英特尔 XScale(R) 技术主题">BL/BLX(1) (Thumb) - 带链接的分支/带链接与交换的分支</h1>
+
+<h2>语法</h2>
+
+<div>
+<div>
+<p class=Preformatted><span class=Code>BL target<br> BLX target</span></p>
+</div>
+
+<div>
+<p>其中：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">target</em> </td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyLeft>目标地址</td></tr>
+</table>
+</div>
+
+<div>
+<h2>说明</h2>
+
+<p>BL 指令分支到包含 Thumb* 子例程的指定 <em CLASS=SourceItalic>target</em>。子例程的返回语义需要明确定义。此格式的 BLX 指令分支到包含 ARM* 子例程的指定 <em CLASS=SourceItalic>target</em>。子例程的返回语义需要明确定义。 </p>
+
+<h2>寻址模式</h2>
+
+<p>无操作数。</p>
+</div>
+
+<div>
+<h2>影响的标志</h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>N</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>Z</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>C</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&gt;V</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>Q</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>S</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>I</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>F</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>T</td></tr>
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>M</td></tr>
+</table>
+</div>
+
+<div>
+<h2>编码</h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs3">
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&gt;15</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>14</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>13</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>12</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>11</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>10</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>0</td></tr>
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN="1" COLSPAN="1" class="whs2">
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN="1" COLSPAN="2" class="whs2">
+<p CLASS=CellBodyCenter>H</td>
+<td ROWSPAN="1" COLSPAN="3" class="whs2">
+<p CLASS=CellBodyCenter>target</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div>
+<h2>示例</h2>
+
+<p class=Preformatted><span class=Code>1 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.text<br> 2 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.globl funblx <br> 3 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.align 0 <br> 4 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; <br> 5 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AREA example,CODE,READONLY <br> 6 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;CODE16 <br> 7<br> 8 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;label1 <br> 9 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Unconditional call to another <br> 10 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Thumb subroutine, within 4M bytes <br> 11 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Load return address to LR and <br> 12 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; branch to subroutine dashed <br> 13 &#xA0;&#xA0;&#xA0;00000000 &#xA0;&#xA0;&#xA0;F800DF00 &#xA0;&#xA0;&#xA0;BL &#xA0;&#xA0;dashed <br> 14<br> 15<br> 16 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; start of subroutine dashed <br> 17 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;dashed <br> 18<br> 19<br> 20<br> 21 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Unconditional call to an ARM<br> 22 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; (32-bit) subroutine, within 4M bytes <br> 23 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Load return address to LR and <br> 24 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; branch to subroutine dotted, which <br> 25 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; is in 32-bit ARM code<br> 26 &#xA0;&#xA0;&#xA0;00000002 &#xA0;&#xA0;&#xA0;E800F000 &#xA0;&#xA0;&#xA0;BLX &#xA0;&#xA0;dotted <br> 27<br> 28 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; start of subroutine dotted <br> 29 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;dotted</span> </p>
+
+<h2>更多信息</h2>
+
+<a href="B(1)_(Thumb).htm" CLASS="XRef">请参阅 B(1) 指令</a><a href="B(2)_(Thumb).htm" CLASS="XRef"><br> 请参阅 B(2) 指令</a><a href="BLX(2)_(Thumb).htm" CLASS="XRef"><br> 请参阅 BLX(2) 指令</a><a href="BX_(Thumb).htm" CLASS="XRef"><br> 请参阅 BX 指令</a><a href="TST_(Thumb).htm"><br> 请参阅 TST 指令</a> 
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

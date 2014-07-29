@@ -1,0 +1,377 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>FXAM - 检查</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=0>
+<meta name=layout-height content=0>
+<meta name=layout-width content=0>
+<meta name=date content="06 7, 2001 11:53:56 AM">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="vc127.htm"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px; margin-top: 14pt;}
+td.whs2 {x-cell-content-align: CENTER; padding-left: 3px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px;}
+p.whs3 {margin-bottom: 0;}
+img_whs4 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs3 {margin-bottom:1; }";
+  strNSS += "img_whs4 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\nIA-32 指令\nF - 指令\nFXAM - 检查");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>FXAM - 检查</h1>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">操作码</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">指令</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">D9 E5</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FXAM</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">确定 ST(0) 中的值或数字的类别</td></tr>
+</table>
+
+<h2>说明</h2>
+
+<p>检查 ST(0) 寄存器的内容，并设置 FPU 状态字中的条件代码标志 C0、C2 及 C3，以表示寄存器中的值或数字的类别（请参阅下表）。</p>
+
+<p class="whs3">&nbsp;</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>类别</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>C3</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>C2</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>C0</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>不支持</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>NaN</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>规格化有限数字</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>无穷大</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>零</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>空</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>非规格化数</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td></tr>
+</table>
+
+<p>无论寄存器为空或满，C1 标志都设置为 ST(0) 中的值的符号。</p>
+
+<h2>操作</h2>
+
+<p class=Preformatted>C1 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'></noscript> sign bit of ST; (* 0 for positive, 1 for negative *)<br> CASE (class of value or number in ST(0)) OF<br> Unsupported: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'></noscript> 000;<br> NaN: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'></noscript> 001;<br> Normal: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'></noscript> 010;<br> Infinity: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'></noscript> 011;<br> Zero: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'></noscript> 100;<br> Empty: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'></noscript> 101;<br> Denormal: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs4'></noscript> 110;<br> ESAC;</p>
+
+<h2>影响的 FPU 标志</h2>
+
+<p>C1 - ST(0) 中值的符号。 </p>
+
+<p>C0、C2、C3 - 请参阅上表。</p>
+
+<h2>浮点异常</h2>
+
+<p>无。</p>
+
+<h2>保护模式异常</h2>
+
+<p>#NM - 如果 CR0 中的 EM 或 TS 设置为 1。</p>
+
+<h2>实地址模式异常</h2>
+
+<p>#NM - 如果 CR0 中的 EM 或 TS 设置为 1。</p>
+
+<h2>虚 8086 模式异常</h2>
+
+<p class="whs3">#NM - 如果 CR0 中的 EM 或 TS 设置为 1。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>sync - 内存同步指令</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="03 6, 2002 2:21:06 PM">
+<meta name=topic-status content="Ready for Review">
+<meta name=topic-priority content=1>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content=TOC>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=708>
+<meta name=layout-width content=771>
+<meta name=x-ignored-words content=inst>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 52px; height: 60px; float: right; border-style: none; float: right;}
+hr.whs2 {height: 2px; width: 100%; float: aligncenter;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔(R) 安腾(R) 指令\nS - 指令\nsync - 内存同步指令");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="itanium60hw.gif" alt="安腾(R) 处理器主题" x-maintain-ratio="TRUE" width="52px" height="60px" align="right" border="0" class="img_whs1">内存同步指令</h1>
+
+<p><span style="font-weight: bold;"><B>sync</B></span></p>
+
+<p><a HREF="6400373.htm">操作</a> <a HREF="6400126.htm">字体惯例</a>
+ </p>
+
+<p>指令类型 M</p>
+
+<p><span style="font-weight: bold;"><B>格式</B></span></p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) sync.i</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<p><span style="font-weight: bold;"><B>说明</B></span></p>
+
+<p>sync.i 可以确保先前启动的由当地处理器发出的&ldquo;清除缓存&rdquo; (fc) 操作可被当地数据内存引用看见时，先前的&ldquo;清除缓存&rdquo;操作也被当地处理器指令预取流观察到。sync.i 还确保先前启动的&ldquo;清除缓存&rdquo; (fc) 在远程处理器被数据内存引用观察到时，它们也被远程处理器上的指令内存引用观察到。sync.i 根据被另外的处理器观察的所有缓存清除操作进行排序。sync.i 与先前的 fc 必须在单独的指令组中。如果语义需要，程序员必须显式插入有序数据引用（获取、释放或边界类型），适当地约束 sync.i（以及 fc）对于其它处理器上数据流的可见性。</p>
+
+<p>sync.i 用于在当地与远程处理器上的指令与数据缓存之间维护一种顺序关系。指令序列化操作可用于确保程序执行中的给定点已经观察到本地处理器上的 sync.i 启动的同步操作。</p>
+
+<p>自我修改代码（本地处理器）的示例：</p>
+
+<p CLASS=Preformatted>st [L1] = data //store into local instruction stream</p>
+
+<p CLASS=Preformatted>fc L1 //flush stale datum from instruction/data cache</p>
+
+<p CLASS=Preformatted>;; //require instruction boundary between fc and sync.i</p>
+
+<p CLASS=Preformatted>sync.i //ensure local/remote data/inst caches are synchronized</p>
+
+<p CLASS=Preformatted>;;</p>
+
+<p CLASS=Preformatted>srlz.i //ensure sync has been observed by the local processor,</p>
+
+<p CLASS=Preformatted>;; //ensure subsequent instructions observe modified</p>
+
+<p CLASS=Preformatted>//memory</p>
+
+<p CLASS=Preformatted>L1: target //instruction modified</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

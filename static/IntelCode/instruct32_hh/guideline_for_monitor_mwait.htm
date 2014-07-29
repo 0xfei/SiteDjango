@@ -1,0 +1,183 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>MONITOR/MWAIT 指导原则</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="05 12, 2003 1:06:05 PM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1079>
+<meta name=layout-width content=720>
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="Guideline for MONITOR/MWAIT"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+ul.whs1 {list-style: disc;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>MONITOR/MWAIT 指导原则</h1>
+
+<p>提供 <a HREF="MONITOR--Setup_Monitor_Address.htm">MONITOR</a> 与 <a HREF="MWAIT--Monitor_Wait.htm">MWAIT</a> 目的是为了改善多个代理之间的同步。在含&ldquo;第三代数据流单指令多数据扩展指令集&rdquo;(SSE3) 的英特尔&#xAE; 奔腾&#xAE; 4 处理器的实现中，MONITOR/MWAIT 的目标是供系统软件用于提供更有效的线程同步原件。MONITOR 定义用于监视写回存储的地址范围。MWAIT 用于指示软件线程正在等待对地址范围（MONITOR 指令定义）的写回存储。</p>
+
+<h2>MONITOR/MWAIT 地址范围的确定</h2>
+
+<p>软件应知道 MONITOR/MWAIT 要监视写入的区域的准确长度。分配与使用的区域比处理器触发区域的长度短时，可能会导致错误的唤醒（由于向错误地放入触发区域的数据变量进行写入所导致）。相反，分配的区域长度大于触发区域时，可能会导致无法适时唤醒处理器。CPUID 可以确定触发区域的准确长度。此长度与系统中的任何缓存线大小都没有关系，软件不应该对它的影响作任何假设。基于 CPUID 提供的大小，操作系统/软件应动态分配含适当填充间隙的结构。如果正确的分配导致问题，请选择不使用 MONTIOR/MWAIT。</p>
+
+<p>对于基于单个群集的系统，应该使用单个长度来满足要求；可以预见，为包含多个群集的系统设置数据布局会更加复杂。在这样的系统中，根据芯片组实现的机制，单个监视缓存线大小可能不足以满足要求。 
+ </p>
+
+<p>通常情况下，软件将监视一组数据变量的写入。确定这些变量在监视器触发区域中的位置非常必要。为消除写入其它变量导致的错误唤醒，软件需要在监视的变量周围添加填充间隙。这也称为间隙区域。 </p>
+
+<p>另请参阅：<a HREF="vc46.htm">CPUID - CPU 标识</a></p>
+
+<h2>来自 MWAIT 的唤醒</h2>
+
+<p>多个事件（对触发地址范围的写入除外）可能导致唤醒执行 MWAIT 的处理器。这些包括：</p>
+
+<ul type="disc" class="whs1">
+	
+	<li class=kadov-p><p>外部中断：NMI、SMI、INIT、BINIT、MCERR</p></li>
+	
+	<li class=kadov-p><p>包括&ldquo;机器检查&rdquo;在内的错误、终止</p></li>
+	
+	<li class=kadov-p><p>体系结构层面的 TLB 失效，包括写入 CR0、CR3、CR4，以及某些 MSR 写入</p></li>
+	
+	<li class=kadov-p><p>快速系统调用与远调用导致的自行转换</p></li>
+</ul>
+
+<p>电源管理相关事件（如&ldquo;温度监视器&rdquo;）或芯片组驱动的 STP-CLK# 声言不会导致清除&ldquo;监视器事件未决&rdquo;位。调试陷阱与错误不会导致清除&ldquo;监视器事件未决&rdquo;位。 </p>
+
+<p>下例显示 MONITOR/MWAIT 的典型用法。</p>
+
+<h3>MONITOR/MWAIT 用法伪代码</h3>
+
+<p class=Preformatted>// Trigger[MONITORDATARANGE] is the memory address range that will be  </p>
+
+<p class=Preformatted>// used as the trigger data range Trigger[0] = 0;</p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">If ( trigger[0] != TRIGERRDATAVALUE) {</p>
+
+<p class=Preformatted
+	style="margin-left: 80px;">EAX = &amp;trigger[0]</p>
+
+<p class=Preformatted
+	style="margin-left: 80px;">ECX = 0</p>
+
+<p class=Preformatted
+	style="margin-left: 80px;">EDX = 0</p>
+
+<p class=Preformatted
+	style="margin-left: 80px;">MONITOR EAX, ECX, EDX</p>
+
+<p class=Preformatted
+	style="margin-left: 80px;">If (trigger[0] != TRIGERRDATAVALUE ) {</p>
+
+<p class=Preformatted
+	style="margin-left: 120px;">EAX = 0</p>
+
+<p class=Preformatted
+	style="margin-left: 120px;">ECX = 0</p>
+
+<p class=Preformatted
+	style="margin-left: 120px;">MWAIT EAX, ECX</p>
+
+<p class=Preformatted
+	style="margin-left: 80px;">}</p>
+
+<p class=Preformatted
+	style="margin-left: 40px;">}</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

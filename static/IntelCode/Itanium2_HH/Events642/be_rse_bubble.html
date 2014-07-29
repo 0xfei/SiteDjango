@@ -1,0 +1,193 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>be_rse_bubble</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=BE_RSE_BUBBLE>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=521>
+<meta name=layout-width content=668>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 20px; height: 20px; border-style: none;}
+table.whs2 {width: 100%;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\n暂停事件\nBE_RSE_BUBBLE");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>BE_RSE_BUBBLE</h1>
+
+&nbsp;
+
+<br><b   style="font-weight: bold;">标题：</b>主管道中 RSE 暂停导致的全管道气泡<b style="font-weight: bold;"><br> 类别：</b>暂停事件<b style="font-weight: bold;"><br> IAR/DAR/OPC：</b>N/N/N<b style="font-weight: bold;"><br> 事件代码：</b>0x01<b style="font-weight: bold;"><br> 最大每周期增量：</b>1 
+
+<p><b style="font-weight: bold;">定义：</b>统计&ldquo;寄存器堆栈引擎&rdquo;引起的暂停导致主管道中产生的全管道气泡数。</p>
+
+<h3 class=NoteTipHead><img src="note.gif" width="20px" height="20px" border="0" class="img_whs1"> 备注</h3>
+
+AR_DEP 的优先级高于 OVERFLOW、UNDERFLOW 及 LOADRS。优先级暗示同时存在多个暂停情况时，只统计优先级最高的那个。 <br>
+
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells width="100%" class="whs2">
+
+<tr>
+<td>
+<h3 CLASS=TableHead>扩展</td>
+<td>
+<h3 CLASS=TableHead>PMC.umask</td>
+<td>
+<h3 CLASS=TableHead>说明</td></tr>
+
+<tr>
+<td>
+<p>ALL</td>
+<td>
+<p>bx000</td>
+<td>
+<p>后端被 RSE 暂停</td></tr>
+
+<tr>
+<td>
+<p>BANK_SWITCH</td>
+<td>
+<p>bx001</td>
+<td>
+<p>由于寄存器库切换，后端被 RSE 暂停</td></tr>
+
+<tr>
+<td>
+<p>AR_DEP</td>
+<td>
+<p>bx010</td>
+<td>
+<p>由于 AR 相关，后端被 RSE 暂停</td></tr>
+
+<tr>
+<td>
+<p>OVERFLOW</td>
+<td>
+<p>bx011</td>
+<td>
+<p>由于需要转存，后端被 RSE 暂停</td></tr>
+
+<tr>
+<td>
+<p>UNDERFLOW</td>
+<td>
+<p>bx100</td>
+<td>
+<p>由于需要填充，后端被 RSE 暂停</td></tr>
+
+<tr>
+<td>
+<p>LOADRS</td>
+<td>
+<p>bx101</td>
+<td>
+<p>由于 loadrs 计算，后端被 RSE 暂停</td></tr>
+
+<tr>
+<td>
+<p>---</td>
+<td>
+<p>bx110-bx111</td>
+<td>
+<p>（*不统计*）</td></tr>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

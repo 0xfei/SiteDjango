@@ -1,0 +1,535 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>概述 - 加载与存储协处理器</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1932>
+<meta name=layout-width content=689>
+<meta name=date content="02 12, 2003 3:27:48 PM">
+<meta name=x-ignored-words content="dest;N;Z;C;Q;F;T;M;globl;funadd;READONLY;MOV;OxAE;ADC;funadc;OxFF;OxFE;SP;SP-relative;NCT;submodes;Coprocessor;ASR;sh_imm;addr_mode;shifter_carry_out;Arithmetic_Shift_right;opcode;basereg;Arithmetic_Shift_Right;Submode;imm;LSL;LSR;ROR;RRX;encodings;rt_imm;FF;start_addr;Bit_Number_Of(reglist;end_addr;ConditionPassed;W;reglist;decremented;L;immH;immL;addr;SWP;SWPB;LDRB;LDRBT;STRB;STRBT;STRH;Rotate_Right;immediates;rt_amount;LDRT;STRT;NotFinished;coprocessor[cpnum;coprocessor;coprocessor-defined;cpdest;cpnum;coprocessor-dependent;IB;cpname;LDC;STC">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="Address_Load_and_Store_Coprocessor_Overview.htm"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; float: RIGHT; width: 36px; height: 36px;}
+table.whs2 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate;}
+col.whs3 {width: 20px;}
+td.whs4 {padding-right: 1px; border-left-width: 1pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt;}
+col.whs5 {width: 19px;}
+td.whs6 {padding-right: 2px; border-left-width: 1pt; border-top-width: 1pt; border-right-width: 1pt; border-bottom-width: 1pt;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs1 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n寻址模式\n加载与存储协处理器\n加载与存储协处理器概述");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' align='right' width='36px' height='36px' border='0' class='img_whs1'>");}
+else
+{   document.write("<img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' align='right' width='36px' height='36px' border='0' class='img_whs1'>");}
+//--></script><noscript><img src='XS_logo.gif' alt='英特尔 XScale(R) 技术主题' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' align='right' width='36px' height='36px' border='0' class='img_whs1'></noscript><a name="Load and Store Coprocessor"></a>加载与存储协处理器概述</h1>
+
+<div>
+<p CLASS=Body>&ldquo;加载与存储协处理器&rdquo;寻址模式分成 4 个子模式。它们用于计算加载与存储协处理器指令的地址。此寻址模式的一般语法在后续部分提供。</p>
+
+<div>
+<h2>一般语法</h2>
+
+<div>
+<p CLASS=Preformatted><span class=Code>opcode [condition] [L] cpname, cpdest, addr_mode </span></p>
+
+<p CLASS=Body>其中： </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs2">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;opcode</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定指令操作。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;condition</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>16 个条件之一。请参阅<a HREF="notational_conventions.htm#Condition Code Status">条件代码状态</a>。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;L</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定位 [22]、N 位：<br>如果 L 设置为 1，则 N 位置为 1，并指定长加载或长存储。如果 L 未置位，则 N 位是零，并指定短加载或短存储。如需有关详细信息，请参阅<a href="INST_LDC.htm" CLASS="XRef">&nbsp;LDC/LDC2 指令</a>与 <a href="INST_STC.htm" CLASS="XRef">STC/STC2 指令</a>。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">&nbsp;cpname</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>协处理器名称 (p0..p15)</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;cpdest</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定目标协处理器寄存器。</td></tr>
+</table>
+
+<p CLASS=Body>&nbsp;</p>
+
+<p CLASS=Body>addr_mode 是以下 6 种子模式之一： </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs2">
+
+<tr>
+<th ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellHeadingCenter>子模式</th>
+<th ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellHeadingCenter>说明</th></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">&#xA0;[basereg, #+/-value*4]</em> </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>偏移量选项：<br> 创建地址序列。第一个地址是将 8 位立即数偏移量乘以四后加到基址寄存器，或从中减去。后续的地址由前一个地址递增四得到。<a href="address_immediate_offset_(am_5).htm">请参阅加载与存储协处理器：立即数偏移量 (AM 5)</a>。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">&nbsp;[basereg #+/-value*4]!</em> </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>事先变址选项：<br>创建地址序列。第一个地址是将 8 位立即数偏移量乘以四后加到基址寄存器，或从中减去。如果传递了某个条件，则将值写回基址寄存器。后续的地址由前一个地址递增四得到。<a href="address_immediate_pre-indexed_(am_5).htm">请参阅加载与存储协处理器：立即数事先变址 (AM 5)</a>。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">&nbsp;[basereg], #+/-value*4</em> </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>事后变址选项：<br> 创建地址序列。如果传递某个条件，则第一个地址是将 8 位立即数偏移量乘以四后加到基址寄存器，或从中减去。然后将值写回基址寄存器。<br>后续的地址由前一个地址递增四得到。<a href="address_immediate_post-indexed_(am_5).htm">请参阅加载与存储协处理器：立即数事后变址 (AM 5)</a>。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">&nbsp;[basereg], option</em> </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>非变址选项：<br> 创建地址序列。第一个地址是基址寄存器 <em CLASS=SourceItalic>basereg</em> 的值。后续的地址由前一个地址递增四得到。基址寄存器不更新，因此各个位可以由 <em CLASS=SourceItalic>option</em> 用于指定其它协处理器选项。<a href="Address_Unindexed_(AM_5).htm">请参阅加载与存储协处理器：非变址 (AM 5)</a>。</td></tr>
+</table>
+</div>
+</div>
+
+<div>
+<h2>一般编码</h2>
+
+<p CLASS=Body>下表显示此寻址模式的编码：</p>
+
+<p CLASS=Body>&nbsp;&nbsp;</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs2">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+<col class="whs3">
+
+<h3 class=NoteTipHead>编码 - 寻址模式 5 </h3>
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>31</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>28</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>27</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>26</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>25</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>24</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>23</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>22</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>21</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>20</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>19</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter>16</td></tr>
+
+<tr>
+<td ROWSPAN="1" COLSPAN="4" width="80" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;condition</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;P</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;U</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;N</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;W</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="1" width="20" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;L</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="4" width="80" class="whs4">
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;basereg</em> 
+ </td>
+</tr>
+</table>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs2">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+<col class="whs5">
+
+<tr>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>15</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>12</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>11</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>8</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>7</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN="1" COLSPAN="1" width="19" class="whs6">
+<p CLASS=CellBodyCenter>0</td></tr>
+
+<tr>
+<td ROWSPAN="1" COLSPAN="4" width="76" class="whs6">
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;cpdest</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="4" width="76" class="whs6">
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;cpnum</em> 
+ </td>
+<td ROWSPAN="1" COLSPAN="8" width="152" class="whs6">
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;value</em> 
+ </td>
+</tr>
+</table>
+
+<p CLASS=Body>其中： </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs2">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;P</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">P == 0</em> 表示事后变址寻址。基址寄存器的值用作内存地址。偏移量应用于基址寄存器的值，并写回基址寄存器。<em CLASS=Source><br>P == 1</em> 表示偏移量寻址或事先变址寻址。（这由 W 位确定）。内存地址是通过将偏移量应用于基址寄存器值而生成的。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;U</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>表示是将偏移量加到基址还是从中减去：<br> 如果 <em CLASS=Source>U == 1</em>，则偏移量加到基址上。<br>如果 <em CLASS=Source>U == 0</em>，则偏移量从基址中减去。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;N</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>此位有依赖于协处理器的含义。建议使用此位区分要传输的不同大小的值。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;W</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>有两个含义：<br> P == 0：<br> 如果 W == 0，则执行非变址寻址。为此 U 位必须是 U == 1，否则结果未定义或无法预知。<br>如果 W == 1，则执行事后变址寻址。<br>P == 1：<br> 如果 W == 0，则基址寄存器不更新（偏移量寻址）。<br>如果 W == 1，计算的内存地址将写回基址寄存器（事先变址寻址）。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;L</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>表示加载或存储：<em CLASS=Source><br> L==1</em> 表示加载。<em CLASS=Source><br>L==0</em> 表示存储。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;cpnum</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>协处理器编号</td></tr>
+</table>
+
+<p CLASS=Body>&nbsp;</p>
+
+<p CLASS=Body>W 位的含义取决于 P 的设置： </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs2">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;P==0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;P==1</em> 
+ </td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">&nbsp;W==0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>执行非变址寻址。为此 U 位必须是 <em CLASS=Source>U == 1</em>，否则结果未定义或无法预知。</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>基址寄存器不更新（偏移量寻址）。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">&nbsp;W==1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>执行事后变址寻址。</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>计算的内存地址写回基址寄存器（事先变址寻址）。</td></tr>
+</table>
+</div>
+</div>
+
+<div>
+<div>
+<p>&nbsp;</p>
+</div>
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

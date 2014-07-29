@@ -1,0 +1,456 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>立即数偏移量 (AM 3)</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=996>
+<meta name=layout-width content=699>
+<meta name=date content="01 21, 2003 4:28:32 PM">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="Immediate Offset (AM 3)"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate;}
+col.whs2 {width: 19px;}
+tr.whs3 {height: 34px;}
+img_whs4 {border: none; width: 20px; height: 20px; float: none;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n寻址模式\n其它加载与存储\n立即数偏移量 (AM 3)");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><IMG SRC="XS_logo.gif" ALIGN="RIGHT" VSPACE="0" HSPACE="0" BORDER="0" alt="英特尔 XScale(R) 技术主题"><a NAME=pgfId-1014721></a><a NAME=85581></a>立即数偏移量 (AM 3)</h1>
+
+<div>
+<h2>语法</h2>
+
+<p class=Preformatted><span class=Code>[basereg, #+/-value</span> </p>
+
+<p CLASS=Body>其中： </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;basereg</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定包含基址的寄存器。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;value</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定 8 位立即数偏移量，与 <em CLASS=SourceItalic>basereg</em> 的值一起使用，以形成地址。偏移量在 <em CLASS=SourceItalic>immH</em>（前 4 位）与 <em CLASS=SourceItalic>immL</em>（后 4 位）中编码</td></tr>
+</table>
+
+<h2>说明</h2>
+
+寻址模式&ldquo;立即数偏移量&rdquo;执行以下操作（伪代码说明）：
+
+<p CLASS=Preformatted-Code>value = (immH &lt;&lt; 4) OR immL<br> if U == 1 then<br> &#xA0;addr = basereg + value<br> else /* U == 0 */<br> &#xA0;addr = basereg - value</p>
+
+<p CLASS=Body>此寻址模式将立即数偏移量的值加到基址寄存器 <em CLASS=SourceItalic>basereg</em> 的值，或从中减去，以计算地址。它用于访问结构（记录）字段、访问堆栈帧中的参数与局部变量。如果偏移量是零，则生成的地址是基址寄存器 <em CLASS=SourceItalic>basereg</em> 的值。</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+
+<h2>编码</h2>
+
+<tr class="whs3">
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>31</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>28</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>27</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>26</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>25</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>24</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>23</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>22</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>21</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>20</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>19</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>16</td></tr>
+
+<tr class="whs3">
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;condition</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;U</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;L</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;basereg</em> 
+ </td>
+</tr>
+</table>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>15</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>12</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>11</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>8</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>7</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>6</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>5</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>4</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>3</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>0</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;dest</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;immH</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;S</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;H</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;immL</em> 
+ </td>
+</tr>
+</table>
+
+<p CLASS=Body>L 位表示&ldquo;加载&rdquo;(<em CLASS=Source> L == 1</em> ) 或&ldquo;存储&rdquo;(<em CLASS=Source> L == 0</em> ) 指令。</p>
+
+<p CLASS=Body>S 位表示有符号的 (<em CLASS=Source> S == 1</em> ) 或无符号的 (<em CLASS=Source> S == 0</em> ) 半字访问。</p>
+
+<p CLASS=Body>H 位表示半字 (<em CLASS=Source> H == 1</em> ) 或有符号字节 (<em CLASS=Source> H == 0</em> ) 访问。</p>
+
+<h3 class=NoteTipHead><img src="Note.gif" x-maintain-ratio="TRUE" width="20px" height="20px" border="0" class="img_whs4">&nbsp;备注</h3>
+
+<p>语法 <em CLASS=Source>[basereg]</em> 视作 <em CLASS=Source>[basereg, #0]</em> 的缩写。</p>
+
+如果 <em CLASS=Source>R15</em> 指定为寄存器 <em CLASS=Source>basereg</em>，则使用的值是当前指令的地址加 8。
+
+<br>如果 S 与 H 表示无符号字节（<em CLASS=Source> S == 0</em> 且 <em CLASS=Source>H == 0</em>），则指令不使用此寻址模式。这是一个乘法指令，即 <em CLASS=Source>SWP</em> 或 <em CLASS=Source>SWPB</em> 指令，或是算术或加载/存储指令扩展区中未分配的指令。 
+
+<br>如果 <em CLASS=Source>S</em> 与 <span class=Source 									style="font-style: italic;"><I>L</I></span> 表示有符号存储指令（<em CLASS=Source>S == 1</em> 且 <span class=Source 		style="font-style: italic;"><I>L</I></span><span class=Source></span><em   CLASS=Source>== 0</em>），则此指令是加载/存储扩展区中未分配的指令。有符号字节与半字使用指令 <em CLASS=Source>STRB</em> 与 <em CLASS=Source>STRH</em> 存储。 
+
+<br>无符号字节由指令 <em CLASS=Source>LDRB</em>、<em   CLASS=Source>LDRBT</em>、<em CLASS=Source>STRB</em> 及 <em CLASS=Source>STRBT</em> 访问。这些指令使用寻址模式 2。如需有关详细信息，请参阅<a href="Address_Load_and_Store_Word_or_Unsigned_Byte_Overview.htm">寻址模式 2：加载与存储字或无符号字节</a>。 
+</div>
+
+<div>
+<h2>示例</h2>
+
+<p CLASS=Preformatted><span class=Code>LDRSH &#xA0;&#xA0;&#xA0;R3, [R1, #0x8C]</span></p>
+
+<h2>更多信息</h2>
+
+<a href="Address_Miscellaneous_Loads_and_Stores_Overview.htm" CLASS="XRef" style="font-weight: normal;">请参阅寻址模式 3：其它加载与存储</a><a href="Inst_Overview_of_Instructions.htm" CLASS="XRef" style="font-weight: normal;"><br> 请参阅汇编器指令</a> 
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,543 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>调整的寄存器偏移量 (AM 2)</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1646>
+<meta name=layout-width content=699>
+<meta name=date content="01 21, 2003 3:54:20 PM">
+<meta name=x-ignored-words content="dest;N;Z;C;Q;F;T;M;globl;funadd;READONLY;MOV;OxAE;ADC;funadc;OxFF;OxFE;SP;SP-relative;NCT;submodes;Coprocessor;ASR;sh_imm;addr_mode;shifter_carry_out;Arithmetic_Shift_right;opcode;basereg;Arithmetic_Shift_Right;Submode;imm;LSL;LSR;ROR;RRX;encodings;rt_imm;FF;start_addr;Bit_Number_Of(reglist;end_addr;ConditionPassed;W;reglist;decremented;L;immH;immL;addr;SWP;SWPB;LDRB;LDRBT;STRB;STRBT;STRH;Rotate_Right;immediates;rt_amount;LDRT;STRT;NotFinished;coprocessor[cpnum;coprocessor;coprocessor-defined;cpdest;cpnum;coprocessor-dependent;IB;cpname;LDC;STC;LDM|STM;basereg[;register(s;Submodes;CPSR;SPSR;EA;FD;coprocessors;LDR|STR;LDR;STR;indexreg;PLD;U==;Logical_Shift_Left;Logical_Shift_Right;H|SH|SB|D;LDRH;SH;LDRSH;SB;LDRSB;LDRD;STRD;Post-indexed(AM;SBZ">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="Address_Scaled_Register_Offset_(AM_2).htm"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate;}
+col.whs2 {width: 19px;}
+tr.whs3 {height: 34px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n寻址模式\n加载与存储字或无符号字节\n调整的寄存器偏移量 (AM 2)");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><IMG SRC="XS_logo.gif" ALIGN="RIGHT" VSPACE="0" HSPACE="0" BORDER="0" alt="英特尔 XScale(R) 技术主题"><a NAME=86529></a>调整的寄存器偏移量 (AM 2)</h1>
+
+<div>
+<h2>语法</h2>
+
+<p class=Preformatted><span class=Code>&#xA0;&#xA0;[basereg, +/-indexreg, LSL #sh_imm]<br> | [basereg, +/-indexreg, LSR #sh_imm]<br> | [basereg, +/-indexreg, ASR #sh_imm]<br> | [basereg, +/-indexreg, ROR #sh_imm]<br> | [basereg, +/-indexreg, RRX]</span> </p>
+
+<p CLASS=Body>其中： </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;basereg</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定包含基址的寄存器。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;indexreg</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定包含可加到 <em CLASS=SourceItalic>basereg</em> 或从中减去的值的寄存器。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;LSL</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定逻辑左移。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;LSR</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定逻辑右移。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;ASR</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定算术右移。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;ROR</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定循环右移。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source 							style="font-style: italic;">&nbsp;RRX</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定扩展循环右移。</td></tr>
+</table>
+</div>
+
+<div>
+&nbsp; 
+
+<br><em CLASS=SourceItalic>sh_imm</em> 的值指定移位或循环移位宽度，它取决于指令：
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<th ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellHeadingCenter>指令</th>
+<th ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellHeadingCenter>宽度</th></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=TableCell><em CLASS=Source
+						style="font-style: italic;">&nbsp;LSL</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>0 到 31，在 <em CLASS=SourceItalic>sh_imm</em> 字段中编码。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=TableCell><em CLASS=Source
+						style="font-style: italic;">&nbsp;LSR</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>1 到 32。移位量 32 使用 <em CLASS=Source>sh_imm==0</em> 编码表示。其它移位量直接编码。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=TableCell><em CLASS=Source
+						style="font-style: italic;">&nbsp;ASR</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>1 到 32。移位量 32 使用 <em CLASS=Source>sh_imm==0</em> 编码表示。其它移位量直接编码。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=TableCell><em CLASS=Source
+						style="font-style: italic;">&nbsp;ROR</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>1 到 31，在 <em CLASS=SourceItalic>sh_imm</em> 字段中编码。<em CLASS=Source>sh_imm == 0</em> 编码指定 <em 
+ CLASS=Source>RRX</em> 选项。</td></tr>
+</table>
+
+<h2>说明</h2>
+
+寻址模式&ldquo;调整的寄存器偏移量&rdquo;执行以下操作（伪代码说明）：
+
+<p CLASS=Preformatted-Code>case shift of<br> 0b00 /* LSL */<br> &#xA0;index = indexreg Logical_Shift_Left sh_imm<br> 0b01 /* LSR */<br> &#xA0;if sh_imm == 0 then /* LSR #32 */<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;index = 0<br> &#xA0;else<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;index = indexreg Logical_Shift_Right sh_imm<br> 0b10 /* ASR */<br> &#xA0;if sh_imm == 0 then /* ASR #32 */<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;if indexreg[31] == 1 then<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;index = 0xFFFFFFFF<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;else<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;index = 0<br> &#xA0;else<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;index = indexreg Arithmetic_Shift_Right<br> &#xA0;sh_imm<br> 0b11 /* ROR or RRX */<br> &#xA0;if sh_imm == 0 then /* RRX */<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;index = (C Flag Logical_Shift_Left 31) OR<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;indexreg Logical_Shift_Right 1)<br> &#xA0;else /* ROR */<br> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;index = indexreg Rotate_Right sh_imm<br> end case<br> if U == 1 then<br> &#xA0;&#xA0;addr = basereg + index<br> else /* U == 0 */<br> &#xA0;&#xA0;addr = basereg - index</p>
+
+<p CLASS=Body>移位的或循环移位的变址寄存器 <em CLASS=SourceItalic>indexreg</em> 的值加到基址寄存器 <em CLASS=SourceItalic>basereg</em> 的值，或从中减去。</p>
+
+<p CLASS=Body>这些寻址模式用于访问比字节大的数组中的单个元素。</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+
+<h2>编码 </h2>
+
+<tr class="whs3">
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>31</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>28</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>27</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>26</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>25</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>24</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>23</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>22</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>21</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>20</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>19</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>16</td></tr>
+
+<tr class="whs3">
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;condition</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em></td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;U</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;B</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source 							style="font-style: italic;">&nbsp;L</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;basereg</em> 
+ </td>
+</tr>
+</table>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>15</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>12</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>11</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>7</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>6</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>5</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>4</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>3</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>0</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;dest</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=5
+	width=95>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;sh_imm</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=2
+	width=38>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;shift</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic 							style="font-style: italic;">&nbsp;indexreg</em> 
+ </td>
+</tr>
+</table>
+
+<p CLASS=Body>B 位表示无符号字节 (<em CLASS=Source> B==1</em> ) 或字访问 (<em CLASS=Source> B==0</em> )。</p>
+
+<p CLASS=Body>L 位表示&ldquo;加载&rdquo;(<em CLASS=Source> L==1</em> ) 或&ldquo;存储&rdquo;(<em CLASS=Source> L==0</em> ) 指令。</p>
+</div>
+
+<div>
+<h3 class=NoteTipHead><img src="Caution.gif">&nbsp;注意</h3>
+
+如果 <em CLASS=Source>R15</em> 指定为寄存器 <em CLASS=SourceItalic>basereg</em>，则使用的值是当前指令的地址加 8。如果 <em CLASS=Source>R15</em> 指定为寄存器 <em CLASS=SourceItalic>indexreg</em>，则结果将会无法预知。 
+</div>
+
+<div>
+<h2>示例</h2>
+
+<p CLASS=Preformatted><span class=Code>LDR &#xA0;&#xA0;&#xA0;R5, [R3, R6, LSL #3]</span></p>
+
+<h2>更多信息</h2>
+
+<a href="Address_Load_and_Store_Word_or_Unsigned_Byte_Overview.htm">请参阅寻址模式 2：加载与存储字或无符号字节</a><a href="Inst_Overview_of_Instructions.htm" CLASS="XRef" style="font-weight: normal;"><br> 请参阅汇编器指令</a> 
+
+<p>&nbsp;</p>
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

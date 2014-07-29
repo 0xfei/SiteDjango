@@ -1,0 +1,236 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>br - 分支指令</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="03 6, 2002 12:41:04 PM">
+<meta name=topic-status content="Ready for Review">
+<meta name=topic-priority content=1>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content=TOC>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=940>
+<meta name=layout-width content=771>
+<meta name=x-ignored-words content="qp;one_byte_form;high_form;two_byte_form;four_byte_form;low_form;GR;CTOP;CEXIT;WTOP;WEXIT;Prefetch;Deallocation;ALAT;UNC;czx;pc;sf;fcmp;fmerge;fpcmp;fpmerge;fsxt;getf;Significand;fsz;lftype;lfhint;mux;padd;Completers;pavg;pavgsub;pcmp;pmax;pmin;pmpy;pmpyshr;pshl;psub;setf;shladdp;shrp;st;xsz;NaT;xchg;C;register_form;imm;addl;GRs;PR[qp;check_target_register;tmp_src;tmp_nat;nat;tmp_res;alloc;tmp_sor;r;tmp_sof;tmp_sol;illegal_operation_fault(;CFM.sor;CFM.rrb.gr;CFM.rrb.fr;CFM.rrb.pr;reserved_register_field_fault(;CFM.sof;rse_new_frame(CFM.sof;RSE;CFM.sol;AR[PFS;ANDed;andcm;bp;br.btype.bwh.ph.dh;IP_relative_form;call_form;counted_form;br.ph.dh;indirect_form;IP-relative;IP;pseudo-ops;btype;COND;bwh;sptk;cond;ia;BRs;PRs;PFS;LC;EC;RRBs;br.wtop;br.wexit;cloop;br.ctop;br.cexit;completers;Hint(ph;dh">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 52px; height: 60px; float: right; border-style: none; float: right;}
+hr.whs2 {height: 2px; width: 100%; float: aligncenter;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔(R) 安腾(R) 指令\nB - 指令\nbr - 分支指令");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script><!--(Generated Script Links)========================================--> <!--(Generated Code)================================================--> <!--(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)==================--> 
+<script type="text/javascript" language="JavaScript1.2" src="../ehlpdhtm.js" x-save-method="compute-relative" name="EHELP_DHTM"></script>
+<script type="text/javascript"
+		language=JavaScript1.2>
+<!-- 
+if( typeof( kadovInitEffects ) != 'function' ) kadovInitEffects = new Function();if( typeof( kadovInitTrigger ) != 'function' ) kadovInitTrigger = new Function();if( typeof( kadovFilePopupInit ) != 'function' ) kadovFilePopupInit = new Function();if( typeof( kadovTextPopupInit ) != 'function' ) kadovTextPopupInit = new Function();
+ //-->
+</script>
+
+ <!--(==============================================================)-->
+
+
+<h1><img src="itanium60hw.gif" alt="安腾(R) 处理器主题" x-maintain-ratio="TRUE" width="52px" height="60px" align="right" border="0" class="img_whs1">分支指令</h1>
+
+<p><span style="font-weight: bold;"><B>br</B></span></p>
+
+<p><a HREF="6400154.htm">操作</a> <a HREF="6400126.htm">字体惯例</a>
+ </p>
+
+<p>指令类型 B</p>
+
+<p><span style="font-weight: bold;"><B>格式</B></span></p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>bp</I></span>) br.<span style="x-condition: eclipse;">btype</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A1');
+//--></script>.<span style="x-condition: eclipse;">bwh</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A2');
+//--></script>.<span style="x-condition: eclipse;">ph</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A3');
+//--></script>.<span style="x-condition: eclipse;">dh</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A4');
+//--></script> <span style="font-style: italic;"><I>target25</I></span> IP_relative_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>bp</I></span>) br.<span style="font-style: italic;"><I>btype</I></span>.<span style="font-style: italic;"><I>bwh</I></span>.<span style="font-style: italic;"><I>ph</I></span>.<span style="font-style: italic;"><I>dh</I></span> <span style="font-style: italic;"><I>b1</I></span> = <span style="font-style: italic;"><I>target25</I></span> call_form, IP_relative_form</p>
+
+<p CLASS=Preformatted>br.<span style="font-style: italic;"><I>btype</I></span>.<span style="font-style: italic;"><I>bwh</I></span>.<span style="font-style: italic;"><I>ph</I></span>.<span style="font-style: italic;"><I>dh</I></span> <span style="font-style: italic;"><I>target25</I></span> counted_form, IP_relative_form</p>
+
+<p CLASS=Preformatted>br.<span style="font-style: italic;"><I>ph</I></span>.<span style="font-style: italic;"><I>dh</I></span> <span style="font-style: italic;"><I>target25</I></span> pseudo-op</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>bp</I></span>) br.<span style="font-style: italic;"><I>btype</I></span>.<span style="font-style: italic;"><I>bwh</I></span>.<span style="font-style: italic;"><I>ph</I></span>.<span style="font-style: italic;"><I>dh</I></span> <span style="font-style: italic;"><I>b2</I></span> indirect_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>bp</I></span>) br.<span style="font-style: italic;"><I>btype</I></span>.<span style="font-style: italic;"><I>bwh</I></span>.<span style="font-style: italic;"><I>ph</I></span>.<span style="font-style: italic;"><I>dh</I></span> <span style="font-style: italic;"><I>b1</I></span> = <span style="font-style: italic;"><I>b2</I></span> call_form, indirect_form</p>
+
+<p CLASS=Preformatted>br.<span style="font-style: italic;"><I>ph</I></span>.<span style="font-style: italic;"><I>dh</I></span> <span style="font-style: italic;"><I>b2</I></span> pseudo-op</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<p><span style="font-weight: bold;"><B>说明</B></span></p>
+
+<p>对分支条件求值，根据结果执行分支，或继续执行序列中的下一条指令。从逻辑意义上说，分支的执行跟在相同指令组中前面所有非分支指令的执行之后。在执行的分支上，执行从指令槽 0 开始。</p>
+
+<p>分支可以与 IP 相对分支或间接分支。对于 IP 相对分支，汇编中的 <span style="font-style: italic;"><I>target25</I></span> 操作数指定要执行的分支的标签。在分支指令中，它作为有符号立即数位移量 (<span style="font-style: italic;"><I>imm21</I></span>) 进行编码，放在目标分支束与包含此指令的分支束之间 (<span   style="font-style: italic;"><I>imm21</I></span> = <span style="font-style: italic;"><I>target25</I></span> - IP &gt;&gt; 4)。对于间接分支，目标地址取自 <span style="x-condition: eclipse;">BR</span><script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A5');
+//--></script> <span style="font-style: italic;"><I>b2</I></span>。</p>
+
+<p>无条件分支有两种伪操作。它们的编码与条件分支类似 (<span style="x-condition: eclipse;">btype</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A6');
+//--></script> = COND)，<span style="font-style: italic;"><I>bp</I></span> 字段指定 <span style="x-condition: eclipse;">PR</span><script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A7');
+//--></script> 0，并带 <span style="x-condition: eclipse;">bwh</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A8');
+//--></script> 提示 sptk。</p>
+
+<p><a HREF="6400003.htm">基本分支类型</a></p>
+
+<p>分支类型确定如何计算分支条件，以及分支是否有其它效果（如写入链接寄存器）。对于基本分支类型，分支条件只是指定的谓词寄存器中的值（称为<span style="font-weight: bold;"><B>分支谓词</B></span>）。</p>
+
+<p>基本分支类型包括：</p>
+
+<ul>
+	
+	<li class=kadov-p-CLinkBul><p CLASS=LinkBul><span style="x-condition: eclipse;">cond</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A9');
+//--></script></p></li>
+	
+	<li class=kadov-p-CLinkBul><p CLASS=LinkBul><span style="x-condition: eclipse;">call</span></p></li>
+	
+	<li class=kadov-p-CLinkBul><p CLASS=LinkBul><span style="x-condition: eclipse;">return</span></p></li>
+	
+	<li class=kadov-p-CLinkBul><p CLASS=LinkBul><span style="x-condition: eclipse;">ia</span></p></li>
+	
+	<li class=kadov-p-CLinkBul><p CLASS=LinkBul><span style="x-condition: eclipse;">loops</span></p></li>
+</ul>
+
+<p>对于分支指令，&ldquo;先写后读&rdquo;(RAW) 与&ldquo;先读后写&rdquo;(WAR) 在相关性要求方面略有不同。对于相同指令组中的后续分支指令而言，非分支指令对 BR、<span 
+ style="x-condition: eclipse;">PR</span><script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A10');
+//--></script>（谓词寄存器）及 PFS 的更改都是可见的，也就是说，这些资源可使用受限制的 RAW。譬如说，低延迟的比较分支序列就是如此。常规 RAW 要求适用于 LC、EC 应用寄存器以及 RRB。</p>
+
+<p>在指令组中，如果读取与写入指令都出现分支，则不允许在 PR 63 上存在 WAR 相关性。例如，br.wtop 或 br.wexit 不得使用 PR[63] 作为其限定谓词，并且 PR[63] 不得是相同指令组中 br.wtop 或 br.wexit 之前任何分支的限定谓词。</p>
+
+<p>出于相关性方面的目的，循环型分支总是会有效地写入关联的资源，无论它们是否执行。cloop 类型总是会有效地写入 LC。LC 为 0 时，cloop 分支让它保持不变，但硬件可能会按照使用相同的值重写 LC 的办法来实施这种行为。与此类似，br.ctop 与 br.cexit 总是有效地写入 LC、EC、RRB 以及 PR[63]；br.wtop 与 br.wexit 总是有效地写入 EC、RRB 以及 PR[63]。</p>
+
+<p>下面是各种分支提示完成符的值：&ldquo;是否预测策略&rdquo;提示（在完成符<span style="x-condition: eclipse;"> (bwh)</span> 中指明）、<script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A11');
+//--></script>  <span style="x-condition: eclipse;">顺序预取提示</span><script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A12');
+//--></script> (ph<span class=BSSCPopup>) </span>以及<span style="x-condition: eclipse;">分支缓存取消提示</span> (dh)</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>预测失误的间接调用性能影响</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=449>
+<meta name=layout-width content=676>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+table.whs2 {x-cell-content-align: top; width: 54.035%; border-spacing: 0px; border-spacing: 0px;}
+col.whs3 {width: 45.78%;}
+col.whs4 {width: 54.22%;}
+tr.whs5 {x-cell-content-align: top;}
+td.whs6 {width: 45.78%; border-left-width: 1px; border-left-color: #000000; border-left-style: Solid; border-top-style: Solid; border-top-color: #000000; border-top-width: 1px; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px; padding-right: 10px; padding-left: 10px;}
+td.whs7 {width: 54.22%; border-top-style: Solid; border-top-color: #000000; border-top-width: 1px; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px; padding-right: 10px; padding-left: 10px;}
+td.whs8 {width: 45.78%; border-left-width: 1px; border-left-color: #000000; border-left-style: Solid; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px; padding-right: 10px; padding-left: 10px;}
+td.whs9 {width: 54.22%; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px; padding-right: 10px; padding-left: 10px;}
+h3.whs10 {margin-left: 40px;}
+img_whs11 {border: none; width: 17px; height: 18px; float: none; border-style: none; border-style: none;}
+ul.whs12 {list-style: disc;}
+img_whs13 {border: none; width: 20px; height: 20px; float: none; border-style: none; border-style: none;}
+p.whs14 {margin-left: 40px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n英特尔(R) 奔腾(R) M 处理器的事件比率\n分支统计比率\n预测失误的间接调用性能影响");
+addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n英特尔(R) 奔腾(R) M 处理器的事件比率\n常规比率\n预测失误的间接调用性能影响");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="er_logo.gif" alt="事件比率主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">预测失误的间接调用性能影响</h1>
+
+<p>100*23* <a href="../EventsB/mispredicted_call_instructions_executed.htm">执行的预测失误 CALL 指令</a> / <a href="../EventsB/clockticks.htm">时钟信号</a></p>
+
+<p>一般来说，这些数字源自经验丰富的性能工程师的经验：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="54.035%" class="whs2">
+<script language='JavaScript'><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4)) document.write("</table><table x-use-null-cells cellspacing='0' width='54.035%' border='1' bordercolor='black' bordercolorlight='black' bordercolordark='black'>");
+//--></script>
+<col class="whs3">
+<col class="whs4">
+
+<tr valign="top" class="whs5">
+<td width="45.78%" class="whs6">
+<h3 class=TableHead>下限</td>
+<td width="54.22%" class="whs7">
+<h3 class=TableHead>上限</td></tr>
+
+<tr valign="top" class="whs5">
+<td width="45.78%" class="whs8">
+<p>0.03</td>
+<td width="54.22%" class="whs9">
+<p>2</td></tr>
+<script language='JavaScript'><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4)) document.write("</table></table><table>");
+//--></script>
+</table>
+
+<p>&nbsp;</p>
+
+<p>此比率的值较高时，表示预测失误的间接调用对性能造成了显著的负面影响。程序中包含间接函数调用，它们的目标发生预测失误。这可能是因为应用程序通过一条 call 指令去调用不同的例程。</p>
+
+<h3 class="whs10"><img src="../LipsB/tip.gif" x-maintain-ratio="TRUE" width="17px" height="18px" border="0" class="img_whs11"> 建议</h3>
+
+<ul type="disc" class="whs12">
+	
+	<ul type="disc" class="whs12">
+		
+		<li class=kadov-p><p>按类型给对象排序</p></li>
+		
+		<li class=kadov-p><p>使用显式函数调用</p></li>
+		
+		<li class=kadov-p><p>减少抽象类与虚拟方法的使用</p></li>
+		
+		<li class=kadov-p><p>减少函数指针的使用</p></li>
+	</ul>
+</ul>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="note.gif" x-maintain-ratio="TRUE" width="20px" height="20px" border="0" class="img_whs13"> 备注</h3>
+
+<p class="whs14">此事件比率仅有某些英特尔(R) 奔腾(R) M 与赛扬(R) M 处理器支持。</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

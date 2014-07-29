@@ -1,0 +1,167 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>RSE_REFERENCES_RETIRED</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=RSE_REFERENCES_RETIRED>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=442>
+<meta name=layout-width content=668>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 20px; height: 20px; border-style: none;}
+table.whs2 {width: 100%;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\nRSE 事件\nRSE_REFERENCES_RETIRED");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>RSE_REFERENCES_RETIRED</h1>
+
+<b style="font-weight: bold;">标题：</b>RSE 访问<b style="font-weight: bold;"><br> 类别：</b>RSE 事件<b style="font-weight: bold;"><br> IAR/DAR/OPC：</b>Y/Y/Y<b style="font-weight: bold;"><br> 事件代码：</b>0x20<b style="font-weight: bold;"><br> 最大每周期增量：</b>2 
+
+<p><b style="font-weight: bold;">定义：</b>统计失效的 RSE 加载与存储数（每次 RSE.bof 达到 RSE.storereg 时；否则称为强制事件，包括 rnat 填充与转存）。此事件表示 RSE 何时引发对内存子系统的操作。</p>
+
+<h3 class=NoteTipHead><img src="note.gif" width="20px" height="20px" border="0" class="img_whs1"> 备注</h3>
+
+DBR 标记的特权级别由 RSC 寄存器确定；但 IBR 标记的特权级别由 PSR.cpl 确定。
+rfi 引起的 RSE 通信量使用 rfi 的目标作标记<br>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells width="100%" class="whs2">
+
+<tr>
+<td>
+<h3 CLASS=TableHead>扩展</td>
+<td>
+<h3 CLASS=TableHead>PMC.umask</td>
+<td>
+<h3 CLASS=TableHead>说明</td></tr>
+
+<tr>
+<td>
+<p>---</td>
+<td>
+<p>bxx00</td>
+<td>
+<p>（*不统计*）</td></tr>
+
+<tr>
+<td>
+<p>LOAD</td>
+<td>
+<p>bxx01</td>
+<td>
+<p>只统计 RSE 加载。</td></tr>
+
+<tr>
+<td>
+<p>STORE</td>
+<td>
+<p>bxx10</td>
+<td>
+<p>只统计 RSE 存储。</td></tr>
+
+<tr>
+<td>
+<p>ALL</td>
+<td>
+<p>bxx11</td>
+<td>
+<p>同时统计 RSE 加载与存储。</td></tr>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

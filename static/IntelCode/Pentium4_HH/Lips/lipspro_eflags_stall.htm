@@ -1,0 +1,243 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>部分标志寄存器</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=MS-HAID content="Pentium(R) II and Pentium Pro Processor Penalties">
+<meta name=date content="04 8, 2003 2:35:49 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=969>
+<meta name=layout-width content=759>
+<meta name=x-ignored-words content=Partial_Reg>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 17px; height: 18px; border-style: none; border-style: none;}
+p.whs3 {margin-left: 40px;}
+p.whs4 {font-weight: bold;}
+table.whs5 {border-spacing: 2px; border-spacing: 2px;}
+col.whs6 {width: 432px;}
+col.whs7 {width: 288px;}
+td.whs8 {width: 432px; x-cell-content-align: TOP; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+td.whs9 {width: 288px; x-cell-content-align: TOP; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+p.whs10 {margin-bottom: 0;}
+td.whs11 {x-cell-content-align: TOP; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs10 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n英特尔(R) 奔腾(R) 4 处理器的惩罚\nEFLAGS 寄存器暂停警告");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" width="36px" height="36px" align="right" border="0" class="img_whs1"> EFLAGS 寄存器暂停警告 </h1>
+
+<p><span style="font-weight: bold;"><B>Partial_Flags_Register</B></span> 是一个警告。</p>
+
+<p>为其发出 <span style="font-weight: bold;"><B>Partial_Flags_Register</B></span> 的指令只读取尚未失效的前一条指令写入的一些而不是所有的状态标志。（此指令与写入状态标志的指令之间可能存在多达 10 条指令）。EFLAGS 寄存器包含六个状态标志：CF（位 0）、PF（位 2）、AF（位 4）、ZF（位 6）、SF（位 7）及 OF（位 11）。另外，此指令还读取以前<span style="font-weight: bold;"><B>未</B></span>写入过的状态标志。这会导致标志暂停。</p>
+
+<p>标志暂停是以下情况之一导致的部分寄存器暂停：</p>
+
+<ul>
+	
+	<li class=kadov-p><p>指令既读取前一条指令写入的状态标志，也读取未写入过的状态标志。只读取写入过的标志，或只读取未写入过的标志时，都不会发生暂停。</p></li>
+	
+	<li class=kadov-p><p>循环移位指令（RCL/R - 带进位循环左/右移、ROL/R - 循环左/右移）或移位指令（SAL/R - 算术左/右移、SHL/R - 逻辑左/右移）将 CL 寄存器用作移位或循环移位计数器，并且后面跟着使用任何标志的指令。</p></li>
+</ul>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="tip.gif" width="17px" height="18px" border="0" class="img_whs2"> <span style="font-weight: bold;"><B>建议</B></span></h3>
+
+<p class="whs3">要访问读取写入过的标志时发生标志暂停，请使用写入所有标志的指令；或在读取标志的指令之间插入足够多的指令，使得在第二条指令执行之前，第一条指令已经失效。</p>
+
+<p class="whs3">要防止将 CL 寄存器用作移位或循环移位计数器时发生标志暂停，请在读取 CL 寄存器的移位或循环移位指令之后插入修改所有标志的指令。</p>
+
+<p class="whs4">示例：读取 CL 与读取标志的移位或循环移位</p>
+
+<p>此例显示如何通过在 SAL 移位指令之后插入 CMP 指令（写入所有标志）来避免暂停。</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="2" class="whs5">
+<col class="whs6">
+<col class="whs7">
+
+<tr>
+<td valign="top" width="432px" class="whs8">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;"><b style="font-weight: bold;">原始代码</b></td>
+<td valign="top" width="288px" class="whs9">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;"><b style="font-weight: bold;">优化代码</b></td></tr>
+
+<tr>
+<td valign="top" width="432px" class="whs8">
+<pre CLASS=Code>
+<p class=Preformatted>
+sal eax, cl
+jz label</p>
+</pre></td>
+<td valign="top" width="288px" class="whs9">
+<pre CLASS=Code>
+<p class=Preformatted>
+sal eax, cl<b style="font-weight: bold;">
+cmp eax, 0</b>
+jz label</p>
+</pre></td></tr>
+
+<tr>
+<td valign="top" width="432px" class="whs8">
+<p class="whs10">SAL（算术左移）读取 CL 寄存器。JZ 读取 ZF 标志时，会导致标志暂停。</td>
+<td valign="top" width="288px" class="whs9">
+<p class="whs10">CMP 写入所有的状态标志。<br>JG 可以读取 ZF 标志，而不会导致暂停。</td></tr>
+</table>
+
+<p class="whs4">示例：读取修改与未修改的标志</p>
+
+<p>此示例显示如何通过在导致暂停的指令之间插入不读取标志的指令来避免暂停。</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="2" class="whs5">
+
+<tr>
+<td valign="top" class="whs11">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">原始代码</td>
+<td valign="top" class="whs11">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">优化代码</td></tr>
+
+<tr>
+<td valign="top" class="whs11">
+<pre CLASS=Code>
+<p class=Preformatted>
+sahf
+jg label</p>
+</pre></td>
+<td valign="top" class="whs11">
+<pre CLASS=Code>
+<p class=Preformatted>
+sahf<b style="font-weight: bold;">
+other instructions</b>
+jg label</p>
+</pre></td></tr>
+
+<tr>
+<td valign="top" class="whs11">
+<p class="whs10">SAHF（将 AH 写入标志）写入除 OF 之外的所有标志。JG 除读取 SF 与 ZF 之外，还读取 O 、标志，它会导致标志暂停。</td>
+<td valign="top" class="whs11">
+<p class="whs10">在 SAHF 与 JG 之间插入不读取标志的其它指令。<br>JG 在 SAHF 失效之后执行。因此获取 JG 时，它不必等待。</td></tr>
+</table>
+
+<p class="whs10">
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','奔腾(R) II 处理器','pentium(r)_ii_processor.htm','奔腾(R) III 处理器','pentium(r)_iii_processor.htm','奔腾(R) M 处理器','pentium(r)_m_processor.htm','奔腾(R) Pro 处理器','pentium(r)_pro_processor.htm');return false;" title="影响的处理器"><img src="../../ss_btn_影响的处理器.gif" border=0 height=20 width=82 alt="影响的处理器"></a>
+
+
+ </p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

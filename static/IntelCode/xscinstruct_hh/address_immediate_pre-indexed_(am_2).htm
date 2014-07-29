@@ -1,0 +1,442 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>立即数事先变址 (AM 2)</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=889>
+<meta name=layout-width content=699>
+<meta name=date content="01 21, 2003 1:28:44 PM">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="Immediate Pre-indexed (AM 2)"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate;}
+col.whs2 {width: 19px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n寻址模式\n加载与存储字或无符号字节\n立即数事先变址 (AM 2)");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><IMG SRC="XS_logo.gif" ALIGN="RIGHT" VSPACE="0" HSPACE="0" BORDER="0" alt="英特尔 XScale(R) 技术主题"><a NAME=pgfId-1013317></a><a NAME=26324></a>立即数事先变址 (AM 2)</h1>
+
+<div>
+<h2>语法</h2>
+
+<p class=Preformatted><span class=Code>[basereg, #+/-value]!</span> </p>
+
+<p CLASS=Body>其中： </p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;basereg</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定包含基址的寄存器。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;value</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>指定 12 位立即数偏移量，与 <em CLASS=SourceItalic>basereg</em> 的值一起使用，以形成地址。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">&nbsp;!</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>设置 W 位，以更新基址寄存器。</td></tr>
+</table>
+
+<h2>说明</h2>
+
+寻址模式&ldquo;立即数事先变址&rdquo;执行以下操作（伪代码说明）：
+
+<p CLASS=Preformatted-Code>if U == 1 then<br> &#xA0;&#xA0;addr = basereg + value<br> else/* if U == 0 */<br> &#xA0;&#xA0;addr = basereg - value<br> If ConditionPassed (condition) then<br> &#xA0;&#xA0;basereg = addr</p>
+
+<p CLASS=Body>立即数偏移量的值加到基址寄存器 <em CLASS=SourceItalic>basereg</em> 的值，或是从中减去。如果指令中指定的条件与条件代码状态匹配，则它写回基址寄存器 <em CLASS=SourceItalic>basereg</em>。</p>
+
+<p CLASS=Body>对于带自动更新指针值的数组的指针访问，此寻址模式非常有用。</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+
+<h2>编码 </h2>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>31</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>28</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>27</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>26</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>25</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>24</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>23</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>22</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>21</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>20</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>19</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>16</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;condition</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em></td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;U</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;B</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;L</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;basereg</em> 
+ </td>
+</tr>
+</table>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+<col class="whs2">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>15</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>12</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>11</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1
+	width=19>
+<p CLASS=CellBodyCenter>0</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=4
+	width=76>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;dest</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=12
+	width=228>
+<p CLASS=CellBodyCenter><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;value</em> 
+ </td>
+</tr>
+</table>
+
+<p CLASS=Body>B 位表示无符号字节 (<em CLASS=Source> B == 1</em> ) 或字访问 (<em CLASS=Source> B == 0</em> )。</p>
+
+<p CLASS=Body>L 位表示&ldquo;加载&rdquo;(<em CLASS=Source> L == 1</em> ) 或&ldquo;存储&rdquo;(<em CLASS=Source> L == 0</em> ) 指令。</p>
+
+<h3 class=NoteTipHead><img src="Note.gif"> 备注</h3>
+
+<p>语法 <em CLASS=Source>[basereg]</em> 不得视作 <em CLASS=Source>[basereg, #0]!</em> 的缩写。 </p>
+</div>
+
+<div>
+<h3 class=NoteTipHead><img src="Caution.gif"> 注意</h3>
+
+如果 <em CLASS=Source>R15</em> 指定为寄存器 <em CLASS=SourceItalic>basereg</em>，则结果将会无法预知。 
+</div>
+
+<div>
+<h2>示例</h2>
+
+<p CLASS=Preformatted><span class=Code>LDR &#xA0;&#xA0;&#xA0;R6, [R4, #-17]!</span></p>
+
+<h2>更多信息</h2>
+
+<a href="Address_Load_and_Store_Word_or_Unsigned_Byte_Overview.htm">请参阅寻址模式 2：加载与存储字或无符号字节</a><span style="font-weight: normal;"><a href="Inst_Overview_of_Instructions.htm"><br> 请参阅汇编器指令</a></span> 
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

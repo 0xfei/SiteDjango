@@ -1,0 +1,643 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>CALL - 调用过程</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="07 1, 2002 2:21:23 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="CALL--Call Procedure">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=7339>
+<meta name=layout-width content=899>
+<meta name=x-ignored-words content="PACKSSWB;PACKSSDW--Pack;Opcode;r;PACKSSDW;doubleword;doublewords;quadword;XMM;SaturateSignedWordToSignedByte;SaturateSignedDoublewordToSignedWord;SaturateSignedDwordToSignedWord;DS;ES;FS;GS;SS;UD;OSFXSR;CPUID;TS;MF;FPU;FFFFH;PF;Vol;microarchitecture;CMPPD--Compare;ib;CMPPD;SIMD;CMPPS;NaN;QNaN;eq;lt;le;unord;neq;nlt;nle;ord;pseudo-ops;CMPEQPD;CMPLTPD;CMPLEPD;CMPUNORDPD;CMPNEQPD;CMPNLTPD;CMPNLEPD;CMPORDPD;EQ;LT;LE;UNORD;NEQ;NLT;NLE;ORD;FFFFFFFFFFFFFFFFH;FI;SNaN;denormal;PF(fault-code;XM;OSXMMEXCPT;CMPS;CMPSB;CMPSW;CMPSD--Compare;E;SI;DI;CMPSD;ESI;EDI;decremented;DF;ECX;REPE;REPZ;REPNE;REPNZ--Repeat;SetStatusFlags(temp;comparison*;CF;SF;ZF;AF;GP;EFLAGS;CWD;CDQ--Convert;Doubleword;Quadword;DX;CDQ;EDX;EAX;opcode;OperandSize;SignExtend(AX;SignExtend(EAX;CBW;CWDE--Convert;CWDE;SignExtend(AL;FCOM;FCOMP;FCOMPP--Compare;ST(i;FCOMPP;Unordered*;FXAM--Examine;FUCOM;QNaNs;ESAC;FPUControlWord.IM;PopRegisterStack;FADD;FADDP;FIADD--Add;FIADD;DEST;F;±F;ConvertExtendedReal(SRC;FICOM;FICOMP--Compare;FICOMP;FDIV;FDIVP;FIDIV--Divide;FIDIV;Z;±;FDIVR;FDIVRP;FIDIVR--Reverse;FIDIVR;FMUL;FMULP;FIMUL--Multiply;FIMUL;FISTP--Store;FISTP;RC;FISUB--Subtract;FSUB;FSUBP;FISUB;Dest;FSUBR;FSUBRP;FISUBR;FLDZ--Load;EB;EC;EE;FLDZ;FLDPI;FCLEX;FNCLEX--Clear;FNCLEX*;PE;UE;OE;ZE;IE;FNCLEX;MS-DOS*;MXCRS;FNINIT*;coprocessor;FPUControlWord;FPUStatusWord;FPUTagWord;FPUDataPointer;FPUInstructionPointer;FPULastInstructionOpcode;FINIT;FNINIT;MXCSR;FSAVE;FNSAVE--Store;FNSAVE*;FNSAVE;FNINIT--Initialize;coprocessors;FPUs;FWAIT;DEST[FPUControlWord;DEST[FPUStatusWord;DEST[FPUTagWord;DEST[FPUDataPointer;DEST[FPUInstructionPointer;DEST[FPULastInstructionOpcode;nonwritable;FSTCW;FNSTCW--Store;FNSTCW*;FNSTCW;FNSTENV--Store;FSTENV;FNSTENV*;FNSTENV;FNSTSW--Store;FNSTSW*;FNSTSW;FPREM;FXAM;FSTSW;denormalized;MOV--Move;ModR;M;m;PG;PGE;PSE;PAE;PDPTRs;MOV;reg;TLB;Lookaside;TLBs;GD;FSTP--Store;FST;FSTP;significand;FUCOMIP--Compare;FUCOMIP;FCOMI;FCOMIP;FUCOMI;FUCOMPP--Unordered;FUCOMP;FUCOMPP;FWAIT--Wait;MP;INSB;INSW;INSD--Input;INSD;CPL;IOPL;VM;TSS;CL;BL;CH;DH;BH;CX;BX;SP;EBX;EBP;mm--An;XLAT;LIDT;LGDT;GDTR;IDTR;ith;DPL=;C;W;Y;INTRA-PRIVILEGE-LEVEL-INTERRUPT;flag*;Push(CS;Push(IP;IDT(Descriptor;vector_number;GP((DEST;EXT;GP((vector_number;NP((vector_number;GDT;GP(TSS;NP(TSS;Push(error;GP(selector;NP(selector;GP(new;GP(CodeSegmentSelector;INTER-PREVILEGE-LEVEL-INTERRUPT;TSSstackAddress;TS(current;NewSS;NewESP;TS(EXT;RPL;TS(SS;LDT;SS(SS;selector+EXT;SS(segment;TSS(NewSS;Gate(CS;IP;Push(far;Push(EFLAGS;Push(ErrorCode;ELSE(*;CodeSegmentDescriptor(DPL;CS(RPL;RF;tempEFLAGS;TempSS;TempESP;Push(GS;Push(FS;Push(DS;Push(ES;Push(TempSS;Push(TempESP;Push(TempEFlags;Push(EIP;Gate(instruction;ErrorCode;SS(selector;TS(selector;TSS's;INT;n;CE;IDT;VME;Microsoft*;EIP;IRET;DPL;GOTO;TF;CMC;LIDT--Load;SFENCE--Store;IDTR(Limit;IDTR(Base;GDTR(Limit;GDTR(Base;SIDT--Store;SGDT;SIDT;mm_loadr_ps;mm_cmpgt_ss;Intrinsics;intrinsics;xmm;declspec;ps;ss;z;y;w;t;mm_load_ps(a;immediates;Intra-privilege;Pop(;tempEIP;tempCS;tempEFLAGS(VM;VIF;EFLAGS(IF;EFLAGS(IOPL;EFLAGS(VM;RETURN-TO-OUTER-PRIVILGE-LEVEL;GP(SSselector;LODSD--Load;LODSD;LOOPcc--Loop;LOOPE;LOOPZ;LOOPNE;LOOPNZ;AddressSize;BranchCond;SignExtend(DEST;LSS--Load;SegmentRegister(DescriptorValidBit;Offset(SRC;XCHG--Exchange;MOVSD--Move;rw;rb;SI's;AddressSize--The;StackAddrSize--Represents;SRC--Represents;DEST--Represents;ZeroExtend(value;ZeroExtend;SignExtend(value;SignExtend;SaturateSignedWordToSignedByte--Converts;SaturateSignedDwordToSignedWord--Converts;SaturateSignedWordToUnsignedByte--Converts;FFH;SaturateToSignedByte--Represents;SaturateToSignedWord--Represents;SaturateToUnsignedByte--Represents;SaturateToUnsignedWord--Represents;LowOrderWord(DEST;HighOrderWord(DEST;Push(value;PUSH--Push;POP--Pop;PopRegisterStack--Marks;Switch-Tasks--Performs;Bit(BitBase;BitOffset;Bit[EAX;BIT[EAX;BitBase;GBits;DIV;EWBE#;EFLAGS(RF;SegmentSelector;IRETD;LODS;LODSB;LODSW;cb;LOOPcc;LDS;LES;LFS;LGS;LSS;ProtectedMode;SegementSelector;SegmentSelector(SRC;SegmentDescriptor([SRC;SegmentRegister;NullSelector;software*;XCHG;BSWAP;MOVSB;MOVSW;MOVS;MOVSD;Encodings;OUTSB;OUTSW;OUTSD;prefetched;PADDB;PADDW;FC;FD;FE;PADDD;PADDSW--Packed;SaturateToSignedByte;SaturateToSignedWord;PADDSB;PADDSW;PADDUSW--Packed;SaturateToUnsignedByte;SaturateToUnSignedByte;SaturateToUnsignedWord;SaturateToUnSignedWord;PADDUSB;PADDUSW;PAVGW--Packed;PAVGB;PAVGW;PCMPEQB;PCMPEQW;PCMPEQD;PCMPGTD--Packed;FFFFFFFFH;DCMPGTD;PCMPGTB;PCMPGTW;PCMPGTD;POPA;POPAD;PUSHA;PUSHAD;POPFD--Pop;POPF;POPFD;PUSHF;PUSHFD;unaffected*;PSLLQ--Packed;ZeroExtend(DEST;PSLLW;PSLLD;PSLLQ;quadwords;int;PSRAD--Packed;PSRAW;PSRAD;PSRLQ--Packed;PSRLW;PSRLD;PSRLQ;PSUBD--Packed;PSUBB;PSUBW;PSUBD;PSUBSW--Packed;PSUBSB;PSUBSW;PSUBUSW--Packed;MMX;PSUBUSB;PSUBUSW;PUNPCKHQDQ--;PUNPCKHW;PUNPCKHBW;PUNPCKHWD;PUNPCKHDQ;PUNPCKHQDQ;PUNPCKLQDQ--;PUNPCKLBW;PUNPCKLWD;PUNPCKLDQ;PUNPCKLQDQ;Push(ECX;Push(EDX;Push(EBX;Push(Temp;Push(EBP;Push(ESI;Push(EDI;Push(AX;Push(CX;Push(DX;Push(BX;Push(BP;Push(SI;Push(DI;Push(EAX;PUSHFD--Push;push(EFLAGS;stack*;EFLAG;IDIV;Coprocessor;NMI;INTR;NP;MC;XF;STOS;nonmatching;AE;SCAS;non-EAX;REPNZ;JECXZ;JZ;JNZ;JNE;CountReg;LSB(DEST;LSB(SRC;MSB;RCL;RCR;ROL;ROR;tempCOUNT;tempCF;MSB(DEST;ELIHW;XOR;ROR--Rotate;SCASB;SCASD--Scan;ES(E;SCASW;SCASD;SAL;SAR;divide*;SHL;SHR;tempDEST;infinity*;Denormalized;misaligned;MOVUPS;Denormal;CPUID.XMM;mm_setcsr(unsigned;EFLAGS.AC;CPUID.XMM(EDX;LDMXCSR;FZ;underflows;FXRSTOR;STOSD--Store;STOSB;STOSW;STOSD;FLD--Load;ExtendedReal(SRC;FLD;FLDCW--Load;FLDCW;FPU's;FLDENV--Load;SRC[FPUControlWord;SRC[FPUStatusWord;SRC[FPUTagWord;SRC[FPUDataPointer;SRC[FPUInstructionPointer;SRC[FPULastInstructionOpcode;FLDENV;FNOP--No;FNOP;FPATAN--Partial;Arctangent;arctangent;FPATAN;FPREM--Partial;LeastSignificantBits(Q;modulus;Q;Std;N;QQ;ADDSD--Scalar;mm_add_sd;ADDSD;FPTAN--Partial;FPTAN;FRNDINT--Round;FRNDINT;FRSTOR--Restore;FRSTOR;FSCALE--Scale;FSCALE;FXTRACT;FSIN;FB;FSINCOS;FCOS;FSQRT;ADDSS;SSE;FTST--TEST;FTST;FXCH--Exchange;FXCH;IP-offset;FXSAVE;DP;FTW;FSW;FCW;AND--Logical;iw;bitwise;little-endian;FP;non-TOS;xx;FXTRACT--Extract;superset;logb(x;Significand;logbx;HLT--Halt;HLT;IDIV--Signed;EAX=Quotient;EDX=Remainder;OpernadSize;SignedModulus;EDXE;IMUL--Signed;IMUL;MUL;NumberOfOperands;size*;IN--Input;INC--Increment;INC;FF;ANDPD--Bitwise;ANDPD;BitwiseAND;Bitwise;INVD--Invalidate;INVD;WBINVD;Flush(InternalCaches;SignalFlush(ExternalCaches;INVLPG--Invalidate;INVLPG;lookaside;Flush(RelevantTLBEntries;Jcc--Jump;JA;JAE;JB;JBE;JC;JCXZ;JE;JG;SF=OF;JGE;JL;JLE;JNA;JNAE;JNB;JNBE;JNC;JNG;JNGE;JNL;JNLE;JNO;JNP;JNS;JP;JPE;JPO;JS;cw;Jcc;opcodes;JMP;FARLABEL;cacheability;EA;cp;jump--A;LFENCE;MFENCE;SFENCE;WB;WC;PREFETCHh;specualtive;LLDT;LDTR;LAR;VERR;VERW;LSL;LDTR(SegmentSelector;LDTR(SegmentDescriptor;ADDPD;ANDNPD;prepended;ADC;BTC;BTR;BTS;CMPXCHG;NEG;SBB;XADD;LOCK#;AssertLOCK#(DurationOfAccompaningInstruction;LSL--Load;LTR;TSSsegmentDescriptor(busy;TaskRegister(SegmentSelector;TaskRegister(SegmentDescriptor;MASKMOVDQU;UC;WP;MASKMOVQ;MAXPD--Maximum;MAXPD;MAXPS;ANDN;Single-FP;ANDNPS;MAXSD;MAXSS;Wait_On_Following_Loads_And_Stores_Until(preceding_loads_and_stores_globally_visible;MINPD;MINPS;MINSD;MINSS;Sreg;seg;ARPL;DEST[RPL;SRC[RPL;MOVAPD--Move;MOVAPD;MOVUPD;void_mm_store_pd(double;MOVAPS;void_mm_store_ps;MOVD;XXM;MOVDQA;MOVDQU;mmx;MOVHLPS--;MOVHLPS;MOVHPD;MOVHPS;MOVLHPS;doubleword-integers;ArrayIndex;LowerBound;UppderBound;MOVLPD;nvalue;mm_loadl_pd;mm_storel_pd;MOVLPS;mm_loadl_pi;mm_storel_pi;MOVMSKPD;mm_movemask_pd;MOVMSKPS;MOVNTDQ;uncacheable;MOVNTI;MOVNTPD;MOVNTPS;MOVNTQ--Move;MOVNTQ;MOVQ;BC;BSF;mm_load_sd;mm_store_sd;MOVSS;MOVSX;BF;MOVZX;MULPD;BD;BSR;MULPS;mem;MULSD;MULSS;NOP;ORPD;ORPS;EF;big-endian;SaturateSignedWordToUnsignedByte;PACKUSWB;¨;PADDQ;PAND;PANDN;BT;modulo;PEXTRW;SEL;imm;d;PINSRW;PMADDWD;PMADD;PMAXSW;PMAXUB;PMINSW;MINSW;PMINUB;PMOVMSKB;PMULHUW;PMULHW;PMULLW;PMULLU;PMULUDQ;POR;PREFETCHNTA;NTA;prefetch;Prefetches;CLFLUSH;WRMSR;CR;PSADBW;Doublewords;PSHUFD;PSHUFHW;encodings;PSHUFLW;PSHUFW;PSLLDQ;PSRLDQ;intrasegment;call--A;intersegment;switch--A;KBytes;GP(segment;newESP;CallGate(CS;newSS;Push(oldSS;Push(parameters;Push(oldCS;InstructionPointer;oldESP;oldEIP;CodeSegment(DPL;CallGateSize;oldIP;GP(task;NP(task">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px; margin-top: 14pt; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px;}
+td.whs2 {x-cell-content-align: CENTER; padding-left: 3px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px;}
+img_whs3 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; width: 13px; height: 16px;}
+img_whs4 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; width: 7px; height: 16px;}
+p.whs5 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs3 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "img_whs4 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs5 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\nIA-32 指令\nC - 指令\nCALL - 调用过程");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>CALL - 调用过程</h1>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">操作码</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">指令</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">E8 <span style="font-style: italic;"><I>cw</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CALL <span style="font-style: italic;"><I>rel16</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">相对近调用，位移量相对于下一条指令</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">E8 <span style="font-style: italic;"><I>cd</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CALL <span style="font-style: italic;"><I>rel32</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">相对近调用，位移量相对于下一条指令</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FF /2</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CALL <span style="font-style: italic;"><I>r/m16</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">绝对间接近调用，地址由 <span style="font-style: italic;"><I>r/m16</I></span> 给出</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FF /2</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CALL <span style="font-style: italic;"><I>r/m32</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">绝对间接近调用，地址由 <span style="font-style: italic;"><I>r/m32</I></span> 给出</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">9A <span style="font-style: italic;"><I>cd</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CALL <span style="font-style: italic;"><I>ptr16:16</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">绝对远调用，地址由操作数给出</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">9A <span style="font-style: italic;"><I>cp</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CALL <span style="font-style: italic;"><I>ptr16:32</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">绝对远调用，地址由操作数给出</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FF /3</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CALL <span style="font-style: italic;"><I>m16:16</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">绝对间接远调用，地址由 <span style="font-style: italic;"><I>m16:16</I></span> 给出</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FF /3</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">CALL <span style="font-style: italic;"><I>m16:32</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">绝对间接远调用，地址由 <span style="font-style: italic;"><I>m16:32</I></span> 给出</td></tr>
+</table>
+
+<h2>说明</h2>
+
+<p>将过程链接信息保存到堆栈上，并分支到目标（调用目标）操作数指定的过程（被调用过程）。目标操作数指定被调用过程中第一条指令的地址。此操作数可以是立即数、通用寄存器或内存位置。</p>
+
+<p>此指令可用于执行四种不同类型的调用：</p>
+
+<ol>
+	
+	<p><span style="font-weight: bold;"><B>近调用</B></span> - 调用当前代码段（CS 寄存器当前指向的段）中的过程，有时称为段内调用。</p>
+	
+	<p><span style="font-weight: bold;"><B>远调用</B></span> - 调用当前代码段之外的段中的过程，有时称为段间调用。</p>
+	
+	<p><span style="font-weight: bold;"><B>特权级别间远调用</B></span> - 对特权级别与当前执行程序或过程不同的段中的过程进行的远调用。</p>
+	
+	<p><span style="font-weight: bold;"><B>任务切换</B></span> - 调用不同任务中的过程。</p>
+</ol>
+
+<p>后两种调用类型（特权级别间调用与任务切换）只能在保护模式中执行。如需有关近调用、远调用及特权级别间调用的详细信息，请参阅&ldquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 	face=Verdana>IA-32 英特尔(R) 体系结构软件开发人员手册</font>&rdquo;第 1 卷第 6 章中标题为&ldquo;使用 Call 与 RET 调用过程&rdquo;的部分。如需有关使用 CALL 指令执行任务切换的详细信息，请参阅&ldquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 		face=Verdana>IA-32 英特尔(R) 体系结构软件开发人员手册</font>&rdquo;第 3 卷第 6 章&ldquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 							face=Verdana>任务管理</font>&rdquo;。</p>
+
+<p><span style="font-weight: bold;"><B>近调用。</B></span>执行近调用时，处理器将 EIP 寄存器的值（包含 CALL 指令后面的指令的偏移量）压入堆栈（稍后用作返回指令指针）。然后，处理器分支到当前代码段中由目标操作数指定的地址。目标操作数指定代码段中的绝对偏移量（即相对于代码段基址的偏移量）或相对偏移量（相对于 EIP 寄存器中指令指针的当前值的有符号位移量，此指针指向 CALL 指令后面的指令）。执行近调用时，CS 寄存器保持不变。</p>
+
+<p>对于近调用，绝对偏移量在通用寄存器或内存位置（<span style="font-style: italic;"><I>r/m16</I></span> 或 <span style="font-style: italic;"><I>r/m32</I></span>）中间接指定。操作数大小属性确定目标操作数的大小（16 位或 32 位）。绝对偏移量直接加载到 EIP 寄存器。如果操作数大小属性是 16，则 EIP 寄存器的两个高位字节清除为零，得到大小最大为 16 位的指令指针。（使用堆栈指针 [ESP] 作为基址寄存器来间接访问绝对偏移量时，使用的基址值是 ESP 在指令执行之前的值）。</p>
+
+<p>在汇编代码中，相对偏移量（<span style="font-style: italic;"><I>rel16</I></span> 或 <span style="font-style: italic;"><I>rel32</I></span>）通常指定为标签，但是在机器代码级别，它的编码形式是有符号的 16 位或 32 位立即数。此值会加到 EIP 寄存器中的值上。对于绝对偏移量，操作数大小属性确定目标操作数的大小（16 位或 32 位）。</p>
+
+<p><span style="font-weight: bold;"><B>实地址模式或虚 8086 模式中的远调用。</B></span>在实地址模式或虚 8086 模式中执行远调用时，处理器将 CS 与 EIP 寄存器的当前值压入堆栈，作为返回指令指针使用。然后，处理器执行指向目标操作数指定的代码段与偏移量的&ldquo;远分支&rdquo;操作，以便调用被调用过程。这里，绝对远地址由目标操作数使用指针（<span style="font-style: italic;"><I>ptr16:16</I></span> 或 <span style="font-style: italic;"><I>ptr16:32</I></span>）直接指定，或是使用内存位置（<span style="font-style: italic;"><I>m16:16</I></span> 或 <span style="font-style: italic;"><I>m16:32</I></span>）间接指定。使用指针方法时，被调用过程的段与偏移量在指令中编码，编码时使用 4 字节（16 位操作数大小）或 6 字节（32 位操作数大小）远地址立即数。使用间接方法时，目标操作数指定内存位置，它包含 4 字节（16 位操作数大小）或 6 字节（32 位操作数大小）远地址。操作数大小属性确定远地址中偏移量的大小（16 位或 32 位）。远地址直接加载到 CS 与 EIP 寄存器。如果操作数大小属性为 16，则 EIP 寄存器的两个高位字节清除为零。</p>
+
+<p><span style="font-weight: bold;"><B>保护模式中的远调用。</B></span>处理器在保护模式中操作时，CALL 指令可用于执行以下三种类型的远调用：</p>
+
+<ol>
+	
+	<p>相同特权级别远调用。不同特权级别远调用（特权级别间调用）。任务切换（远调用另一项任务）。</p>
+</ol>
+
+<p>在保护模式中，处理器总是使用远地址中的段选择器部分访问 GDT 或 LDT 中相应的描述符。描述符类型（代码段、调用门、任务门或 TSS）与访问权限确定要执行的调用操作类型。</p>
+
+<p>如果所选描述符是代码段的，则执行相同特权级别代码段远调用。（如果选择的代码段在另一个特权级别中，并且代码段为非相容代码段，则生成一般保护性异常）。在保护模式中执行的相同特权级别远调用与在实地址模式或虚 8086 模式中执行的远调用非常相似。绝对远地址由目标操作数使用指针（<span style="font-style: italic;"><I>ptr16:16</I></span> 或 <span style="font-style: italic;"><I>ptr16:32</I></span>）直接指定，或是使用内存位置（<span style="font-style: italic;"><I>m16:16</I></span> 或 <span style="font-style: italic;"><I>m16:32</I></span>）间接指定。操作数大小属性确定远地址中偏移量的大小（16 位或 32 位）。新的代码段选择器及其描述符加载到 CS 寄存器，相对于指令的偏移量加载到 EIP 寄存器。</p>
+
+<p>请注意，调用门（在下一段叙述）也可用于执行相同特权级别上代码段的远调用。此机制提供了另一层面的间接调用，进行 16 位与 32 位代码段之间的调用时，首选这种方法。</p>
+
+<p>执行特权级别间远调用时，被调用过程的代码段必须通过调用门访问。目标操作数指定的段选择器确定调用门。同样地，在这里，目标操作数可以使用指针（<span style="font-style: italic;"><I>ptr16:16</I></span> 或 <span style="font-style: italic;"><I>ptr16:32</I></span>）直接指定调用门的段选择器，或是使用内存位置（<span style="font-style: italic;"><I>m16:16</I></span> 或 <span style="font-style: italic;"><I>m16:32</I></span>）间接进行指定。处理器从调用门描述符中获取新代码段的段选择器与新的指令指针（偏移量）。（使用调用门时，忽略目标操作数的偏移量）。执行特权级别间调用时，处理器会切换到被调用过程的特权级别的堆栈。新堆栈段的段选择器在当前运行的任务的 TSS 中指定。执行堆栈切换之后，分支到新的代码段。（请注意，使用调用门对相同特权级别的段执行远调用时，不会发生堆栈切换）。在新堆栈中，处理器会压入以下值：调用过程堆栈的段选择器与堆栈指针、调用过程堆栈的一组参数（可选），以及调用过程代码段的段选择器与指令指针。（调用门描述符的值确定要将多少个参数复制到新的堆栈）。最后，处理器分支到新代码段中被调用过程的地址。</p>
+
+<p>使用 CALL 指令执行任务切换与通过调用门执行调用存在一定程度的相似。这里，目标操作数指定要切换到的任务的任务门段选择器（忽略目标操作数中的偏移量）。任务门则指向任务的 TSS，它包含任务代码与堆栈段的段选择器。TSS 还包含挂起任务之前要执行的下一条指令的 EIP 值。此指令指针值加载到 EIP 寄存器，以便任务从这个下一条指令再次执行。</p>
+
+<p>CALL 指令也可直接指定 TSS 的段选择器，这样就不用间接通过任务门。如需有关任务切换机制的详细信息，请参阅&ldquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 	face=Verdana>IA-32 英特尔&#xAE; 体系结构软件开发人员手册&rdquo;第 3 卷</font>第 6 章&ldquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 			face=Verdana>任务管理</font>&rdquo;。</p>
+
+<p>请注意，使用 CALL 指令执行任务切换时，会将 EFLAGS 寄存器中的嵌套任务标志 (NT) 设置为 1，并且会同时加载新 TSS 的前一个任务链接字段与旧任务的 TSS 选择器。可以预见，代码会通过执行 IRET 指令暂停此嵌套任务，由于 NT 标志已设置为 1，此指令将自动使用前一个任务链接返回到调用任务。（如需有关嵌套任务的详细信息，请参阅&ldquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 							face=Verdana>IA-32 英特尔&#xAE; 体系结构软件开发人员手册&rdquo;第 3 卷</font>第 6 章&ldquo;任务链接&rdquo;）。使用 CALL 指令切换任务与 JMP 指令在这一点上是不同的，JMP 指令不会将 NT 标志设置为 1，因此 IRET 指令应该不会暂停任务。</p>
+
+<p><span style="font-weight: bold;"><B>16 位与 32 位混合调用。</B></span>在 16 位与 32 位代码段之间执行远调用时，应该通过调用门进行。如果是从 32 位代码段到 16 位代码段的远调用，则应该从 32 位代码段的头 64 KB 执行调用。这是因为指令的操作数大小属性设置为 16，所以只能保存 16 位返回地址偏移量。另外，应该使用 16 位调用门执行调用，以便将 16 位值压入堆栈。如需有关在 16 位与 32 位代码段之间执行调用的详细信息，请参阅&ldquo;<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 	face=Verdana>IA-32 英特尔(R) 体系结构软件开发人员手册</font>&rdquo;第 3 卷第 16 章&ldquo;<font   style="font-family: Verdana, Arial, Helvetica, sans-serif;" 	face=Verdana>16 位与 32 位混合代码</font>&rdquo;。</p>
+
+<h2>操作</h2>
+
+<p class=Preformatted>IF near call<br> THEN IF near relative call <br> IF the instruction pointer is not within code segment limit THEN #GP(0); FI;<br> THEN IF OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 32<br> THEN<br> IF stack not large enough for a 4-byte return address THEN #SS(0); FI;<br> Push(EIP);<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> EIP + DEST; (* DEST is <span style="font-style: italic;"><I>rel32</I></span> *)<br> ELSE (* OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 16 *)<br> IF stack not large enough for a 2-byte return address THEN #SS(0); FI;<br> Push(IP);<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> (EIP + DEST) AND 0000FFFFH; (* DEST is <span style="font-style: italic;"><I>rel16</I></span> *)<br> FI; <br> FI;<br> ELSE (* near absolute call *)<br> IF the instruction pointer is not within code segment limit THEN #GP(0); FI;<br> IF OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 32<br> THEN<br> IF stack not large enough for a 4-byte return address THEN #SS(0); FI;<br> Push(EIP); <br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> DEST; (* DEST is <span style="font-style: italic;"><I>r/m32</I></span> *)<br> ELSE (* OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 16 *) <br> IF stack not large enough for a 2-byte return address THEN #SS(0); FI;<br> Push(IP);<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> DEST AND 0000FFFFH; (* DEST is <span style="font-style: italic;"><I>r/m16</I></span> *)<br> FI; <br> FI:<br> FI; <br> <br> IF far call AND (PE <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 0 OR (PE <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 1 AND VM <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 1)) (* real-address or virtual-8086 mode *)<br> THEN<br> IF OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 32<br> THEN<br> IF stack not large enough for a 6-byte return address THEN #SS(0); FI;<br> IF the instruction pointer is not within code segment limit THEN #GP(0); FI;<br> Push(CS); (* padded with 16 high-order bits *)<br> Push(EIP);<br> CS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> DEST[47:32]; (* DEST is <span style="font-style: italic;"><I>ptr16:32</I></span> or [<span style="font-style: italic;"><I>m16:32</I></span>] *)<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> DEST[31:0]; (* DEST is <span style="font-style: italic;"><I>ptr16:32</I></span> or [<span style="font-style: italic;"><I>m16:32</I></span>] *)<br> ELSE (* OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 16 *)<br> IF stack not large enough for a 4-byte return address THEN #SS(0); FI;<br> IF the instruction pointer is not within code segment limit THEN #GP(0); FI;<br> Push(CS);<br> Push(IP);<br> CS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> DEST[31:16]; (* DEST is <span style="font-style: italic;"><I>ptr16:16</I></span> or [<span style="font-style: italic;"><I>m16:16</I></span>] *)<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> DEST[15:0]; (* DEST is <span style="font-style: italic;"><I>ptr16:16</I></span> or [<span style="font-style: italic;"><I>m16:16</I></span>] *)<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> EIP AND 0000FFFFH; (* clear upper 16 bits *)<br> FI;<br> FI;<br> <br> IF far call AND (PE <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 1 AND VM <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 0) (* Protected mode, not virtual-8086 mode *)<br> THEN<br> IF segment selector in target operand null THEN #GP(0); FI;<br> IF segment selector index not within descriptor table limits<br> THEN #GP(new code segment selector);<br> FI;<br> Read type and access rights of selected segment descriptor;<br> IF segment type is not a conforming or nonconforming code segment, call gate,<br> task gate, or TSS THEN #GP(segment selector); FI;<br> Depending on type and access rights<br> GO TO CONFORMING-CODE-SEGMENT;<br> GO TO NONCONFORMING-CODE-SEGMENT;<br> GO TO CALL-GATE;<br> GO TO TASK-GATE;<br> GO TO TASK-STATE-SEGMENT;<br> FI;<br> <br> CONFORMING-CODE-SEGMENT:<br> IF DPL &gt; CPL THEN #GP(new code segment selector); FI;<br> IF segment not present THEN #NP(new code segment selector); FI;<br> IF OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 32<br> THEN<br> IF stack not large enough for a 6-byte return address THEN #SS(0); FI;<br> IF the instruction pointer is not within code segment limit THEN #GP(0); FI;<br> Push(CS); (* padded with 16 high-order bits *)<br> Push(EIP);<br> CS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript>DEST[NewCodeSegmentSelector); <br> (* segment descriptor information also loaded *)<br> CS(RPL) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CPL<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript>DEST[offset);<br> ELSE (* OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 16 *)<br> IF stack not large enough for a 4-byte return address THEN #SS(0); FI;<br> IF the instruction pointer is not within code segment limit THEN #GP(0); FI;<br> Push(CS);<br> Push(IP);<br> CS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript>DEST[NewCodeSegmentSelector); <br> (* segment descriptor information also loaded *)<br> CS(RPL) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CPL<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript>DEST[offset) AND 0000FFFFH; (* clear upper 16 bits *)<br> FI;<br> END;<br> <br> NONCONFORMING-CODE-SEGMENT:<br> IF (RPL &gt; CPL) OR (DPL <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='notequal.gif' width='7px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='notequal.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='7px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='notequal.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='7px' height='16px' border='0' class='img_whs4'></noscript> CPL) THEN #GP(new code segment selector); FI;<br> IF segment not present THEN #NP(new code segment selector); FI;<br> IF stack not large enough for return address THEN #SS(0); FI;<br> tempEIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript>DEST[offset) <br> IF OperandSize=16<br> THEN<br> tempEIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> tempEIP AND 0000FFFFH; (* clear upper 16 bits *)<br> FI;<br> IF tempEIP outside code segment limit THEN #GP(0); FI;<br> IF OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 32<br> THEN<br> Push(CS); (* padded with 16 high-order bits *)<br> Push(EIP);<br> CS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript>DEST[NewCodeSegmentSelector); <br> (* segment descriptor information also loaded *)<br> CS(RPL) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CPL;<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> tempEIP;<br> ELSE (* OperandSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 16 *)<br> Push(CS);<br> Push(IP);<br> CS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript>DEST[NewCodeSegmentSelector); <br> (* segment descriptor information also loaded *)<br> CS(RPL) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CPL;<br> EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> tempEIP;<br> FI;<br> END;<br> <br> CALL-GATE:<br> IF call gate DPL &lt; CPL or RPL THEN #GP(call gate selector); FI;<br> IF call gate not present THEN #NP(call gate selector); FI;<br> IF call gate code-segment selector is null THEN #GP(0); FI;<br> IF call gate code-segment selector index is outside descriptor table limits<br> THEN #GP(code segment selector); FI;<br> Read code segment descriptor;<br> IF code-segment segment descriptor does not indicate a code segment<br> OR code-segment segment descriptor DPL &gt; CPL <br> THEN #GP(code segment selector); FI;<br> IF code segment not present THEN #NP(new code segment selector); FI;<br> IF code segment is non-conforming AND DPL &lt; CPL<br> THEN go to MORE-PRIVILEGE;<br> ELSE go to SAME-PRIVILEGE;<br> FI;<br> END;<br> <br> MORE-PRIVILEGE:<br> IF current TSS is 32-bit TSS<br> THEN <br> TSSstackAddress <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> new code segment (DPL * 8) + 4<br> IF (TSSstackAddress + 7) &gt; TSS limit<br> THEN #TS(current TSS selector); FI;<br> newSS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> TSSstackAddress + 4;<br> newESP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> stack address;<br> ELSE (* TSS is 16-bit *)<br> TSSstackAddress <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> new code segment (DPL * 4) + 2<br> IF (TSSstackAddress + 4) &gt; TSS limit<br> THEN #TS(current TSS selector); FI;<br> newESP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> TSSstackAddress;<br> newSS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> TSSstackAddress + 2;<br> FI;<br> IF stack segment selector is null THEN #TS(stack segment selector); FI;<br> IF stack segment selector index is not within its descriptor table limits<br> THEN #TS(SS selector); FI<br> Read code segment descriptor;<br> IF stack segment selector's RPL <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='notequal.gif' width='7px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='notequal.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='7px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='notequal.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='7px' height='16px' border='0' class='img_whs4'></noscript> DPL of code segment<br> OR stack segment DPL <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='notequal.gif' width='7px' height='16px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='notequal.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='7px' height='16px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='notequal.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='7px' height='16px' border='0' class='img_whs4'></noscript> DPL of code segment <br> OR stack segment is not a writable data segment<br> THEN #TS(SS selector); FI<br> IF stack segment not present THEN #SS(SS selector); FI;<br> IF CallGateSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 32<br> THEN<br> IF stack does not have room for parameters plus 16 bytes<br> THEN #SS(SS selector); FI;<br> IF CallGate(InstructionPointer) not within code segment limit THEN #GP(0); FI;<br> SS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript>newSS; <br> (* segment descriptor information also loaded *)<br> ESP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> newESP; <br> CS:EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CallGate(CS:InstructionPointer); <br> (* segment descriptor information also loaded *)<br> Push(oldSS:oldESP); (* from calling procedure *)<br> temp <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> parameter count from call gate, masked to 5 bits;<br> Push(parameters from calling procedure's stack, temp)<br> Push(oldCS:oldEIP); (* return address to calling procedure *)<br> ELSE (* CallGateSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 16 *)<br> IF stack does not have room for parameters plus 8 bytes<br> THEN #SS(SS selector); FI;<br> IF (CallGate(InstructionPointer) AND FFFFH) not within code segment limit <br> THEN #GP(0); FI;<br> SS <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> newSS; <br> (* segment descriptor information also loaded *)<br> ESP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> newESP; <br> CS:IP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CallGate(CS:InstructionPointer);<br> (* segment descriptor information also loaded *)<br> Push(oldSS:oldESP); (* from calling procedure *)<br> temp <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> parameter count from call gate, masked to 5 bits;<br> Push(parameters from calling procedure's stack, temp)<br> Push(oldCS:oldEIP); (* return address to calling procedure *)<br> FI;<br> CPL <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CodeSegment(DPL)<br> CS(RPL) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CPL<br> END;<br> <br> SAME-PRIVILEGE:<br> IF CallGateSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 32<br> THEN<br> IF stack does not have room for 8 bytes<br> THEN #SS(0); FI;<br> IF EIP not within code segment limit then #GP(0); FI;<br> CS:EIP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CallGate(CS:EIP) (* segment descriptor information also loaded *)<br> Push(oldCS:oldEIP); (* return address to calling procedure *)<br> ELSE (* CallGateSize <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> 16 *)<br> IF stack does not have room for parameters plus 4 bytes<br> THEN #SS(0); FI;<br> IF IP not within code segment limit THEN #GP(0); FI;<br> CS:IP <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CallGate(CS:instruction pointer) <br> (* segment descriptor information also loaded *)<br> Push(oldCS:oldIP); (* return address to calling procedure *)<br> FI;<br> CS(RPL) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> CPL<br> END;<br> TASK-GATE:<br> IF task gate DPL &lt; CPL or RPL <br> THEN #GP(task gate selector); <br> FI;<br> IF task gate not present <br> THEN #NP(task gate selector); <br> FI;<br> Read the TSS segment selector in the task-gate descriptor;<br> IF TSS segment selector local/global bit is set to local<br> OR index not within GDT limits<br> THEN #GP(TSS selector); <br> FI;<br> Access TSS descriptor in GDT;<br> <br> IF TSS descriptor specifies that the TSS is busy (low-order 5 bits set to 00001)<br> THEN #GP(TSS selector); <br> FI;<br> IF TSS not present <br> THEN #NP(TSS selector);<br> FI;<br> SWITCH-TASKS (with nesting) to TSS;<br> IF EIP not within code segment limit <br> THEN #GP(0); <br> FI;<br> END;<br> <br> TASK-STATE-SEGMENT:<br> IF TSS DPL &lt; CPL or RPL<br> OR TSS descriptor indicates TSS not available<br> THEN #GP(TSS selector);<br> FI;<br> IF TSS is not present <br> THEN #NP(TSS selector); <br> FI;<br> SWITCH-TASKS (with nesting) to TSS<br> IF EIP not within code segment limit <br> THEN #GP(0); <br> FI;<br> END;</p>
+
+<h2>影响的标志</h2>
+
+<p>发生任务切换时影响所有的标志；未发生任务切换时则不影响任何标志。</p>
+
+<h2>保护模式异常</h2>
+
+<p>#GP(0) - 如果目标操作数中的目标偏移量超出新代码段的限制。如果目标操作数中的段选择器为空。如果门中的代码段选择器为空。如果内存操作数有效地址超出 CS、DS、ES、FS 或 GS 段限制。如果 DS、ES、FS、或 GS 寄存器用于访问内存，并且它包含空的段选择器。</p>
+
+<p>#GP(选择器) - 如果代码段选择器、门选择器或 TSS 选择器的索引超出描述符表格的限制。如果目标操作数中的段选择器指向的不是相容代码段、非相容代码段、调用门、任务门或任务状态段的段描述符。如果非相容代码段的 DPL 不等于 CPL，或是该段的段选择器的 RPL 大于 CPL。如果相容代码段的 DPL 大于 CPL。如果调用门、任务门或 TSS 段描述符的 DPL 小于 CPL，或者小于调用门、任务门或 TSS 的段选择器的 RPL。如果调用门提供的段选择器对应的段描述符没有指出它是代码段。如果调用门提供的段选择器超出描述符表格的限制。如果从调用门获取的代码段的 DPL 大于 CPL。如果 TSS 的段选择器将自己的局部/全局位设置为局部。如果 TSS 段描述符指出 TSS 忙或不可用。</p>
+
+<p>#SS(0) - 如果将返回地址、参数或堆栈段指针压入堆栈时超出堆栈段的边界，而没有进行堆栈切换。如果内存操作数有效地址超出 SS 段限制。</p>
+
+<p>#SS(选择器) - 如果将返回地址、参数或堆栈段指针压入堆栈时超出堆栈段的边界，而没有进行堆栈切换。如果在执行堆栈切换的过程中加载 SS 寄存器，但指向的段标记为不存在。如果发生堆栈切换时，堆栈段没有空间可以保存返回地址、参数或堆栈段指针。</p>
+
+<p>#NP(选择器) - 如果代码段、数据段、堆栈段、调用门、任务门或 TSS 不存在。</p>
+
+<p>#TS(选择器) - 如果新的堆栈段选择器与 ESP 超出 TSS 的末尾。如果新的堆栈段选择器为空。如果新堆栈段选择器在 TSS 中的 RPL 与访问的代码段的 DPL 不相等。如果新堆栈段的堆栈段描述符的 DPL 与代码段描述符的 DPL 不相等。如果新的堆栈段是不可写数据段。如果堆栈段的段选择器索引超出描述符表格限制。</p>
+
+<p>#PF(错误代码) - 如果发生页错误。</p>
+
+<p>#AC(0) - 如果在 CPL 为 3 且启用对齐检查的情况下发生未对齐的内存访问。</p>
+
+<h2>实地址模式异常</h2>
+
+<p>#GP - 如果内存操作数有效地址超出 CS、DS、ES、FS 或 GS 段限制。如果目标偏移量超出代码段的限制。</p>
+
+<h2>虚 8086 模式异常</h2>
+
+<p>#GP(0) - 如果内存操作数有效地址超出 CS、DS、ES、FS 或 GS 段限制。如果目标偏移量超出代码段的限制。</p>
+
+<p>#PF(错误代码) - 如果发生页错误。</p>
+
+<p class="whs5">#AC(0) - 如果在启用对齐检查的情况下发生未对齐的内存访问。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

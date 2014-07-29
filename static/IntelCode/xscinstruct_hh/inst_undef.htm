@@ -1,0 +1,127 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>UNDEFINED - 未定义的指令</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=426>
+<meta name=layout-width content=699>
+<meta name=date content="01 21, 2003 4:05:47 PM">
+<meta name=x-ignored-words content="dest;N;Z;C;Q;F;T;M;globl;funadd;READONLY;MOV;OxAE;ADC;funadc;OxFF;OxFE;SP;SP-relative;NCT;submodes;Coprocessor;ASR;sh_imm;addr_mode;shifter_carry_out;Arithmetic_Shift_right;opcode;basereg;Arithmetic_Shift_Right;Submode;imm;LSL;LSR;ROR;RRX;encodings;rt_imm;FF;start_addr;Bit_Number_Of(reglist;end_addr;ConditionPassed;W;reglist;decremented;L;immH;immL;addr;SWP;SWPB;LDRB;LDRBT;STRB;STRBT;STRH;Rotate_Right;immediates;rt_amount;LDRT;STRT;NotFinished;coprocessor[cpnum;coprocessor;coprocessor-defined;cpdest;cpnum;coprocessor-dependent;IB;cpname;LDC;STC;LDM|STM;basereg[;register(s;Submodes;CPSR;SPSR;EA;FD;coprocessors;LDR|STR;LDR;STR;indexreg;PLD;U==;Logical_Shift_Left;Logical_Shift_Right;H|SH|SB|D;LDRH;SH;LDRSH;SB;LDRSB;LDRD;STRD;Post-indexed(AM;SBZ;XScale;Microarchitecture;funand;Bitwise;EOR;ORR;funasr;OxC;B[condition;NOP;funb;crossMOV;BPL;BAL;BNE;BL;BX;TST;BIC;ANDed;bitwise;funbic;BKPT;prefetch;B[L;funcbl;EAFFFFFE;BLX;Thumb*;funblx;LR;CMN;funcmn;OxEF;BCS;CMP;funcmp;BMI;BEQ;funeor;XOR;ENDIF;ENDM;nestings;boolvar;imPORT;GLOBL;EQU;REQ;EXITM;ASCIIZ;C-style;HWORD;INT;LTORG;unvalidated;ADC[condition;TM;funcadc;ADCS">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="UNDEFINED - Undefined Instruction"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><IMG SRC="XS_logo.gif" ALIGN="RIGHT" VSPACE="0" HSPACE="0" BORDER="0" alt="英特尔 XScale(R) 技术主题">UNDEFINED - 未定义</h1>
+
+<div>
+<h2>说明</h2>
+
+如果指令的解码位不等于任何已定义的指令的解码位，则这条指令是 UNDEFINED（未定义的）。 
+
+<h3 class=NoteTipHead><img src="Note.gif"> 备注</h3>
+
+因为不同的 CPU 会将相同的二进制代码解释为不同的指令，因此 OLD CPU（旧 CPU）环境中未定义的指令会在 NEW CPU（新 CPU）环境中解释为新定义的指令。如果用户在&ldquo;VTune&#x2122; 性能环境&rdquo;中打开一个映像文件，并选择&ldquo;旧 CPU&rdquo;，则会显示未定义的指令。 
+</div>
+
+<div>
+<p CLASS=Listing>&nbsp;</p>
+
+<h2>&nbsp;</h2>
+
+<h2 CLASS=FM02-Level>&nbsp;</h2>
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

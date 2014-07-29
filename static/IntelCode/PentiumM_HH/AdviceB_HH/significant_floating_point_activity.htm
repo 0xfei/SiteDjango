@@ -1,0 +1,159 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>浮点活动明显</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 12, 2003 11:54:56 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=866>
+<meta name=layout-width content=676>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 17px; height: 18px; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; border-style: none;}
+ul.whs3 {list-style: disc;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs2 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n关于英特尔(R) 奔腾(R) M 处理器的建议\n浮点活动明显");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔(R) 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">浮点操作活动明显</h1>
+
+<p>浮点操作活动明显表示可能适用专门针对浮点算法的优化方法。 </p>
+
+<p><span style="font-weight: bold;"><B>在以下情况中，此细节具有实质性意义：</B></span><br>计数器的商（<a href="../ERB/er_floating_point.htm" style="x-condition: eclipse;">失效的浮点操作/失效的指令</a>）较高。值 0.00 应视为较低，值 0.95 应视为较高。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><span style="font-weight: bold;"><B><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='tip.gif' width='17px' height='18px' border='0' class='img_whs2'>");}
+else
+{   document.write("<img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs2'>");}
+//--></script><noscript><img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs2'></noscript> 建议</B></span></h3>
+
+<ol>
+	
+	<ul type="disc" class="whs3">
+		
+		<li class=kadov-p><p>考虑使用压缩版的&ldquo;数据流单指令多数据扩展指令集&rdquo;(SSE) 或 SSE2 代码。由于使用标量 SSE 代码而不使用常规浮点代码可能会降低性能（具体取决于指令混合情况），因此请使用编译器的 <span class=Code>/QxW</span> 标志检查性能影响。原因在于，熔合代码跟 x87 代码、标量 SSE 代码不同，它无法进行从内存到寄存器的操作。通常情况下，使用压缩代码极有可能改善性能。</p></li>
+		
+		<li class=kadov-p><p>研究占用大部分执行时间的循环嵌套的汇编代码，以了解编译器执行了哪些类型的转换，并考虑还可能执行其它哪些优化。</p></li>
+		
+		<li class=kadov-p><p>考虑将长延迟浮点算术运算替换成更快的运算。<br>设法将长延迟浮点算术运算（如除法）替换成更快的运算（如乘以倒数）。如果要频繁执行除法，除非确有必要，否则请不要使用较高的精度。与双精度（64 位）或扩展双精度（80 位）相比，单精度（32 位）的除法速度更快，并且只消耗一半的内存空间。请注意，更改数据类型（例如，从 double 更改成 float）不会自动更改执行算术运算时的精度。精度可通过更改浮点状态寄存器进行设置。降低除法开销的另一种办法是使用 SSE 标量或压缩除法指令。如需有关详细信息，请参阅处理器的&ldquo;程序员参考手册&rdquo;。</p></li>
+		
+		<li class=kadov-p><p>如果代码需要执行 float 到 int 转换，请确保使用 float 到 int 快速转换例程。许多函数库所做的工作都超过必需做的工作，请确保 float 到 int 的转换例程速度较快。请注意，由于 FORTRAN 与 C 语言的语义方面的原因，float 到 int 的转换可能会暗中发生，因此可能不容易注意到发生了 float 到 int 的转换。有时候，通过查看&ldquo;VTune&#x2122; 性能分析器&rdquo;的输出中是否出现例程 <span class=Code>_ftol()</span>，可以检测出是否发生 float 到 int 转换。对于某些编译器（如英特尔(R) C++ 编译器），由于例程是内嵌的，因此更难检测此种转换。使用 SSE 指令可以解决此问题，SSE 指令使用截断转换指令。 &nbsp;</p></li>
+		
+		<li class=kadov-p><p>确保应用程序中的数据在正确的范围内。数值超出范围会导致非常高的开销。如果使用&ldquo;数据流单指令多数据扩展指令集&rdquo;(SSE)，并且在处理浮点值，请尝试使用 SSE 的清除为零模式。 </p></li>
+		
+		<li class=kadov-p><p>尽可能使用&ldquo;英特尔(R) MKL&rdquo;（数学内核库）。这些库包含许多常用的线性代数例程，如 BLAS3、LAPACK 等等。</p></li>
+		
+		<li class=kadov-p><p>考虑编译器驱动的矢量化。如需有关编译器驱动的矢量化的详细信息，请参阅编译器文档。目前，对于英特尔(R) C++ 编译器，矢量化功能通过命令行开关 -QxW 激活。</p></li>
+	</ul>
+</ol>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

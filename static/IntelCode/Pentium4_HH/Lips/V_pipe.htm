@@ -1,0 +1,175 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>V 与 U 管道</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="06 10, 2002 3:52:39 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=505>
+<meta name=layout-width content=667>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+p.whs2 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs2 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" width="36px" height="36px" align="right" border="0" class="img_whs1"> V 与 U 管道</h1>
+
+<p>奔腾(R) 处理器双管道上只执行简单指令的整数管道。</p>
+
+<p>奔腾处理器有两个执行单元：U 管道与 V 管道。两条指令在两个管道中并行执行时，认为这两个指令已配对。</p>
+
+<p>U 管道可以执行英特尔(R) 体系结构中的任何指令，而 V 管道则只能执行简单指令。</p>
+
+<p>两条指令配对时，发到 V 管道的指令总是发到 U 管道的指令的后一条顺序指令。</p>
+
+<p>简单指令完全采取硬连线方式，不需要任何微代码控制，并且它们一般在一个时钟周期内完成执行。ALU mem, reg 与 ALU reg, mem 指令属例外情况，它们分别是三个时钟周期与两个时钟周期的操作。通过使用序列硬件，这些指令可以像简单指令一样工作。</p>
+
+<p>以下整数指令视作简单指令，并可以配对：</p>
+
+<ul>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">mov reg, reg/mem/imm</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">mov mem, reg/imm</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">alu reg, reg/mem/imm</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">alu mem, reg/imm</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">inc reg/mem</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">dec reg/mem</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">push reg/mem</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">pop reg</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">lea reg,mem</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">jmp/call/jcc near</span></p></li>
+	
+	<li class=kadov-p><p><span class=Code
+								style="font-family: monospace;">nop</span></p></li>
+</ul>
+
+<p class="whs2">&nbsp; </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

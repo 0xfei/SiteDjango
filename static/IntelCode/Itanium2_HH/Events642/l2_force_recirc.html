@@ -1,0 +1,263 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>l2_force_recirc</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=L2_FORCE_RECIRC>
+<meta name=MS-HAID content="一体化二级缓存事件">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1170>
+<meta name=layout-width content=550>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 20px; height: 20px; border-style: none; border-style: none;}
+table.whs2 {width: 100%;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\n内存事件\n一体化二级缓存事件\nL2_FORCE_RECIRC");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>L2_FORCE_RECIRC</h1>
+
+<b style="font-weight: bold;">标题：</b>强制再循环<b style="font-weight: bold;"><br> 类别：</b>一体化二级缓存事件<b style="font-weight: bold;"><br> IAR/DAR/OPC：</b>Y/Y/Y<b style="font-weight: bold;"><br> 事件代码：</b>0xB4<b style="font-weight: bold;"><br> 最大每周期增量：</b>4 
+
+<p><b style="font-weight: bold;">定义：</b>统计强制再循环的二级微操作数，不包括 SNP_OR_L3。SNP_OR_L3 将测量二级微操作强制再循环的次数。0-32 个微操作的任何位置都会受此计数影响。除 SMC_HIT、TRAN_PERF 以及 SNP_OR_L3 之外的所有类别都在插入 OZQ 处发生。SMC_HIT 是 ifetch 将要写入 IPFQ 并强制再循环的时候，原因在于，这里存在一个对相同地址的未决存储。SNP_OR_L3 是强制再循环现有的 OZQ 项的时候，原因在于，进入请求与它的地址匹配，或是发到 L3/BC 的访问将以相同的路径/索引填充此 OZQ_ENTRY 所&ldquo;命中&rdquo;的对象。TRAN_PREF 是现有的 OZQ 访问转换为预取的时候。</p>
+
+<h3 class=NoteTipHead><img src="note.gif" width="20px" height="20px" border="0" class="img_whs1"> 备注</h3>
+
+这是有限组 2 的&ldquo;二级缓存&rdquo;事件。此事件必须使用 PMD4 测量。 
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells width="100%" class="whs2">
+
+<tr>
+<td>
+<h3 CLASS=TableHead>扩展</td>
+<td>
+<h3 CLASS=TableHead>PMC.umask</td>
+<td>
+<h3 CLASS=TableHead>说明</td></tr>
+
+<tr>
+<td>
+<p>ANY</td>
+<td>
+<p>b0000</td>
+<td>
+<p>统计任何原因引起的强制再循环。这里将不包括 SMC_HIT、TRAN_PREF 以及 SNP_OR_L3。</td></tr>
+
+<tr>
+<td>
+<p>SMC_HIT</td>
+<td>
+<p>b0001</td>
+<td>
+<p>仅统计由于对相同缓存线的 ifetch 与加载或是未决的 WT 存储引起的 SMC 命中所导致的那些</td></tr>
+
+<tr>
+<td>
+<p>L1W</td>
+<td>
+<p>b0010</td>
+<td>
+<p>仅统计强制过渡状态导致的那些</td></tr>
+
+<tr>
+<td>
+<p>---</td>
+<td>
+<p>b0011</td>
+<td>
+<p>（*不统计*）</td></tr>
+
+<tr>
+<td>
+<p>TAG_NOTOK</td>
+<td>
+<p>b0100</td>
+<td>
+<p>仅统计二级命中导致的，这些二级命中由正在进行的嗅探、相同索引上发生同属未命中的存储、对相同缓存线的同属探测或存在未决的 sync.ia 指令引起。</td></tr>
+
+<tr>
+<td>
+<p>TRAN_PREF</td>
+<td>
+<p>b0101</td>
+<td>
+<p>仅统计转换成预取所导致的那些</td></tr>
+
+<tr>
+<td>
+<p>SNP_OR_L3</td>
+<td>
+<p>b0110</td>
+<td>
+<p>仅统计嗅探或三级发出导致的那些</td></tr>
+
+<tr>
+<td>
+<p>---</td>
+<td>
+<p>b0111</td>
+<td>
+<p>（*不统计*）</td></tr>
+
+<tr>
+<td>
+<p>VIC_PEND</td>
+<td>
+<p>b1000</td>
+<td>
+<p>仅统计存在未决牺牲品的二级未命中导致的那些</td></tr>
+
+<tr>
+<td>
+<p>FILL_HIT</td>
+<td>
+<p>b1001</td>
+<td>
+<p>仅统计命中填充缓冲区的二级未命中导致的那些</td></tr>
+
+<tr>
+<td>
+<p>IPF_MISS</td>
+<td>
+<p>b1010</td>
+<td>
+<p>已存在未命中指令预取缓冲区的情形时二级未命中导致的那些</td></tr>
+
+<tr>
+<td>
+<p>VIC_BUF_FULL</td>
+<td>
+<p>b1011</td>
+<td>
+<p>仅统计牺牲缓冲区已满的二级未命中导致的那些</td></tr>
+
+<tr>
+<td>
+<p>OZQ_MISS</td>
+<td>
+<p>b1100</td>
+<td>
+<p>已存在未命中 OZQ 的情形时 L2 未命中导致的那些</td></tr>
+
+<tr>
+<td>
+<p>SAME_INDEX</td>
+<td>
+<p>b1101</td>
+<td>
+<p>已存在未命中相同索引的情形时二级未命中导致的那些</td></tr>
+
+<tr>
+<td>
+<p>FRC_RECIRC</td>
+<td>
+<p>b1110</td>
+<td>
+<p>已存在强制再循环时二级未命中导致的那些</td></tr>
+
+<tr>
+<td>
+<p>---</td>
+<td>
+<p>b1111</td>
+<td>
+<p>（*不统计*）</td></tr>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

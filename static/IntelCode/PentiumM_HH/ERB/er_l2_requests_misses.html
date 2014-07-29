@@ -1,0 +1,171 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>二级未命中/数据内存引用</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=MS-HAID content="Event Ratio">
+<meta name=MS-HAID content=L2>
+<meta name=MS-HAID content="Data Memory References">
+<meta name=date content="10 10, 2001 2:50:01 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=428>
+<meta name=layout-width content=744>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+table.whs2 {width: 60%; border-spacing: 0px; border-spacing: 0px;}
+td.whs3 {x-cell-content-align: TOP; width: 50%; padding-left: 2px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px;}
+p.whs4 {margin-bottom: 0;}
+p.whs5 {text-align: left;}
+img_whs6 {margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; width: 20px; height: 20px; float: none; border-style: none; border-style: none;}
+p.whs7 {margin-bottom: 0; margin-left: 40px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs4 {margin-bottom:1; }";
+  strNSS += "img_whs6 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs7 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n英特尔(R) 奔腾(R) M 处理器的事件比率\n内存统计比率\n二级未命中/数据内存引用");
+addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n英特尔(R) 奔腾(R) M 处理器的事件比率\n基本性能调整比率\n二级未命中/数据内存引用");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="er_logo.gif" alt="事件比率主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">二级未命中/数据内存引用</h1>
+
+<p><a href="../EventsB/l2_cache_request_misses_(highly_correlated).htm">二级缓存请求未命中</a>（高度相关）/ 数据内存引用（所有）</p>
+
+<p>一般来说，这些数字源自经验丰富的性能工程师的经验：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="60%" class="whs2">
+
+<tr>
+<td valign="top" width="50%" class="whs3">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">良好</td>
+<td valign="top" width="50%" class="whs3">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">不佳</td></tr>
+
+<tr>
+<td valign="top" width="50%" class="whs3">
+<p class="whs4">0.0005</td>
+<td valign="top" width="50%" class="whs3">
+<p class="whs4">0.07</td></tr>
+</table>
+
+<p align="left" class="whs5">如果此比率不佳，则表示工作数据集不能放入二级缓存。</p>
+
+<h3 CLASS=NoteTipHead
+	style="margin-left: 40px;"><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='note.gif' alt='备注' x-maintain-ratio='TRUE' width='20px' height='20px' border='0' class='img_whs6'>");}
+else
+{   document.write("<img src='note.gif' alt='备注' x-maintain-ratio='TRUE' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='20px' height='20px' border='0' class='img_whs6'>");}
+//--></script><noscript><img src='note.gif' alt='备注' x-maintain-ratio='TRUE' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='20px' height='20px' border='0' class='img_whs6'></noscript> 备注</h3>
+
+<p class="whs7">二级缓存未命中比一级缓存未命中产生的性能惩罚更重。二级缓存未命中可能导致 50-150 个周期的惩罚。命中二级缓存的一级缓存未命中通常不成为什么问题。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

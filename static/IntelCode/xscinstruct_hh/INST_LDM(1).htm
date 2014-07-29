@@ -1,0 +1,400 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>LDM(1) - 多重加载</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=1438>
+<meta name=layout-width content=699>
+<meta name=date content="01 21, 2003 2:27:00 PM">
+<meta name=x-ignored-words content="dest;N;Z;C;Q;F;T;M;globl;funadd;READONLY;MOV;OxAE;ADC;funadc;OxFF;OxFE;SP;SP-relative;NCT;submodes;Coprocessor;ASR;sh_imm;addr_mode;shifter_carry_out;Arithmetic_Shift_right;opcode;basereg;Arithmetic_Shift_Right;Submode;imm;LSL;LSR;ROR;RRX;encodings;rt_imm;FF;start_addr;Bit_Number_Of(reglist;end_addr;ConditionPassed;W;reglist;decremented;L;immH;immL;addr;SWP;SWPB;LDRB;LDRBT;STRB;STRBT;STRH;Rotate_Right;immediates;rt_amount;LDRT;STRT;NotFinished;coprocessor[cpnum;coprocessor;coprocessor-defined;cpdest;cpnum;coprocessor-dependent;IB;cpname;LDC;STC;LDM|STM;basereg[;register(s;Submodes;CPSR;SPSR;EA;FD;coprocessors;LDR|STR;LDR;STR;indexreg;PLD;U==;Logical_Shift_Left;Logical_Shift_Right;H|SH|SB|D;LDRH;SH;LDRSH;SB;LDRSB;LDRD;STRD;Post-indexed(AM;SBZ;XScale;Microarchitecture;funand;Bitwise;EOR;ORR;funasr;OxC;B[condition;NOP;funb;crossMOV;BPL;BAL;BNE;BL;BX;TST;BIC;ANDed;bitwise;funbic;BKPT;prefetch;B[L;funcbl;EAFFFFFE;BLX;Thumb*;funblx;LR;CMN;funcmn;OxEF;BCS;CMP;funcmp;BMI;BEQ;funeor;XOR;ENDIF;ENDM;nestings;boolvar;imPORT;GLOBL;EQU;REQ;EXITM;ASCIIZ;C-style;HWORD;INT;LTORG;unvalidated;ADC[condition;TM;funcadc;ADCS;ADD[condition;funcadd;AND[condition;funcand;BIC[condition;funcbic;funcbkpt;FAFFFFFE;DCD;DCB;BLX[condition;ARM*;SBO;BX[condition;dest_;funcbx;CDP;CDP[condition;cpop-;funccdp;cp_dp;CLZ;CLZ[condition;funcclz;CMN[condition;funccmn;CMP[condition;funccmp;EOR[condition;funceor;LDC[condition;funcldc;LDM[condition;reg;reg};register{s};LDM;funldm;OxA;LDMIB;thru;Reg;STMFD;LR};LDMFD;PC}">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="INST_LDM(1).htm"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n指令\n32 位指令\nL - 指令\nLDM(1)");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><IMG SRC="XS_logo.gif" ALIGN="RIGHT" VSPACE="0" HSPACE="0" BORDER="0" alt="英特尔 XScale(R) 技术主题">LDM(1) - 多重加载</h1>
+
+<div>
+<div>
+<div>
+<h2>语法</h2>
+
+<p class=Preformatted><span class=Code>LDM[condition] addr_mode basereg[!], reg [,{reg}],...</span> </p>
+
+<p CLASS=Body>其中：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;condition</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>16 个条件之一。请参阅<a HREF="notational_conventions.htm#Condition Code Status">条件代码状态</a>。</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;addr_mode</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>寻址模式 4：<a href="Address_Load_and_Store_Multiple_Overview.htm">多重加载与存储</a></td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;basereg</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic>addr_mode</em> 使用的基址寄存器 
+ </td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">&nbsp;!</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>设置 W 位 [21]</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic
+							style="font-style: italic;">&#xA0;reg</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>要加载的有效寄存器</td></tr>
+</table>
+
+<h2>说明</h2>
+
+此格式的 LDM 指令可以加载 <em CLASS=SourceItalic>reg</em> 指定的块、堆栈操作及过程退出序列。加载 PC 时，它被当作地址。<em CLASS=SourceItalic>reg</em> 指定的寄存器按照升序从自低到高的内存地址进行加载。condition 必须是有效值；否则将指令当作 NOP。 
+</div>
+</div>
+
+<div>
+<h3 class=NoteTipHead><img src="Note.gif"> 备注</h3>
+
+<p>如果试图进行无效的加载或存储数据访问，则生成数据终止异常。如果实现系统控制协处理器时启用对齐检查，并且存在位 [01:0] != 0b00 的地址，则生成对齐异常。</p>
+
+<h2>寻址模式</h2>
+
+请参阅&ldquo;寻址模式 4 - 多重加载与存储&rdquo;。 
+
+<div>
+<h2>影响的标志</h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>N</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>C</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>V</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>Q</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>S</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>I</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>F</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>T</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>T</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>M</td></tr>
+</table>
+
+<p CLASS=Body>&nbsp;</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<h2>编码 </h2>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>31</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>28</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>27</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>26</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>25</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>24</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>23</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>22</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>21</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>20</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>19</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>16</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>15</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>0</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=3>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;condition</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;P</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;U</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;0</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;W</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&nbsp;1</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=3>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;basereg</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=6>
+<p CLASS=CellBodyCenter><em CLASS=Source
+							style="font-style: italic;">&#xA0;reglist</em> 
+ </td>
+</tr>
+</table>
+</div>
+</div>
+
+<div>
+<h2>示例</h2>
+
+<p CLASS=Preformatted><span class=Code>1 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;@.text <br> 2 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;@.globl funldm <br> 3 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;@.align 0 <br> 4 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;@ **** LDM (Addressing Mode 4) ****<br> 5 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; <br> 6 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Load multiple registers from base <br> 7 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; address held in R8, increment this <br> 8 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; base address before each use &amp; <br> 9 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; update R8 finally at end <br> 10 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; <br> 11 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AREA example,CODE,READONLY <br> 12 <br> 13 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;label1 <br> 14 <br> 15 &#xA0;&#xA0;00000000 &#xA0;&#xA0;F3B4D678 &#xA0;&#xA0;MOV &#xA0;&#xA0;&#xA0;&#xA0;R8, #OxA <br> 16 &#xA0;&#xA0;00000004 &#xA0;&#xA0;E9B800F3 &#xA0;&#xA0;LDMIB &#xA0;&#xA0;R8!, {R1,R0,R4-R7} <br> 17 <br> 18 <br> 19 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; ----------------------------------- <br> 20 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Example 2 shows pushing registers <br> 21 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; R0 thru R7 onto stack, together with <br> 22 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; the Link Register, at entry to a <br> 23 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; subroutine.<br> 24 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; <br> 25 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Then at end of subroutine POP these <br> 26 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; same resisters off stack, and place <br> 27 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; the value of Link Reg onto PC causing<br> 28 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; a return to calling program <br> 29 <br> 30 <br> 31 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AREA example,CODE,READONLY <br> 32 <br> 33 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;label1a<br> 34 &#xA0;&#xA0;00000008 &#xA0;&#xA0;E8AD40FF &#xA0;&#xA0;STMFD &#xA0;&#xA0;R13!, {R0-R7,LR}<br> 35 &#xA0;&#xA0;00000012 &#xA0;&#xA0;E8BD80FF &#xA0;&#xA0;LDMFD &#xA0;&#xA0;R13!, {R0-R7,PC}</span> </p>
+
+<h2>更多信息</h2>
+
+<a href="Address_Load_and_Store_Multiple_Overview.htm">请参阅寻址模式 4：多重加载与存储 </a>
+</div>
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

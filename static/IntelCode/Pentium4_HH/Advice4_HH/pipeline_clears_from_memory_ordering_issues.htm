@@ -1,0 +1,138 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>内存顺序问题导致的管道清除</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="Pipeline Clears from Memory Ordering Issues">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=656>
+<meta name=layout-width content=712>
+<meta name=x-ignored-words content="SSE;Denormals;denormals;SIMD;FTZ;denormal;DAZ;Pentium;clockticks;clocktick;Clockticks;SplitLoads;TI-E;TC;micro-ops;WC;BSQ;MachineClearCount;MemoryOrderMachineClear">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n关于英特尔(R) 奔腾(R) 4 处理器的建议\n关于英特尔(R) 奔腾(R) 4 处理器的细节\n内存顺序问题导致的管道清除");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔&#xAE; 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">内存顺序问题导致的管道清除</h1>
+
+<p>管道由于内存顺序问题而清除，对性能造成了负面影响。在采用&ldquo;超线程技术&rdquo;的处理器上，这通常表示发生假共享。两个线程访问相同缓存线中不同的或无关的数据时，将发生假共享。有两种情况会导致假共享。 </p>
+
+<li class=kadov-p
+	class=kadov-p>情况 1：第一种情况是，在相同的缓存线上，同时存在一个线程的同步锁与另一个线程的线程专用数据。一个线程修改同步变量时，缓存线变成&ldquo;污损&rdquo;状态，并且必须写到每个逻辑或物理处理器。在采用&ldquo;超线程技术&rdquo;的系统上，这会导致缓存线收回，以保持缓存一致性。在多处理器系统上，这会导致内存顺序机器清除冲突。这两种系统都有与它们关联的明显的性能惩罚。</li>
+
+<li class=kadov-p
+	class=kadov-p>
+情况 2：第二种情况是，两个不同步的线程之间存在真共享。这是程序错误，并且也会导致明显的性能惩罚。对于采用&ldquo;超线程技术&rdquo;的系统或多处理器系统，估计的影响代表总计处理器时间影响（系统上所有逻辑/物理处理器之和），而不是&ldquo;实际执行&rdquo;时间影响。因此，在采用&ldquo;超线程技术&rdquo;的系统或多处理器系统上，很可能会看到细节的时间影响大于对负载实际执行时间的影响。请注意，在单处理器系统上，处理器时间与实际执行时间相同。 
+
+<br>&nbsp; 
+ 
+
+<br>&nbsp; 
+ 
+
+<br><b>计数器相关性：</b><br><br>此细节与以下性能计数器函数相关：<br> <br> MemoryOrderMachineClear 性能影响 = (<a href="../Events4/memory_order_machine_clear.htm" style="x-condition: eclipse;">内存顺序机器清除</a>*500)/<a href="../Events4/Clockticks.htm" style="x-condition: eclipse;">时钟信号</a>)*100<b><br> 较低值：</b>0.2<b><br> 较高值：</b>2<br><br> 在&ldquo;MemoryOrderMachineClear 性能影响&rdquo;<b>较高</b>时，此细节具有实质性意义。<b><br><br> 建议： </b>
+
+<ul>
+	
+	<li class=kadov-p
+		class=kadov-p><a HREF="avoiding_memory_ordering_pipeline_clears.htm">避免内存顺序管道清除</a></li>
+</ul>
+</li>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

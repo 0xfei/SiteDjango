@@ -1,0 +1,196 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>cmpxchg - 比较与交换指令</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="11 12, 2001 11:18:39 AM">
+<meta name=topic-status content="Ready for Review">
+<meta name=topic-priority content=1>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content=TOC>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=708>
+<meta name=layout-width content=771>
+<meta name=x-ignored-words content="qp;one_byte_form;high_form;two_byte_form;four_byte_form;low_form;GR;CTOP;CEXIT;WTOP;WEXIT;Prefetch;Deallocation;ALAT;UNC;czx;pc;sf;fcmp;fmerge;fpcmp;fpmerge;fsxt;getf;Significand;fsz;lftype;lfhint;mux;padd;Completers;pavg;pavgsub;pcmp;pmax;pmin;pmpy;pmpyshr;pshl;psub;setf;shladdp;shrp;st;xsz;NaT;xchg;C;register_form;imm;addl;GRs;PR[qp;check_target_register;tmp_src;tmp_nat;nat;tmp_res;alloc;tmp_sor;r;tmp_sof;tmp_sol;illegal_operation_fault(;CFM.sor;CFM.rrb.gr;CFM.rrb.fr;CFM.rrb.pr;reserved_register_field_fault(;CFM.sof;rse_new_frame(CFM.sof;RSE;CFM.sol;AR[PFS;ANDed;andcm;bp;br.btype.bwh.ph.dh;IP_relative_form;call_form;counted_form;br.ph.dh;indirect_form;IP-relative;IP;pseudo-ops;btype;COND;bwh;sptk;cond;ia;BRs;PRs;PFS;LC;EC;RRBs;br.wtop;br.wexit;cloop;br.ctop;br.cexit;completers;Hint(ph;dh;CFM;callee;PSR.lp;PSR.is;PSR.di;CSD.base.;PSR.dfh;FP;CSD;EIP;GPFault;CSD.base;EFLAG.rf;PSR.da;PSR.id;PSR.ia;PSR.dd;PSR.ed;br.ia;mf;Itanium;FRs;ARs;Itanium-based;flushrs;Unimplemented;IIP;decremented;modulo-scheduled;software-pipelined;ctop;wtop;cexit;wexit;pipelined;?;CLOOP;ip_relative_form;tmp_IP;lower_priv_transition;tmp_taken;pfm;pec;AR[EC;ppl;PSR.cpl;alat_frame_update(CFM.sol;rse_preserve_frame(CFM.sol;tmp_growth;up*;sizeof(previous;sizeof(current;pfm.sof;pfm.sol;alat_frame_update(-AR[PFS;rse_fatal;rse_restore_frame(AR[PFS;rse_enable_current_frame_load(;AR[BSPSTORE;AR[BSP;disabled_instruction_set_transition_fault(;rse_invalidate_non_current_regs(;AR[CSD;AR[LC;rotate_regs(;taken_branch;PSR.it;unimplemented_virtual_address(tmp_IP;unimplemented_physical_address(tmp_IP;unimplemented_instruction_address_trap(lower_priv_transition;lower_privilege_transfer_trap(;PSR.tb;taken_branch_trap(;M;F;break.i;i-unit_form;break.b;b-unit_form;break.m;m-unit_form;break.f;f-unit_form;break.x;x_unit_form;IIM;L;MLI-template;if(b-unit_form;break_instruction_fault(immediate;chk;chk.s;chk.s.i;control_form;gr_form;chk.s.m;fr_form;chk.a.aclr;data_form;FR;NaTVal;chk.a;unimplemented;M-unit;aclr;tmp_isrcode;disabled_fp_register_fault(tmp_isrcode;check_type;CHKS_GENERAL;CHKS_FLOAT;NATVAL;reg_type;CHKA_GENERAL;alat_index;always_fail;CHKA_FLOAT;alat_cmp(reg_type;check_branch_implemented(check_type;unimplemented_virtual_address(IP;unimplemented_physical_address(IP;speculation_fault(check_type;clr;alat_inval_single_entry(reg_type;RRB;clrrrb;all_form;clrrrb.pr;pred_form;followed_by_stop(;cmp;cmp.crel.ctype;parallel_inequality_form;crel;ctype;unc;eq;tmp_rel;ne;lt;lesser_signed(tmp_src;le;lesser_equal_signed(tmp_src;greater_signed(tmp_src;ge;greater_equal_signed(tmp_src;ltu;lesser(tmp_src;lesser_equal(tmp_src;gtu;greater(tmp_src;greater_equal(tmp_src;geu;or.andcm;or.andcm-type;unc-type;lesser_signed(sign_ext(tmp_src;lesser_equal_signed(sign_ext(tmp_src;greater_signed(sign_ext(tmp_src;greater_equal_signed(sign_ext(tmp_src;lesser(zero_ext(tmp_src;lesser_equal(zero_ext(tmp_src;greater(zero_ext(tmp_src;greater_equal(zero_ext(tmp_src;cmpxchg;cmpxchgsz.sem.ldhint;ar.ccv;sz;ARCCV;sem;UM.ac;PSR.ac;cacheable;NaTPages;ldhint">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 52px; height: 60px; float: right; border-style: none; float: right;}
+hr.whs2 {height: 2px; width: 100%; float: aligncenter;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔(R) 安腾(R) 指令\nC - 指令\ncmpxchg - 比较与交换指令");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script><!--(Generated Script Links)========================================--> <!--(Generated Code)================================================--> <!--(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)==================--> 
+<script type="text/javascript" language="JavaScript1.2" src="../ehlpdhtm.js" x-save-method="compute-relative" name="EHELP_DHTM"></script>
+<script type="text/javascript"
+		language=JavaScript1.2>
+<!-- 
+if( typeof( kadovInitEffects ) != 'function' ) kadovInitEffects = new Function();if( typeof( kadovInitTrigger ) != 'function' ) kadovInitTrigger = new Function();if( typeof( kadovFilePopupInit ) != 'function' ) kadovFilePopupInit = new Function();if( typeof( kadovTextPopupInit ) != 'function' ) kadovTextPopupInit = new Function();
+ //-->
+</script>
+
+ <!--(==============================================================)-->
+
+
+<h1><img src="itanium60hw.gif" alt="安腾(R) 处理器主题" x-maintain-ratio="TRUE" width="52px" height="60px" align="right" border="0" class="img_whs1">cmpxchg - 比较与交换指令</h1>
+
+<p><span style="font-weight: bold;"><B>cmpxchg</B></span></p>
+
+<p><a HREF="6400166.htm">操作</a> <a HREF="6400126.htm">字体惯例</a>
+ </p>
+
+<p>指令类型 M</p>
+
+<p><span style="font-weight: bold;"><B>格式</B></span></p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) cmpxchg<span style="x-condition: eclipse;">sz</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A1');
+//--></script>.<span style="x-condition: eclipse;">sem</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A2');
+//--></script>.<span style="x-condition: eclipse;">ldhint</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A3');
+//--></script> <span style="font-style: italic;"><I>r1</I></span> = [<span style="font-style: italic;"><I>r3</I></span>], <span style="font-style: italic;"><I>r2</I></span>, <span style="x-condition: eclipse;">ar</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A4');
+//--></script>.ccv</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<p><span style="font-weight: bold;"><B>说明</B></span></p>
+
+<p>从 <span style="x-condition: eclipse;">GR</span><span style="font-style: italic;"><I>r3</I></span> 中的值指定的地址开始，从内存中读取 <span style="font-style: italic;"><I>sz</I></span> 个字节组成的值。<script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A5');
+//--></script>此值执行零扩展，并与 cmpxchg&ldquo;比较值&rdquo;应用寄存器 (<span style="x-condition: eclipse;">AR</span> CCV]) 的内容进行比较。<script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A6');
+//--></script>如果两者相等，则 GR <span style="font-style: italic;"><I>r2</I></span> 中的值的最低有效 <span style="font-style: italic;"><I>sz</I></span> 字节从 GR <span style="font-style: italic;"><I>r3</I></span> 中的值指定的地址开始写入内存。从内存读取的经过零扩展的值放入 GR <span style="font-style: italic;"><I>r1</I></span>，并清除 GR <span style="font-style: italic;"><I>r1</I></span> 对应的 NaT 位。</p>
+
+<p><span style="font-style: italic;"><I>sz</I></span> 完成符的值在<a href="6400015.htm" style="x-condition: eclipse;">内存比较与交换大小</a>表格中。<script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A7');
+//--></script><span style="font-style: italic;"><I>sem</I></span> 完成符指定信号量操作的类型。这些操作的介绍详见<a href="6400016.htm" style="x-condition: eclipse;">比较与交换信号量类型</a>表格。<script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A8');
+//--></script></p>
+
+<p>如果 GR <span style="font-style: italic;"><I>r3</I></span> 中的值指定的地址未自然对齐内存中访问的值的大小，则不管&ldquo;用户掩码&rdquo;对齐检查位 UM.ac（在&ldquo;处理器状态寄存器&rdquo;中，是 PSR.ac）的状态如何，都将执行&ldquo;未对齐的数据引用&rdquo;错误的处理。</p>
+
+<p>内存读取与写入确保是原子型（不可再分）指令。</p>
+
+<p>对于引用的页，同时需要读取与写入访问权限。无论是否执行内存写入，都将执行写入访问权限检查。</p>
+
+<p>只有采用写回型写入策略的可缓存页才支持此指令。访问 NaTPage 会导致&ldquo;数据 NaT 页使用&rdquo;错误。访问使用其它内存属性的页会导致&ldquo;不支持的数据引用&rdquo;错误。</p>
+
+<p><span style="font-style: italic;"><I>ldhint</I></span> 完成符的值指定内存访问的区域性。<span style="font-style: italic;"><I>ldhint</I></span> 完成符的值在<a href="6400051.htm" style="x-condition: eclipse;">加载提示</a>表格中给出。<script 
+ type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A9');
+//--></script>区域性提示不影响程序功能，在实现的版本中可能会被忽略。如需有关详细信息，请参阅第 4-17 页上的&ldquo;内存层次结构控制与一致性&rdquo;。</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

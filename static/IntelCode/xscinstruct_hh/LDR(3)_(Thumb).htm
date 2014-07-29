@@ -1,0 +1,326 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>LDR(3) (Thumb) - 加载寄存器</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=969>
+<meta name=layout-width content=740>
+<meta name=date content="01 21, 2003 2:42:30 PM">
+<meta name=x-ignored-words content="dest;N;Z;C;Q;F;T;M;globl;funadd;READONLY;MOV;OxAE;ADC;funadc;OxFF;OxFE;SP;SP-relative;NCT;submodes;Coprocessor;ASR;sh_imm;addr_mode;shifter_carry_out;Arithmetic_Shift_right;opcode;basereg;Arithmetic_Shift_Right;Submode;imm;LSL;LSR;ROR;RRX;encodings;rt_imm;FF;start_addr;Bit_Number_Of(reglist;end_addr;ConditionPassed;W;reglist;decremented;L;immH;immL;addr;SWP;SWPB;LDRB;LDRBT;STRB;STRBT;STRH;Rotate_Right;immediates;rt_amount;LDRT;STRT;NotFinished;coprocessor[cpnum;coprocessor;coprocessor-defined;cpdest;cpnum;coprocessor-dependent;IB;cpname;LDC;STC;LDM|STM;basereg[;register(s;Submodes;CPSR;SPSR;EA;FD;coprocessors;LDR|STR;LDR;STR;indexreg;PLD;U==;Logical_Shift_Left;Logical_Shift_Right;H|SH|SB|D;LDRH;SH;LDRSH;SB;LDRSB;LDRD;STRD;Post-indexed(AM;SBZ;XScale;Microarchitecture;funand;Bitwise;EOR;ORR;funasr;OxC;B[condition;NOP;funb;crossMOV;BPL;BAL;BNE;BL;BX;TST;BIC;ANDed;bitwise;funbic;BKPT;prefetch;B[L;funcbl;EAFFFFFE;BLX;Thumb*;funblx;LR;CMN;funcmn;OxEF;BCS;CMP;funcmp;BMI;BEQ;funeor;XOR;ENDIF;ENDM;nestings;boolvar;imPORT;GLOBL;EQU;REQ;EXITM;ASCIIZ;C-style;HWORD;INT;LTORG;unvalidated;ADC[condition;TM;funcadc;ADCS;ADD[condition;funcadd;AND[condition;funcand;BIC[condition;funcbic;funcbkpt;FAFFFFFE;DCD;DCB;BLX[condition;ARM*;SBO;BX[condition;dest_;funcbx;CDP;CDP[condition;cpop-;funccdp;cp_dp;CLZ;CLZ[condition;funcclz;CMN[condition;funccmn;CMP[condition;funccmp;EOR[condition;funceor;LDC[condition;funcldc;LDM[condition;reg;reg};register{s};LDM;funldm;OxA;LDMIB;thru;Reg;STMFD;LR};LDMFD;PC};LDMDA;T-bit;PC}^;LDR[condition;little-endian;LSB;big-endian;funcldr;load_store;funcldrb;BT;funcldrbt;DSP;doubleword-aligned;addr_;funcldrd;Halfword;halfword;halfword-aligned;funcldrh;funcldrsb;Adressing;LDRS;funcldrsh;LDRT[condition;funcldrt;funcmar;MRA;MCRR;MCRR[condition;cpopcode;cp-dest;funcmcrr;cp_move;ConditionPassed(;funcmia;MIAPH;MIAxy;sign_extend;funcmiaph;xy;y;funcmiaxy;MIABB;MIABT;MIATT;MLA;MLA[;funcmla;MOV[condition;funcmov;MOVS;MRA[;funcmra;MRC;MRC[condition;cpsource;cpreg[;cpreg;cpop;funcmrc;MRRC;MRRC[condition;cp-;funcmrrc;PSR;MRS[condition;funcmrs;MSR;MSR[condition;CPSR_bit;SPSR_bit;CSPR;bitmask;rotate_;funcmsr;CPSR_F;CPSR_X;SPSR_F;SPSR_X;MUL;MUL[condition;funcmul;MULS;MVN;MVN[condition;funcmvn;MVNS;ORR[condition;funcorr;SMULW;EOR(Thumb;STMIA;LDMIA;NEG;QADD;LDRSB(Thumb;QDADD;QDSUB;QSUB;SWI;RSB;RSC;SBC;TEQ;SMLA;MCR;SMLAL;UMLAL;UMULL;SMLAW;SMUL;SMULL;IRQ;FIQ;Opcodes;EQ;HS;PL;LS;N==V;LT;LE;preload;funcpld;QADD[condition;funcqadd;QDADD[condition;funcqdadd;QDSUB[condition;&#8804;;funcqdsub;QSUB[condition;funcqsub;RSB[condition;funcrsb;RSBS;RSC[condition;funcrsc;RSCS;SBC[condition;funcsbc;SBCS;funcsmlaxy;SMLAxy;SMLABB;SMLABT;SMLATT;SMLAL[condition;dest_lo;dest_hi;funcsmlal;SMLALS;SMLALxy;modulo;funcsmlalxy;SMLAWy[condition;funcsmlawy;SMLAWy;SMLAWB;SMLAWT;SMULxy;funcsmulxy;SMULBB;SMULBT;SMULTT;SMULL[condition;funcsmull;SMULLS;SMULWy;funcsmulwy;SMULWB;SMULWT;STM[condition;STM;funstm;STMDA;STR[condition;funstr;OxF;STRT[condition;SUB[condition;funsub;SWI[condition;funswi;SWP[condition;funswp;TEQ[condition;funteq;TST[condition;funtst;UMLAL[condition;funumlal;OxE;UMULL[condition;funumull;startreg;writeback;funldr">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="LDR(3)_(Thumb).htm"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body BGCOLOR=#ffffff>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔 XScale(R) 技术指令\n指令\n16 位指令\nL - 指令\nLDR(3) (Thumb)");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<div>
+<div>
+<h1><IMG SRC="XS_logo.gif" ALIGN="RIGHT" VSPACE="0" HSPACE="0" BORDER="0" alt="英特尔 XScale(R) 技术主题">LDR(3) (Thumb*) - 加载寄存器</h1>
+
+<div>
+<div>
+<h2>语法</h2>
+
+<p CLASS=Preformatted>LDR dest, [PC, (#value * 4)]</p>
+</div>
+
+<div>
+<p>其中：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&#xA0;dest</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>目标寄存器</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=Source
+							style="font-style: italic;">&#xA0;PC</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>用于计算内存地址的程序计数器</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft><em CLASS=SourceItalic 							style="font-style: italic;">&#xA0;value</em> 
+ </td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyLeft>8 位值乘以 4，然后加到 PC 上 </td></tr>
+</table>
+</div>
+
+<div>
+<h2>说明 </h2>
+
+此格式的 LDR 指令可以将 32 位内存数据加载到 <em CLASS=SourceItalic>dest</em>。它还有助于访问 PC 相关数据。 
+</div>
+</div>
+
+<div>
+<h3 class=NoteTipHead><img src="Note.gif"> 备注</h3>
+
+如果试图进行无效的加载或存储数据访问，则生成数据终止异常。 
+
+<h2>寻址模式 </h2>
+
+无操作数。 
+
+<div>
+<h2>影响的标志</h2>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>N</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>Z</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>C</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>V</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>Q</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>S</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>I</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>F</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>T</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td></tr>
+</table>
+</div>
+
+<div>
+<!--(Table)=========================================================-->
+<table x-use-null-cells border="1" class="whs1">
+
+<h2>编码 </h2>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>15</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>14</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>13</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>12</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>11</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>10</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>8</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>7</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>&nbsp;</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>0</td></tr>
+
+<tr>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>0</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>0</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>0</td>
+<td ROWSPAN=1
+	COLSPAN=1>
+<p CLASS=CellBodyCenter>1</td>
+<td ROWSPAN=1
+	COLSPAN=3>
+<p CLASS=CellBodyCenter>dest</td>
+<td ROWSPAN=1
+	COLSPAN=3>
+<p CLASS=CellBodyCenter>value</td>
+</tr>
+</table>
+</div>
+
+<div>
+<h2>示例</h2>
+
+<p class=Preformatted>1 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.text<br> 2 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.globl funldr <br> 3 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;;@.align 0 <br> 4 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; <br> 5 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;AREA example,CODE,READONLY <br> 6 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;CODE16 <br> 7<br> 8 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;label1 <br> 9 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; Load register R2 from address in <br> 10 &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;; memory 168 bytes from current PC <br> 11 &#xA0;&#xA0;&#xA0;00000000 &#xA0;&#xA0;&#xA0;4A00 &#xA0;&#xA0;&#xA0;LDR &#xA0;&#xA0;&#xA0;R2, [PC, #OxA8]  </p>
+
+<h2>更多信息 </h2>
+
+<a href="LDR(1)_(Thumb).htm" CLASS="XRef">请参阅 LDR(1) 指令</a><a href="LDR(2)_(Thumb).htm"><br> 请参阅 LDR(2) 指令</a><a href="LDR(4)_(Thumb).htm" CLASS="XRef"><br> 请参阅 LDR(4) 指令</a><a href="STR(1)_(Thumb).htm"><br> 请参阅 STR(1) 指令</a><a href="STR(2)_(Thumb).htm" CLASS="XRef"><br> 请参阅 STR(2) 指令</a><a href="STR(3)_(Thumb).htm"><br> 请参阅 STR(3) 指令</a>
+</div>
+</div>
+
+<div>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

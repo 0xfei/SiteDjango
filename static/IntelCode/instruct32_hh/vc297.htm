@@ -1,0 +1,218 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>SQRTPD - 压缩双精度浮点平方根</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="07 1, 2002 2:21:50 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="SQRTPD--Packed Double-Precision Floating-Point Square Root">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=906>
+<meta name=layout-width content=792>
+<meta name=x-ignored-words content="PACKSSWB;PACKSSDW--Pack;Opcode;r;PACKSSDW;doubleword;doublewords;quadword;XMM;SaturateSignedWordToSignedByte;SaturateSignedDoublewordToSignedWord;SaturateSignedDwordToSignedWord;DS;ES;FS;GS;SS;UD;OSFXSR;CPUID;TS;MF;FPU;FFFFH;PF;Vol;microarchitecture;CMPPD--Compare;ib;CMPPD;SIMD;CMPPS;NaN;QNaN;eq;lt;le;unord;neq;nlt;nle;ord;pseudo-ops;CMPEQPD;CMPLTPD;CMPLEPD;CMPUNORDPD;CMPNEQPD;CMPNLTPD;CMPNLEPD;CMPORDPD;EQ;LT;LE;UNORD;NEQ;NLT;NLE;ORD;FFFFFFFFFFFFFFFFH;FI;SNaN;denormal;PF(fault-code;XM;OSXMMEXCPT;CMPS;CMPSB;CMPSW;CMPSD--Compare;E;SI;DI;CMPSD;ESI;EDI;decremented;DF;ECX;REPE;REPZ;REPNE;REPNZ--Repeat;SetStatusFlags(temp;comparison*;CF;SF;ZF;AF;GP;EFLAGS;CWD;CDQ--Convert;Doubleword;Quadword;DX;CDQ;EDX;EAX;opcode;OperandSize;SignExtend(AX;SignExtend(EAX;CBW;CWDE--Convert;CWDE;SignExtend(AL;FCOM;FCOMP;FCOMPP--Compare;ST(i;FCOMPP;Unordered*;FXAM--Examine;FUCOM;QNaNs;ESAC;FPUControlWord.IM;PopRegisterStack;FADD;FADDP;FIADD--Add;FIADD;DEST;F;±F;ConvertExtendedReal(SRC;FICOM;FICOMP--Compare;FICOMP;FDIV;FDIVP;FIDIV--Divide;FIDIV;Z;±;FDIVR;FDIVRP;FIDIVR--Reverse;FIDIVR;FMUL;FMULP;FIMUL--Multiply;FIMUL;FISTP--Store;FISTP;RC;FISUB--Subtract;FSUB;FSUBP;FISUB;Dest;FSUBR;FSUBRP;FISUBR;FLDZ--Load;EB;EC;EE;FLDZ;FLDPI;FCLEX;FNCLEX--Clear;FNCLEX*;PE;UE;OE;ZE;IE;FNCLEX;MS-DOS*;MXCRS;FNINIT*;coprocessor;FPUControlWord;FPUStatusWord;FPUTagWord;FPUDataPointer;FPUInstructionPointer;FPULastInstructionOpcode;FINIT;FNINIT;MXCSR;FSAVE;FNSAVE--Store;FNSAVE*;FNSAVE;FNINIT--Initialize;coprocessors;FPUs;FWAIT;DEST[FPUControlWord;DEST[FPUStatusWord;DEST[FPUTagWord;DEST[FPUDataPointer;DEST[FPUInstructionPointer;DEST[FPULastInstructionOpcode;nonwritable;FSTCW;FNSTCW--Store;FNSTCW*;FNSTCW;FNSTENV--Store;FSTENV;FNSTENV*;FNSTENV;FNSTSW--Store;FNSTSW*;FNSTSW;FPREM;FXAM;FSTSW;denormalized;MOV--Move;ModR;M;m;PG;PGE;PSE;PAE;PDPTRs;MOV;reg;TLB;Lookaside;TLBs;GD;FSTP--Store;FST;FSTP;significand;FUCOMIP--Compare;FUCOMIP;FCOMI;FCOMIP;FUCOMI;FUCOMPP--Unordered;FUCOMP;FUCOMPP;FWAIT--Wait;MP;INSB;INSW;INSD--Input;INSD;CPL;IOPL;VM;TSS;CL;BL;CH;DH;BH;CX;BX;SP;EBX;EBP;mm--An;XLAT;LIDT;LGDT;GDTR;IDTR;ith;DPL=;C;W;Y;INTRA-PRIVILEGE-LEVEL-INTERRUPT;flag*;Push(CS;Push(IP;IDT(Descriptor;vector_number;GP((DEST;EXT;GP((vector_number;NP((vector_number;GDT;GP(TSS;NP(TSS;Push(error;GP(selector;NP(selector;GP(new;GP(CodeSegmentSelector;INTER-PREVILEGE-LEVEL-INTERRUPT;TSSstackAddress;TS(current;NewSS;NewESP;TS(EXT;RPL;TS(SS;LDT;SS(SS;selector+EXT;SS(segment;TSS(NewSS;Gate(CS;IP;Push(far;Push(EFLAGS;Push(ErrorCode;ELSE(*;CodeSegmentDescriptor(DPL;CS(RPL;RF;tempEFLAGS;TempSS;TempESP;Push(GS;Push(FS;Push(DS;Push(ES;Push(TempSS;Push(TempESP;Push(TempEFlags;Push(EIP;Gate(instruction;ErrorCode;SS(selector;TS(selector;TSS's;INT;n;CE;IDT;VME;Microsoft*;EIP;IRET;DPL;GOTO;TF;CMC;LIDT--Load;SFENCE--Store;IDTR(Limit;IDTR(Base;GDTR(Limit;GDTR(Base;SIDT--Store;SGDT;SIDT;mm_loadr_ps;mm_cmpgt_ss;Intrinsics;intrinsics;xmm;declspec;ps;ss;z;y;w;t;mm_load_ps(a;immediates;Intra-privilege;Pop(;tempEIP;tempCS;tempEFLAGS(VM;VIF;EFLAGS(IF;EFLAGS(IOPL;EFLAGS(VM;RETURN-TO-OUTER-PRIVILGE-LEVEL;GP(SSselector;LODSD--Load;LODSD;LOOPcc--Loop;LOOPE;LOOPZ;LOOPNE;LOOPNZ;AddressSize;BranchCond;SignExtend(DEST;LSS--Load;SegmentRegister(DescriptorValidBit;Offset(SRC;XCHG--Exchange;MOVSD--Move;rw;rb;SI's;AddressSize--The;StackAddrSize--Represents;SRC--Represents;DEST--Represents;ZeroExtend(value;ZeroExtend;SignExtend(value;SignExtend;SaturateSignedWordToSignedByte--Converts;SaturateSignedDwordToSignedWord--Converts;SaturateSignedWordToUnsignedByte--Converts;FFH;SaturateToSignedByte--Represents;SaturateToSignedWord--Represents;SaturateToUnsignedByte--Represents;SaturateToUnsignedWord--Represents;LowOrderWord(DEST;HighOrderWord(DEST;Push(value;PUSH--Push;POP--Pop;PopRegisterStack--Marks;Switch-Tasks--Performs;Bit(BitBase;BitOffset;Bit[EAX;BIT[EAX;BitBase;GBits;DIV;EWBE#;EFLAGS(RF;SegmentSelector;IRETD;LODS;LODSB;LODSW;cb;LOOPcc;LDS;LES;LFS;LGS;LSS;ProtectedMode;SegementSelector;SegmentSelector(SRC;SegmentDescriptor([SRC;SegmentRegister;NullSelector;software*;XCHG;BSWAP;MOVSB;MOVSW;MOVS;MOVSD;Encodings;OUTSB;OUTSW;OUTSD;prefetched;PADDB;PADDW;FC;FD;FE;PADDD;PADDSW--Packed;SaturateToSignedByte;SaturateToSignedWord;PADDSB;PADDSW;PADDUSW--Packed;SaturateToUnsignedByte;SaturateToUnSignedByte;SaturateToUnsignedWord;SaturateToUnSignedWord;PADDUSB;PADDUSW;PAVGW--Packed;PAVGB;PAVGW;PCMPEQB;PCMPEQW;PCMPEQD;PCMPGTD--Packed;FFFFFFFFH;DCMPGTD;PCMPGTB;PCMPGTW;PCMPGTD;POPA;POPAD;PUSHA;PUSHAD;POPFD--Pop;POPF;POPFD;PUSHF;PUSHFD;unaffected*;PSLLQ--Packed;ZeroExtend(DEST;PSLLW;PSLLD;PSLLQ;quadwords;int;PSRAD--Packed;PSRAW;PSRAD;PSRLQ--Packed;PSRLW;PSRLD;PSRLQ;PSUBD--Packed;PSUBB;PSUBW;PSUBD;PSUBSW--Packed;PSUBSB;PSUBSW;PSUBUSW--Packed;MMX;PSUBUSB;PSUBUSW;PUNPCKHQDQ--;PUNPCKHW;PUNPCKHBW;PUNPCKHWD;PUNPCKHDQ;PUNPCKHQDQ;PUNPCKLQDQ--;PUNPCKLBW;PUNPCKLWD;PUNPCKLDQ;PUNPCKLQDQ;Push(ECX;Push(EDX;Push(EBX;Push(Temp;Push(EBP;Push(ESI;Push(EDI;Push(AX;Push(CX;Push(DX;Push(BX;Push(BP;Push(SI;Push(DI;Push(EAX;PUSHFD--Push;push(EFLAGS;stack*;EFLAG;IDIV;Coprocessor;NMI;INTR;NP;MC;XF;STOS;nonmatching;AE;SCAS;non-EAX;REPNZ;JECXZ;JZ;JNZ;JNE;CountReg;LSB(DEST;LSB(SRC;MSB;RCL;RCR;ROL;ROR;tempCOUNT;tempCF;MSB(DEST;ELIHW;XOR;ROR--Rotate;SCASB;SCASD--Scan;ES(E;SCASW;SCASD;SAL;SAR;divide*;SHL;SHR;tempDEST;infinity*;Denormalized;misaligned;MOVUPS;Denormal;CPUID.XMM;mm_setcsr(unsigned;EFLAGS.AC;CPUID.XMM(EDX;LDMXCSR;FZ;underflows;FXRSTOR;STOSD--Store;STOSB;STOSW;STOSD;FLD--Load;ExtendedReal(SRC;FLD;FLDCW--Load;FLDCW;FPU's;FLDENV--Load;SRC[FPUControlWord;SRC[FPUStatusWord;SRC[FPUTagWord;SRC[FPUDataPointer;SRC[FPUInstructionPointer;SRC[FPULastInstructionOpcode;FLDENV;FNOP--No;FNOP;FPATAN--Partial;Arctangent;arctangent;FPATAN;FPREM--Partial;LeastSignificantBits(Q;modulus;Q;Std;N;QQ;ADDSD--Scalar;mm_add_sd;ADDSD;FPTAN--Partial;FPTAN;FRNDINT--Round;FRNDINT;FRSTOR--Restore;FRSTOR;FSCALE--Scale;FSCALE;FXTRACT;FSIN;FB;FSINCOS;FCOS;FSQRT;ADDSS;SSE;FTST--TEST;FTST;FXCH--Exchange;FXCH;IP-offset;FXSAVE;DP;FTW;FSW;FCW;AND--Logical;iw;bitwise;little-endian;FP;non-TOS;xx;FXTRACT--Extract;superset;logb(x;Significand;logbx;HLT--Halt;HLT;IDIV--Signed;EAX=Quotient;EDX=Remainder;OpernadSize;SignedModulus;EDXE;IMUL--Signed;IMUL;MUL;NumberOfOperands;size*;IN--Input;INC--Increment;INC;FF;ANDPD--Bitwise;ANDPD;BitwiseAND;Bitwise;INVD--Invalidate;INVD;WBINVD;Flush(InternalCaches;SignalFlush(ExternalCaches;INVLPG--Invalidate;INVLPG;lookaside;Flush(RelevantTLBEntries;Jcc--Jump;JA;JAE;JB;JBE;JC;JCXZ;JE;JG;SF=OF;JGE;JL;JLE;JNA;JNAE;JNB;JNBE;JNC;JNG;JNGE;JNL;JNLE;JNO;JNP;JNS;JP;JPE;JPO;JS;cw;Jcc;opcodes;JMP;FARLABEL;cacheability;EA;cp;jump--A;LFENCE;MFENCE;SFENCE;WB;WC;PREFETCHh;specualtive;LLDT;LDTR;LAR;VERR;VERW;LSL;LDTR(SegmentSelector;LDTR(SegmentDescriptor;ADDPD;ANDNPD;prepended;ADC;BTC;BTR;BTS;CMPXCHG;NEG;SBB;XADD;LOCK#;AssertLOCK#(DurationOfAccompaningInstruction;LSL--Load;LTR;TSSsegmentDescriptor(busy;TaskRegister(SegmentSelector;TaskRegister(SegmentDescriptor;MASKMOVDQU;UC;WP;MASKMOVQ;MAXPD--Maximum;MAXPD;MAXPS;ANDN;Single-FP;ANDNPS;MAXSD;MAXSS;Wait_On_Following_Loads_And_Stores_Until(preceding_loads_and_stores_globally_visible;MINPD;MINPS;MINSD;MINSS;Sreg;seg;ARPL;DEST[RPL;SRC[RPL;MOVAPD--Move;MOVAPD;MOVUPD;void_mm_store_pd(double;MOVAPS;void_mm_store_ps;MOVD;XXM;MOVDQA;MOVDQU;mmx;MOVHLPS--;MOVHLPS;MOVHPD;MOVHPS;MOVLHPS;doubleword-integers;ArrayIndex;LowerBound;UppderBound;MOVLPD;nvalue;mm_loadl_pd;mm_storel_pd;MOVLPS;mm_loadl_pi;mm_storel_pi;MOVMSKPD;mm_movemask_pd;MOVMSKPS;MOVNTDQ;uncacheable;MOVNTI;MOVNTPD;MOVNTPS;MOVNTQ--Move;MOVNTQ;MOVQ;BC;BSF;mm_load_sd;mm_store_sd;MOVSS;MOVSX;BF;MOVZX;MULPD;BD;BSR;MULPS;mem;MULSD;MULSS;NOP;ORPD;ORPS;EF;big-endian;SaturateSignedWordToUnsignedByte;PACKUSWB;¨;PADDQ;PAND;PANDN;BT;modulo;PEXTRW;SEL;imm;d;PINSRW;PMADDWD;PMADD;PMAXSW;PMAXUB;PMINSW;MINSW;PMINUB;PMOVMSKB;PMULHUW;PMULHW;PMULLW;PMULLU;PMULUDQ;POR;PREFETCHNTA;NTA;prefetch;Prefetches;CLFLUSH;WRMSR;CR;PSADBW;Doublewords;PSHUFD;PSHUFHW;encodings;PSHUFLW;PSHUFW;PSLLDQ;PSRLDQ;intrasegment;call--A;intersegment;switch--A;KBytes;GP(segment;newESP;CallGate(CS;newSS;Push(oldSS;Push(parameters;Push(oldCS;InstructionPointer;oldESP;oldEIP;CodeSegment(DPL;CallGateSize;oldIP;GP(task;NP(task;PSUBQ;PXOR;RCPPS;RCPSS;RCCPS;RDMSR;MSR;unimplemented;MSRs;PMC[ECX;RDPMC;PCE;RDPCM;RDTSC;TSD;SS(StackSegmentSelector;ReturnCodeSegmentSelector(RPL;tempESP;tempSS;RSM;SMM;SSM;ProcessorState;RSQRTPS;RSQRTSS;SAHF;SETL;SETLE;SETNA;SETNAE;SETNB;SETNBE;SETNC;SETNE;SETNG;SETNGE;SETNL;SETNLE;SETNO;SETNP;SETNS;SETNZ;SETO;SETP;SETPE;SETPO;SETZ;SETcc;decrementing;SETB;SETBE;SETC;SETE;SETG;multiprecision;BIT[DEST;DOWNTO;Bit(DEST;BIT[SRC;SHLD;BIT[inBits;SHRD;SHUFPD;SHUFPS;SLDT;SMSW;SQRTPD">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px; margin-top: 14pt; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px;}
+td.whs2 {x-cell-content-align: CENTER; padding-left: 3px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px;}
+img_whs3 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; width: 13px; height: 16px;}
+p.whs4 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs3 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs4 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\nIA-32 指令\nS - 指令\nSQRTPD - 压缩双精度浮点平方根");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>SQRTPD - 压缩双精度浮点平方根</h1>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>操作码</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>指令</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>说明</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">66 0F 51 /r</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">SQRTPD <span style="font-style: italic;"><I>xmm1</I></span>,<span 
+ style="font-style: italic;"><I> xmm2/m128</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">计算 <span style="font-style: italic;"><I>xmm2/m128</I></span> 中的压缩双精度浮点值的平方根，结果存储到 <span style="font-style: italic;"><I>xmm1</I></span>。</td></tr>
+</table>
+
+<h2>说明</h2>
+
+<p>通过使用 SIMD 技术，计算源操作数（第二个操作数）中的两个压缩双精度浮点值的平方根，然后将压缩双精度浮点结果存储到目标操作数。源操作数可以是 XMM 寄存器或 128 位内存位置。目标操作数是 XMM 寄存器。如需有关 SIMD 双精度浮点操作的示意图，请参阅 <font   style="font-family: Verdana, Arial, Helvetica, sans-serif;" 	face=Verdana>&ldquo;IA-32 英特尔(R) 体系结构软件开发人员手册&rdquo;</font>第 1 卷的&ldquo;图 11-3&rdquo;。</p>
+
+<h2>操作</h2>
+
+<p class=Preformatted>DEST[63-0] <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> SQRT(SRC[63-0]);<br> DEST[127-64] <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' width='13px' height='16px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='13px' height='16px' border='0' class='img_whs3'></noscript> SQRT(SRC[127-64]);</p>
+
+<h2>英特尔<font style="font-family: Verdana, Arial, Helvetica, sans-serif;" 				face=Verdana>(R)</font> C++ 编译器等价内部函数</h2>
+
+<p class=Preformatted>SQRTPD __m128d _mm_sqrt_pd (m128d a)</p>
+
+<h2>SIMD 浮点异常</h2>
+
+<p>上溢、下溢、无效、精度、非规格化。</p>
+
+<h2>保护模式异常</h2>
+
+<p>#GP(0) - CS、DS、ES、FS 或 GS 段中的内存操作数有效地址非法。如果内存操作数未对齐 16 字节边界，不论是哪一段。</p>
+
+<p>#SS(0) - SS 段中的地址非法。</p>
+
+<p>#PF(错误代码) - 页错误。</p>
+
+<p>#NM - 如果 CR0 中的 TS 设置为 1。</p>
+
+<p>#XM - 如果发生无掩码 SIMD 浮点异常，且 CR4 中的 OSXMMEXCPT 是 1。</p>
+
+<p>#UD - 如果发生无掩码 SIMD 浮点异常，且 CR4 中的 OSXMMEXCPT 是 0。<span style="font-weight: bold;"><B></B></span>如果 CR0 中的 EM 设置为 1。如果 CR4 中的 OSFXSR 是 0。如果 CPUID 功能标志 SSE2 是 0。</p>
+
+<h2>实地址模式异常</h2>
+
+<p>#GP(0) - 如果内存操作数未对齐 16 字节边界，不论是哪一段。</p>
+
+<p>中断 13 - 如果操作数的任何部分出现在从 0 到 0FFFFH 的有效地址空间之外。</p>
+
+<p>#NM - 如果 CR0 中的 TS 设置为 1。</p>
+
+<p>#XM - 如果发生无掩码 SIMD 浮点异常，且 CR4 中的 OSXMMEXCPT 是 1。</p>
+
+<p>#UD - 如果发生无掩码 SIMD 浮点异常，且 CR4 中的 OSXMMEXCPT 是 0。<span style="font-weight: bold;"><B></B></span>如果 CR0 中的 EM 设置为 1。如果 CR4 中的 OSFXSR 是 0。如果 CPUID 功能标志 SSE2 是 0。</p>
+
+<h2>虚 8086 模式异常</h2>
+
+<p>与&ldquo;实地址模式&rdquo;中的异常相同。</p>
+
+<p class="whs4">#PF(错误代码) - 页错误。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

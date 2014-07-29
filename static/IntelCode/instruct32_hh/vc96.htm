@@ -1,0 +1,383 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>FICOM/FICOMP - 比较整数</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=0>
+<meta name=layout-width content=0>
+<meta name=date content="03 6, 2002 11:28:58 AM">
+<meta name=x-ignored-words content="PACKSSWB;PACKSSDW--Pack;Opcode;r;PACKSSDW;doubleword;doublewords;quadword;XMM;SaturateSignedWordToSignedByte;SaturateSignedDoublewordToSignedWord;SaturateSignedDwordToSignedWord;DS;ES;FS;GS;SS;UD;OSFXSR;CPUID;TS;MF;FPU;FFFFH;PF;Vol;microarchitecture;CMPPD--Compare;ib;CMPPD;SIMD;CMPPS;NaN;QNaN;eq;lt;le;unord;neq;nlt;nle;ord;pseudo-ops;CMPEQPD;CMPLTPD;CMPLEPD;CMPUNORDPD;CMPNEQPD;CMPNLTPD;CMPNLEPD;CMPORDPD;EQ;LT;LE;UNORD;NEQ;NLT;NLE;ORD;FFFFFFFFFFFFFFFFH;FI;SNaN;denormal;PF(fault-code;XM;OSXMMEXCPT;CMPS;CMPSB;CMPSW;CMPSD--Compare;E;SI;DI;CMPSD;ESI;EDI;decremented;DF;ECX;REPE;REPZ;REPNE;REPNZ--Repeat;SetStatusFlags(temp;comparison*;CF;SF;ZF;AF;GP;CWD;CDQ--Convert;Doubleword;Quadword;DX;CDQ;EDX;EAX;opcode;OperandSize;SignExtend(AX;SignExtend(EAX;CBW;CWDE--Convert;CWDE;SignExtend(AL;FCOM;FCOMP;FCOMPP--Compare;ST(i;FCOMPP;Unordered*;FXAM--Examine;FUCOM;QNaNs;ESAC;FPUControlWord.IM;PopRegisterStack;FADD;FADDP;FIADD--Add;FIADD;DEST;F;±F;ConvertExtendedReal(SRC;FICOM;FICOMP--Compare;FICOMP">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="FICOM/FICOMP--Compare Integer"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+table.whs1 {x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 3px; margin-top: 14pt;}
+td.whs2 {x-cell-content-align: CENTER; padding-left: 3px; padding-top: 3px; padding-right: 3px; padding-bottom: 3px;}
+img_whs3 {border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;}
+p.whs4 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs3 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs4 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\nIA-32 指令\nF - 指令\nFICOM/FICOMP - 比较整数");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>FICOM/FICOMP - 比较整数</h1>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">操作码</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">指令</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">DE /2</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FICOM <span style="font-style: italic;"><I>m16int</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">比较 ST(0) 与 <span style="font-style: italic;"><I>m16int</I></span></td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">DA /2</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FICOM <span style="font-style: italic;"><I>m32int</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">比较 ST(0) 与 <span style="font-style: italic;"><I>m32int</I></span></td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">DE /3</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FICOMP <span style="font-style: italic;"><I>m16int</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">比较 ST(0) 与 <span style="font-style: italic;"><I>m16int</I></span>，并弹出寄存器堆栈。</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">DA /3</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">FICOMP <span style="font-style: italic;"><I>m32int</I></span></td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">比较 ST(0) 与 <span style="font-style: italic;"><I>m32int</I></span>，并弹出寄存器堆栈。</td></tr>
+</table>
+
+<h2>说明</h2>
+
+<p>比较寄存器 ST(0) 中的值与整型源操作数，根据结果设置 FPU 状态字中的条件代码标志 C0、C2 及 C3（请参阅下表）。执行比较之前，整数值会转换成扩展实数格式。</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="3" border="1" class="whs1">
+
+<tr>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>条件</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>C3</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>C2</td>
+<td valign="middle" class="whs2">
+<h3 CLASS=TableHead
+	style="text-align: center; margin-bottom: 0;"
+	align=center>C0</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>ST(0) &gt; SRC</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>ST(0) &lt; SRC</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>ST(0) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'></noscript> SRC</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>0</td></tr>
+
+<tr>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>无序</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td>
+<td valign="middle" class="whs2">
+<p CLASS=TableCell
+	style="text-align: center; margin-bottom: 0;"
+	align=center>1</td></tr>
+</table>
+
+<p>这些指令执行&ldquo;无序比较&rdquo;。无序比较还检查比较的数值的类别（请参阅 <a HREF="vc127.htm">FXAM - 检查</a>）。如果其中一个操作数是 NaN，或是未定义的格式，则条件标志设置为&ldquo;无序&rdquo;。</p>
+
+<p>忽略 0 的符号，因此 -0.0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'></noscript> +0.0。</p>
+
+<p>比较之后，FICOMP 指令弹出寄存器堆栈。要弹出寄存器堆栈，处理器将 ST(0) 寄存器标记为空，并将堆栈指针 (TOP) 递增 1。</p>
+
+<h2>操作</h2>
+
+<p class=Preformatted>CASE (relation of operands) OF<br> ST(0) &gt; SRC: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'></noscript> 000;<br> ST(0) &lt; SRC: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'></noscript> 001;<br> ST(0) <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'></noscript> SRC: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'></noscript> 100;<br> Unordered: C3, C2, C0 <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'></noscript> 111;<br> ESAC;<br> IF instruction <script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='arrwleft.gif' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='arrwleft.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' border='0' class='img_whs3'></noscript> FICOMP <br> THEN <br> PopRegisterStack; <br> FI;</p>
+
+<h2>影响的 FPU 标志</h2>
+
+<p>C1 - 如果发生堆栈下溢，则设置为 0；否则设置为 0。 </p>
+
+<p>C0、C2、C3 - 请参阅上表。</p>
+
+<h2>浮点异常</h2>
+
+<p>#IS - 发生堆栈下溢。</p>
+
+<p>#IA - 一个操作数是，或两个操作数都是 NaN，或是采用不支持的格式。</p>
+
+<p>#D - 一个操作数是，或两个操作数都是非规格化值。</p>
+
+<h2>保护模式异常</h2>
+
+<p>#GP(0) - 如果内存操作数有效地址超出 CS、DS、ES、FS 或 GS 段限制。如果 DS、ES、FS 或 GS 寄存器包含空的段选择器。</p>
+
+<p>#SS(0) - 如果内存操作数有效地址超出 SS 段限制。</p>
+
+<p>#NM - 如果 CR0 中的 EM 或 TS 设置为 1。</p>
+
+<p>#PF(错误代码) - 如果发生页错误。</p>
+
+<p>#AC(0) - 如果在当前特权级别为 3 且启用对齐检查的情况下进行未对齐的内存引用。</p>
+
+<h2>实地址模式异常</h2>
+
+<p>#GP - 如果内存操作数有效地址超出 CS、DS、ES、FS 或 GS 段限制。</p>
+
+<p>#SS - 如果内存操作数有效地址超出 SS 段限制。</p>
+
+<p>#NM - 如果 CR0 中的 EM 或 TS 设置为 1。</p>
+
+<h2>虚 8086 模式异常</h2>
+
+<p>#GP(0) - 如果内存操作数有效地址超出 CS、DS、ES、FS 或 GS 段限制。</p>
+
+<p>#SS(0) - 如果内存操作数有效地址超出 SS 段限制。</p>
+
+<p>#NM - 如果 CR0 中的 EM 或 TS 设置为 1。</p>
+
+<p>#PF(错误代码) - 如果发生页错误。</p>
+
+<p class="whs4">#AC(0) - 如果在启用对齐检查的情况下进行未对齐的内存引用。 </p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>失效的分支</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta NAME=MS-HAID CONTENT="E4 Branches Retired -- Pentium  4 Processor">
+<meta NAME=MS-HAID CONTENT="E4 Group - Key CPI-Limiting">
+<meta NAME=MS-HAID CONTENT="Branch Instructions Retired">
+<meta NAME=MS-HAID CONTENT=Events4>
+<meta name=date content="05 12, 2002 3:46:58 PM">
+<meta name=topic-status content=Complete>
+<meta name=topic-priority content=-1>
+<meta name=topic-time-estimate content=-1>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=453>
+<meta name=layout-width content=660>
+<meta name=x-ignored-words content="MMX;SIMD;Aliasing;modulo;aliasing;Pentium;pipelined;mispredicted;NetBurst;irets;BTB;DTLB;micro-ops;lookaside;TLB;Lookaside;mispredictions;cmov;setcc;MH;M;C;ebx;and-ed;fcmov;CMOV;eax;cpuid;UC;uncacheable;WC;MMNP;MMNM;Mispredicted;MMTP;MMTM;NBOGUSNTAG;NBOGUSTAG;BOGUSNTAG;BOGUSTAG">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: ; 48: px; height: 60px; float: right; border-style: none; float: right;}
+table.whs2 {margin-top: 14pt; x-border-left: 1px table-solid; x-border-top: 1px table-solid; x-border-right: 1px table-solid; x-border-bottom: 1px table-solid; border-collapse: separate; border-spacing: 1px;}
+td.whs3 {x-cell-content-align: CENTER; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+td.whs4 {x-cell-content-align: TOP; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n英特尔(R) 奔腾(R) 4 处理器事件\n性能调整事件 - 基本\n主要 CPI 限制事件\n失效的分支");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1 VALUE="?2000 Intel Corporation"><img src="p4p60hw.gif" alt="奔腾(R) 4 处理器主题" x-maintain-ratio="TRUE" height="60px" align="right" border="0" class="img_whs1">失效的分支</h1>
+
+<p><span style="font-weight: bold;"><B>线程特定性</B></span>：<a href="Thread_Specific.htm">TS</a></p>
+
+<p>此事件统计失效的分支指令数。分支不一定会降低应用程序的性能，但分支预测失误却一定会。 </p>
+
+<p>此事件通常用作比率的一部分，或用于表示代码特征。</p>
+
+<p>高级：更改此事件测量的对象</p>
+
+<p>默认情况下，此事件的所有掩码位都打开。您可以指定一个或多个掩码位来统计执行、不执行、预测、预测失误的失效分支的任意组合，具体如下：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells wrapperparagraphselector="P" cellspacing="1" border="1" class="whs2">
+
+<tr>
+<td valign="middle" class="whs3">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">事件掩码位</td>
+<td valign="middle" class="whs3">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">说明</td></tr>
+
+<tr>
+<td valign="top" class="whs4">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">位 0：MMNP</td>
+<td valign="top" class="whs4">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">预测的不执行分支</td></tr>
+
+<tr>
+<td valign="top" class="whs4">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">位 1：MMNM</td>
+<td valign="top" class="whs4">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">预测失误的不执行分支</td></tr>
+
+<tr>
+<td valign="top" class="whs4">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">位 2：MMTP</td>
+<td valign="top" class="whs4">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">预测的执行分支</td></tr>
+
+<tr>
+<td valign="top" class="whs4">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">位 3：MMTM</td>
+<td valign="top" class="whs4">
+<p CLASS=TableCell
+	style="margin-bottom: 0;">预测失误的执行分支</td></tr>
+</table>
+
+<p>如需有关此事件的详细信息，请参阅<a href="mispredicted_branches_retired.htm">失效的预测失误分支</a>。</p>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','失效的二级缓存加载未命中','2nd-level_cache_load_misses_retired.htm','失效的加载','loads_retired.htm','失效的指令','Instructions_retired.htm','失效的预测失误分支','mispredicted_branches_retired.htm','时钟信号（非休眠时钟信号）','Clockticks.htm');return false;" title="其它主要 CPI 限制事件"><img src="../../ss_btn_其它主要_cpi_限制事件.gif" border=0 height=20 width=136 alt="其它主要 CPI 限制事件"></a>
+
+
+ </p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

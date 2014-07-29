@@ -1,0 +1,121 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>关于指令执行事件</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta NAME=MS-HAID CONTENT="instruction execution events 642">
+<meta name=date content="05 23, 2002 4:33:53 PM">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=363>
+<meta name=layout-width content=673>
+<meta name=x-ignored-words content="umask;Frontside">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content="About_Instruction_Execution_Events.htm"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 48px; height: 60px; float: right; border-style: none; float: right;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\n指令执行事件\n关于指令执行事件");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1 class=Overview><img src="itanium2_60b.gif" alt="安腾(R) 2 处理器主题" x-maintain-ratio="TRUE" width="48px" height="60px" align="right" border="0" class="img_whs1">关于指令执行事件</h1>
+
+<p>失效的指令计数、<a href="IA64_TAGGED_INST_RETIRED.html">失效的标记指令</a>及 NOPS_RETIRED 均基于地址范围检查与操作码匹配功能指定的标记信息。标记的失效指令计数包括谓词为假的指令。这里提供一个单独的事件 PREDICATE_SQUASHED_RETIRED 来统计谓词为假的指令。</p>
+
+<p>表中列出的 FP 监视器捕获浮点操作导致管道清除与清除为零发生次数的动态信息。FP_OPS_RETIRED 事件统计失效的 FP 操作的数量。</p>
+
+<p>用于控制与数据推测的监视器捕获动态运行时信息：失败的 chk.s 指令 (INST_FAILED_CHKS_RETIRED.ALL) 数量、高级加载检查与检查加载 (INST_CHKA_LDC_ALAT.ALL) 数量，以及失败的高级加载检查与检查加载 (INST_FAILED_CHKA_LDC_ALAT.ALL) 数量（如 ALAT 所示）。失效的 chk.s 指令数量由<a HREF="IA64_TAGGED_INST_RETIRED.html">失效的标记指令</a>事件在给定适当操作码掩码的情况下监视。安腾&#xAE; 2 处理器 ALAT 由预测失误的分支路径上的操作更新，因此高级加载检查与检查加载的数量需要一个显式事件 (INST_CHKA_LDC_ALAT.ALL)。</p>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

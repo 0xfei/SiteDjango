@@ -1,0 +1,173 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>关于安腾(R) 2 处理器事件</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="05 28, 2003 10:09:35 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="About Events for the Itanium(R) 2 Processor">
+<meta name=MS-HAID content="Itanium proc ref info">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=692>
+<meta name=layout-width content=678>
+<meta name=x-ignored-words content="umask;Frontside;FP;umasks">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 48px; height: 60px; border-style: none; float: right; border-style: none; float: right;}
+p.whs2 {margin-bottom: 0;}
+p.whs3 {margin-bottom: 0; font-style: italic;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs2 {margin-bottom:1; }";
+  strNSS += "p.whs3 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\n关于英特尔(R) 安腾(R) 2 处理器事件");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1 class=Overview><img src="itanium2_60b.gif" alt="安腾(R) 2 处理器主题" x-maintain-ratio="TRUE" width="48px" height="60px" align="right" border="0" class="img_whs1">关于英特尔(R) 安腾 (R) 2 处理器事件</h1>
+
+<p>这部分包含可监视的<span style="font-weight: bold;"><B>英特尔(R) 安腾(R) 2 处理器</B></span>性能监视事件的列表。<span style="font-weight: bold;"><B></B></span>不过，可监视的事件都是特定于具体型号的。如需特定于其它英特尔处理器的性能事件的列表，请参阅：</p>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','英特尔(R) 奔腾(R) 4 处理器事件','../../Pentium4_HH/Events4/about.htm');return false;" title="其它处理器事件"><img src="../../ss_btn_其它处理器事件.gif" border=0 height=20 width=94 alt="其它处理器事件"></a>
+
+
+ </p>
+
+<p>英特尔安腾处理器提供许多精心设计的功能，帮助采集各种详细级别的性能衡量数据。在试图采集数据之前，必须很好地理解架构的性能监视器机制。此外还需要正确设置配置寄存器、特权级别以及其它参数，以生成有意义而且正确的数据。</p>
+
+<p>后续主题中的表格通过指定三个属性定义事件：</p>
+
+<ul>
+	
+	<li class=kadov-p><p>符号事件名称</p></li>
+	
+	<li class=kadov-p><p>可统计事件的 PMC/PMD 计数器</p></li>
+	
+	<li class=kadov-p><p>十六进制事件代码</p></li>
+</ul>
+
+<h3>衍生的事件<a NAME=Derived_Events></a></h3>
+
+<p>事件代码与 PMC/PMD 计数器仅为可由处理器直接测量的&ldquo;监视的&rdquo;事件指定。有些性能尺度不可直接测量，但是可通过组合或限制一个或多个监视的事件计数而计算得出。这些尺度在表格中作为&ldquo;衍生的&rdquo;事件列出。</p>
+
+<p>无后缀的事件在硬件中直接测量。带 &quot;.a&quot; 后缀的事件也直接在硬件中测量；&quot;.a&quot; 事件是事件别名。带 &quot;.u&quot; 后缀的事件直接在硬件中测量；不过，它们要求使用带特定单元掩码设置的事件代码。带 &quot;.d&quot; 后缀的事件不直接在硬件中测量，但可以从两个或更多测量的事件中计算得出。</p>
+
+<p class="whs2">如需有关英特尔体系结构的详细信息，请参阅<a href="../../Reference_HH/Intel_s_Software_Developer_s_Manuals.htm" style="x-condition: eclipse;">在线英特尔(R) 处理器信息</a>。</p>
+
+<p class="whs2">&nbsp;</p>
+
+<p class="whs2">&nbsp;</p>
+
+<p class="whs2">&nbsp;</p>
+
+<p class="whs2">&nbsp;</p>
+
+<p class="whs3">更新日期：January 25, 2006</p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>64k/M 重叠冲突性能影响</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="06 30, 2002 10:29:49 AM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="64K Aliasing">
+<meta name=MS-HAID content="64K/M Aliasing Conflicts">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=945>
+<meta name=layout-width content=678>
+<meta name=x-ignored-words content="MMX;Aliasing;Clockticks;aliasing">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: ; 48: px; height: 60px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+table.whs3 {width: 60%; border-spacing: 0px; border-spacing: 0px;}
+td.whs4 {x-cell-content-align: TOP; width: 50%; padding-left: 2px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px;}
+p.whs5 {margin-bottom: 0;}
+ul.whs6 {list-style: disc;}
+img_whs7 {border: none; width: 17px; height: 18px; float: none; border-style: none; border-style: none;}
+p.whs8 {margin-left: 40px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs5 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../../ehlpdhtm.js"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器\n含第三代数据流单指令多数据扩展指令集 (SSE3) 的英特尔(R) 奔腾(R) 4 处理器的事件比率\n基本性能调整比率\n指示编码缺陷的事件比率\n64K/4M 重叠冲突性能影响");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="p4p60hw.gif" alt="奔腾(R) 4 处理器主题" x-maintain-ratio="TRUE" height="60px" align="right" border="0" class="img_whs1"><img src="er_logo.gif" alt="事件比率主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs2">64K/4M 重叠冲突性能影响</h1>
+
+<p>((<a href="../../Events4/64k_aliasing_conflicts.htm" style="x-condition: eclipse;">64k/4M 重叠冲突</a>*12) / <a href="../../Events4/Clockticks.htm" style="x-condition: eclipse;">时钟信号</a>)*100</p>
+
+<p>一般来说，这些数字源自经验丰富的性能工程师的经验：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="60%" class="whs3">
+
+<tr>
+<td valign="top" width="50%" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">下限</td>
+<td valign="top" width="50%" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">上限</td></tr>
+
+<tr>
+<td valign="top" width="50%" class="whs4">
+<p class="whs5">0.2</td>
+<td valign="top" width="50%" class="whs4">
+<p>2</td></tr>
+</table>
+
+<p>此比率的值较高时，表示因为缓存中已经存在数据，而且该数据的线性地址的位 0-15 的位值与要放入的数据的相同，所以无法将数据放入一级缓存。性能影响在以下情形中可能有很大不同。</p>
+
+<h2><span style="font-style: italic;"><I>不含</I></span> 超线程技术的系统</h2>
+
+<ul type="disc" class="whs6">
+	
+	<li class=kadov-p><p><span style="font-weight: bold;"><B>情况 1</B></span>：64K 重叠主要由加载组成的代码导致。加载可能会同其它加载争用加载请求缓冲区。如果大多数 64K 重叠事件都是由几乎全是加载（相对于加载与存储交叉的情况）的代码所导致，则这种情况的性能影响微乎其微。<span style="font-weight: bold;"><B><br> 建议</B></span>：继续检查其它性能问题。如果尚未采集<a href="../../Events4/about_secondary_events_for_tuning.htm" style="x-condition: eclipse;">辅助调整事件</a>的数据，请进行采集。</p></li>
+	
+	<li class=kadov-p><p><span style="font-weight: bold;"><B>情况 2</B></span>：64K 重叠由加载与存储混合组成的代码导致。需要请求缓冲区的加载可能会在存储之后停止不前。存储必须失效并从缓存中释放出去，加载才能继续。如果大多数 64K 重叠事件都是由交叉执行加载与存储的代码导致，则这种情况下的性能影响比较显著。<span   style="font-weight: bold;"><B><br>建议</B></span>：<a href="../../Advice4_HH/avoiding_64k_aliasing.htm" style="x-condition: eclipse;">消除或降低 64K 重叠的影响</a>。</p></li>
+</ul>
+
+<h2>含超线程技术的系统</h2>
+
+<p>对于启用&ldquo;超线程技术&rdquo;的系统，比较&ldquo;关闭超线程技术&rdquo;的单处理器系统与&ldquo;打开超线程技术&rdquo;的单处理器系统时，可能会发现 64K 重叠事件的数量明显增加。目前的研究表明，如果增加量在 2-4 倍范围内，纠正这些情况并不能取得有意义的速度提升效果。不过，对于 64K 重叠事件的增量在 5 倍以上的那些情况，纠正它们则能够取得有意义的速度提升。打开&ldquo;超线程技术&rdquo;时，有两种情况可能会导致 64K 重叠显著增加： </p>
+
+<ul type="disc" class="whs6">
+	
+	<li class=kadov-p><p><span style="font-weight: bold;"><B>情况 1</B></span>：操作系统创建对齐 1 或 2 MB 边界（它的模数是 64K）的线程堆栈空间。因此，一个线程的堆栈数据位于一级缓存，且第二个线程访问其堆栈数据时，如果处理器试图将第二个线程的数据放入一级缓存，则会遇到 64K 重叠事件。<span style="font-weight: bold;"><B><br>建议</B></span>：消除或降低 64K 重叠的影响。</p></li>
+	
+	<li class=kadov-p><p><span style="font-weight: bold;"><B>情况 2</B></span>：也有可能是每个线程正在访问的数据结构恰好相距 64K。每当两个线程访问相距 64K 的数据结构时，处理器都将招致 64K 重叠惩罚。<span style="font-weight: bold;"><B><br>建议</B></span>：消除或降低 64K 重叠的影响。</p></li>
+</ul>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="tip.gif" alt="提示" x-maintain-ratio="TRUE" width="17px" height="18px" border="0" class="img_whs7"> 提示</h3>
+
+<p class="whs8">使用最新的编译器可以降低或消除这些类型的事件。</p>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','64k/M 重叠冲突性能影响','../../Events4/64k_aliasing_conflicts.htm','64k/M 重叠冲突性能影响','../EventsP/64k_aliasing_conflicts.htm','时钟信号（非休眠时钟信号）','../../Events4/Clockticks.htm','非暂停时钟信号','../../Events4/non-halted_clocktick.htm');return false;" title="相关事件"><img src="../../../ss_btn_相关事件.gif" border=0 height=20 width=58 alt="相关事件"></a>
+
+
+ </p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

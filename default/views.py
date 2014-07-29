@@ -55,5 +55,6 @@ def contact(request):
 def google(request):
     return render_to_response('google.html')
 
+
 def baidu(request):
     return render_to_response('baidu.html')

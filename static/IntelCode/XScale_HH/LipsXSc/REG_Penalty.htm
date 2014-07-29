@@ -1,0 +1,265 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" 
+ xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>寄存器相关惩罚</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="04 16, 2003 6:44:33 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=REG_Penalty>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=889>
+<meta name=layout-width content=668>
+<meta name=x-ignored-words content="XSC_LDRSTR_RES;Coprocessor;XSC_COPROCESSOR_RES;coprocessor;XSC_DATAPROC_RES;XSC_DEAD_CODE;STMFD;LR;destination*;LDMFD;XSC_DEAD_CODE*;XSC_MUL_CONDITION;MLAS;XSC_MUL_CONDITION*;UMLALS;XSC_RESOURCE;Accumulate(MAC;pipelined;LDRD;MLA;XSC_RESOURCE*;XSC_MULTIPLY_RES;XSC_REG_DEP;REG;XSC_REG_REG;UMLAL;MOV;RSB;SBC;lsl;MUL;XSC_MULTIPLY_RES*;QDSUB;ADC;lsr;XSC_SATURATED_RES*;LDR;XSC_LDRSTR_RES*">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_STYL_ns.CSS'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_STYL.CSS'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 32px; height: 32px; border-style: none; float: right; border-style: none; float: right;}
+h3.whs2 {margin-left: 40px;}
+img_whs3 {width: 17px; height: 18px; border-style: none; border-style: none;}
+p.whs4 {margin-left: 40px;}
+img_whs5 {border: none; width: 20px; height: 20px; float: none; border-style: none; border-style: none;}
+p.whs6 {mso-fareast-font-family: SimSun;}
+table.whs7 {x-cell-content-align: top; width: 100%; background-color: #ffffff; border-left-style: Solid; border-top-style: Solid; border-right-style: Solid; border-bottom-style: Solid; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-spacing: 0px; border-spacing: 0px;}
+col.whs8 {width: 38.873%;}
+col.whs9 {width: 61.127%;}
+tr.whs10 {x-cell-content-align: top;}
+td.whs11 {width: 38.873%; padding-right: 10px; padding-left: 10px; background-color: #ffffff; border-right-style: None; border-bottom-width: 4px; border-bottom-style: Solid; border-bottom-color: #ffffff; border-left-width: 1px; border-left-style: Solid; border-top-width: 1px; border-top-style: Solid;}
+td.whs12 {width: 61.127%; padding-right: 10px; padding-left: 10px; background-color: #ffffff; border-bottom-width: 4px; border-bottom-style: Solid; border-bottom-color: #ffffff; border-top-width: 1px; border-top-style: Solid; border-right-width: 1px; border-right-style: Solid;}
+td.whs13 {width: 38.873%; padding-right: 10px; padding-left: 10px; background-color: #ffffff; border-left-color: #ffffff; border-right-width: 4px; border-right-color: #ffffff; border-right-style: Solid; border-bottom-width: 4px; border-bottom-color: #ffffff; border-bottom-style: Solid; border-left-width: 1px; border-left-style: Solid;}
+td.whs14 {width: 61.127%; padding-right: 10px; padding-left: 10px; background-color: #ffffff; border-right-color: #ffffff; border-bottom-width: 4px; border-bottom-color: #ffffff; border-bottom-style: Solid; border-right-width: 1px; border-right-style: Solid;}
+td.whs15 {width: 38.873%; padding-right: 10px; padding-left: 10px; background-color: #ffffff; border-right-style: None; border-bottom-style: None; border-left-width: 1px; border-left-style: Solid;}
+td.whs16 {width: 61.127%; padding-right: 10px; padding-left: 10px; background-color: #ffffff; border-bottom-style: None; border-right-width: 1px; border-right-style: Solid;}
+td.whs17 {width: 38.873%; padding-right: 10px; padding-left: 10px; background-color: #ffffff; border-right-style: None; border-left-width: 1px; border-left-style: Solid; border-bottom-width: 1px; border-bottom-style: Solid;}
+td.whs18 {width: 61.127%; padding-right: 10px; padding-left: 10px; background-color: #ffffff; border-bottom-width: 1px; border-bottom-style: Solid; border-right-width: 1px; border-right-style: Solid;}
+table.whs19 {x-cell-content-align: top; width: 100%; border-spacing: 0px; border-spacing: 0px;}
+col.whs20 {width: 43.769%;}
+col.whs21 {width: 56.231%;}
+td.whs22 {width: 43.769%; border-left-width: 1px; border-left-color: #000000; border-left-style: Solid; border-top-style: Solid; border-top-color: #000000; border-top-width: 1px; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px; padding-right: 10px; padding-left: 10px;}
+td.whs23 {width: 56.231%; border-top-style: Solid; border-top-color: #000000; border-top-width: 1px; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px; padding-right: 10px; padding-left: 10px;}
+td.whs24 {width: 43.769%; border-left-width: 1px; border-left-color: #000000; border-left-style: Solid; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px; padding-right: 10px; padding-left: 10px;}
+td.whs25 {width: 56.231%; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px; padding-right: 10px; padding-left: 10px;}
+td.whs26 {width: 43.769%; padding-right: 10px; padding-left: 10px; border-left-style: Solid; border-left-color: #000000; border-left-width: 1px; border-right-style: Solid; border-right-color: #000000; border-right-width: 1px; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: Solid;}
+td.whs27 {width: 56.231%; padding-right: 10px; padding-left: 10px; border-right-style: Solid; border-right-color: #000000; border-right-width: 1px; border-bottom-width: 1px; border-bottom-color: #000000; border-bottom-style: Solid;}
+td.whs28 {width: 43.769%; padding-right: 10px; padding-left: 10px; border-left-width: 1px; border-left-color: #000000; border-left-style: Solid; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px;}
+td.whs29 {width: 56.231%; padding-right: 10px; padding-left: 10px; border-right-width: 1px; border-right-color: #000000; border-right-style: Solid; border-bottom-style: Solid; border-bottom-color: #000000; border-bottom-width: 1px;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body lang=EN-US style="tab-interval: 36.0pt;">
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔 XScale(R) 微体系结构 \n英特尔 XScale(R) 微体系结构惩罚\n寄存器相关惩罚");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="XS_logo.gif" alt="英特尔 XScale(R) 技术主题" v:shapes="_x0000_s1026" width="32px" height="32px" align="right" border="0" class="img_whs1">寄存器相关惩罚/警告</h1>
+
+<h2>XSC_REG_DEP</h2>
+
+<h3>解释</h3>
+
+<p>指令将寄存器 <span class=Code>REG</span> 用作操作数之一，但由于前一条指令尚未完成值的存储，因此寄存器值不可用。这会导致管道暂停以等待结果，从而导致指令花费额外的一些周期去执行。</p>
+
+<h3 class="whs2"><img id="_x0000_i1025" src="tip.gif" width="17px" height="18px" border="0" class="img_whs3"> 建议</h3>
+
+<p class="whs4">如果可能，请调整前面指令的顺序，以填补使用寄存器 <b><i>REG</i></b> 的指令执行之前额外的延迟周期。 </p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><b style="font-weight: bold;"><img src="note.gif" x-maintain-ratio="TRUE" width="20px" height="20px" border="0" class="img_whs5"> 备注</b></h3>
+
+<p class="whs4"><span class=Code>XSC_REG_<b><i style="font-style: italic; font-weight: normal;">REG</i></b></span> 中的 <span class=Code
+									style="font-style: italic;"><I>REG</I></span> 可以是 <span class=Code>R0, R1, ..., R15</span>。</p>
+
+<h3>示例</h3>
+
+<p class="whs6">对于以下示例代码，给出 <b><span style="font-weight: normal;">XSC_REG_R8 </b> 与 <b style="font-weight: normal;">XSC_MULTIPLY_RES</b> <b style="font-weight: normal;">替代 SUB</b> 指令。</span></p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" bgcolor="#FFFFFF" width="100%" class="whs7">
+<col class="whs8">
+<col class="whs9">
+
+<tr valign="top" class="whs10">
+<td bgcolor="#FFFFFF" width="38.873%" class="whs11">
+<h3 class=TableHead><b style="font-weight: bold;">汇编代码</b></td>
+<td bgcolor="#FFFFFF" width="61.127%" class="whs12">
+<h3 class=TableHead><b style="font-weight: bold;">惩罚与警告</b></td></tr>
+
+<tr valign="top" class="whs10">
+<td bgcolor="#FFFFFF" width="38.873%" class="whs13">
+<p class=TableCell><span class=Code><span class=Code>U</span>MLAL r6, r8, r0, r1</span></p>
+<p class=TableCell><span class=Code>ADD r9, r10, r11</span></td>
+<td bgcolor="#FFFFFF" width="61.127%" class="whs14">
+<p>&nbsp;</td></tr>
+
+<tr valign="top" class="whs10">
+<td bgcolor="#FFFFFF" width="38.873%" class="whs15">
+<p class=TableCell><span class=Code>SUB r2, r8, r9</span></td>
+<td bgcolor="#FFFFFF" width="61.127%" class="whs16">
+<p class=TableCell><span class=Code>/* XSC_REG_R8; XSC_MULTIPLY_RES */</span></td></tr>
+
+<tr valign="top" class="whs10">
+<td bgcolor="#FFFFFF" width="38.873%" class="whs17">
+<p class=TableCell><span class=Code>MOV r0, r1</span></td>
+<td bgcolor="#FFFFFF" width="61.127%" class="whs18">
+<p>&nbsp;</td></tr>
+</table>
+
+<h3>&nbsp;</h3>
+
+<h3><b style="font-weight: bold;">情形示例</b></h3>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells cellspacing="0" width="100%" class="whs19">
+<script language='JavaScript'><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4)) document.write("</table><table x-use-null-cells cellspacing='0' width='100%' border='1' bordercolor='black' bordercolorlight='black' bordercolordark='black'>");
+//--></script>
+<col class="whs20">
+<col class="whs21">
+
+<tr valign="top" class="whs10">
+<td width="43.769%" class="whs22">
+<h3 class=TableHead><b style="font-weight: bold;">汇编代码</b></td>
+<td width="56.231%" class="whs23">
+<h3 class=TableHead><b style="font-weight: bold;">惩罚与警告</b></td></tr>
+
+<tr valign="top" class="whs10">
+<td width="43.769%" class="whs24">
+<p><span class=Code>RSB r6, r7, r8</span> </td>
+<td width="56.231%" class="whs25">
+<p>&nbsp;</td></tr>
+
+<tr valign="top" class="whs10">
+<td width="43.769%" class="whs24">
+<p><span class=Code>SBC r10, r9, r6, lsl #0x8</span> </td>
+<td width="56.231%" class="whs25">
+<p><span class=Code>/* XSC_REG_R6; XSC_DATAPROC_RES */</span></td></tr>
+
+<tr valign="top" class="whs10">
+<td colspan="1" rowspan="1" width="43.769%" class="whs26">
+<p><span class=Code>MUL r2, r3, r4</span> </td>
+<td colspan="1" rowspan="1" width="56.231%" class="whs27">
+<p>&nbsp;</td></tr>
+
+<tr valign="top" class="whs10">
+<td colspan="1" rowspan="1" width="43.769%" class="whs28">
+<p><span class=Code>SBC r10, r9, r2, lsl #0x8</span> </td>
+<td colspan="1" rowspan="1" width="56.231%" class="whs29">
+<p><span class=Code>/* XSC_REG_R2; XSC_MULTIPLY_RES*/ </span></td></tr>
+
+<tr valign="top" class="whs10">
+<td colspan="1" rowspan="1" width="43.769%" class="whs26">
+<p><span class=Code>QDSUB r3, r10, r1</span> </td>
+<td colspan="1" rowspan="1" width="56.231%" class="whs27">
+<p>&nbsp;</td></tr>
+
+<tr valign="top" class="whs10">
+<td colspan="1" rowspan="1" width="43.769%" class="whs28">
+<p><span class=Code>ADC r12, r11, r5, lsr r3</span> </td>
+<td colspan="1" rowspan="1" width="56.231%" class="whs29">
+<p><span class=Code>/* XSC_REG_R3; XSC_SATURATED_RES*/</span> </td></tr>
+
+<tr valign="top" class="whs10">
+<td colspan="1" rowspan="1" width="43.769%" class="whs26">
+<p><span class=Code>LDR r1, [r2, r3]</span> </td>
+<td colspan="1" rowspan="1" width="56.231%" class="whs27">
+<p>&nbsp;</td></tr>
+
+<tr valign="top" class="whs10">
+<td colspan="1" rowspan="1" width="43.769%" class="whs28">
+<p><span class=Code>ADD r4, r1, r5 </span></td>
+<td colspan="1" rowspan="1" width="56.231%" class="whs29">
+<p><span class=Code>/* XSC_REG_R1; XSC_LDRSTR_RES*/</span></td></tr>
+<script language='JavaScript'><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4)) document.write("</table></table><table>");
+//--></script>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

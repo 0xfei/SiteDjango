@@ -1,0 +1,191 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>未对齐的内存引用</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="01 15, 2003 12:59:18 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=910>
+<meta name=layout-width content=676>
+<meta name=x-ignored-words content="TLB;prefetch;developer.intel.com.;Pentium;lll;Mispredictions;Micro-Ops;PGBO;Qxi;cmov;fcmov;read(;write(;setcc;SIMD;Chroma;MMX;mispredictions;inlining;BTB;eax;Clockticks;Microsoft*;int;DRDY;Mis-aligned;misaligned;DCU;codecs;Misaligned;MOVs;SHIFTs;μ-ops;float-to-int;SSE;SSE's;vectorization;QxK;non-SIMD">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 36px; height: 36px; border-style: none; float: right; border-style: none; float: right;}
+img_whs2 {width: 20px; height: 20px; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; border-style: none;}
+p.whs3 {margin-left: 40px;}
+img_whs4 {width: 17px; height: 18px; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none; border-style: none;}
+p.whs5 {font-weight: bold;}
+p.whs6 {margin-left: 40px; font-weight: bold;}
+ul.whs7 {list-style: disc;}
+p.whs8 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs2 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "img_whs4 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs8 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n关于英特尔(R) 奔腾(R) M 处理器的建议\n未对齐的内存引用");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" alt="英特尔(R) 调优助手主题" x-maintain-ratio="TRUE" width="36px" height="36px" align="right" border="0" class="img_whs1">未对齐的内存引用</h1>
+
+<p>在英特尔(R) 奔腾(R) M 处理器上，跨越缓存线边界的未对齐访问会导致惩罚。&ldquo;数据缓存单元&rdquo;(DCU) 拆分是跨越 64 字节缓存线边界的内存访问。未对齐的访问可能导致 DCU 拆分，并导致奔腾 M 处理器暂停。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='note.gif' width='20px' height='20px' border='0' class='img_whs2'>");}
+else
+{   document.write("<img src='note.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='20px' height='20px' border='0' class='img_whs2'>");}
+//--></script><noscript><img src='note.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='20px' height='20px' border='0' class='img_whs2'></noscript> 备注</h3>
+
+<p class="whs3">某些算法（如视频编解码中的&ldquo;运动估计&rdquo;与&ldquo;运动补偿&rdquo;算法）天生倾向于导致频繁发生未对齐的引用。在某些情况下，能减少未对齐引用的替代性编码策略实际需要的时钟周期总数可能会更多。</p>
+
+<p><span style="font-weight: bold;"><B>在以下情况中，此细节具有实质性意义：</B></span><br>计数器的商【<a href="../ERB/misaligned_references_ratio.htm" style="x-condition: eclipse;">未对齐的数据内存引用/数据内存引用（所有）</a>】不佳。值 0.00 应视为良好，值 0.002 应视为不佳。</p>
+
+<h3 class=NoteTipHead><span style="font-weight: bold;"><B><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='tip.gif' width='17px' height='18px' border='0' class='img_whs4'>");}
+else
+{   document.write("<img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs4'>");}
+//--></script><noscript><img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs4'></noscript> 建议</B></span></h3>
+
+<ul>
+	
+	<li class=kadov-p><p><span style="font-weight: bold;"><B>如果可能，在内存中对齐数据。</B></span><br> 确保数据正确对齐。如果算法天生具有未对齐的数据引用，并且需要访问数据许多次，请将未对齐的数据复制到对齐的位置，并在对齐的数据上操作。此外，请避免将 80 位（浮点）值存储到未对齐的位置。（请注意，对于某些编译器，在堆栈上存储 64 位数据可能会导致未对齐的引用）。</p></li>
+	
+	<li class=kadov-p><p><span style="font-weight: bold;"><B>如果无法在内存中对齐数据，请考虑分多个步骤读取数据，强制实现对齐</B></span>。<br> 如果无法在内存中对齐数据，请考虑分多个步骤读取数据，并使用 SHIFT 与 OR 运算，以避免 DCU 缓存线拆分惩罚。例如，假设需要读取地址 [62-69]（跨越地址 63 与 64 之间的 DCU 缓存线边界）。假设将这些值是 {v7 v6 v5 v4 v3 v2 v1 v0}。我们不需要&ldquo;傻傻地&rdquo;读取这 8 个字节，并付出遭受 DCU 缓存线拆分惩罚的代价，而可以读取两个对齐的地址：r0=[56-63] 与 r1=[64-71]。现在，这两个值分别是：r1 = {s1 s0 v7 v6 v5 v4 v3 v2}；r0 = {v1 v0 t5 t4 t3 t2 t1 t0}。此时，我们可以将 r0 右移 8*6 位，得到 r0={0 0 0 0 0 0 v1 v0}，将 r1 左移 8*2 位，得到 r1={v7 v6 v5 v4 v3 v2 0 0}。接着，我们对 r1 与 r2 执行 OR 运算，得到 {v7 v6 v5 v4 v3 v2 v1 v0}。这样在不用遭受未对齐惩罚的情况下我们便读取了这 8 个字节（不过请注意，避免未对齐花费了 2 个 MOV、2 个 SHIFT 及 1 个 OR）。</p></li>
+	
+	<li class=kadov-p><p class="whs5">确保代码正确对齐。</p></li>
+</ul>
+
+<p class="whs6">如果使用汇编代码编写：</p>
+
+<ul>
+	
+	<ul type="disc" class="whs7">
+		
+		<li class=kadov-p><p>同 16 字节边界相距不足八个字节时，循环入口标签应该采用 16 字节对齐方式。</p></li>
+		
+		<li class=kadov-p><p>跟在条件分支之后的标签不需要对齐。</p></li>
+		
+		<li class=kadov-p><p>同 16 字节边界相距不足八字节时，跟在无条件分支或函数调用之后的标签应该采用 16 字节对齐方式。</p></li>
+	</ul>
+</ul>
+
+<p class="whs6">如果使用更高级的语言编写：</p>
+
+<ul>
+	
+	<ul type="disc" class="whs7">
+		
+		<li class=kadov-p><p>使用将确保生成的代码满足以上规则的编译器。</p></li>
+		
+		<li class=kadov-p><p class="whs8">在奔腾 M 处理器上，避免使用执行周期小于 2 的循环。紧凑循环的目标应该对齐 16 字节边界，以最大限度使用将获取的指令。在奔腾 M 处理器上，可以限制可用于执行的指令数，从而限制每个周期失效的指令数。建议将关键的循环入口放在缓存线边界上。此外，还应展开执行时间不足 2 个周期的循环。 </p></li>
+	</ul>
+</ul>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>l2_ozq_cancels1</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content=L2_OZQ_CANCELS1>
+<meta name=MS-HAID content="一体化二级缓存事件">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=745>
+<meta name=layout-width content=550>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {width: 20px; height: 20px; border-style: none; border-style: none;}
+table.whs2 {width: 100%;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 安腾(R) 2 处理器\n英特尔(R) 安腾(R) 2 处理器事件\n内存事件\n一体化二级缓存事件\nL2_OZQ_CANCELS1");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>L2_OZQ_CANCELS1</h1>
+
+<b style="font-weight: bold;">标题：</b>L2 OZQ 取消（特定原因集 1）<b style="font-weight: bold;"><br> 类别：</b>一体化二级缓存事件<b style="font-weight: bold;"><br> IAR/DAR/OPC：</b>Y/Y/Y<b style="font-weight: bold;"><br> 事件代码：</b>0xAC<b style="font-weight: bold;"><br> 最大每周期增量：</b>4 
+
+<p><b style="font-weight: bold;">定义：</b>统计特定原因（基于单元掩码）导致的&ldquo;L2 OZ 队列取消&rdquo;总数。</p>
+
+<h3 class=NoteTipHead><img src="note.gif" width="20px" height="20px" border="0" class="img_whs1"> 备注</h3>
+
+这是有限组 0 的&ldquo;二级缓存&rdquo;事件。在任何给定时间，3 个 L1_OZQ_CANCEL 事件中仅可能测量一个。要测量此事件，<a HREF="l2_ifet_cancels.html">L2_IFET_CANCELS</a> 或此事件必须使用 PMD4 测量。 
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells width="100%" class="whs2">
+
+<tr>
+<td>
+<h3 CLASS=TableHead>扩展</td>
+<td>
+<h3 CLASS=TableHead>PMC.umask</td>
+<td>
+<h3 CLASS=TableHead>说明</td></tr>
+
+<tr>
+<td>
+<p>REL</td>
+<td>
+<p>b0000</td>
+<td>
+<p>释放导致的</td></tr>
+
+<tr>
+<td>
+<p>BANK_CONF</td>
+<td>
+<p>b0001</td>
+<td>
+<p>库冲突</td></tr>
+
+<tr>
+<td>
+<p>L2D_ST_MAT</td>
+<td>
+<p>b0010</td>
+<td>
+<p>存储匹配 L2D</td></tr>
+
+<tr>
+<td>
+<p>---</td>
+<td>
+<p>b0011</td>
+<td>
+<p>（*不统计*）</td></tr>
+
+<tr>
+<td>
+<p>SYNC</td>
+<td>
+<p>b0100</td>
+<td>
+<p>sync.i 导致的</td></tr>
+
+<tr>
+<td>
+<p>HPW_IFETCH_CONF</td>
+<td>
+<p>b0101</td>
+<td>
+<p>ifetch 冲突（取消 HPW？）</td></tr>
+
+<tr>
+<td>
+<p>CANC_L2M_ST</td>
+<td>
+<p>b0110</td>
+<td>
+<p>L2M 中的存储取消导致的</td></tr>
+
+<tr>
+<td>
+<p>L1_FILL_CONF</td>
+<td>
+<p>b0111</td>
+<td>
+<p>一级填充冲突</td></tr>
+
+<tr>
+<td>
+<p>ST_FILL_CONF</td>
+<td>
+<p>b1000</td>
+<td>
+<p>存储填充冲突</td></tr>
+
+<tr>
+<td>
+<p>CCV</td>
+<td>
+<p>b1001</td>
+<td>
+<p>ccv</td></tr>
+
+<tr>
+<td>
+<p>SEM</td>
+<td>
+<p>b1010</td>
+<td>
+<p>信号量</td></tr>
+
+<tr>
+<td>
+<p>L2M_ST_MAT</td>
+<td>
+<p>b1011</td>
+<td>
+<p>存储匹配 L2M</td></tr>
+
+<tr>
+<td>
+<p>MFA</td>
+<td>
+<p>b1100</td>
+<td>
+<p>内存边界指令</td></tr>
+
+<tr>
+<td>
+<p>L2A_ST_MAT</td>
+<td>
+<p>b1101</td>
+<td>
+<p>存储匹配 L2A</td></tr>
+
+<tr>
+<td>
+<p>L1DF_L2M</td>
+<td>
+<p>b1110</td>
+<td>
+<p>L1D 填充 L2M</td></tr>
+
+<tr>
+<td>
+<p>ECC</td>
+<td>
+<p>b1111</td>
+<td>
+<p>ECC 硬件检测到问题</td></tr>
+</table>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>失效的压缩单精度浮点数据流单指令多数据扩展指令集指令</title>
+
+<!--(Meta)==========================================================-->
+
+<meta NAME=MS-HAID CONTENT="E4 Group - Instruction Mix">
+<meta NAME=MS-HAID CONTENT=Events4>
+<meta NAME=MS-HAID CONTENT="E4 Packed Single-precision Floating-point Streaming SIMD Extension Instructions Retired">
+<meta NAME=MS-HAID CONTENT="E4 Instruction Mix GROUP">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=286>
+<meta name=layout-width content=532>
+<meta name=date content="11 24, 2002 12:56:42 PM">
+<meta name=x-ignored-words content="MMX;SIMD;Aliasing;modulo;aliasing;Pentium;pipelined;mispredicted;NetBurst;irets;BTB;DTLB;Micro-ops;lookaside;TLB;Lookaside;mispredictions;cmov;setcc;MH;M;C;ebx;and-ed;fcmov;CMOV;eax;cpuid;UC;uncacheable;WC;MMNP;MMNM;Mispredicted;MMTP;MMTM;IO;reads|writes;writebacks;HARD_FAIL;NO_DATA;Clockticks;clocktick;VTune;clockticks;MOCLEAR;prefetching;misprediction;PGO;pseudo-LRU;developer.intel.com;index.htm;Vol;NBOGUSNTAG;NBOGUSTAG;BOGUSNTAG;BOGUSTAG;NO_STA;NO_STD;PARTIAL_DATA;UNALGN_ADDR;Non-prefetch;prefetch;LSC;SSC;USC;ULC;SSE;denormal;denormaled;DELIVERBit;;BSQ;writeback;Uncacheable;encodings;ITLB;RGBA;C++*;?;a(i;y;enddo;cacheability;index.htm.;μops;μop">
+
+
+ <meta name="topic-status" content="In Progress">
+ <meta name="topic-priority" content="0">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content>
+ <meta name="topic-id" content="Packed Single-precision Floating-point Streaming SIMD Extension Instructions Retired"><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: ; 48: px; height: 60px; float: right;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) 4 处理器\n英特尔(R) 奔腾(R) 4 处理器事件\n性能调整事件 - 基本\n指令混合事件\n失效的压缩单精度浮点数据流单指令多数据扩展指令集指令");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="p4p60hw.gif" alt="奔腾(R) 处理器主题" x-maintain-ratio="TRUE" align="right" height="60px" align="right" border="0" class="img_whs1">失效的压缩单精度浮点数据流单指令多数据扩展指令集指令</h1>
+
+<p><span style="font-weight: bold;"><B>线程特定性</B></span>：<a href="Thread_Specific.htm">TS</a></p>
+
+<p>此事件统计失效的真压缩单精度微操作数。多个微操作组成的压缩&ldquo;数据流单指令多数据扩展指令集&rdquo;(SSE) 指令可能会统计多次。</p>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','失效的 128 位 MMX(TM) 指令','128-bit_mmx(tm)_instructions_retired.htm','失效的 64 位 MMX 指令','64-bit_mmx(tm)_instructions_retired.htm','失效的 x87 指令','x87_instructions_retired.htm','失效的压缩双精度浮点数据流单指令多数据扩展指令集指令','packed_double-precision_floating-point_streaming_simd_extension_instructions_retired.htm','失效的标量单精度浮点数据流单指令多数据扩展指令集指令','scalar_single-precision_floating-point_streaming_simd_extension_instructions_retired.htm','失效的标量双精度浮点数据流单指令多数据扩展指令集指令','scalar_double-precision_floating-point_streaming_simd_extension_instructions_retired.htm');return false;" title="其它指令混合事件"><img src="../../ss_btn_其它指令混合事件.gif" border=0 height=20 width=106 alt="其它指令混合事件"></a>
+
+
+</p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

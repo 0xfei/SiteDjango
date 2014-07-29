@@ -1,0 +1,181 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>优化分支预测</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 6, 2003 5:11:04 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content="Optimizing Branch Prediction">
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=518>
+<meta name=layout-width content=678>
+<meta name=x-ignored-words content="MMX;SIMD;Aliasing;modulo;aliasing;Pentium;pipelined;mispredicted;NetBurst;irets;BTB;DTLB;Micro-ops;lookaside;TLB;Lookaside;mispredictions;cmov;setcc;MH;M;C;ebx;and-ed;fcmov;CMOV;eax;cpuid;UC;uncacheable;WC;MMNP;MMNM;Mispredicted;MMTP;MMTM;IO;reads|writes;writebacks;HARD_FAIL;NO_DATA;Clockticks;clocktick;VTune;clockticks;MOCLEAR;prefetching;NO_STA;NO_STD;PARTIAL_DATA;UNALGN_ADDR;Non-prefetch;prefetch;LSC;SSC;USC;ULC;SSE;denormal;denormaled;DELIVERBit;TC;BSQ;writeback;Uncacheable;encodings;misprediction;NBOGUSNTAG;NBOGUSTAG;BOGUSNTAG;BOGUSTAG;ITLB;?;a(i;y;enddo;cacheability;developer.intel.com;index.htm.;μops">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: ; 48: px; height: 60px; border-style: none; float: right; border-style: none; float: right;}
+ul.whs2 {list-style: disc;}
+p.whs3 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs3 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="p4p60hw.gif" alt="奔腾(R) 4 处理器主题" x-maintain-ratio="TRUE" height="60px" align="right" border="0" class="img_whs1">优化分支预测</h1>
+
+<p>分支优化对性能有重大影响。</p>
+
+<p>了解分支流程并改善分支的可预测性，可以明显提高代码的速度。</p>
+
+<p>有助于分支预测的基本优化类型有：</p>
+
+<ul type="disc" class="whs2">
+	
+	<li class=kadov-p><p>让代码与数据处在单独的页上（这点非常重要，如需有关详细信息，请参阅<a href="memory_accesses.htm">内存访问</a>主题）。</p></li>
+	
+	<li class=kadov-p><p>消除分支。</p></li>
+	
+	<li class=kadov-p><p>调整代码结构，使之符合静态分支预测算法的要求。</p></li>
+	
+	<li class=kadov-p><p>如果无法调整代码结构，请在适当的地方使用分支方向提示。</p></li>
+	
+	<li class=kadov-p><p>在自旋等待循环中使用 pause 指令。</p></li>
+	
+	<li class=kadov-p><p>将函数内嵌，并将调用与返回配对。</p></li>
+	
+	<li class=kadov-p><p>根据需要展开循环，使重复执行的循环的迭代次数为十六次或更少，除非这会大幅增加代码篇幅。</p></li>
+	
+	<li class=kadov-p><p>尽可能隔开分支，使它们的发生频率不超过每 3 个微操作一次。</p></li>
+</ul>
+
+<ul type="disc" class="whs2">
+	
+	<li class=kadov-p><p class="whs3">按照静态分支预测<span style="margin-bottom: 0;">假设（向后执行与向前不执行）调整代码结构，改善分支可预测性并优化指令预取效果。</span></p></li>
+	
+	<li class=kadov-p><p class="whs3">避免混合使用远、近调用与返回。</p></li>
+	
+	<li class=kadov-p><p class="whs3">避免通过压入返回地址并跳转<span style="margin-bottom: 0;">到目标来实现调用。硬件可以将调用与返回指令配对，从而改善可预测性。</span></p></li>
+	
+	<li class=kadov-p><p class="whs3">在自旋等待循环中使用 &quot;pause&quot; 指令。</p></li>
+	
+	<li class=kadov-p><p class="whs3">根据编码建议内嵌函数。</p></li>
+	
+	<li class=kadov-p><p class="whs3">避免间接调用。</p></li>
+</ul>
+
+<p>如需有关详细信息，请参阅最新的<a href="../../Reference_HH/Intel_s_Software_Developer_s_Manuals.htm" style="font-style: normal; x-condition: eclipse;">优化手册</a>。 </p>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','关于分支预测','branch_prediction.htm','消除分支','eliminating_branches.htm');return false;" title="相关主题"><img src="../../ss_btn_相关主题.gif" border=0 height=20 width=58 alt="相关主题"></a>
+
+
+ </p>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

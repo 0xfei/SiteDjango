@@ -1,0 +1,117 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+<!-- Inserted by TRADOS: --><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=GB2312">
+
+
+<title>fclass 操作</title>
+
+<!--(Meta)==========================================================-->
+
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=597>
+<meta name=layout-width content=614>
+<meta name=date content="06 23, 2002 10:18:15 AM">
+
+
+ <meta name="topic-status" content="Complete">
+ <meta name="topic-priority" content="2">
+ <meta name="topic-time-estimate" content="0">
+ <meta name="topic-comment" content="">
+ <meta name="topic-id" content=""><!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<!--(Scripts)=======================================================-->
+
+<p></p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+fclass 操作 <a HREF="6400126.htm">字体惯例</a> 
+
+<br>if (PR[<i>qp</i>]) { 
+
+<br>if (<i>p1</i> == <i>p2</i>) <br> illegal_operation_fault(); <br> <br> if (tmp_isrcode = <a HREF="6400483.htm" onMouseOver="if (parseInt(navigator.appVersion) >= 4) BSPSPopupOnMouseOver(event)" class="BSSCPopup" id="A2">fp_reg_disabled</a>(<i>f2</i>, 0, 0, 0)) <br> disabled_fp_register_fault(tmp_isrcode, 0); <br> <br> tmp_rel = ( (<i>fclass</i>9{0} &amp;&amp; ![<i>f2</i>].sign || <i>fclass</i>9{1} &amp;&amp; FR[<i>f2</i>].sign) <br> &amp;&amp; ((<i>fclass</i>9{2} &amp;&amp; fp_is_zero(FR[<i>f2</i>]))|| <br> (<i>fclass</i>9{3} &amp;&amp; <a HREF="6400475.htm" onMouseOver="if (parseInt(navigator.appVersion) >= 4) BSPSPopupOnMouseOver(event)" class="BSSCPopup" id="A3">fp_is_unorm</a>(FR[<i>f2</i>])) || <br> (<i>fclass</i>9{4} &amp;&amp; <a HREF="6400471.htm" onMouseOver="if (parseInt(navigator.appVersion) >= 4) BSPSPopupOnMouseOver(event)" class="BSSCPopup" id="A4">fp_is_normal</a>(FR[<i>f2</i>])) || <br> (<i>fclass</i>9{5} &amp;&amp; fp_is_inf(FR[<i>f2</i>])) <br> ) <br> ) <br> || (<i>fclass</i>9{6} &amp;&amp; <a HREF="6400474.htm" onMouseOver="if (parseInt(navigator.appVersion) >= 4) BSPSPopupOnMouseOver(event)" class="BSSCPopup" id="A5">fp_is_snan</a>(FR[<i>f2</i>])) <br> || (<i>fclass</i>9{7} &amp;&amp; <a HREF="6400473.htm" onMouseOver="if (parseInt(navigator.appVersion) >= 4) BSPSPopupOnMouseOver(event)" class="BSSCPopup" id="A6">fp_is_qnan</a>(FR[<i>f2</i>])) <br> || (<i>fclass</i>9{8} &amp;&amp; fp_is_natval(FR[<i>f2</i>])); <br> <br> tmp_nat = fp_is_natval(FR[<i>f2</i>]) &amp;&amp; (!<i>fclass</i>9{8}); <br> <br> if (tmp_nat) { <br> PR[<i>p1</i>] = 0; <br> PR[<i>p2</i>] = 0; <br> } else { <br> PR[<i>p1</i>] = tmp_rel; <br> PR[<i>p2</i>] = !tmp_rel; <br> } <br> } else { <br> if (<i>fctype</i> == &lsquo;unc') { <br> if (<i>p1</i> == <i>p2</i>) <br> illegal_operation_fault(); <br> PR[<i>p1</i>] = 0; <br> PR[<i>p2</i>] = 0; <br> } <br> } <script><!--
+BSSCCreatePopupDiv();
+//--></script> 
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

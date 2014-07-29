@@ -1,0 +1,193 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>lfetch - 缓存线预取指令</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="07 1, 2002 2:53:57 PM">
+<meta name=topic-status content="Ready for Review">
+<meta name=topic-priority content=1>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content=TOC>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=749>
+<meta name=layout-width content=800>
+<meta name=x-ignored-words content="qp;one_byte_form;high_form;two_byte_form;four_byte_form;low_form;GR;CTOP;CEXIT;WTOP;WEXIT;Prefetch;Deallocation;ALAT;UNC;czx;pc;sf;fcmp;fmerge;fpcmp;fpmerge;fsxt;getf;Significand;fsz;lftype;lfhint;mux;padd;Completers;pavg;pavgsub;pcmp;pmax;pmin;pmpy;pmpyshr;pshl;psub;setf;shladdp;shrp;st;xsz;NaT;xchg;C;register_form;imm;addl;GRs;PR[qp;check_target_register;tmp_src;tmp_nat;nat;tmp_res;alloc;tmp_sor;r;tmp_sof;tmp_sol;illegal_operation_fault(;CFM.sor;CFM.rrb.gr;CFM.rrb.fr;CFM.rrb.pr;reserved_register_field_fault(;CFM.sof;rse_new_frame(CFM.sof;RSE;CFM.sol;AR[PFS;ANDed;andcm;bp;br.btype.bwh.ph.dh;IP_relative_form;call_form;counted_form;br.ph.dh;indirect_form;IP-relative;IP;pseudo-ops;btype;COND;bwh;sptk;cond;ia;BRs;PRs;PFS;LC;EC;RRBs;br.wtop;br.wexit;cloop;br.ctop;br.cexit;completers;Hint(ph;dh;CFM;callee;PSR.lp;PSR.is;PSR.di;CSD.base.;PSR.dfh;FP;CSD;EIP;GPFault;CSD.base;EFLAG.rf;PSR.da;PSR.id;PSR.ia;PSR.dd;PSR.ed;br.ia;mf;Itanium;FRs;ARs;Itanium-based;flushrs;Unimplemented;IIP;decremented;modulo-scheduled;software-pipelined;ctop;wtop;cexit;wexit;pipelined;?;CLOOP;ip_relative_form;tmp_IP;lower_priv_transition;tmp_taken;pfm;pec;AR[EC;ppl;PSR.cpl;alat_frame_update(CFM.sol;rse_preserve_frame(CFM.sol;tmp_growth;up*;sizeof(previous;sizeof(current;pfm.sof;pfm.sol;alat_frame_update(-AR[PFS;rse_fatal;rse_restore_frame(AR[PFS;rse_enable_current_frame_load(;AR[BSPSTORE;AR[BSP;disabled_instruction_set_transition_fault(;rse_invalidate_non_current_regs(;AR[CSD;AR[LC;rotate_regs(;taken_branch;PSR.it;unimplemented_virtual_address(tmp_IP;unimplemented_physical_address(tmp_IP;unimplemented_instruction_address_trap(lower_priv_transition;lower_privilege_transfer_trap(;PSR.tb;taken_branch_trap(;M;F;break.i;i-unit_form;break.b;b-unit_form;break.m;m-unit_form;break.f;f-unit_form;break.x;x_unit_form;IIM;L;MLI-template;if(b-unit_form;break_instruction_fault(immediate;chk;chk.s;chk.s.i;control_form;gr_form;chk.s.m;fr_form;chk.a.aclr;data_form;FR;NaTVal;chk.a;unimplemented;M-unit;aclr;tmp_isrcode;disabled_fp_register_fault(tmp_isrcode;check_type;CHKS_GENERAL;CHKS_FLOAT;NATVAL;reg_type;CHKA_GENERAL;alat_index;always_fail;CHKA_FLOAT;alat_cmp(reg_type;check_branch_implemented(check_type;unimplemented_virtual_address(IP;unimplemented_physical_address(IP;speculation_fault(check_type;clr;alat_inval_single_entry(reg_type;RRB;clrrrb;all_form;clrrrb.pr;pred_form;followed_by_stop(;cmp;cmp.crel.ctype;parallel_inequality_form;crel;ctype;unc;eq;tmp_rel;ne;lt;lesser_signed(tmp_src;le;lesser_equal_signed(tmp_src;greater_signed(tmp_src;ge;greater_equal_signed(tmp_src;ltu;lesser(tmp_src;lesser_equal(tmp_src;gtu;greater(tmp_src;greater_equal(tmp_src;geu;or.andcm;or.andcm-type;unc-type;lesser_signed(sign_ext(tmp_src;lesser_equal_signed(sign_ext(tmp_src;greater_signed(sign_ext(tmp_src;greater_equal_signed(sign_ext(tmp_src;lesser(zero_ext(tmp_src;lesser_equal(zero_ext(tmp_src;greater(zero_ext(tmp_src;greater_equal(zero_ext(tmp_src;cmpxchg;cmpxchgsz.sem.ldhint;ar.ccv;sz;ARCCV;sem;UM.ac;PSR.ac;cacheable;NaTPages;ldhint;register_nat_consumption_fault(SEMAPHORE;paddr;mattr;tmp_unused;ma_supports_semaphores(mattr;acq;val;mem_xchg_cond(AR[CCV;UM.be;zero_ext(val;AR[CCV;alat_inval_multiple_entries(paddr;left_form;right_form;dep;merge_form;imm_form;dep.z;zero_form;len;t;tmp_len;tmp_src{(tmp_len;extr;signed_form;extr.u;unsigned_form;fabs;fmerge.s;fadd;fma;fadd.pc.sf;fma.pc.sf;FPSR.sf.pc;FPSR.sf.wre;FPSR.sf.rc;encodings;wre;rc;famax;famax.sf;NaN;NaNs;fcmp.lt;fp_check_target_register;fp_is_natval(;tmp_fp_env;fp_raise_fault(tmp_fp_env;fp_exception_fault(fp_decode_fault(tmp_fp_env;tmp_right;tmp_left;tmp_right.sign;FP_SIGN_POSITIVE;tmp_left.sign;tmp_bool_res;fp_less_than(tmp_left;fp_update_fpsr(sf;famin;famin.sf;fand;significand;FP_INTEGER_EXP;fandcm;fc;PSR.pk;non-cacheable;sync.i;itype;NON_ACCESS|FC|READ;register_nat_consumption_fault(itype;tmp_paddr;mem_flush(tmp_paddr;fchkf;fchkf.sf;FPSR.sf.flags;FPSR.traps.;FPSR.traps;tmp_flags;AR[FPSR;check_branch_implemented(FCHKF;speculation_fault(FCHKF;fclass;fclass.fcrel.fctype;fcrel;fctype;fclrf;fclrf.sf;fp_set_sf_flags(sf;fcmp.frel.fctype.sf;frel;unord;neq;nlt;nle;ngt;nge;ord;fcvt.fx;fcvt.fx.sf;fcvt.fx.trunc.sf;trunc_form;fcvt.fxu.sf;fcvt.fxu.trunc.sf;tmp_default_result;fp_is_nan(tmp_default_result;INTEGER_INDEFINITE;tmp_res.exponent;tmp_res.significand;tmp_res.sign;fp_raise_traps(tmp_fp_env;fp_exception_trap(fp_decode_trap(tmp_fp_env;fcvt.xf;atomicity;UCE;fetchadd;ma_supports_fetchadd(mattr;BSPSTORE;BSP;rse_store(MANDATORY;deliver_unmasked_pending_external_interrupt(;FPSR.sf.rc.;fp_is_nan_or_inf(tmp_default_result;fp_add(tmp_res;fp_ieee_round(tmp_res;fmax;fmax.sf;fmerge.ns;neg_sign_form;sign_form;fmerge.se;sign_exp_form;fmin;fmin.sf;fmix;fmix.l;mix_l_form;fmix.r;mix_r_form;fmix.lr;mix_lr_form;tmp_res_hi;tmp_res_lo;fp_concatenate(tmp_res_hi;fmpy;fmpy.pc.sf;fneg;fms;fnegabs;fnmpy;fnma;fnmpy.pc.sf;fnma.pc.sf;fnorm;fnorm.pc.sf;fpabs;Operation(like;FPMERGE;fpmerge.s;fpack;pack_form;fpamax;fpamax.sf;significands;fpcmp.lt;fp_single(tmp_bool_res;fpamin;fpamin.sf;fpcmp.frel.sf;fpcvt.fx;fpcvt.fx.sf;fpcvt.fx.trunc.sf;fpcvt.fxu.sf;fpcvt.fxu.trunc.sf;tmp_default_result_pair;fp_is_nan(tmp_default_result_pair.hi;fp_is_nan(tmp_default_result_pair.lo;fpma;fpma.sf;fp_is_nan_or_inf(tmp_default_result_pair.hi;fp_single(tmp_default_result_pair.hi;fp_ieee_round_sp(tmp_res;fp_is_nan_or_inf(tmp_default_result_pair.lo;fp_single(tmp_default_result_pair.lo;fpmax;fpmax.sf;fpmerge.ns;fpmerge.se;fpmin;fpmin.sf;fpmpy;FPMA;fpmpy.sf;fpma.pc.sf;fpms;fpms.sf;tmp_sub;tmp_sub.sign;fpneg;fpnegabs;fpnma;fpnma.sf;fpnmpy;FPNMA;fpnmpy.sf;NaN};fprcpa;fprcpa.sf;Newton-Raphson;frcpa;limits_check;tmp_pred_hi;num;fp_is_inf(num;fp_is_finite(den;FP_INFINITY;num.sign;den.sign;fp_is_finite(num;fp_is_inf(den;FP_ZERO;fp_is_zero(num;fp_ieee_recip(den;fp_single(tmp_res;tmp_pred_lo;fprsqrta;fprsqrta.sf;frsqrta;limits_check.hi;limits_check.lo;frcpa.sf;Unsupported};fp_ieee_recip(;tmp_index;RECIP_TABLE[tmp_index;FP_REG_EXP_ONES;den.exponent;frsqrta.sf;fp_ieee_recip_sqrt(;fp_ieee_recip_sqrt(root;RECIP_SQRT_TABLE[tmp_index;FP_REG_EXP_HALF;root.exponent;FP_REG_BIAS;fselect;AND-ed;OR-ed;fsetc;fsetc.sf;AND-ing;OR-ing;tmp_controls;is_reserved_field(FSETC;fp_set_sf_controls(sf;fsub;fsub.pc.sf;fms.pc.sf;fswap;swap_form;fswap.nl;swap_nl_form;fswap.nr;swap_nr_form;fsxt.l;sxt_l_form;fsxt.r;sxt_r_form;fxor;code_italic;reg[addr;reg;addr;GR[addr;operation(s;unaligned_data_reference_fault(READ;mtype;zero_ext(mem_read;alat_inval_single_entry(GENERAL;tlb_translate(;aligned(;mem_read(;zero_ext(;alat_inval_single_entry(;unaligned_data_reference_fault(;PSR.bn;PSR.ss;getf.s;single_form;getf.d;double_form;getf.exp;exponent_form;getf.sig;significand_form;check_target_register(;invala;complete_form;invala.e;entry_form;alat_inval(;alat_inval_single_entry(FLOAT;ld;ldsz.ldtype.ldhint;no_base_update_form;reg_base_update_form;imm_base_update_form;fill_form;ldtype;UNAT;prefetch;no_base_update;sa;check_clear;c.clr;c.clr.acq;check_no_clear;c.nc;SPEC;spec;alat_cmp(GENERAL;ld.c;ld.c.clr;ld.c.clr.acq;otype;mem_read(paddr;natd_gr_read(paddr;ld.a;bit_pos;AR[UNAT;bit_pos};ma_is_speculative(mattr;alat_write(GENERAL;ldf;ldffsz.fldtype.ldhint;integer_form;ldf.fill.ldhint;fldtype;PSR.mfl;PSR.mfh;ldfe;NaTPage;alat_cmp(FLOAT;ldf.c;ldf.c.clr;FP_INT_ZERO;fp_mem_to_fr_format(val;alat_write(FLOAT;ldfp;ldfps.fldtype.ldhint;base_update_form;ldfpd.fldtype.ldhint;CFM.rrb.fr.;ldfp.c;ldfp.c.clr;lfetch;lfetch.lftype.lfhint;lfetch.lftype.excl.lfhint;exclusive_form;prefetches;orderable">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {border: none; width: 52px; height: 60px; float: right; border-style: none; float: right;}
+hr.whs2 {height: 2px; width: 100%; float: aligncenter;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n指令集\n英特尔(R) 安腾(R) 指令\nL - 指令\nlfetch - 缓存线预取指令");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script><!--(Generated Script Links)========================================--> <!--(Generated Code)================================================--> <!--(WARNING: DO NOT EDIT OR DELETE THIS SECTION!)==================--> 
+<script type="text/javascript" language="JavaScript1.2" src="../ehlpdhtm.js" x-save-method="compute-relative" name="EHELP_DHTM"></script>
+<script type="text/javascript"
+		language=JavaScript1.2>
+<!-- 
+if( typeof( kadovInitEffects ) != 'function' ) kadovInitEffects = new Function();if( typeof( kadovInitTrigger ) != 'function' ) kadovInitTrigger = new Function();if( typeof( kadovFilePopupInit ) != 'function' ) kadovFilePopupInit = new Function();if( typeof( kadovTextPopupInit ) != 'function' ) kadovTextPopupInit = new Function();
+ //-->
+</script>
+
+ <!--(==============================================================)-->
+
+
+<h1><img src="itanium60hw.gif" alt="安腾(R) 处理器主题" x-maintain-ratio="TRUE" width="52px" height="60px" align="right" border="0" class="img_whs1">缓存线预取指令</h1>
+
+<p><span style="font-weight: bold;"><B>lfetch</B></span></p>
+
+<p><a HREF="6400285.htm">操作</a> <a HREF="6400126.htm">字体惯例</a>
+ </p>
+
+<p>指令类型 M</p>
+
+<p><span style="font-weight: bold;"><B>格式</B></span></p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) lfetch.<span style="x-condition: eclipse;">lftype</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A1');
+//--></script>.<span style="x-condition: eclipse;">lfhint</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A2');
+//--></script> [<span style="font-style: italic;"><I>r3</I></span>] no_base_update_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) lfetch.<span style="font-style: italic;"><I>lftype</I></span>.<span style="font-style: italic;"><I>lfhint</I></span> [<span style="font-style: italic;"><I>r3</I></span>], <span style="font-style: italic;"><I>r2</I></span> reg_base_update_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) lfetch.<span style="font-style: italic;"><I>lftype</I></span>.<span style="font-style: italic;"><I>lfhint</I></span> [<span style="font-style: italic;"><I>r3</I></span>], <span style="font-style: italic;"><I>imm9</I></span> imm_base_update_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) lfetch.<span style="font-style: italic;"><I>lftype</I></span>.excl.<span style="font-style: italic;"><I>lfhint</I></span> [<span style="font-style: italic;"><I>r3</I></span>] no_base_update_form, exclusive_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) lfetch.<span style="font-style: italic;"><I>lftype</I></span>.excl.<span style="font-style: italic;"><I>lfhint</I></span> [<span style="font-style: italic;"><I>r3</I></span>], <span style="font-style: italic;"><I>r2</I></span> reg_base_update_form, exclusive_form</p>
+
+<p CLASS=Preformatted>(<span style="font-style: italic;"><I>qp</I></span>) lfetch.<span style="font-style: italic;"><I>lftype</I></span>.excl.<span style="font-style: italic;"><I>lfhint</I></span> [<span style="font-style: italic;"><I>r3</I></span>], <span style="font-style: italic;"><I>imm9</I></span> imm_base_update_form, exclusive_form</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<p><span style="font-weight: bold;"><B>说明</B></span></p>
+
+<p>包含 <span style="x-condition: eclipse;">GR</span> <span style="font-style: italic;"><I>r3</I></span> 的值指定的地址的缓存线移动到数据内存层次结构的最高级别。<script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A3');
+//--></script> <span style="x-condition: eclipse;">lfhint</span><script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A4');
+//--></script> 修正符的值指定内存访问的区域性。</p>
+
+<p>读取内存的行为也由与访问的页关联的内存属性确定。缓存线大小取决于具体实现的版本，但必须大于或等于 32 字节加上二的幂。在独占形式中，缓存线允许标记为独占状态。程序预计不久修改该缓存线中的位置时，会使用此限定符。如果包含缓存线的页面的内存属性不是可缓存，则不作引用。</p>
+
+<p><span style="x-condition: eclipse;">lftype</span> 完成符指定指令是否触发通常与常规加载关联的错误。<script type="text/javascript"
+	language=JavaScript1.2><!--
+kadovFilePopupInit('A5');
+//--></script></p>
+
+<p>在基址更新形式中，用于确定内存地址之后，GR <span style="font-style: italic;"><I>r3</I></span> 中的值会加上 <span style="font-style: italic;"><I>imm9</I></span>（在 imm_base_update_form 中）或是 GR <span style="font-style: italic;"><I>r2</I></span>（在 reg_base_update_form 中）中经过符号扩展的值。在 reg_base_update_form 中，如果设置 GR <span style="font-style: italic;"><I>r2</I></span> 对应的 NaT 位，则 GR <span style="font-style: italic;"><I>r3</I></span> 对应的 NaT 也会设置为 1 - 不会触发任何错误。</p>
+
+<p>在 reg_base_update_form 与 the imm_base_update_form 中，如果 GR <span style="font-style: italic;"><I>r3</I></span> 对应的 NaT 位被清除，则递增之后 GR <span style="font-style: italic;"><I>r3</I></span> 中的值指定的地址将充当预取指定的缓存线的提示。此预取操作使用 <span style="font-style: italic;"><I>lfhint</I></span> 指定的区域性提示。预取提示不影响程序功能，不触发任何错误，在具体实现的版本中可能会被忽略。</p>
+
+<p>在 no_base_update_form 中，GR <span style="font-style: italic;"><I>r3</I></span> 中的值不会修改，并且不暗示任何预取提示。</p>
+
+<p>如果设置 GR <span style="font-style: italic;"><I>r3</I></span> 对应的 NaT 位，则内存状态不受影响。在 reg_base_update_form 与 imm_base_update_form 中，会执行 GR <span style="font-style: italic;"><I>r3</I></span> 的之后递增，并按以上所述提示预取。</p>
+
+<p>对未使用的地址执行致错型 lfetch，将导致&ldquo;未使用的数据地址&rdquo;错误。对未使用的地址执行非致错型 lfetch 时，不执行任何错误处理，并且不发出预取请求，但如果有指定，它将执行寄存器之后递增。</p>
+
+<p>lfetch 指令同硬件预取一样，都不是需要确定顺序的操作，也就是说，它们的顺序同之前或之后的内存操作无关。</p>
+
+
+<!--(HR)============================================================-->
+<hr size="2" width="100%" align="center" class="whs2">
+
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

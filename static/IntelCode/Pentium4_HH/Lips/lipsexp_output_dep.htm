@@ -1,0 +1,217 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>显式输出相关</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta NAME=MS-HAID CONTENT="Flow and Output Dependencies">
+<meta name=date content="04 8, 2003 2:34:50 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=524>
+<meta name=layout-width content=759>
+<meta name=x-ignored-words content=Partial_Reg>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {float: RIGHT; width: 36px; height: 36px; border-style: none; float: right;}
+img_whs2 {width: 17px; height: 18px; border-style: none;}
+p.whs3 {margin-left: 40px;}
+td.whs4 {x-cell-content-align: TOP; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+p.whs5 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs5 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js" name="EHELP_DHTM"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" align="right" width="36px" height="36px" border="0" class="img_whs1"> 显式输出相关</h1>
+
+<p><span style="font-weight: bold;"><B>Exp_Output_Dep</B></span> 表示一种配对限制冲突。</p>
+
+<p>为其发出 <span style="font-weight: bold;"><B>Exp_Output_Dep</B></span> 的指令显式写入的寄存器与前一条指令的相同。这就是所谓的输出相关。输出相关导致两条指令无法配对。</p>
+
+<h3 class=NoteTipHead
+	style="margin-left: 40px;"><img src="tip.gif" width="17px" height="18px" border="0" class="img_whs2"> <span style="font-weight: bold;"><B>建议</B></span></h3>
+
+<p class="whs3">分析程序中的输出相关性。然后隔开使用相同寄存器的指令尝试提高配对数，而不用更改代码的语义。</p>
+
+<p>示例：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+
+<tr>
+<td valign="top" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">原始代码</td>
+<td valign="top" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">周期</td>
+<td valign="top" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">优化代码</td>
+<td valign="top" class="whs4">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">周期</td></tr>
+
+<tr>
+<td valign="top" class="whs4">
+<pre CLASS=Code>
+<p class=Preformatted><span style="font-weight: bold;">
+<B>1. mov cl, [eax+40]</B></span><span style="font-weight: bold;">
+<B>2. add ch, bl</B></span>
+3. mov edx, [eax+80]
+4. add edx, ebx</p>
+</pre></td>
+<td valign="top" class="whs4">
+<pre CLASS=Code>
+<p class=Preformatted>
+1
+2
+3
+4</p>
+</pre></td>
+<td valign="top" class="whs4">
+<pre CLASS=Code>
+<p class=Preformatted><span style="font-weight: bold;">
+<B>1. mov cl, [eax+40]</B></span>
+3. mov edx, [eax+80]<span style="font-weight: bold;">
+<B>2. add ch, bl</B></span>
+4. add edx, ebx</p>
+</pre></td>
+<td valign="top" class="whs4">
+<pre CLASS=Code>
+<p class=Preformatted>
+1
+1
+2
+2</p>
+</pre></td></tr>
+
+<tr>
+<td COLSPAN="2" valign="top" class="whs4">
+<p class="whs5">由于&ldquo;指令 1&rdquo;与&ldquo;指令 2&rdquo;都显式写入 ECX 寄存器，因此无法配对。这就是一种输出相关。同样，&ldquo;指令 3&rdquo;与&ldquo;指令 4&rdquo;也无法配对。<b><br>执行时间总计：3 个周期</b></td>
+<td COLSPAN="2" valign="top" class="whs4">
+<p class="whs5">指令的顺序经过重新调整，输出相关已得以避免。&ldquo;指令 1&rdquo;与&ldquo;指令 3&rdquo;配对，并在第一个周期中执行；&ldquo;指令 2&rdquo;与&ldquo;指令 4&rdquo;配对，并在第二个周期中执行。<b><br>执行时间总计：2 个周期</b></td>
+</tr>
+</table>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','MMX(TM) 乘法指令','lipsmmx_mul.htm','MMX(TM) 指令使用整数寄存器或内存','lipsmmx_int_mem.htm','MMX(TM) 移位指令','lipsmmx_shift.htm','NP 指令','lipsnp_inst.htm','PU 指令','lipspu_inst.htm','不在获取中','lipsnot_in_fetch.htm','从 EAX 移出','lipsmov_from_eax.htm','前一条 MMX(TM) 指令使用整数寄存器或内存','lipsprev_mm_int_mem.htm','前一条 PV 或 NP 指令','lipsprev_pv.htm','前一条浮点指令未配对','lipsprev_np_fp.htm','前缀','LipsPrefix.htm','基本指令块','lipsbasic_block.htm');return false;" title="相关惩罚"><img src="../../ss_btn_相关惩罚.gif" border=0 height=20 width=58 alt="相关惩罚"></a>
+
+
+ </p>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','含 MMX(TM) 技术的奔腾(R) 处理器','pentium(r)_with_mmx(tm_technology_processor.htm','奔腾(R) 处理器','pentium(r)_processor.htm');return false;" title="影响的处理器"><img src="../../ss_btn_影响的处理器.gif" border=0 height=20 width=82 alt="影响的处理器"></a>
+
+
+ </p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

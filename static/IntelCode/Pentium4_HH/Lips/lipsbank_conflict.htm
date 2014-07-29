@@ -1,0 +1,242 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>数据块冲突</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta NAME=MS-HAID CONTENT="Pentium(R) Processor Penalties">
+<meta NAME=MS-HAID CONTENT="内存惩罚">
+<meta name=date content="04 8, 2003 2:34:11 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=683>
+<meta name=layout-width content=759>
+<meta name=x-ignored-words content=Partial_Reg>
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+img_whs1 {float: RIGHT; width: 36px; height: 36px; border-style: none; float: right;}
+p.whs2 {margin-left: 40px;}
+img_whs3 {width: 17px; height: 18px; border-style: none; margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; border-style: none;}
+ul.whs4 {list-style: disc;}
+td.whs5 {x-cell-content-align: TOP; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;}
+p.whs6 {margin-bottom: 0;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "img_whs3 {margin-top:1;margin-bottom:1;margin-left:1;margin-right:1; }";
+  strNSS += "p.whs6 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="BSSC Special Effects" src="../../ehlpdhtm.js" name="EHELP_DHTM"></script><script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1><img src="TA_logo.gif" align="right" width="36px" height="36px" border="0" class="img_whs1"> 数据块冲突</h1>
+
+<p><span style="font-weight: bold;"><B>Bank_Conflict</B></span> 表示一种惩罚状态。</p>
+
+<p>在奔腾(R) 处理器的数据缓存中，数据包含八个数据块，各数据块之间有四个字节的边界重叠。<a href="../../../../../../vtglossary_hh/vtglossary.htm#U_pipe" style="x-condition: WebHelp;">U 管道</a> 与 <a HREF="V_pipe.htm">V 管道</a>中的指令可以同时访问数据缓存。不过，两条指令访问相同的数据缓存数据块时，将发生数据块冲突。发生数据块冲突时，指令对暂停一个周期。</p>
+
+<p>仅当指令的基址或变址寄存器值相差 32（或 32 的倍数）字节时，&ldquo;VTune(TM) 性能分析器&rdquo;才指出存在此惩罚状态。</p>
+
+<p class="whs2"><script type="text/javascript" language="JavaScript"><!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) <= 4)) 
+{  if (parseInt(navigator.appVersion) != 2) document.write("<img src='tip.gif' width='17px' height='18px' border='0' class='img_whs3'>");}
+else
+{   document.write("<img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs3'>");}
+//--></script><noscript><img src='tip.gif' style='margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;' width='17px' height='18px' border='0' class='img_whs3'></noscript><span style="font-weight: bold;"><B>建议</B></span></p>
+
+<p class="whs2">要避免数据块冲突：</p>
+
+<ol>
+	
+	<ul type="disc" class="whs4">
+		
+		<li class=kadov-p><p>重新调整代码顺序，以便访问相同数据块的两条指令不成对。</p></li>
+		
+		<li class=kadov-p><p>重新调整数据顺序。</p></li>
+	</ul>
+</ol>
+
+<p>此例显示如何通过在 SAL 移位指令之后插入 CMP 指令（写入所有标志）来避免暂停。</p>
+
+<p>示例：</p>
+
+<!--(Table)=========================================================-->
+<table x-use-null-cells>
+<col>
+<col>
+<col>
+<col>
+
+<tr>
+<td valign="top" class="whs5">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;"><b style="font-weight: bold;">原始代码</b></td>
+<td colspan="1" rowspan="1" valign="top" class="whs5">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">周期</td>
+<td colspan="1" rowspan="1" valign="top" class="whs5">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;"><b style="font-weight: bold;">优化代码</b></td>
+<td valign="top" class="whs5">
+<h3 CLASS=TableHead
+	style="margin-bottom: 0;">周期</td></tr>
+
+<tr>
+<td valign="top" class="whs5">
+<pre CLASS=Code>
+<p class=Preformatted>
+1. mov ecx, mem<b style="font-weight: bold;">
+2. mov edx, mem+32</b>
+3. add eax, 4<b> </b><b style="font-weight: bold;">
+4. add ebx ,4</b></p>
+</pre></td>
+<td colspan="1" rowspan="1" valign="top" class="whs5">
+<p class=Preformatted>1</p>
+<p class=Preformatted>2</p>
+<p class=Preformatted>2</p>
+<p class=Preformatted>3</td>
+<td colspan="1" rowspan="1" valign="top" class="whs5">
+<p class=Preformatted>1. mov ecx, mem </p>
+<p class=Preformatted>3. add eax, 4<b> </b></p>
+<p class=Preformatted><b style="font-weight: bold;">2. mov edx, mem+32 </b></p>
+<p class=Preformatted><b style="font-weight: bold;">4. 4 add ebx ,4</b></td>
+<td valign="top" class="whs5">
+<pre CLASS=Code>
+<p class=Preformatted>
+1
+1
+2
+2</p>
+</pre></td></tr>
+
+<tr>
+<td rowspan="1" colspan="2" valign="top" class="whs5">
+<p>尽管&ldquo;指令 1&rdquo;与&ldquo;指令 2&rdquo;可以成对。但由于访问 MEM 与 MEM+32 时将发生数据块冲突，所以此指令对暂停一个周期。</p>
+<p class="whs6"><b style="font-weight: bold;">执行时间总计：3 个周期</b></td>
+<td colspan="2" rowspan="1" valign="top" class="whs5">
+<p>在优化的代码中，代码序列经过重新调整，从而避免&ldquo;指令 1&rdquo;与&ldquo;指令 2&rdquo;之间的数据块冲突。</p>
+<p class="whs6"><b style="font-weight: bold;">执行时间总计：2 个周期</b></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','MMX(TM) 技术 MOV 相关性','lipsmmx_mov_dep.htm','阻塞的存储转发','lipspro_mem_stall.htm');return false;" title="内存惩罚"><img src="../../ss_btn_内存惩罚.gif" border=0 height=20 width=58 alt="内存惩罚"></a>
+
+
+ </p>
+
+<p>
+
+<a href="javascript:void(0);" onClick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 && typeof(PickupDialog_Invoke) == 'function') PickupDialog_Invoke(e,'','含 MMX(TM) 技术的奔腾(R) 处理器','pentium(r)_with_mmx(tm_technology_processor.htm','奔腾(R) 处理器','pentium(r)_processor.htm');return false;" title="影响的处理器"><img src="../../ss_btn_影响的处理器.gif" border=0 height=20 width=82 alt="影响的处理器"></a>
+
+
+ </p>
+
+<p class="whs6">&nbsp; </p>
+
+<script type="text/javascript" language="JavaScript" title="WebHelpRelatedTopics"><!--
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//--></script><script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>

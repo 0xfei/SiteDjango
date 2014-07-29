@@ -1,0 +1,164 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+
+<html>
+
+<!--(==============================================================)--> <!--(Document created with RoboEditor. )============================--> <!--(==============================================================)-->
+
+<head>
+
+<title>失效的分支预测失误</title>
+
+<!--(Meta)==========================================================-->
+
+<meta http-equiv=content-type content="text/html; charset=GB2312">
+<meta name=date content="02 24, 2003 12:01:36 PM">
+<meta name=topic-status content="In Progress">
+<meta name=topic-priority content=0>
+<meta name=topic-time-estimate content=0>
+<meta name=topic-comment content>
+<meta name=topic-id content>
+<meta name=MS-HAID content="branch mispredictions">
+<meta name=MS-HAID content=PentiumM_branch_events>
+<meta name=generator content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name=generator-major-version content=0.1>
+<meta name=generator-minor-version content=1>
+<meta name=filetype content=kadov>
+<meta name=filetype-version content=1>
+<meta name=page-count content=1>
+<meta name=layout-height content=424>
+<meta name=layout-width content=668>
+<meta name=x-ignored-words content="misprediction;mispredicted;Mispredicted;Pentium;M;BACLEARS;mispredictions;BTB;BTB's;RETs;IRETs;VTune;Mispredictions;prefetching">
+
+
+<!--(Links)=========================================================-->
+
+ <link rel='stylesheet' href='MSL_styl_ns.css'>
+<script type="text/javascript" language="JavaScript" title="WebHelpSplitCss">
+<!--
+if (navigator.appName !="Netscape")
+{   document.write("<link rel='stylesheet' href='MSL_styl.css'>");}
+//-->
+</script>
+<style type="text/css">
+<!--
+p.whs1 {margin-bottom: 0;}
+img_whs2 {border: none; width: 17px; height: 18px; border-style: none; float: left; border-style: none; float: left;}
+p.whs3 {margin-bottom: 0; font-weight: bold;}
+ul.whs4 {list-style: disc;}
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+if ((navigator.appName == "Netscape") && (parseInt(navigator.appVersion) == 4))
+{
+  var strNSS = "<style type='text/css'>";
+  strNSS += "p.whs1 {margin-bottom:1; }";
+  strNSS += "p.whs3 {margin-bottom:1; }";
+  strNSS +="</style>";
+  document.write(strNSS);
+}
+//-->
+</script>
+<script type="text/javascript" language="JavaScript" title="WebHelpInlineScript">
+<!--
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//-->
+</script>
+<style type="text/css">
+<!--
+  div.WebHelpPopupMenu {position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;}
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="../../whmsg.js"></script>
+<script type="text/javascript" language="javascript" src="../../whver.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whproxy.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whutils.js"></script>
+<script type="text/javascript" language="javascript1.2" src="../../whtopic.js"></script>
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.gbWhTopic)
+{
+	if (window.addTocInfo)
+	{
+	addTocInfo("参考\n处理器事件与建议\n英特尔(R) 奔腾(R) M 处理器\n英特尔(R) 奔腾(R) M 处理器事件\n分支事件\n失效的分支预测失误");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(0);
+
+	if (window.setRelStartPage)
+	{
+	setRelStartPage("../../reference_olh.htm");
+
+		autoSync(1);
+		sendSyncInfo();
+		sendAveInfoOut();
+	}
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+//-->
+</script>
+<h1>失效的分支预测失误</h1>
+
+<p>此事件测量由于预测失误而执行完毕的所有失效的分支预测失误。这包括：</p>
+
+<ul>
+	
+	<li class=kadov-p><p>错误预测为&ldquo;执行&rdquo;，而却仅在失效之后才发现本&ldquo;不应执行&rdquo;的分支。</p></li>
+	
+	<li class=kadov-p><p>错误预测为&ldquo;不执行&rdquo;，而却仅在失效之后才发现本应&ldquo;执行&rdquo;的分支。</p></li>
+</ul>
+
+<p class="whs1">这只对宏分支有效。 </p>
+
+<h3 class=NoteTipHead><img src="tip.gif" alt="提示" x-maintain-ratio="TRUE" width="17px" height="18px" align="left" border="0" class="img_whs2"> 提示</h3>
+
+<p class="whs3">要优化分支可预测性：</p>
+
+<ul type="disc" class="whs4">
+	
+	<li class=kadov-p><p class="whs1">按照静态分支预测<span style="margin-bottom: 0;">假设（向后执行与向前不执行）调整代码结构，改善分支可预测性并优化指令预取效果。</span></p></li>
+	
+	<li class=kadov-p><p class="whs1">避免混合使用远、近调用与返回。</p></li>
+	
+	<li class=kadov-p><p class="whs1">避免通过压入返回地址并跳转<span style="margin-bottom: 0;">到目标来实现调用。硬件可以将调用与返回指令配对，从而改善可预测性。</span></p></li>
+	
+	<li class=kadov-p><p class="whs1">在自旋等待循环中使用 &quot;pause&quot; 指令。</p></li>
+	
+	<li class=kadov-p><p class="whs1">根据编码建议内嵌函数。</p></li>
+	
+	<li class=kadov-p><p class="whs1">消除分支。</p></li>
+	
+	<li class=kadov-p><p class="whs1">避免间接调用。</p></li>
+</ul>
+
+<script type="text/javascript" language="javascript1.2">
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+//-->
+</script>
+</body>
+
+</html>
