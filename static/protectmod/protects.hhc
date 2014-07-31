@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN"><HTML><HEAD><meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1"><!-- Sitemap 1.0 --></HEAD><BODY><OBJECT type="text/site properties">
+<param name="Window Styles" value="0x800025">
+<param name="ImageType" value="Folder">
+</OBJECT><UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="80x86保护模式教程">
+<param name="Local" value="My Webs/index.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="目录">
+<param name="Local" value="My Webs/index.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="一.保护方式简介">
+<param name="Local" value="My Webs/HTML/PROTEC~1.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="二.分段管理机制">
+<param name="Local" value="My Webs/HTML/PROTEC~2.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="三.控制寄存器和系统地址寄存器">
+<param name="Local" value="My Webs/HTML/PROTEC~3.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="四.实模式与保护模式切换实例">
+<param name="Local" value="My Webs/HTML/PROTEC~4.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="五.任务状态段和控制门">
+<param name="Local" value="My Webs/HTML/PROTEC~5.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="六.控制转移">
+<param name="Local" value="My Webs/HTML/PROTEC~6.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="七.中断和异常">
+<param name="Local" value="My Webs/HTML/PROTEC~7.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="八.操作系统类指令">
+<param name="Local" value="My Webs/HTML/PROTEC~8.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="九.输入/输出保护">
+<param name="Local" value="My Webs/HTML/PROTEC~9.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="十.分页管理机制">
+<param name="Local" value="My Webs/HTML/PROTE~10.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="十一.虚拟8086模式">
+<param name="Local" value="My Webs/HTML/PROTE~11.HTM">
+</OBJECT>
+</UL></BODY></HTML>

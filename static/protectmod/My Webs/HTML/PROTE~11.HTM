@@ -1,0 +1,804 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>
+保护模式教程
+</TITLE>
+<LINK REL=StyleSheet TYPE="text/css" HREF="main.css">
+</HEAD>
+<BODY CLASS=course>
+<CENTER><H1 STYLE="color:'#0000ff'">十一.虚拟8086模式</H1></CENTER>
+<DIV>
+继推出80386之后，Intel又推出了80386、Pentium和Pentium PRO。这些处理器都具有
+实模式和保护模式两种工作方式。前面已介绍过，实模式与8086兼容，可以运行DOS及
+以其为平台的几乎所有软件；但在实模式下，处理器不能发挥自身的优越性能，不能支
+持多用户、多任务操作系统的运行。为了充分发挥处理器的功能，同时使DOS及以其为
+平台的软件继续有效地运行，从80386开始增加了虚拟8086模式。本文将介绍虚拟8086模
+式。<A HREF="../DOWNLOAD/asm11src.exe">这里下载本文源代码</A>。
+</DIV>
+<H2 STYLE="color:'#009999'">&#60;一&#62;V86模式</H2>
+<H3>1.V86模式</H3>
+<DIV>
+虚拟8086模式是保护模式下的一种工作方式，也称为V8086模式，或者简称为V86模式。在
+虚拟8086模式下，处理器类似于8086。寻址的地址空间是1M字节；段寄存器的内容作为段
+值解释；20位存储单元地址由段值乘以16加偏移构成。在V86模式下，代码段总是可写的，
+这与实模式相同，同理，数据段也是可执行的，只不过可能会发生异常。所以，在虚
+拟8086模式下，可以运行DOS及以其为平台的软件。但V86模式毕竟是虚拟8086的一种方
+式，所以不完全等同于8086。
+</DIV>
+<DIV>
+当标志寄存器中的VM位为1时，处理器就处于V86模式。此时，其当前特权级由处理器自动
+设置为3。
+</DIV>
+<H3>2.V86任务</H3>
+<DIV>
+8086程序可以直接在V86模式下运行，而V86模式受到称为V86监控程序的控制。V86监控程
+序和在V86模式下的8086程序构成的任务称为虚拟8086任务，或者简称为V86任务。V86任务
+形成一个由处理器硬件和属于系统软件的监控程序组成的“虚拟8086机”。V86监控程序控
+制V86外部界面、中断和I/O。硬件提供该任务最低端1M字节线性地址空间的虚拟存储空间，
+包含虚拟寄存器的TSS，并执行处理这些寄存器和地址空间的指令。
+</DIV>
+<DIV>
+80386把V86任务作为与其它任务具有同等地位的一个任务。它可以支持多个V86任务，每
+个V86任务是相对独立的。所以，通过V86模式这种形式，运行8086程序可充分发挥处理器
+的能力和充分利用系统资源。
+</DIV>
+<H2 STYLE="color:'#009999'">&#60;二&#62;进入和离开V86模式</H2>
+<DIV>
+保护模式和V86模式之间的切换情形如下图所示。图中左面部分为V86任务。从图中可
+见，V86模式与保护模式的切换可发生在V86任务之内，这种切换是V86模式下的8086程序
+与保护模式下的监控程序之间的转换；V86模式与保护模式的切换可发生在任务之间，这
+种切换是V86任务与其它任务的切换。此外，V86监控程序与其它任务之间的切换是普通的
+任务切换。
+</DIV>
+<CENTER><IMG SRC="../GIF/v86.gif"></CENTER>
+<DIV>
+由于80386没有提供直接改变VM标志的指令，并且只有当前特权级CPL=0时，对VM的改变才
+有效，所以V86模式与保护模式的切换不能简单地通过改变VM位而进行。下面介绍V86模式
+与保护模式之间的切换，也就是如何进入和离开V86模式。为了方便，先介绍如何离开V86模式。
+</DIV>
+<H3>1.离开V86模式</H3>
+<DIV>
+在V86模式下，如果处理器响应中断/异常，那么就会退出当前V86任务的V86模式。
+</DIV>
+<DIV>
+在V86模式下，处理器对中断/异常的响应处理不同于真正的8086，而仍然采用保护模式下对
+中断/异常响应处理的方法。所以，在V86模式下，不是根据位于线性地址空间最低端的中断
+向量表内的对应中断向量转入处理程序，而是根据中断描述符表IDT内的对应门描述符的指示
+转入处理程序。
+</DIV>
+<H4 CLASS=indent>(1)在V86任务内离开V86模式</H4>
+<DIV>
+如果对应的门描述符是386中断门或386陷阱门，那么就发生在当前V86任务内从V86模式到保
+护模式的转换。80386要求执行这种中断/异常处理程序时的CPL必须等于0。
+</DIV>
+<DIV>
+由于V86模式下的CPL=3，而转换到保护模式后的CPL=0，所以这种转换包含了特权级的变换。
+在转入处理程序之前，处理器先将V86模式下的段寄存器GS、FS、DS及ES压入0级堆栈，并在
+进入保护模式下的处理程序之前装入空选择子。为保持使堆栈对齐，把段寄存器压入堆栈时
+一律按32位值压入，低16位是段寄存器的值，高16位为空。于是，转换后的0级堆栈如下图所
+示。其中，段寄存器SS和CS的值也是V86模式下的段值。图(a)是没有出错码的情形；图(b)是
+有出错码的情形。
+</DIV>
+<CENTER><IMG SRC="../GIF/leavev86.gif"></CENTER>
+<DIV>
+在这种V86任务内从V86模式转换到保护模式的过程中，为了保证中断/异常处理程序工作于
+特权级0，对目标代码段描述符特权级进行检查，如果由目标代码段描述符特权级决定的CPL不
+等于0，将引起通用保护异常。此外，标志寄存器EFLAGS中的VM位被清0，从而使得中断/异常
+处理在保护模式下进行，也即离开V86模式。
+</DIV>
+<DIV>
+这种情况下，相应的中断/异常处理在当前V86任务之内进行。中断异常处理程序可以检查保
+存在堆栈中的EFLAGS映象，根据VM位的值来确定被中断程序的工作模式。如果VM=1，那么被
+中断的程序工作于V86模式，是8086程序；否则，被中断的程序工作于保护模式，是V86监控
+程序。
+</DIV>
+<H4 CLASS=indent>(2)任务切换离开V86模式</H4>
+<DIV>
+如果对应的门描述符是任务门，那么就发生从当前V86任务到其它任务的切换，也就离开了当
+前V86任务的V86方式。象普通任务切换一样，V86模式的各通用寄存器、段寄存器、指令指针
+和标志寄存器EFLAGS等保存到原V86任务的386TSS中。被保存的段寄存器的内容是V86模式下
+的段值。被保存的EFLAGS内的VM=1。
+</DIV>
+<DIV>
+这种情况下，相应的中断异常处理在另一个任务内进行。目标任务可以是普通任务，也可以是
+另一个V86任务。如果目标任务TSS内的EFLAGS字段内的VM=1，那么就转入另一个V86任务
+的V86模式。
+</DIV>
+<H3>2.进入V86模式</H3>
+<DIV>与离开V86模式的两条途径相对应，有两条进入V86模式的途径。</DIV>
+<H4 CLASS=indent>(1)通过IRET指令进入V86模式</H4>
+<DIV>
+通过在中断/异常处理结束时使用IRET指令返回被中断的程序继续执行。指令IRET的执行步骤
+如下所示：
+</DIV>
+<DIV>(1)若NT=1，则进行任务切换，然后转步骤6；</DIV>
+<DIV>(2)否则从堆栈中弹出EIP、CS和EFLAGS；</DIV>
+<DIV>(3)若VM=1且CPL=0，则恢复外层堆栈及其它段寄存器，然后转步骤6；</DIV>
+<DIV>(4)若无特权级变换则转步骤6；</DIV>
+<DIV>(5)否则恢复外层堆栈；</DIV>
+<DIV>(6)结束</DIV>
+<DIV>
+尽管上述步骤不够细致和没包括异常情况，但还是体现了指令IRET执行时所处理的三种情形。
+第一种情形是当前EFLAGS中的NT=1，也即嵌套任务返回，那么就进行任务切换，指向目标任
+务TSS的选择子在当前任务TSS的连接字段。NT=0表示当前中断/异常处理程序与被中断程序属
+于同一任务，于是就从堆栈弹出EIP、CS和EFLAGS。第二和第三中情形是NT=0的条件下产生的。
+第二种情形是弹出的EFLAGS中VM=0，表示被中断的程序是普通保护模式程序，那么就考虑特
+权级变换，如果向外层返回，那么就恢复外层堆栈指针。不允许向内层返回，否则将会引起
+通用保护异常。前文中介绍的IRET指令的动作只考虑了情形一和情形二，并不是IRET指令的
+完整动作。
+</DIV>
+<DIV>
+第三种情形是弹出的EFLAGS中VM=1且当前正运行程序的CPL=0，表示被中断的程序是V86模式
+下的8086程序，当前是从同一V86任务下的中断/异常处理程序返回。由于V86模式的特权级
+是3，所以要进行堆栈切换，也即从堆栈中弹出3级堆栈的指针(ESP和SS)。此外，还从堆栈中
+弹出段寄存器ES、DS、FS和GS。在这种情形下，弹到各段寄存器(包括CS和SS)的内容都作为
+段值，而非选择子。这种处理动作对应于上述第一种离开V86模式的情形，有关堆栈操作与上
+图所示的堆栈内容相符。当然，如果产生异常时提供出错码，那么异常处理程序在利用IRET指
+令返回时，必须确保堆栈指针指向如上图所示保存EIP的单元。简单的实现方法是，异常处理
+程序在执行IRET前，先从堆栈中弹出出错码。
+</DIV>
+<DIV>
+利用指令IRET处理的这第三种情形，可以方便地从V86任务下的中断/异常处理程序返回到V86模
+式下的8086程序。利用这条途径还可以直接进入V86模式。为此，先在0级堆栈中形成如上图(a)所
+示的栈顶。对应EIP值是V86模式下要执行的8086程序入口点的16位偏移；对应CS值是V86模式下要
+执行的8086程序入口点的段值；对应EFLAGS值中的VM位必须是1；对应SS和ESP的值是要执行
+的8086程序的堆栈指针；对应ES、DS、FS和GS的值是相应的段值。然后，在CPL=0和NT=0的情况
+下，执行IRET指令。实际上，这种进入V86模式的途径是，先建立一个V86模式下执行的8086程序
+被中断而离开V86模式的环境，然后再返回。需要注意的是，若当前正执行程序的CPL不为0，
+则再执行IRET指令时不会进入V86模式，但也不产生异常，EFLAGS中的VM位被处理器自动清0。
+</DIV>
+<DIV>
+不能通过RET指令进入V86模式，因为它不改变EFLAGS的内容。任何不能修改EFLAGS中VM位的指令
+均不能切换到V86模式。
+</DIV>
+<H4 CLASS=indent>(2)通过任务切换进入V86模式</H4>
+<DIV>
+通过任务切换的途径，可以从其它任务进入V86任务内的V86模式。
+</DIV>
+<DIV>
+利用在前文介绍的任务切换的方法可以进行任务切换。如果目标任务由386TSS描述，并且其
+中EFLAGS字段内的VM位为1，那么在切换到目标任务时，也就进入了V86模式。在切换到V86模式
+时，CPL被规定为3。目标任务TSS中的各段寄存器字段被解释为8086可以接受的段值，而不是选
+择子。任务切换时也将装载LDTR和CR3。
+</DIV>
+<DIV>
+程序在V86模式下执行时，EFLAGS寄存器中的NT位被忽略，所以，不能在V86模式下用IRET指令
+完成一个任务切换，并使其工作于V86以外的工作模式。在V86模式下执行IRET指令时，将弹出
+IP、CS及FLAGS寄存器，以恢复被中断的程序，而不考虑NT位的值。
+</DIV>
+<DIV>
+如果利用这条途径建立V86任务并进入V86模式，那么主要是把对应386TSS中EFLAGS字段内的VM位
+置1，把8086程序的有关段值填入对应386TSS中的相应段寄存器字段。此外，如果V86监控程序需
+要用到LDT，那么还要填写LDTR字段；如果需要采用分页机制，那么还要填写CR3字段(当新任务
+为V86模式的任务时，只装入段寄存器，而没有装入描述符投影寄存器的动作)。
+</DIV>
+<H2 STYLE="color:'#009999'">&#60;三&#62;演示进入和离开V86模式的实例(实例十一)</H2>
+<DIV>
+下面给出一个用于演示进入和离开V86模式的实例。该实例的逻辑功能是，以驻留方式结束程序，
+退出时已处于V86模式。该实例演示内容包括：两种方式进入V86模式和两种方式离开V86模式；
+V86模式下的8086程序如何调用实模式下的软中断处理程序。
+</DIV>
+<H3>1.演示步骤和源程序清单</H3>
+<DIV>
+为了便于演示，本实例含有三个任务：临时任务，V86任务和INTFF任务。在实模式下做必要的
+初始化工作后切换到保护模式，也即进入临时任务，开始演示。演示分两个阶段：第一阶段进
+入V86任务的V86模式，并驻留退出；第二阶段进入INTFF任务，切换到临时任务，并返回实模式。
+</DIV>
+<DIV>第一阶段的演示步骤如下：</DIV>
+<DIV>
+(1)开始临时任务后，作切换到V86任务的准备；
+</DIV>
+<DIV>
+(2)切换到V86任务，由于V86任务TSS中的EFLAGS字段内的VM=1，所以伴随着任务切换就进入
+了V86模式。
+</DIV>
+<DIV>
+(3)进入V86任务的V86模式后，显示提示信息，驻留结束，出现DOS提示符，第一阶段至此结束。
+</DIV>
+<DIV>
+在V86模式下，可进行各种操作，运行其它8086程序。如果8086程序引起通用保护异常，那么在
+屏幕上显示提示信息，并中止该8086程序。如果在8086程序中执行“INT 0FFH”指令，开始第二
+阶段。第二阶段的演示步骤如下：
+</DIV>
+<DIV>(1)进入INTFF任务后，显示提示信息，切换到临时任务；</DIV>
+<DIV>(2)在临时任务内切换到实模式；</DIV>
+<DIV>(3)在实模式下中止发出“INT 0FFH”的程序</DIV>
+<DIV>源程序由如下几部分组成：</DIV>
+<DIV>(1)全局描述符表GDT；</DIV>
+<DIV>(2)中断描述符表IDT(只适用于V86任务)；</DIV>
+<DIV>(3)INTFF任务的TSS段、LDT段、0级堆栈段和代码段；</DIV>
+<DIV>(4)V86任务的TSS段、LDT段、0级堆栈段、3级堆栈段及数据段，通用保护异常处理程序
+段和其它中断/异常处理程序段，V86模式下的8086程序段；</DIV>
+<DIV>(5)临时任务的TSS段和代码段；</DIV>
+<DIV>(6)实模式下的初始化代码段及有关过程。</DIV>
+<DIV>源程序清单如下：</DIV>
+<PRE>
+<FONT CLASS=comment>;名称:ASM11.ASM</FONT>
+<FONT CLASS=comment>;功能:演示进入和离开V86方式</FONT>
+<FONT CLASS=comment>;编译:TASM ASM11.ASM</FONT>
+<FONT CLASS=comment>;连接:TLINK ASM11.OBJ</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=pseudo>INCLUDE</FONT>         386SCD.INC
+<FONT CLASS=comment>;============================================================================</FONT>
+GDTSeg          <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>                <FONT CLASS=comment>;全局描述符表数据段(16位)</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+                <FONT CLASS=comment>;全局描述符表</FONT>
+GDT             <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>
+                <FONT CLASS=comment>;空描述符</FONT>
+DUMMY           Desc    <FONT CLASS=symbol>&lt;&gt;</FONT>
+                <FONT CLASS=comment>;规范段描述符及选择子</FONT>
+Normal          Desc    <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=number>0ffffh</FONT><FONT CLASS=symbol>,,,</FONT>ATDW<FONT CLASS=symbol>,,&gt;</FONT>
+Normal_Sel      <FONT CLASS=symbol>=</FONT>       Normal<FONT CLASS=symbol>-</FONT>GDT
+                <FONT CLASS=comment>;显示缓冲区数据段描述符及选择子</FONT>
+Video           Desc    <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=number>07fffh</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>8000h</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0bh</FONT><FONT CLASS=symbol>,</FONT>ATDW<FONT CLASS=symbol>,,&gt;</FONT>
+Video_Sel       <FONT CLASS=symbol>=</FONT>       Video<FONT CLASS=symbol>-</FONT>GDT
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+EFFGDT          <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>
+                <FONT CLASS=comment>;V86任务TSS段描述符及选择子</FONT>
+V86TSS          Desc    <FONT CLASS=symbol>&lt;</FONT>V86TSSLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>V86TSSSeg<FONT CLASS=symbol>,,</FONT>AT386TSS<FONT CLASS=symbol>,,&gt;</FONT>
+V86TSS_Sel      <FONT CLASS=symbol>=</FONT>       V86TSS<FONT CLASS=symbol>-</FONT>GDT
+                <FONT CLASS=comment>;V86任务局部描述符表的描述符及选择子</FONT>
+V86LDT          Desc    <FONT CLASS=symbol>&lt;</FONT>V86LDTLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>V86LDTSeg<FONT CLASS=symbol>,,</FONT>ATLDT<FONT CLASS=symbol>,,&gt;</FONT>
+V86LDT_Sel      <FONT CLASS=symbol>=</FONT>       V86LDT<FONT CLASS=symbol>-</FONT>GDT
+                <FONT CLASS=comment>;IntFF任务TSS段描述符及选择子</FONT>
+IntFFTSS        Desc    <FONT CLASS=symbol>&lt;</FONT>IntFFTSSLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>IntFFTSSSeg<FONT CLASS=symbol>,,</FONT>AT386TSS<FONT CLASS=symbol>,,&gt;</FONT>
+IntFFTSS_Sel    <FONT CLASS=symbol>=</FONT>       IntFFTSS<FONT CLASS=symbol>-</FONT>GDT
+                <FONT CLASS=comment>;IntFF任务局部描述符表的描述符及选择子</FONT>
+IntFFLDT        Desc    <FONT CLASS=symbol>&lt;</FONT>IntFFLDTLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>IntFFLDTSeg<FONT CLASS=symbol>,,</FONT>ATLDT<FONT CLASS=symbol>,,&gt;</FONT>
+IntFFLDT_Sel    <FONT CLASS=symbol>=</FONT>       IntFFLDT<FONT CLASS=symbol>-</FONT>GDT
+                <FONT CLASS=comment>;临时任务的任务状态段描述符及选择子</FONT>
+TempTSS         Desc    <FONT CLASS=symbol>&lt;</FONT>TempTSSLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>TempTSSSeg<FONT CLASS=symbol>,,</FONT>AT386TSS<FONT CLASS=symbol>,,&gt;</FONT>
+TempTSS_Sel     <FONT CLASS=symbol>=</FONT>       TempTSS<FONT CLASS=symbol>-</FONT>GDT
+                <FONT CLASS=comment>;临时任务代码段描述符及选择子</FONT>
+TempCode        Desc    <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=number>0ffffh</FONT><FONT CLASS=symbol>,</FONT>TempCodeSeg<FONT CLASS=symbol>,,</FONT>ATCE<FONT CLASS=symbol>,,&gt;</FONT>
+TempCode_Sel    <FONT CLASS=symbol>=</FONT>       TempCode<FONT CLASS=symbol>-</FONT>GDT
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GDNum           <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>($-</FONT>EFFGDT<FONT CLASS=symbol>)/(</FONT><FONT CLASS=pseudo>SIZE</FONT> Desc<FONT CLASS=symbol>)</FONT>    <FONT CLASS=comment>;需特殊处理的描述符数</FONT>
+GDTLen          <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$-</FONT>GDT                     <FONT CLASS=comment>;全局描述符表长度</FONT>
+GDTSeg          <FONT CLASS=pseudo>ENDS</FONT>                              <FONT CLASS=comment>;全局描述符表段定义结束</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+IDTSeg          <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>                <FONT CLASS=comment>;V86任务使用的中断描述符表</FONT>
+IDT             <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>
+                <FONT CLASS=comment>;对应0--12号中断/异常的中断门描述符</FONT>
+                <FONT CLASS=pseudo>REPT</FONT>    <FONT CLASS=number>13</FONT>
+                Gate    <FONT CLASS=symbol>&lt;,</FONT>TPCode_Sel<FONT CLASS=symbol>,,</FONT>AT386IGate<FONT CLASS=symbol>+</FONT>DPL3<FONT CLASS=symbol>,&gt;</FONT>
+                <FONT CLASS=pseudo>ENDM</FONT>
+                <FONT CLASS=comment>;通用保护故障处理程序门描述符</FONT>
+                Gate   <FONT CLASS=symbol>&lt;</FONT>GPBegin<FONT CLASS=symbol>,</FONT>GPCode_Sel<FONT CLASS=symbol>,,</FONT>AT386TGate<FONT CLASS=symbol>+</FONT>DPL3<FONT CLASS=symbol>,&gt;</FONT>
+                <FONT CLASS=comment>;对应14--254号中断/异常的中断门描述符</FONT>
+                <FONT CLASS=pseudo>REPT</FONT>    <FONT CLASS=number>241</FONT>
+                Gate    <FONT CLASS=symbol>&lt;,</FONT>TPCode_Sel<FONT CLASS=symbol>,,</FONT>AT386IGate<FONT CLASS=symbol>+</FONT>DPL3<FONT CLASS=symbol>,&gt;</FONT>
+                <FONT CLASS=pseudo>ENDM</FONT>
+                <FONT CLASS=comment>;对应255号中断的任务门描述符</FONT>
+                Gate    <FONT CLASS=symbol>&lt;,</FONT>IntFFTSS_Sel<FONT CLASS=symbol>,,</FONT>ATTaskGate<FONT CLASS=symbol>+</FONT>DPL3<FONT CLASS=symbol>,&gt;</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+IDTLen          <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$-</FONT>IDT
+IDTSeg          <FONT CLASS=pseudo>ENDS</FONT>                              <FONT CLASS=comment>;中断描述符表段定义结束</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;IntFF任务的TSS段</FONT>
+IntFFTSSSeg     <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;链接字</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;0级堆栈指针(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>                       <FONT CLASS=comment>;0级堆栈选择子(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;1级堆栈指针(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>                       <FONT CLASS=comment>;1级堆栈选择子(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;2级堆栈指针(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>                       <FONT CLASS=comment>;2级堆栈选择子(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;CR3</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      IntFFBegin<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;EIP</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EFLAGS</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EAX</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;ECX</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EDX</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EBX</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      IntFFStackLen             <FONT CLASS=comment>;ESP</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EBP</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;ESI</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EDI</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      Normal_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;ES</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      IntFFCode_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>           <FONT CLASS=comment>;CS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      IntFFStack_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>          <FONT CLASS=comment>;SS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      Normal_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;DS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      Normal_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;FS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      Normal_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;GS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      IntFFLDT_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>            <FONT CLASS=comment>;LDTR</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;调试陷阱标志</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=symbol>$+</FONT><FONT CLASS=number>2</FONT>                       <FONT CLASS=comment>;指向I/O许可位图</FONT>
+                <FONT CLASS=pseudo>DB</FONT>      <FONT CLASS=number>0ffh</FONT>                      <FONT CLASS=comment>;I/O许可位图结束标志</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+IntFFTSSLen     <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+IntFFTSSSeg     <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;IntFF任务的LDT段</FONT>
+IntFFLDTSeg     <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+FLDT            <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>
+                <FONT CLASS=comment>;0级堆栈段描述符及选择子</FONT>
+IntFFStack      Desc    <FONT CLASS=symbol>&lt;</FONT>IntFFStackLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>IntFFStackSeg<FONT CLASS=symbol>,,</FONT>ATDWA<FONT CLASS=symbol>,,&gt;</FONT>
+IntFFStack_Sel  <FONT CLASS=symbol>=</FONT>       IntFFStack<FONT CLASS=symbol>-</FONT>FLDT<FONT CLASS=symbol>+</FONT>TIL
+                <FONT CLASS=comment>;代码段描述符及选择子</FONT>
+IntFFCode       Desc    <FONT CLASS=symbol>&lt;</FONT>IntFFCodeLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>IntFFCodeSeg<FONT CLASS=symbol>,,</FONT>ATCER<FONT CLASS=symbol>,,&gt;</FONT>
+IntFFCode_Sel   <FONT CLASS=symbol>=</FONT>       IntFFCode<FONT CLASS=symbol>-</FONT>FLDT<FONT CLASS=symbol>+</FONT>TIL
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+IntFFLDNum      <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>($-</FONT>FLDT<FONT CLASS=symbol>)/(</FONT><FONT CLASS=pseudo>SIZE</FONT> Desc<FONT CLASS=symbol>)</FONT>
+IntFFLDTLen     <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+IntFFLDTSeg     <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;IntFF任务的堆栈</FONT>
+IntFFStackSeg   <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+IntFFStackLen   <FONT CLASS=symbol>=</FONT>       <FONT CLASS=number>512</FONT>
+                <FONT CLASS=pseudo>DB</FONT>      IntFFStackLen <FONT CLASS=pseudo>DUP</FONT><FONT CLASS=symbol>(</FONT><FONT CLASS=number>0</FONT><FONT CLASS=symbol>)</FONT>
+IntFFStackSeg   <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;IntFF任务的代码段</FONT>
+IntFFCodeSeg    <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>CS</FONT>:IntFFCodeSeg
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+IntFFMess       <FONT CLASS=pseudo>DB</FONT>      <FONT CLASS=string>'Return to real mode.'</FONT>
+IntFFMessLen    <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$-</FONT>IntFFMess
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+IntFFBegin      <FONT CLASS=pseudo>PROC</FONT>    <FONT CLASS=pseudo>FAR</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> IntFFMess
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Video_Sel
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>es</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>di</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ah</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>17h</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT>IntFFMessLen
+                <FONT CLASS=instruct>cld</FONT>
+<FONT CLASS=label>INext:</FONT>          <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>al</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>BYTE</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=register>cs</FONT>:<FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>]</FONT>
+                <FONT CLASS=instruct>inc</FONT>     <FONT CLASS=register>si</FONT>
+                <FONT CLASS=instruct>stosw</FONT>
+                <FONT CLASS=instruct>loop</FONT>    INext
+                <FONT CLASS=macro>JUMP16</FONT>  TempTSS_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>
+IntFFBegin      <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+IntFFCodeLen    <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+IntFFCodeSeg    <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;V86任务的TSS段</FONT>
+V86TSSSeg       <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;链接字</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      V86Stack0Len              <FONT CLASS=comment>;0级堆栈指针</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86Stack0_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>           <FONT CLASS=comment>;0级堆栈选择子</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;1级堆栈指针(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>                       <FONT CLASS=comment>;1级堆栈选择子(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;2级堆栈指针(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>                       <FONT CLASS=comment>;2级堆栈选择子(实例不使用)</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;CR3</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86Begin<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>                <FONT CLASS=comment>;EIP</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      IOPL3 <FONT CLASS=instruct>OR</FONT> VMFL             <FONT CLASS=comment>;EFLAGS(IO特权级为3,VM=1)</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EAX</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;ECX</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EDX</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EBX</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      V86Stack3Len              <FONT CLASS=comment>;ESP</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EBP</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;ESI</FONT>
+                <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;EDI</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86CodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;ES</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86CodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;CS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86Stack3Seg<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>            <FONT CLASS=comment>;SS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86CodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;DS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86CodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;FS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86CodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;GS</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      V86LDT_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;LDTR</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;调试陷阱标志</FONT>
+                <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=symbol>$+</FONT><FONT CLASS=number>2</FONT>                       <FONT CLASS=comment>;指向I/O许可位图</FONT>
+                <FONT CLASS=pseudo>DB</FONT>      <FONT CLASS=number>4000h</FONT><FONT CLASS=symbol>/</FONT><FONT CLASS=number>8</FONT> <FONT CLASS=pseudo>DUP</FONT><FONT CLASS=symbol>(</FONT><FONT CLASS=number>0</FONT><FONT CLASS=symbol>)</FONT>            <FONT CLASS=comment>;I/O许可位图</FONT>
+                <FONT CLASS=pseudo>DB</FONT>      <FONT CLASS=number>0ffh</FONT>                      <FONT CLASS=comment>;I/O许可位图结束标志</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+V86TSSLen       <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+V86TSSSeg       <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;V86任务的LDT段</FONT>
+V86LDTSeg       <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+VLDT            <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+                <FONT CLASS=comment>;V86任务线性地址空间中最低端1M字节段的描述符及描述符</FONT>
+VAllMem         Desc    <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=number>0ffffh</FONT><FONT CLASS=symbol>,,,</FONT>ATDWA<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0fh</FONT><FONT CLASS=symbol>,&gt;</FONT>
+VAllMem_Sel     <FONT CLASS=symbol>=</FONT>       VAllMem<FONT CLASS=symbol>-</FONT>VLDT<FONT CLASS=symbol>+</FONT>TIL
+                <FONT CLASS=comment>;V86任务0级堆栈段描述符及选择子</FONT>
+V86Stack0       Desc    <FONT CLASS=symbol>&lt;</FONT>V86Stack0Len<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>V86Stack0Seg<FONT CLASS=symbol>,,</FONT>ATDWA<FONT CLASS=symbol>,,&gt;</FONT>
+V86Stack0_Sel   <FONT CLASS=symbol>=</FONT>       V86Stack0<FONT CLASS=symbol>-</FONT>VLDT<FONT CLASS=symbol>+</FONT>TIL
+                <FONT CLASS=comment>;V86任务数据段描述符及选择子</FONT>
+V86Data         Desc    <FONT CLASS=symbol>&lt;</FONT>V86DataLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>V86DataSeg<FONT CLASS=symbol>,,</FONT>ATDR<FONT CLASS=symbol>,,&gt;</FONT>
+V86Data_Sel     <FONT CLASS=symbol>=</FONT>       V86Data<FONT CLASS=symbol>-</FONT>VLDT<FONT CLASS=symbol>+</FONT>TIL
+                <FONT CLASS=comment>;V86任务中断/异常处理程序代码段描述符及选择子</FONT>
+TPCode          Desc    <FONT CLASS=symbol>&lt;</FONT>TPCodeLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>TPCodeSeg<FONT CLASS=symbol>,,</FONT>ATCE<FONT CLASS=symbol>,,&gt;</FONT>
+TPCode_Sel      <FONT CLASS=symbol>=</FONT>       TPCode<FONT CLASS=symbol>-</FONT>VLDT<FONT CLASS=symbol>+</FONT>TIL
+                <FONT CLASS=comment>;V86任务通用保护异常处理程序代码段描述符及选择子</FONT>
+GPCode          Desc    <FONT CLASS=symbol>&lt;</FONT>GPCodeLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>GPCodeSeg<FONT CLASS=symbol>,,</FONT>ATCE<FONT CLASS=symbol>,,&gt;</FONT>
+GPCode_Sel      <FONT CLASS=symbol>=</FONT>       GPCode<FONT CLASS=symbol>-</FONT>VLDT<FONT CLASS=symbol>+</FONT>TIL
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+V86LDNum        <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>($-</FONT>VLDT<FONT CLASS=symbol>)/(</FONT><FONT CLASS=pseudo>SIZE</FONT> Desc<FONT CLASS=symbol>)</FONT>
+V86LDTLen       <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+V86LDTSeg       <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;V86任务的0级堆栈</FONT>
+V86Stack0Seg    <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+V86Stack0Len    <FONT CLASS=symbol>=</FONT>       <FONT CLASS=number>512</FONT>
+                <FONT CLASS=pseudo>DB</FONT>      V86Stack0Len <FONT CLASS=pseudo>DUP</FONT><FONT CLASS=symbol>(</FONT><FONT CLASS=number>0</FONT><FONT CLASS=symbol>)</FONT>
+V86Stack0Seg    <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;V86任务的3级堆栈</FONT>
+V86Stack3Seg    <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+V86Stack3Len    <FONT CLASS=symbol>=</FONT>       <FONT CLASS=number>1024</FONT>
+                <FONT CLASS=pseudo>DB</FONT>      V86Stack3Len <FONT CLASS=pseudo>DUP</FONT><FONT CLASS=symbol>(</FONT><FONT CLASS=number>0</FONT><FONT CLASS=symbol>)</FONT>
+V86Stack3Seg    <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;V86任务数据段</FONT>
+V86DataSeg      <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+GPErrMess       <FONT CLASS=pseudo>DB</FONT>      <FONT CLASS=string>'......General Protection Error......'</FONT>
+GPErrMessLen    <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$-</FONT>GPErrMess
+V86DataLen      <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+V86DataSeg      <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;定义部分代表堆栈单元的符号</FONT>
+Perr            <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>BP</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>0</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Pip             <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>4</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Pcs             <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>8</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Pflag           <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>12</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Psp             <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>16</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Pss             <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>20</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Pes             <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>24</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Pds             <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>28</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Pfs             <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>32</FONT><FONT CLASS=symbol>]&gt;</FONT>
+Pgs             <FONT CLASS=pseudo>EQU</FONT>     <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>36</FONT><FONT CLASS=symbol>]&gt;</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;V86任务下的中断/异常处理程序代码段</FONT>
+TPCodeSeg       <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>CS</FONT>:TPCodeSeg
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+TPBegin         <FONT CLASS=pseudo>PROC</FONT>    <FONT CLASS=pseudo>FAR</FONT>
+Count           <FONT CLASS=symbol>=</FONT>       <FONT CLASS=number>0</FONT>
+                <FONT CLASS=pseudo>REPT</FONT>    <FONT CLASS=number>256</FONT>                       <FONT CLASS=comment>;对应256个入口</FONT>
+                <FONT CLASS=pseudo>IF</FONT>      Count EQ <FONT CLASS=number>21h</FONT>
+Ent21H          <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>                      <FONT CLASS=comment>;在第21H项处定义标号Ent21H</FONT>
+                <FONT CLASS=pseudo>ENDIF</FONT>
+                <FONT CLASS=instruct>push</FONT>    <FONT CLASS=register>bp</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bp</FONT><FONT CLASS=symbol>,</FONT>Count                  <FONT CLASS=comment>;置中断向量号到BP</FONT>
+                <FONT CLASS=instruct>jmp</FONT>     Process                   <FONT CLASS=comment>;都转统一的处理程序</FONT>
+Count           <FONT CLASS=symbol>=</FONT>       Count<FONT CLASS=symbol>+</FONT><FONT CLASS=number>1</FONT>
+                <FONT CLASS=pseudo>ENDM</FONT>
+<FONT CLASS=label>Process:</FONT>        <FONT CLASS=instruct>push</FONT>    <FONT CLASS=register>bp</FONT>                        <FONT CLASS=comment>;保存BP</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bp</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>sp</FONT>                     <FONT CLASS=comment>;堆栈指针送BP</FONT>
+                <FONT CLASS=instruct>push</FONT>    <FONT CLASS=register>eax</FONT>
+                <FONT CLASS=instruct>push</FONT>    <FONT CLASS=register>ebx</FONT>                       <FONT CLASS=comment>;保存EAX、EBX</FONT>
+                <FONT CLASS=comment>;在V86堆栈顶形成返回点的现场</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>VAllMem_Sel            <FONT CLASS=comment>;转载描述最低1M字节线性地址</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>                     <FONT CLASS=comment>;  空间的描述符选择子</FONT>
+                <FONT CLASS=instruct>xor</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Psp                    <FONT CLASS=comment>;修改在V86任务0级堆栈中保存</FONT>
+                <FONT CLASS=instruct>sub</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>3</FONT><FONT CLASS=symbol>*</FONT><FONT CLASS=number>2</FONT>                    <FONT CLASS=comment>;  的3级堆栈的指针，减3个字</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Psp<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>                    <FONT CLASS=comment>;  即在栈顶空出3个字</FONT>
+                <FONT CLASS=instruct>xor</FONT>     <FONT CLASS=register>ebx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ebx</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT>Pss                    <FONT CLASS=comment>;使EBX指向V86堆栈顶</FONT>
+                <FONT CLASS=instruct>shl</FONT>     <FONT CLASS=register>ebx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4</FONT>
+                <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>ebx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Pip                    <FONT CLASS=comment>;把保存在0级堆栈中的返回地址</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>ebx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=register>ax</FONT>         <FONT CLASS=comment>;的偏移部分送V86堆栈</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Pcs
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>ebx</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>2</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=register>ax</FONT>       <FONT CLASS=comment>;段值部分送V86堆栈</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Pflag
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>ebx</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>4</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=register>ax</FONT>       <FONT CLASS=comment>;标志值送V86堆栈</FONT>
+                <FONT CLASS=comment>;用对应的中断向量值代替返回地址</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,[</FONT><FONT CLASS=register>bp</FONT><FONT CLASS=symbol>]</FONT>                   <FONT CLASS=comment>;取中断向量号</FONT>
+                <FONT CLASS=instruct>shl</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>2</FONT>                      <FONT CLASS=comment>;乘4</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>]</FONT>                   <FONT CLASS=comment>;取实模式下对应中断向量的偏移</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Pip<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>                    <FONT CLASS=comment>;代替0级堆栈中的EIP</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>+</FONT><FONT CLASS=number>2</FONT><FONT CLASS=symbol>]</FONT>                 <FONT CLASS=comment>;取实模式下对应中断向量的段值</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Pcs<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>                    <FONT CLASS=comment>;代替0级堆栈中的CS</FONT>
+                <FONT CLASS=instruct>pop</FONT>     <FONT CLASS=register>ebx</FONT>                       <FONT CLASS=comment>;恢复现场</FONT>
+                <FONT CLASS=instruct>pop</FONT>     <FONT CLASS=register>eax</FONT>
+                <FONT CLASS=instruct>pop</FONT>     <FONT CLASS=register>bp</FONT>
+                <FONT CLASS=instruct>pop</FONT>     <FONT CLASS=register>bp</FONT>
+                <FONT CLASS=comment>;从保护方式返回V86方式</FONT>
+                <FONT CLASS=comment>;先转入对应的中断处理程序,再返回中断发生处</FONT>
+                <FONT CLASS=instruct>iretd</FONT>
+TPBegin         <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+TPCodeLen       <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+TPCodeSeg       <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;V86任务下的通用保护故障处理程序代码段</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GPCodeSeg       <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE32</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>CS</FONT>:GPCodeSeg
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GPBegin         <FONT CLASS=pseudo>PROC</FONT>    <FONT CLASS=pseudo>FAR</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>V86Data_Sel
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> GPErrMess
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Video_Sel
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>es</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>di</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ah</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>17h</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT>GPErrMessLen
+                <FONT CLASS=instruct>cld</FONT>
+<FONT CLASS=label>GNext:</FONT>          <FONT CLASS=instruct>lodsb</FONT>
+                <FONT CLASS=instruct>stosw</FONT>
+                <FONT CLASS=instruct>loop</FONT>    GNext
+                <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>esp</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4c01h</FONT>
+                <FONT CLASS=macro>JUMP16</FONT>  TPCode_Sel<FONT CLASS=symbol>,</FONT>Ent21H
+GPBegin         <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GPCodeLen       <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+GPCodeSeg       <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+<FONT CLASS=comment>;V86方式执行的8086程序段</FONT>
+V86CodeSeg      <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>CS</FONT>:V86CodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=register>DS</FONT>:V86CodeSeg
+Message         <FONT CLASS=pseudo>DB</FONT>      <FONT CLASS=string>'V86 is OK!'</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0dh</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0ah</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>24h</FONT>
+V86Begin        <FONT CLASS=pseudo>PROC</FONT>    <FONT CLASS=pseudo>FAR</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ah</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>9</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>dx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> Message
+                <FONT CLASS=instruct>int</FONT>     <FONT CLASS=number>21h</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>RCodeSeg
+                <FONT CLASS=instruct>sub</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>GDTSeg
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>dx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> TSRLine<FONT CLASS=symbol>+</FONT><FONT CLASS=number>15</FONT>
+                <FONT CLASS=instruct>shr</FONT>     <FONT CLASS=register>dx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4</FONT>
+                <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>dx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>dx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>10h</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>3100h</FONT>
+                <FONT CLASS=instruct>int</FONT>     <FONT CLASS=number>21h</FONT>
+V86Begin        <FONT CLASS=pseudo>ENDP</FONT>
+V86CodeSeg      <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+TempTSSSeg      <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>                <FONT CLASS=comment>;临时任务的TSS段</FONT>
+                TSS     <FONT CLASS=symbol>&lt;&gt;</FONT>
+                <FONT CLASS=pseudo>DB</FONT>      <FONT CLASS=number>0ffh</FONT>                      <FONT CLASS=comment>;I/O许可位图结束标志</FONT>
+TempTSSLen      <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+TempTSSSeg      <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+TempCodeSeg     <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>                <FONT CLASS=comment>;临时任务的代码段</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>CS</FONT>:TempCodeSeg
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+Virtual         <FONT CLASS=pseudo>PROC</FONT>    <FONT CLASS=pseudo>FAR</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Normal_Sel
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>es</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>fs</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>gs</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ss</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>TempTSS_Sel            <FONT CLASS=comment>;装载TR</FONT>
+                <FONT CLASS=instruct>ltr</FONT>     <FONT CLASS=register>ax</FONT>
+                <FONT CLASS=macro>JUMP16</FONT>  V86TSS_Sel<FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>              <FONT CLASS=comment>;直接切换到演示任务</FONT>
+<FONT CLASS=label>ToDos:</FONT>          <FONT CLASS=instruct>clts</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>cr0</FONT>                   <FONT CLASS=comment>;准备返回实模式</FONT>
+                <FONT CLASS=instruct>and</FONT>     <FONT CLASS=register>al</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>11111110b</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cr0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>
+                <FONT CLASS=macro>JUMP16</FONT>  <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>SEG</FONT> Real<FONT CLASS=symbol>&gt;,&lt;</FONT><FONT CLASS=pseudo>OFFSET</FONT> Real<FONT CLASS=symbol>&gt;</FONT>
+Virtual         <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+TempCodeSeg     <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+RDataSeg        <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>                <FONT CLASS=comment>;实方式数据段</FONT>
+RDataSeg        <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;============================================================================</FONT>
+RCodeSeg        <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>CS</FONT>:RCodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=register>DS</FONT>:RCodeSeg
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+VGDTR           PDesc   <FONT CLASS=symbol>&lt;</FONT>GDTLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,&gt;</FONT>               <FONT CLASS=comment>;GDT伪描述符</FONT>
+VIDTR           PDesc   <FONT CLASS=symbol>&lt;</FONT>IDTLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,&gt;</FONT>               <FONT CLASS=comment>;IDT伪描述符</FONT>
+NORVIDTR        PDesc   <FONT CLASS=symbol>&lt;&gt;</FONT>                        <FONT CLASS=comment>;用于保存原IDTR值</FONT>
+SPVar           <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=symbol>?</FONT>                         <FONT CLASS=comment>;用于保存实方式下的SP</FONT>
+SSVar           <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=symbol>?</FONT>                         <FONT CLASS=comment>;用于保存实方式下的SS</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+Start           <FONT CLASS=pseudo>PROC</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>RCodeSeg
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>cld</FONT>
+                <FONT CLASS=instruct>call</FONT>    InitGDT                   <FONT CLASS=comment>;初始化全局描述符表GDT</FONT>
+                <FONT CLASS=instruct>call</FONT>    InitIDT                   <FONT CLASS=comment>;初始化中断描述符表IDT</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>V86LDTSeg
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>fs</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT>V86LDNum
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> VLDT
+                <FONT CLASS=instruct>call</FONT>    InitLDT
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>IntFFLDTSeg
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>fs</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT>IntFFLDNum
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> FLDT
+                <FONT CLASS=instruct>call</FONT>    InitLDT
+                <FONT CLASS=instruct>mov</FONT>     SSVar<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ss</FONT>
+                <FONT CLASS=instruct>mov</FONT>     SPVar<FONT CLASS=symbol>,</FONT><FONT CLASS=register>sp</FONT>
+                <FONT CLASS=instruct>lgdt</FONT>    <FONT CLASS=pseudo>QWORD</FONT> <FONT CLASS=pseudo>PTR</FONT> VGDTR           <FONT CLASS=comment>;装载GDTR并切换到保护方式</FONT>
+                <FONT CLASS=instruct>sidt</FONT>    <FONT CLASS=pseudo>QWORD</FONT> <FONT CLASS=pseudo>PTR</FONT> NORVIDTR        <FONT CLASS=comment>;保存IDTR</FONT>
+                <FONT CLASS=instruct>cli</FONT>                               <FONT CLASS=comment>;关中断</FONT>
+                <FONT CLASS=instruct>lidt</FONT>    <FONT CLASS=pseudo>QWORD</FONT> <FONT CLASS=pseudo>PTR</FONT> VIDTR           <FONT CLASS=comment>;装载IDTR</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>cr0</FONT>
+                <FONT CLASS=instruct>or</FONT>      <FONT CLASS=register>al</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>1</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cr0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>
+                <FONT CLASS=macro>JUMP16</FONT>  <FONT CLASS=symbol>&lt;</FONT>TempCode_Sel<FONT CLASS=symbol>&gt;,&lt;</FONT><FONT CLASS=pseudo>OFFSET</FONT> Virtual<FONT CLASS=symbol>&gt;</FONT>
+<FONT CLASS=label>Real:</FONT>           <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>cs</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>lss</FONT>     <FONT CLASS=register>sp</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>DWORD</FONT> <FONT CLASS=pseudo>PTR</FONT> SPVar        <FONT CLASS=comment>;又回到实方式</FONT>
+                <FONT CLASS=instruct>lidt</FONT>    <FONT CLASS=pseudo>QWORD</FONT> <FONT CLASS=pseudo>PTR</FONT> NORVIDTR
+                <FONT CLASS=instruct>sti</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4c00h</FONT>
+                <FONT CLASS=instruct>int</FONT>     <FONT CLASS=number>21h</FONT>
+Start           <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+TSRLine         <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+InitGDT         <FONT CLASS=pseudo>PROC</FONT>
+                <FONT CLASS=instruct>push</FONT>    <FONT CLASS=register>ds</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>GDTSeg
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT>GDNum
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> EFFGDT
+<FONT CLASS=label>InitG:</FONT>          <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseL
+                <FONT CLASS=instruct>movzx</FONT>   <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>shl</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4</FONT>
+                <FONT CLASS=instruct>shld</FONT>    <FONT CLASS=register>edx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>16</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseL<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>BYTE</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseM<FONT CLASS=symbol>,</FONT><FONT CLASS=register>dl</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>BYTE</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseH<FONT CLASS=symbol>,</FONT><FONT CLASS=register>dh</FONT>
+                <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>SIZE</FONT> Desc
+                <FONT CLASS=instruct>loop</FONT>    InitG
+                <FONT CLASS=instruct>pop</FONT>     <FONT CLASS=register>ds</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>16</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>GDTSeg
+                <FONT CLASS=instruct>mul</FONT>     <FONT CLASS=register>bx</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> VGDTR<FONT CLASS=symbol>.</FONT>Base<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> VGDTR<FONT CLASS=symbol>.</FONT>Base<FONT CLASS=symbol>+</FONT><FONT CLASS=number>2</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>dx</FONT>
+                <FONT CLASS=instruct>ret</FONT>
+InitGDT         <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+<FONT CLASS=comment>;入口参数:FS:SI=第一个要初始化的描述符,CX=要初始化的描述符数</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+InitLDT         <FONT CLASS=pseudo>PROC</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=register>FS</FONT>:<FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseL
+                <FONT CLASS=instruct>movzx</FONT>   <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>shl</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4</FONT>
+                <FONT CLASS=instruct>shld</FONT>    <FONT CLASS=register>edx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>16</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=register>fs</FONT>:<FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseL<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>BYTE</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=register>fs</FONT>:<FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseM<FONT CLASS=symbol>,</FONT><FONT CLASS=register>dl</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>BYTE</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=register>fs</FONT>:<FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseH<FONT CLASS=symbol>,</FONT><FONT CLASS=register>dh</FONT>
+                <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>SIZE</FONT> Desc
+                <FONT CLASS=instruct>loop</FONT>    InitLDT
+                <FONT CLASS=instruct>ret</FONT>
+InitLDT         <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+InitIDT         <FONT CLASS=pseudo>PROC</FONT>
+                <FONT CLASS=instruct>push</FONT>    <FONT CLASS=register>ds</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>IDTSeg
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>256</FONT><FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> IDT
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> TPBegin
+<FONT CLASS=label>IIDT1:</FONT>          <FONT CLASS=instruct>cmp</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>256</FONT><FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>-</FONT><FONT CLASS=number>13</FONT>
+                <FONT CLASS=instruct>jz</FONT>      IIDT2
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=register>ax</FONT>
+<FONT CLASS=label>IIDT2:</FONT>          <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>8</FONT>
+                <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>7</FONT>
+                <FONT CLASS=instruct>loop</FONT>    IIDT1
+                <FONT CLASS=instruct>pop</FONT>     <FONT CLASS=register>ds</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>16</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>IDTSeg
+                <FONT CLASS=instruct>mul</FONT>     <FONT CLASS=register>bx</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> VIDTR<FONT CLASS=symbol>.</FONT>Base<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> VIDTR<FONT CLASS=symbol>.</FONT>Base<FONT CLASS=symbol>+</FONT><FONT CLASS=number>2</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>dx</FONT>
+                <FONT CLASS=instruct>ret</FONT>
+InitIDT         <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+RCodeSeg        <FONT CLASS=pseudo>ENDS</FONT>
+                <FONT CLASS=pseudo>END</FONT>     Start
+</PRE>
+<DIV>
+用于演示INTFF任务的源程序如下：
+</DIV>
+<PRE>
+<FONT CLASS=comment>;功能：用于演示V86模式下的INTFF任务</FONT>
+<FONT CLASS=comment>;编译：TASM INTFF.ASM</FONT>
+<FONT CLASS=comment>;连接：TLINK INTFF.OBJ</FONT>
+<FONT CLASS=comment>;====================================================================</FONT>
+Text            <FONT CLASS=pseudo>SEGMENT</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>cs</FONT>:Text<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ds</FONT>:Text
+<FONT CLASS=comment>;---------------------------------------</FONT>
+Start           <FONT CLASS=pseudo>PROC</FONT>
+                <FONT CLASS=instruct>int</FONT>     <FONT CLASS=number>0ffh</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4c00h</FONT>
+                <FONT CLASS=instruct>int</FONT>     <FONT CLASS=number>21h</FONT>
+Start           <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;---------------------------------------</FONT>
+Text            <FONT CLASS=pseudo>ENDS</FONT>
+                <FONT CLASS=pseudo>END</FONT>     Start
+</PRE>
+<H3>2.说明</H3>
+<H4 CLASS=indent>(1)对IDT表的初始化</H4>
+<DIV>
+为了方便地书写IDT表，采用了重复汇编。从采用重复汇编方式定义的IDT表可见，除对应通用
+保护异常的13号陷阱门描述符和255号任务门描述符外，其它中断门描述符内的偏移均未设定。
+为此，在实模式下初始化时，把相应的入口偏移填入这些门描述符。从源程序可见，这些处理
+程序的入口偏移也用重复汇编书写，并且字节数相同，所以间隔等长。
+</DIV>
+<H4 CLASS=indent>(2)任务切换方式进入V86模式</H4>
+<DIV>
+实例从临时任务切换到V86任务时进入V86模式。在V86任务的TSS中，EFLAGS字段内的VM=1，所
+以伴随着任务切换，就进入了V86模式。为此，TSS中对应各段寄存器字段内的初始值都是V86模
+式下要执行的8086程序各段的段值，而非选择子。由于在发生中断/异常时要进入V86任务的特
+权级0，所以初始化了0级堆栈指针。V86任务使用局部描述符表LDT，所以TSS中对应字段填有相
+应的选择子。
+</DIV>
+<H4 CLASS=indent>(3)V86模式下对中断的处理</H4>
+<DIV>
+实例对V86模式下响应中断和执行软中断指令“INT n”的处理方法是，转实模式下的对应中断
+处理程序。具体步骤如下：
+</DIV>
+<DIV>1)在V86模式堆栈(V86任务的3级堆栈)顶形成返回点的现场；</DIV>
+<DIV>2)用实模式下对应的中断向量值代替返回地址；</DIV>
+<DIV>3)从保护模式返回V86模式。由于堆栈中保存的EFLAGS内的VM=1，所以在保护模式下执
+行IRET指令时，返回V86模式；由于在0级堆栈中保存的返回地址(段值和偏移)已被修改成实模
+式下的中断向量，所以这时的返回也就是转入实模式下的对应中断处理程序；由于在V86堆栈顶
+已安排了返回地址，所以在执行实模式下对应中断处理程序时，遇到IRET指令就返回到V86任务
+的被中断处。这种处理方法似乎绕了个弯。但就是利用这个方法有效地调用了DOS功能，方便地
+显示了提示信息“V86 is OK.”，顺利地实现了驻留退出。</DIV>
+<DIV>这种处理方法没有充分考虑异常，更没有考虑异常时的出错码。</DIV>
+<H4 CLASS=indent>(4)V86任务的通用保护异常处理</H4>
+<DIV>
+在演示的第一阶段和第二阶段，不会发生任何异常。但在这两个阶段之间，由于允许执行其它
+程序，可能引起异常。为了简单，实例只考虑了通用保护异常，而未考虑其它异常。该可能发
+生异常的阶段是在V86模式下。如果发生通用保护异常，那么就转入V86任务的通用保护异常处
+理程序。通用保护异常处理程序在保护模式下显示提示信息
+“......General Protection Error......”，然后再转21H号中断处理程序，通过设置入口
+参数AX=4C01H，中止引起通用保护异常的程序。
+</DIV>
+<H4 CLASS=indent>(5)INTFF任务</H4>
+<DIV>
+为了演示以任务切换方式离开V86模式，在实例中安排了这一任务，并称之为INTFF任务。由于
+中断描述符表IDT中的255(0FFH)号描述符是任务门描述符，所以当在V86模式下执行软中断指
+令“INT 0FFH”时便从V86模式切换到INTFF任务。INTFF任务的TSS是初始化好的，在INTFF任
+务下不发生特权级变换，不使用局部描述符表LDT。INTFF任务先显示提示信息
+“Return to real mode.”，然后再切换到临时任务。
+</DIV>
+<H2 STYLE="color:'#009999'">&#60;四&#62;V86模式下的敏感指令</H2>
+<DIV>
+在V86模式下，CPL=3，执行特权指令时，或者要引起出错码为0的通用保护故障，或者要引起
+非法操作码故障。
+</DIV>
+<DIV>
+在V86模式下，输入/输出指令的敏感条件有所变化。指令CLI和STI的敏感条件不变，由于CPL=3，
+所以如果IOPL<3，那么执行CLI或STI指令将引起通用保护故障。输入/输出指令IN、INS、OUT或OUTS的
+敏感条件仅仅是当前V86任务TSS内的I/O许可位图，而忽略EFLAGS中的IOPL。输入/输出指
+令IN、INS、OUT或OUTS是否可以执行与CPL是否小于IOPL无关，而直接由I/O许可位图对应位决
+定，如果输入/输出指令所使用I/O地址对应的I/O许可位图内的各位都位0，则输入输出指令可
+正常执行，否则引起通用保护故障。
+</DIV>
+<DIV>
+此外，在V86模式下，指令PUSHF、POPF、INT n和IRET却对IOPL敏感。也就是说，在V86模式下，
+当IOPL<3时，执行指令PUSHF、POPF、INT n及IRET会引起出错码为0的通用保护故障。
+</DIV>
+<DIV>
+采取上述措施的目的是使操作系统软件可以支持一个“虚拟EFLAGS”寄存器。
+</DIV>
+<!----------------------------->
+<BR>
+<!----------------------------->
+<TABLE CELLSPACING=0 CELLPADDING=1 FRAME=BOX
+       ALIGN=CENTER WIDTH="100%">
+<TR>
+<TD ROWSPAN=3 STYLE="color:'#ffff00'" ALIGN=CENTER>参考资料</TD>
+<TD ALIGN=CENTER STYLE="color:'#ffff00';">
+书&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</TD>
+<TD ALIGN=CENTER STYLE="color:'#ffff00';">出&#160;&#160;版&#160;&#160;社</TD>
+<TD ALIGN=CENTER STYLE="color:'#ffff00';">作&#160;&#160;&#160;&#160;者</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER>《保护方式下的80386及其编程》</TD>
+<TD ALIGN=CENTER>清华大学出版社</TD>
+<TD ALIGN=CENTER>周明德主编</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER>《80X86汇编语言程序设计教程》</TD>
+<TD ALIGN=CENTER>清华大学出版社</TD>
+<TD ALIGN=CENTER>扬季文主编</TD>
+</TR>
+</TABLE>
+<!----------------------------->
+<BR><BR><BR>
+<!----------------------------->
+
+</BODY>
+</HTML>

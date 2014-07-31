@@ -1,0 +1,607 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>
+保护模式教程
+</TITLE>
+</STYLE>
+</HEAD>
+<LINK REL=StyleSheet TYPE="text/css" HREF="main.css">
+<BODY CLASS=course>
+<CENTER><H1 STYLE="color:'#0000ff'">八.操作系统类指令</H1></CENTER>
+<DIV>
+本文介绍操作系统类指令。其中的某些指令始于286。通常只在操作系统代码中使用这些指令，
+而不在应用程序中使用这些指令。这是把它们称为操作系统类指令的原因。为了保证操作系统
+的安全，保护模式下的80386支持四个特权级。相应地，这些操作系统类指令也可分为三种：实
+模式和任何特权级下可执行的指令、实模式及特权级0下可执行的指令和仅在保护模式下执行的
+指令。<A HREF="../DOWNLOAD/asm8src.exe">这里下载本文源代码</A>。
+</DIV>
+<H2 STYLE="color:'#009999'">&#60;一&#62;实模式和任何特权级下可执行的指令</H2>
+<H3>1.存储全局和中断描述符表寄存器指令</H3>
+<DIV>
+全局描述符表GDT和中断描述符表IDT包含着系统的重要数据，对应的两个描述符表寄存
+器GDTR和IDTR含有这两张表的定位信息。利用存储描述符表寄存器指令能把描述符表寄存器
+的内容保存到指定的存储单元。这样，访问这些存储单元就可获得描述符表的定位信息。
+与GDT和IDT被所有任务共享不同，LDT是每个任务私有的，所以存储局部描述符表寄存器LDTR的
+指令不在所列。
+</DIV>
+<H4 CLASS=indent>(1)存储全局描述符表寄存器指令</H4>
+<DIV>存储全局描述符表寄存器指令的格式如下：</DIV>
+<PRE>
+    <FONT CLASS=instruct>SGDT</FONT>    <FONT CLASS=pseudo>QWORD PTR</FONT> DST
+</PRE>
+<DIV>
+其中操作数DST是48位(6字节)的存储器操作数。该指令的功能是把全局描述符表寄存器GDTR的
+内容存储到存储单元DST。GDTR中的16位界限存入DST的低字，GDTR中的32位基地址存入DST的
+高双字。该指令对标志没有影响。
+</DIV>
+<H4 CLASS=indent>(2)存储中断描述符表寄存器指令</H4>
+<DIV>存储中断描述符表寄存器指令的格式如下：</DIV>
+<PRE>
+    <FONT CLASS=instruct>SIDT</FONT>    <FONT CLASS=pseudo>QWORD PTR</FONT> DST
+</PRE>
+<DIV>
+其中操作数DST是48位(6字节)的存储器操作数。该指令的功能是把中断描述符表寄存器IDTR的
+内容存储到存储单元DST。IDTR中的16位界限存入DST的低字，IDTR中的32位基地址存入DST的
+高双字。该指令对标志没有影响。
+</DIV>
+<H3>2.存储机器状态字指令</H3>
+<DIV>存储机器状态字指令的格式如下：</DIV>
+<PRE>
+    <FONT CLASS=instruct>SMSW</FONT>    DST
+</PRE>
+<DIV>
+其中操作数DST可以是16位(字)的存储器操作数或寄存器。该指令的功能是把机器状态字的
+内容存储到DST。该指令对标志没有影响。
+</DIV>
+<DIV>
+80386有此指令是为了包含80286的指令集，以便与其兼容。由于80386的控制寄存器CR0的低16位
+等同于80286的机器状态字，所以，在为80386编程时，如果需要存储机器状态字，那么最好使用
+存储CR0寄存器的指令。
+</DIV>
+<H2 STYLE="color:'#009999'">&#60;二&#62;实模式及特权级0下可执行的指令</H2>
+<DIV>
+下列指令涉及设置关键的寄存器，所以只能在实模式和保护模式的特权级0下执行。为了从初始
+时的实模式转入保护模式，必须做基本的准备工作。例如，设置妥全局描述符表寄存器GDTR等。
+这是允许下列指令在实模式下工作的原因。
+</DIV>
+<DIV>
+在保护模式下，如果当前特权级(CPL)不为0，执行这些指令将引起错误码为0的通用保护故障。
+在虚拟8086方式下，因为其CPL为3，所以执行这些指令也将会引起出错码为0的通用保护故障。
+</DIV>
+<H3>1.清任务切换标志指令</H3>
+<DIV>
+每当任务切换时，控制寄存器CR0中的任务切换标志TS被自动置1。这样安排的原因已在前文中
+说明过。清任务切换标志指令的功能是把TS标志清0，该指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>CLTS</FONT>
+</PRE>
+<DIV>
+该指令仅影响TS标志，对其它标志没有影响。
+</DIV>
+<H3>2.暂停指令</H3>
+<DIV>暂停指令的格式如下：</DIV>
+<PRE>
+    <FONT CLASS=instruct>HLT</FONT>
+</PRE>
+<DIV>
+该指令使处理器暂停执行。暂停之后的系统，只有在接受一个已经启用的中断或让系统复位，
+才能重新启动。该指令对标志没有影响。
+</DIV>
+<H3>3.装载全局描述符表和中断描述符表寄存器的指令</H3>
+<H4 CLASS=indent>(1)装载全局描述符表寄存器指令</H4>
+<DIV>
+装载全局描述符表寄存器指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>LGDT</FONT>    <FONT CLASS=pseudo>QWORD PTR</FONT> SRC
+</PRE>
+<DIV>
+其中操作数SRC是48位(6字节)的存储器操作数。该指令的功能是把存储器中的伪描述符装入到
+全局描述符表寄存器GDTR中。伪描述符SRC的结构如前文所述结构类型PDESC所示，低字是以字
+节为单位的段界限，高双字是段基地址。该指令对标志没有影响。
+</DIV>
+<H4 CLASS=indent>(2)装载中断描述符表寄存器指令</H4>
+<DIV>
+装载中断描述符表寄存器指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>LIDT</FONT>    <FONT CLASS=pseudo>QWORD PTR</FONT> SRC
+</PRE>
+<DIV>
+其中操作数SRC是48位(6字节)的存储器操作数。该指令的功能是把存储器中的伪描述符装入到
+中断描述符表寄存器IDTR中。伪描述符SRC的结构如前文所述结构类型PDESC所示，低字是以字
+节为单位的段界限，高双字是段基地址。该指令对标志没有影响。
+</DIV>
+<H3>4.装载机器状态字指令</H3>
+<DIV>装载机器状态字指令的格式如下：</DIV>
+<PRE>
+    <FONT CLASS=instruct>LMSW</FONT>    DST
+</PRE>
+<DIV>
+其中操作数DST可以是16位(字)的存储器操作数或寄存器。该指令的功能是把DST的内容装载到
+机器状态字。该指令对标志没有影响。
+</DIV>
+<DIV>
+将PE位置为1，便进入保护模式。在80286中，没有控制寄存器，为进入保护模式需要通过该指
+令把MSW中的PE位置为1。如果的确是这样，那么LMSW指令后面必须紧跟一条转移指令。
+</DIV>
+<DIV>
+80386有此指令是为了包含80286的指令集，以便与其兼容。由于80386的控制寄存器CR0的低16位
+等同于80286的机器状态字，所以，在为80386编程时，如果需要装载机器状态字，那么最好使用
+控制寄存器传送指令。
+</DIV>
+<H3>5.控制寄存器数据传送指令</H3>
+<DIV>
+控制寄存器数据传送指令的一般格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>MOV</FONT>     <FONT CLASS=register>DST<FONT CLASS=symbol>,</FONT>SRC</FONT>
+</PRE>
+<DIV>
+控制寄存器数据传送指令实现80386的控制寄存器和32位通用寄存器之间的数据传送。所以，操
+作数SRC和DST可以是80386使用的三个控制寄存器和任一32位通用寄存器，但不能同时是控制寄
+存器。该指令对标志没有影响。
+</DIV>
+<H3>6.调试寄存器数据传送指令指令</H3>
+<DIV>
+调试寄存器数据传送指令的一般格式与上面的控制寄存器数据传送指令的格式相同。功能是实
+现80386的调试寄存器和32位通用寄存器之间的数据传送。操作数SRC和DST可以是80386使用
+的6个调试寄存器和任一32位通用寄存器，但不能同时为调试寄存器。该指令不影响标志。
+</DIV>
+<DIV>
+80386可使用的6个调试寄存器记为：DR0、DR1、DRW、DR3、DR6和DR7。其它说明与控制寄存器
+数据传送指令相同。
+</DIV>
+<H3>7.测试寄存器数据传送指令</H3>
+<DIV>
+测试寄存器数据传送指令的一般格式与上面的控制寄存器数据传送指令的格式相同。功能
+是实现80386的测试寄存器和32位通用寄存器之间的数据传送。80386使用的2个测试寄存器
+是TR6和TR7。其它说明与控制寄存器数据传送指令相同。
+</DIV>
+<H2 STYLE="color:'#009999'">&#60;三&#62;只能在保护模式下执行的指令</H2>
+<DIV>
+下面介绍的指令只能在保护模式下执行，如果在实模式下执行这些指令，将引起非法操作码
+故障(向量号为6)。
+</DIV>
+<H3>1.装载和存储局部描述符表寄存器指令</H3>
+<H4 CLASS=indent>(1)装载局部描述符表寄存器指令</H4>
+<DIV>
+装载局部描述符表寄存器指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>LLDT</FONT>    SRC
+</PRE>
+<DIV>
+其中，操作数SRC可以是16位通用寄存器或存储单元。该指令的功能是把SRC中的内容作为
+指示局部描述符表LDT的选择子装入到LDTR寄存器。该指令不影响标志。
+</DIV>
+<DIV>
+操作数SRC给定的选择子应该指示GDT中的类型为LDT的描述符。但LRC也可是一个空选择子，
+如果这样的话，表示暂时不使用局部描述符表LDT。
+</DIV>
+<DIV>
+若CPL不为0，那么执行该指令将产生出错码为0的通用保护故障。若被装载的选择子不指
+示GDT中的描述符，或者描述符类型不是LDT描述符，那么产生通用保护故障，错误码由该
+选择子构成。
+</DIV>
+<DIV>
+象段寄存器那样，LDTR也有两部分。在把指示LDT的选择子装入到LDTR可见部分时，处理器
+自动把选择子所索引的LDT描述符中的段基地址等信息保存到不可见的高速缓冲寄存器中。
+</DIV>
+<H4 CLASS=indent>(2)存储局部描述符表寄存器指令</H4>
+<DIV>
+存储局部描述符表寄存器指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>SLDT</FONT>    DST
+</PRE>
+<DIV>
+其中，操作数DST可以是16位通用寄存器或存储单元。该指令的功能是把局部描述符表寄存器
+LDTR的内容存储到存储单元DST中，也即把指向当前任务LDT的选择子存储到DST中。该指令不
+影响标志。
+</DIV>
+<H3>2.装载和存储任务寄存器指令</H3>
+<DIV>
+任务寄存器TR指示当前任务状态段TSS。随着任务的切换，TR的内容也随之改变；如果任务嵌
+套，那么TR的原值作为链接字保存到新任务的TSS中。但有时候需要直接地装载或者保存TR，
+这就需要使用装载TR指令和存储TR指令。
+</DIV>
+<H4 CLASS=indent>(1)装载任务寄存器指令</H4>
+<DIV>
+装载任务寄存器指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>LTR</FONT>     SRC
+</PRE>
+<DIV>
+其中，操作数SRC可以是16位通用寄存器或存储单元。该指令的功能是将SRC作为指示TSS描述符
+的选择子装载到任务寄存器TR。由前文可知，TR分为两部分，即程序员可见部分和不可见的高
+速缓冲寄存器部分。在把TSS的选择子装入到TR可见部分时，处理器自动把选择子所索引的描述
+符中的段基地址等信息保存到不可见的高速缓冲寄存器中。所以，SRC表示的选择子不能为空，
+必须索引位于GDT中的描述符，并且描述符类型必须是可用TSS，该加载的TSS被处理器自动标为
+“忙”。该指令对标志没有影响。
+</DIV>
+<DIV>
+若CPL不为0，那么执行该指令将产生错误码为0的通用保护故障。若被加载的选择子不指示GDT中
+的可用TSS描述符，那么产生通用保护故障，错误码由该选择子构成。
+</DIV>
+<H4 CLASS=indent>(2)存储任务寄存器指令</H4>
+<DIV>
+存储任务寄存器指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>STR</FONT>     DST
+</PRE>
+<DIV>
+其中，操作数DST可以是16位通用寄存器或存储单元。该指令的功能是把TR所含的指示当前任
+务TSS描述符的选择子存储到DST。该指令不影响标志。
+</DIV>
+<H3>3.调整申请特权级指令</H3>
+<DIV>
+调整申请特权级指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>ARPL</FONT>    OPRD1<FONT CLASS=symbol>,</FONT><FONT CLASS=register>OPRD2</FONT>
+</PRE>
+<DIV>
+其中，操作数OPRD1可以是16位通用寄存器或存储单元，操作数OPRD2是16位通用寄存器。该指
+令把操作数OPRD1和OPRD2视为两个选择子，用OPRD2的申请特权级(RPL)去检查OPRD1的RPL。选
+择子OPRD1和OPRD2的RPL分别由它们的最低2个位规定。如果OPRD1的RPL小于OPRD2的RPL，那么
+零标志ZF被置1，并把OPRD2的RPL值赋予OPRD1的RPL(使两个操作数的最低2位相等)；否则，零
+标志ZF被清0。OPRD1和OPRD2都可为空选择子。该指令只影响ZF标志。
+</DIV>
+<H3>4.装载存取权指令</H3>
+<DIV>
+装载存取权指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>LAR</FONT>     <FONT CLASS=register>OPRD1</FONT><FONT CLASS=symbol>,</FONT>OPRD2
+</PRE>
+<DIV>
+其中，操作数OPRD1可以是16位或32位通用寄存器，操作数OPRD2是16位通用寄存器或存储单
+元，也可以是32位通用寄存器或存储单元。操作数OPRD1和OPRD2的尺寸必须一致。该指令把
+操作数OPRD2视为选择子(当为32位时，仅使用低16位)，如果OPRD2所指示的描述符满足如下
+条件，那么零标志ZF被置1，并把描述符内的属性字段装入OPRD1；否则，ZF清0，OPRD1保持
+不变。
+</DIV>
+<DIV>(1)在描述符表的范围内；</DIV>
+<DIV>(2)是存储段描述符或系统段描述符或任务门描述符或调用门描述符；</DIV>
+<DIV>(3)CPL和OPRD2的RPL都不大于DPL。</DIV>
+<DIV>
+在满足条件的情况下，装入到OPRD1的由OPRD2所指示的描述符中的属性字段是指描述符的
+高4字节和00FXFF00H相与的结果，其中X表示第16位到第19位无定义。注意，如果指令使
+用16位操作数，那么只有高4字节中的低字被装入到OPRD1，即装入到OPRD1的属性字段不
+包括G位和AVL位等。该指令只影响ZF标志。
+</DIV>
+<H3>5.装载段界限指令</H3>
+<DIV>
+装载界限指令的格式如下：
+</DIV>
+<PRE>
+    <FONT CLASS=instruct>LSL</FONT>     <FONT CLASS=register>OPRD1</FONT><FONT CLASS=symbol>,</FONT>OPRD2
+</PRE>
+<DIV>
+其中，操作数OPRD1可以是16位或32位通用寄存器，操作数OPRD2是16位通用寄存器或存储单
+元，也可以是32位通用寄存器或存储单元。操作数OPRD1和OPRD2的尺寸必须一致。该指令把
+操作数OPRD2视为选择子(当为32位时，仅使用低16位)，如果OPRD2所指示的描述符满足如下
+条件，那么零标志ZF被置1，并把描述符内的界限字段装入OPRD1；否则，ZF清0，OPRD1保持
+不变。
+</DIV>
+<DIV>(1)在描述符表的范围内；</DIV>
+<DIV>(2)是存储段描述符或系统段描述符，而非门描述符；</DIV>
+<DIV>(3)CPL和OPRD2的RPL都不大于DPL。</DIV>
+<DIV>
+在满足条件的情况下，装入到OPRD1的由OPRD2所指示的描述符中的界限字段以字节位为单位。
+如果描述符中的界限字段以4K字节为单位(G=1)，那么装入到OPRD1时被左移12位，空出的低位
+全部填成1。注意，如果指令使用16位操作数，那么只有段界限的低16位被装入到OPRD1。该指
+令只影响ZF标志。
+</DIV>
+<H3>6.读写检验指令</H3>
+<DIV>
+利用读检验指令和写检验指令可分别检查在当前特权级上指定的段能否读或写，从而避免引起
+不必要的异常。
+</DIV>
+<H4 CLASS=indent>(1)读检验指令</H4>
+<DIV>读检验指令的一般格式如下：</DIV>
+<PRE>
+    <FONT CLASS=instruct>VERR</FONT>    OPRD
+</PRE>
+<DIV>
+其中，操作数OPRD可以是16位通用寄存器或存储单元，也可以是32位通用寄存器或存储单元。
+该指令的功能是把OPRD的内容作为一个选择子(当32位时仅使用低16位)，判断在当前特权级上
+该选择子所指示的段是否可读。如果该选择子指示合法的一个存储段描述符，并且在当前特权
+级上可读所描述的段，那么零标志ZF被置为1，否则ZF被清0。该指令只影响ZF标志。
+</DIV>
+<H4 CLASS=indent>(2)写检验指令</H4>
+<DIV写读检验指令的一般格式如下：</DIV>
+<PRE>
+    <FONT CLASS=instruct>VERW</FONT>    OPRD
+</PRE>
+<DIV>
+其中，操作数OPRD可以是16位通用寄存器或存储单元，也可以是32位通用寄存器或存储单元。
+该指令的功能是把OPRD的内容作为一个选择子(当32位时仅使用低16位)，判断在当前特权级上
+该选择子所指示的段是否可写。如果该选择子指示合法的一个存储段描述符，并且在当前特权
+级上可写所描述的段，那么零标志ZF被置为1，否则ZF被清0。该指令只影响ZF标志。
+</DIV>
+<H2 STYLE="color:'#009999'">&#60;四&#62;显示关键寄存器内容的实例(实例八)</H2>
+<DIV>
+为了更好地说明操作系统类指令的使用，下面给出一个显示80386关键寄存器内容的实例。该实
+例的逻辑功能是，显示系统中GDTR、IDTR、LDTR和TR等关键寄存器的当前内容。实例八的源程
+序清单如下：
+</DIV>
+<PRE>
+<FONT CLASS=comment>;名称:ASM8.ASM</FONT>
+<FONT CLASS=comment>;功能:显示关键寄存器内容及说明操作系统类指令的使用</FONT>
+<FONT CLASS=comment>;编译:TASM ASM8.ASM</FONT>
+<FONT CLASS=comment>;连接:TLINK ASM8.OBJ</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+<FONT CLASS=pseudo>INCLUDE</FONT>         386SCD.INC
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GDTSeg          <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>                <FONT CLASS=comment>;全局描述符表数据段(16位)</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GDT             <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>
+                <FONT CLASS=comment>;空描述符</FONT>
+DUMMY           Desc    <FONT CLASS=symbol>&lt;&gt;</FONT>
+                <FONT CLASS=comment>;规范段描述符及选择子</FONT>
+Normal          Desc    <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=number>0ffffh</FONT><FONT CLASS=symbol>,,,</FONT>ATDW<FONT CLASS=symbol>,,&gt;</FONT>
+Normal_Sel      <FONT CLASS=symbol>=</FONT>       Normal<FONT CLASS=symbol>-</FONT>GDT
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+EFFGDT          <FONT CLASS=pseudo>LABEL</FONT>   <FONT CLASS=pseudo>BYTE</FONT>
+                <FONT CLASS=comment>;临时任务代码段描述符及选择子</FONT>
+TempCode        Desc    <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=number>0ffffh</FONT><FONT CLASS=symbol>,</FONT>TempCodeSeg<FONT CLASS=symbol>,,</FONT>ATCE<FONT CLASS=symbol>,,&gt;</FONT>
+TempCode_Sel    <FONT CLASS=symbol>=</FONT>       TempCode<FONT CLASS=symbol>-</FONT>GDT
+                <FONT CLASS=comment>;缓冲区段描述符及选择子</FONT>
+Buffer          Desc    <FONT CLASS=symbol>&lt;</FONT>BufferLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,</FONT>BufferSeg<FONT CLASS=symbol>,,</FONT>ATDW<FONT CLASS=symbol>,,&gt;</FONT>
+Buffer_Sel      <FONT CLASS=symbol>=</FONT>       Buffer<FONT CLASS=symbol>-</FONT>GDT
+                <FONT CLASS=comment>;测试描述符1及选择子</FONT>
+Test1           Desc    <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=number>1111h</FONT><FONT CLASS=symbol>,,,</FONT><FONT CLASS=number>92h</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>87h</FONT><FONT CLASS=symbol>,&gt;</FONT>
+Test1_Sel       <FONT CLASS=symbol>=</FONT>       Test1<FONT CLASS=symbol>-</FONT>GDT
+TestR_Sel       <FONT CLASS=symbol>=</FONT>       Test1<FONT CLASS=symbol>-</FONT>GDT<FONT CLASS=symbol>+</FONT>RPL3
+                <FONT CLASS=comment>;测试描述符2及选择子</FONT>
+Test2           Desc    <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=number>2222h</FONT><FONT CLASS=symbol>,,,</FONT><FONT CLASS=number>82h</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>17h</FONT><FONT CLASS=symbol>,&gt;</FONT>
+Test2_Sel       <FONT CLASS=symbol>=</FONT>       Test1<FONT CLASS=symbol>-</FONT>GDT
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GDNum           <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>($-</FONT>EFFGDT<FONT CLASS=symbol>)/(</FONT><FONT CLASS=pseudo>SIZE</FONT> Desc<FONT CLASS=symbol>)</FONT>    <FONT CLASS=comment>;需特殊处理的描述符数</FONT>
+GDTLen          <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$-</FONT>GDT                     <FONT CLASS=comment>;全局描述符表长度</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GDTSeg          <FONT CLASS=pseudo>ENDS</FONT>                              <FONT CLASS=comment>;全局描述符表段定义结束</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+BufferSeg       <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>                <FONT CLASS=comment>;缓冲区数据段</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+GDTR_V          PDesc   <FONT CLASS=symbol>&lt;&gt;</FONT>                        <FONT CLASS=comment>;存放GDTR</FONT>
+IDTR_V          PDesc   <FONT CLASS=symbol>&lt;&gt;</FONT>                        <FONT CLASS=comment>;存放IDTR</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+MSW_V           <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;存放机器状态字</FONT>
+LDTR_V          <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;存放LDTR选择子</FONT>
+TR_V            <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;存放TR选择子</FONT>
+CR0_V           <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;存放控制寄存器CR0</FONT>
+CR3_V           <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;存放控制寄存器CR3</FONT>
+DR7_V           <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;存放调试寄存器DR7</FONT>
+Test_RPL        <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+Test1_SLD       <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;演示用变量</FONT>
+Test1_ARD       <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>
+Test1_SLW       <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+Test1_ARW       <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+Test1_RF        <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+Test1_WF        <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+Test2_SLD       <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>                         <FONT CLASS=comment>;演示用变量</FONT>
+Test2_ARD       <FONT CLASS=pseudo>DD</FONT>      <FONT CLASS=number>0</FONT>
+Test2_SLW       <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+Test2_ARW       <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+Test2_RF        <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+Test2_WF        <FONT CLASS=pseudo>DW</FONT>      <FONT CLASS=number>0</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+BufferLen       <FONT CLASS=symbol>=</FONT>       <FONT CLASS=symbol>$</FONT>
+BufferSeg       <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+TempCodeSeg     <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>                <FONT CLASS=comment>;临时代码段</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>CS</FONT>:TempCodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=register>DS</FONT>:BufferSeg
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+Virtual         <FONT CLASS=pseudo>PROC</FONT>    <FONT CLASS=pseudo>FAR</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Buffer_Sel
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>cr0</FONT>                   <FONT CLASS=comment>;存储CR0</FONT>
+                <FONT CLASS=instruct>mov</FONT>     CR0_V<FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>cr3</FONT>                   <FONT CLASS=comment>;存储CR3</FONT>
+                <FONT CLASS=instruct>mov</FONT>     CR3_V<FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>DR7</FONT>                   <FONT CLASS=comment>;存储DR7</FONT>
+                <FONT CLASS=instruct>mov</FONT>     DR7_V<FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>
+                <FONT CLASS=instruct>str</FONT>     TR_V                      <FONT CLASS=comment>;存储TR</FONT>
+                <FONT CLASS=instruct>sldt</FONT>    LDTR_V                    <FONT CLASS=comment>;存储LDTR</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Test_RPL<FONT CLASS=symbol>,</FONT>Test1_Sel
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>TestR_Sel
+                <FONT CLASS=instruct>arpl</FONT>    Test_RPL<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>               <FONT CLASS=comment>;说明调整申请特权及指令</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Test1_Sel
+<FONT CLASS=label>Lab1:</FONT>           <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>edx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>lsl</FONT>     <FONT CLASS=register>edx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>                   <FONT CLASS=comment>;说明装载段界限指令</FONT>
+                <FONT CLASS=instruct>lsl</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Test1_SLD<FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=register>edx</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Test1_SLW<FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=register>cx</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>edx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>lar</FONT>     <FONT CLASS=register>edx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>                   <FONT CLASS=comment>;说明装载存取权指令</FONT>
+                <FONT CLASS=instruct>lar</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Test1_ARD<FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=register>edx</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Test1_ARW<FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=register>cx</FONT>
+                <FONT CLASS=instruct>mov</FONT>     Test1_RF<FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>verr</FONT>    <FONT CLASS=register>ax</FONT>                        <FONT CLASS=comment>;说明读检验指令</FONT>
+                <FONT CLASS=instruct>jnz</FONT>     Lab2
+                <FONT CLASS=instruct>mov</FONT>     Test1_RF<FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=number>1</FONT>
+<FONT CLASS=label>Lab2:</FONT>           <FONT CLASS=instruct>mov</FONT>     Test1_WF<FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=number>0</FONT>
+                <FONT CLASS=instruct>verw</FONT>    <FONT CLASS=register>ax</FONT>                        <FONT CLASS=comment>;说明写检验指令</FONT>
+                <FONT CLASS=instruct>jnz</FONT>     Lab3
+                <FONT CLASS=instruct>mov</FONT>     Test1_WF<FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>],</FONT><FONT CLASS=number>1</FONT>
+<FONT CLASS=label>Lab3:</FONT>           <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>16</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Test2_Sel
+                <FONT CLASS=instruct>cmp</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>32</FONT>
+                <FONT CLASS=instruct>jb</FONT>      Lab1
+                <FONT CLASS=comment>;准备返回实方式</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>Normal_Sel
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>cr0</FONT>
+                <FONT CLASS=instruct>and</FONT>     <FONT CLASS=register>al</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>11111110b</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cr0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>                   <FONT CLASS=comment>;返回实方式</FONT>
+                <FONT CLASS=macro>JUMP16</FONT>  <FONT CLASS=symbol>&lt;</FONT><FONT CLASS=pseudo>SEG</FONT> Real<FONT CLASS=symbol>&gt;,&lt;</FONT><FONT CLASS=pseudo>OFFSET</FONT> Real<FONT CLASS=symbol>&gt;</FONT>
+Virtual         <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+TempCodeSeg     <FONT CLASS=pseudo>ENDS</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+RCodeSeg        <FONT CLASS=pseudo>SEGMENT</FONT> <FONT CLASS=pseudo>PARA</FONT> <FONT CLASS=pseudo>USE16</FONT>
+                <FONT CLASS=pseudo>ASSUME</FONT>  <FONT CLASS=register>CS</FONT>:RCodeSeg<FONT CLASS=symbol>,</FONT><FONT CLASS=register>DS</FONT>:BufferSeg
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+VGDTR           PDesc   <FONT CLASS=symbol>&lt;</FONT>GDTLen<FONT CLASS=symbol>-</FONT><FONT CLASS=number>1</FONT><FONT CLASS=symbol>,&gt;</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+Start           <FONT CLASS=pseudo>PROC</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>BufferSeg
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>sgdt</FONT>    GDTR_V
+                <FONT CLASS=instruct>sidt</FONT>    IDTR_V
+                <FONT CLASS=instruct>smsw</FONT>    MSW_V
+                <FONT CLASS=comment>;准备转入保护方式</FONT>
+                <FONT CLASS=instruct>push</FONT>    <FONT CLASS=register>cs</FONT>
+                <FONT CLASS=instruct>pop</FONT>     <FONT CLASS=register>ds</FONT>
+                <FONT CLASS=instruct>cld</FONT>
+                <FONT CLASS=instruct>call</FONT>    InitGDT
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> VGDTR
+                <FONT CLASS=instruct>lgdt</FONT>    <FONT CLASS=symbol>[</FONT><FONT CLASS=register>bx</FONT><FONT CLASS=symbol>]</FONT>
+                <FONT CLASS=instruct>cli</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>cr0</FONT>
+                <FONT CLASS=instruct>or</FONT>      <FONT CLASS=register>al</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>1</FONT>
+                <FONT CLASS=comment>;转入保护方式</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cr0</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT>
+                <FONT CLASS=macro>JUMP16</FONT>  <FONT CLASS=symbol>&lt;</FONT>TempCode_Sel<FONT CLASS=symbol>&gt;,&lt;</FONT><FONT CLASS=pseudo>OFFSET</FONT> Virtual<FONT CLASS=symbol>&gt;</FONT>
+<FONT CLASS=label>Real:</FONT>           <FONT CLASS=comment>;回到实方式</FONT>
+                <FONT CLASS=instruct>sti</FONT>
+                <FONT CLASS=comment>;为了简单，略去了显示相关变量内容的部分代码</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4c00h</FONT>
+                <FONT CLASS=instruct>int</FONT>     <FONT CLASS=number>21h</FONT>
+Start           <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+InitGDT         <FONT CLASS=pseudo>PROC</FONT>
+                <FONT CLASS=instruct>push</FONT>    <FONT CLASS=register>ds</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>GDTSeg
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ds</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>cx</FONT><FONT CLASS=symbol>,</FONT>GDNum
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>OFFSET</FONT> EFFGDT
+<FONT CLASS=label>InitG:</FONT>          <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseL
+                <FONT CLASS=instruct>movzx</FONT>   <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>shl</FONT>     <FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>4</FONT>
+                <FONT CLASS=instruct>shld</FONT>    <FONT CLASS=register>edx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>eax</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>16</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseL<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>BYTE</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseM<FONT CLASS=symbol>,</FONT><FONT CLASS=register>dl</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>BYTE</FONT> <FONT CLASS=pseudo>PTR</FONT> <FONT CLASS=symbol>[</FONT><FONT CLASS=register>si</FONT><FONT CLASS=symbol>].</FONT>BaseH<FONT CLASS=symbol>,</FONT><FONT CLASS=register>dh</FONT>
+                <FONT CLASS=instruct>add</FONT>     <FONT CLASS=register>si</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=pseudo>SIZE</FONT> Desc
+                <FONT CLASS=instruct>loop</FONT>    InitG
+                <FONT CLASS=instruct>pop</FONT>     <FONT CLASS=register>ds</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>bx</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=number>16</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=register>ax</FONT><FONT CLASS=symbol>,</FONT>GDTSeg
+                <FONT CLASS=instruct>mul</FONT>     <FONT CLASS=register>bx</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> VGDTR<FONT CLASS=symbol>.</FONT>Base<FONT CLASS=symbol>,</FONT><FONT CLASS=register>ax</FONT>
+                <FONT CLASS=instruct>mov</FONT>     <FONT CLASS=pseudo>WORD</FONT> <FONT CLASS=pseudo>PTR</FONT> VGDTR<FONT CLASS=symbol>.</FONT>Base<FONT CLASS=symbol>+</FONT><FONT CLASS=number>2</FONT><FONT CLASS=symbol>,</FONT><FONT CLASS=register>dx</FONT>
+                <FONT CLASS=instruct>ret</FONT>
+InitGDT         <FONT CLASS=pseudo>ENDP</FONT>
+<FONT CLASS=comment>;----------------------------------------------------------------------------</FONT>
+RCodeSeg        <FONT CLASS=pseudo>ENDS</FONT>
+                <FONT CLASS=pseudo>END</FONT>     Start
+</PRE>
+<H2 STYLE="color:'#009999'">&#60;五&#62;特权指令</H2>
+<DIV>
+特权指令是指保护方式下只有当前特权级CPL=0时，才可执行的指令。如果CPL不等于0而
+执行它们，那么会引起通用保护异常。从上面介绍的操作系统类指令可归纳出如下表所示
+的80386特权指令。这些特权指令在构成完善的保护机制方面起了重要的作用。
+</DIV>
+<BR>
+<TABLE CELLSPACING=0 CELLPADDING=1 FRAME=BOX
+       ALIGN=CENTER>
+<TR>
+<TD ALIGN=center STYLE="color:'#ffff00';" ROWSPAN=7>特<BR>权<BR>指<BR>令</TD>
+<TD ALIGN=center STYLE="color:'#ffff00';">指&#160;&#160;&#160;&#160;&#160;&#160;令</TD>
+<TD ALIGN=center STYLE="color:'#ffff00';">功&#160;&#160;&#160;&#160;&#160;&#160;能</TD>
+<TD ALIGN=center STYLE="color:'#ffff00';">指&#160;&#160;&#160;&#160;&#160;&#160;令</TD>
+<TD ALIGN=center STYLE="color:'#ffff00';">功&#160;&#160;&#160;&#160;&#160;&#160;能</TD>
+</TR>
+
+<TR>
+<TD>CLTS</TD>
+<TD>清除CR0中的TS位</TD>
+<TD>LTR</TD>
+<TD>装入TR寄存器</TD>
+</TR>
+
+<TR>
+<TD>HLT</TD>
+<TD>停机</TD>
+<TD>MOV CRn,reg</TD>
+<TD>装入控制寄存器</TD>
+</TR>
+
+<TR>
+<TD>LGDT</TD>
+<TD>装入GDTR寄存器</TD>
+<TD>MOV reg,CRn</TD>
+<TD>保存控制寄存器</TD>
+</TR>
+
+<TR>
+<TD>LIDT</TD>
+<TD>装入IDTR寄存器</TD>
+<TD>MOV DRn,reg</TD>
+<TD>装入调试寄存器</TD>
+</TR>
+
+<TR>
+<TD>LLDT</TD>
+<TD>装入LDTR寄存器</TD>
+<TD>MOV reg,DRn</TD>
+<TD>保存调试寄存器</TD>
+</TR>
+
+<TR>
+<TD>LMSW</TD>
+<TD>装入MSW寄存器(CR0的低16位)</TD>
+<TD></TD>
+<TD></TD>
+</TR>
+</TABLE>
+<BR>
+<DIV>
+从上表可见，装入GDTR、IDTR、LDTR、TR和MSW的指令都是特权指令，而存储上述寄存器的
+指令不是特权指令。这表示，保护模式下任何程序可获得这些寄存器的值，但只有特权
+级0的程序才能够改变这些寄存器的值。从上表还可以看出，设置和存储控制寄存器及调试
+寄存器的指令都是特权指令。
+</DIV>
+<!----------------------------->
+<BR>
+<!----------------------------->
+<TABLE CELLSPACING=0 CELLPADDING=1 FRAME=BOX
+       ALIGN=CENTER WIDTH="100%">
+<TR>
+<TD ROWSPAN=3 STYLE="color:'#ffff00'" ALIGN=CENTER>参考资料</TD>
+<TD ALIGN=CENTER STYLE="color:'#ffff00';">
+书&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;名</TD>
+<TD ALIGN=CENTER STYLE="color:'#ffff00';">出&#160;&#160;版&#160;&#160;社</TD>
+<TD ALIGN=CENTER STYLE="color:'#ffff00';">作&#160;&#160;&#160;&#160;者</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER>《保护方式下的80386及其编程》</TD>
+<TD ALIGN=CENTER>清华大学出版社</TD>
+<TD ALIGN=CENTER>周明德主编</TD>
+</TR>
+<TR>
+<TD ALIGN=CENTER>《80X86汇编语言程序设计教程》</TD>
+<TD ALIGN=CENTER>清华大学出版社</TD>
+<TD ALIGN=CENTER>扬季文主编</TD>
+</TR>
+</TABLE>
+<!----------------------------->
+<BR><BR><BR>
+<!----------------------------->
+
+</BODY>
+</HTML>

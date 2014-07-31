@@ -1,0 +1,283 @@
+<STYLE>
+<!--
+BODY
+{
+background-image:url(../GIF/bkimage0.gif);
+/*background-color:#000000;*/
+background-attachment:fixed;
+font-family:"'宋体','楷体_GB2312'";
+font-size:9pt;
+color:"#000000";
+line-height:2;
+}
+
+BODY.course
+{
+background-image:url(../GIF/bkimage.gif);
+font-family:"'宋体','楷体_GB2312'";
+font-size:9pt;
+color:"#000000";
+line-height:2;
+}
+
+A:link
+{
+color:"#0000ff";
+TEXT-DECORATION:none;
+}
+
+A:active
+{
+color:"#009966";
+TEXT-DECORATION:none;
+}
+
+A:visited
+{
+color:"#9900cc";
+TEXT-DECORATION:none;
+}
+
+A:hover
+{
+color:"#ff0000";
+TEXT-DECORATION:underline;
+}
+
+TABLE A:link
+{
+color:"#00ff00";
+TEXT-DECORATION:none;
+}
+
+TABLE A:active
+{
+color:"#ffcccc";
+TEXT-DECORATION:none;
+}
+
+TABLE A:visited
+{
+color:"#00ffff";
+TEXT-DECORATION:none;
+}
+
+TABLE A:hover
+{
+color:"#ffcccc";
+TEXT-DECORATION:underline;
+}
+
+H1,H2,H3,H4,H5
+{
+font-family:"'楷体_GB2312','楷体','魏碑','宋体'";
+color:"#ff0000";
+line-height:"100%";}
+
+H4.indent
+{
+text-indent:19pt;
+color:"#ff00ff";
+}
+
+P
+{
+text-indent:"19pt";
+}
+
+DIV
+{
+text-indent:"19pt";
+}
+
+TABLE
+{
+font-family:"宋体";
+font-size:9pt;
+color:"#ffffff";
+background-color:#0099cc;
+border-top:1px solid #99ffff;
+border-left:1px solid #99ffff;
+border-right:1px solid #003366;
+border-bottom:1px solid #003366;
+}
+
+TD
+{
+border-left:1px solid #00ccff;
+border-top:1px solid #00ccff;
+border-right:1px solid #006699;
+border-bottom:1px solid #006699;
+padding:1px;
+}
+
+TABLE.transparent
+{
+font-family:"宋体";
+font-size:9pt;
+color:"#ffffff";
+background-color:transparent;
+border-style:none;
+padding:0px;
+}
+
+TABLE.transparent TD
+{
+border-style:none;
+}
+
+TABLE.normal
+{
+font-family:"宋体";
+font-size:9pt;
+color:"#ffffff";
+background-color:#0099cc;
+border-top:1px solid #00ffff;
+border-left:1px solid #00ffff;
+border-right:1px solid #003366;
+border-bottom:1px solid #003366;
+}
+
+TABLE.normal TD
+{
+border-left:1px solid #00ccff;
+border-top:1px solid #00ccff;
+border-right:1px solid #006699;
+border-bottom:1px solid #006699;
+padding:1px;
+}
+
+TABLE.golden
+{
+font-family:"宋体";
+font-size:9pt;
+color:"#0000ff";
+background-color:#cc9933;
+border-top:1px solid #ffff99;
+border-left:1px solid #ffff99;
+border-right:1px solid #663300;
+border-bottom:1px solid #663300;
+}
+
+TABLE.golden TD
+{
+border-left:1px solid #ffcc66;
+border-top:1px solid #ffcc66;
+border-right:1px solid #996600;
+border-bottom:1px solid #996600;
+padding:1px;
+}
+
+TABLE.golden A:link
+{
+color:"#0000ff";
+TEXT-DECORATION:none;
+}
+
+TABLE.golden A:active
+{
+color:"#ffcccc";
+TEXT-DECORATION:none;
+}
+
+TABLE.golden A:visited
+{
+color:"#00ffff";
+TEXT-DECORATION:none;
+}
+
+TABLE.golden A:hover
+{
+color:"#ff0000";
+TEXT-DECORATION:underline;
+}
+
+TABLE.sunken
+{
+font-family:"宋体";
+font-size:9pt;
+color:"#ffffff";
+background-color:#0099cc;
+border-right:1px solid #00ccff;
+border-bottom:1px solid #00ccff;
+border-top:1px solid #006699;
+border-left:1px solid #006699;
+padding:0px;
+}
+
+TABLE.sunken TD
+{
+background-color:#ffff99;
+border-right:1px solid #00ccff;
+border-bottom:1px solid #00ccff;
+border-top:1px solid #006699;
+border-left:1px solid #006699;
+padding:0px;
+}
+
+PRE
+{
+font-family:"'宋体','楷体_GB2312'";
+font-size:9pt;
+font-weight:medium;
+font-style:normal;
+color:"#000000";
+line-height:1.5;
+}
+ 
+PRE FONT.comment
+{
+color:"#999999";
+font-style:oblique;
+}
+ 
+PRE FONT.pseudo
+{
+color:"#009999";
+}
+ 
+PRE FONT.instruct
+{
+color:"#0000ff";
+}
+ 
+PRE FONT.register
+{
+color:"#ff00ff";
+}
+ 
+PRE FONT.symbol
+{
+color:"#ff0000";
+}
+ 
+PRE FONT.number
+{
+color:"#000099";
+}
+ 
+PRE FONT.label
+{
+color:"#990000";
+}
+ 
+PRE FONT.string
+{
+color:"#999900";
+}
+PRE FONT.macro
+{
+color:"#009900";
+}
+
+.TextYellow
+{
+color:"#ffff00";
+}
+
+.TextRed
+{
+color:"#ff0000";
+}
+-->
+</STYLE>
