@@ -1,0 +1,180 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title> Cain Help Navigation Toolbar </title>
+
+
+
+<style>
+<!--
+body {margin:0;}
+-->
+</style><script language="javascript" src="CainAbel_files/whver.js"></script><script language="javascript1.2" src="CainAbel_files/whutils.js"></script><script language="javascript1.2" src="CainAbel_files/whmsg.js"></script><script language="javascript1.2" src="whskin_tbars_data/whproxy.js"></script><script language="javascript1.2" src="whskin_tbars_data/whmozemu.js"></script><script language="javascript1.2" src="whskin_tbars_data/whtbar.js"></script></head>
+
+
+
+
+
+
+
+
+
+<body scroll="no" bgcolor="Black" marginheight="0" marginwidth="0">
+<script language="javascript1.2">
+<!--
+if (window.gbWhTBar)
+{
+	setButtonFont("toc","Tahoma","8pt","White","Normal","Bold","none");
+setButtonFont("toc","Tahoma","8pt","Lime","Normal","Bold","none", true);
+setButtonFont("idx","Tahoma","8pt","White","Normal","Bold","none");
+setButtonFont("idx","Tahoma","8pt","Lime","Normal","Bold","none", true);
+setButtonFont("fts","Tahoma","8pt","White","Normal","Bold","none");
+setButtonFont("fts","Tahoma","8pt","Lime","Normal","Bold","none", true);
+setButtonFont("glo","Tahoma","8pt","White","Normal","Bold","none");
+setButtonFont("glo","Tahoma","8pt","Lime","Normal","Bold","none", true);
+setButtonFont("websearch","Tahoma","8pt","White","Normal","Bold","none");
+setButtonFont("websearch","Tahoma","8pt","Lime","Normal","Bold","none", true);
+setButtonFont("searchform","Tahoma","8pt","White","Normal","Bold","none");
+setButtonFont("searchform","","","","","","", true);
+setButtonFont("banner","","","","","","");
+setButtonFont("banner","","","","","","", true);
+
+	gsIToc = "wht_toc_n.gif";
+	gsITocS = "wht_toc_h.gif";
+	gsIIndex = "wht_idx_n.gif";
+	gsIIndexS = "wht_idx_h.gif";
+	gsISearch = "wht_fts_n.gif";
+	gsISearchS = "wht_fts_h.gif";
+	gsIGlossary = "wht_glo_n.gif";
+	gsIGlossaryS = "wht_glo_h.gif";
+	gsIWebSearch = "wht_ws.gif";
+	gsIWebSearchD = "wht_ws_g.gif";
+	gsIBanner = "wht_logo1.gif";
+	gsIGo = "wht_go.gif";
+	setBackgroundcolor("Black");
+	
+	setAlignment("left");
+	
+	setSearchFormTitle("Search");
+	if (!gsBgImage)
+	{
+	setButtonBgColor("toc", gsBgColor);
+	setButtonBgColor("idx", gsBgColor);
+	setButtonBgColor("fts", gsBgColor);
+	setButtonBgColor("glo", gsBgColor);
+	setButtonBgColor("toc", gsTBSelectedBgColor, true);
+	setButtonBgColor("idx", gsTBSelectedBgColor, true);
+	setButtonBgColor("fts", gsTBSelectedBgColor, true);
+	setButtonBgColor("glo", gsTBSelectedBgColor, true);
+	setButtonBgColor("toc","Black");
+setButtonBgColor("idx","Black");
+setButtonBgColor("fts","Black");
+setButtonBgColor("glo","Black");
+setButtonBgColor("websearch","Black");
+setButtonBgColor("searchform","");
+setButtonBgColor("banner","");
+
+	}
+	setButtonBgColor("toc","Black", true);
+setButtonBgColor("idx","Black", true);
+setButtonBgColor("fts","Black", true);
+setButtonBgColor("glo","Black", true);
+setButtonBgColor("websearch","Black", true);
+setButtonBgColor("searchform","", true);
+setButtonBgColor("banner","", true);
+
+	addButton("toc",BTN_TEXT|BTN_IMG,"Contents","","","","",0,0,"red_book_closed.gif","red_nav_contents.gif","","red_nav_contents.gif","","");
+addButton("fts",BTN_TEXT|BTN_IMG,"Search","","","","",0,0,"red_nav_search.gif","red_nav_search.gif","","red_nav_search.gif","","");
+addButton("glo",BTN_TEXT|BTN_IMG,"Glossary","","","","",0,0,"red_nav_glossary.gif","red_nav_glossary.gif","","red_nav_glossary.gif","","");
+addButton("searchform",BTN_TEXT,"","","","","",0,0,"","","","","","");
+addButton("banner",BTN_IMG,"","","","","",0,0,"point_black.gif","","","","","");
+
+	addButton("blankblock");
+	writeStyle(false);
+	ReSortToolbarButtons();
+	writeToolBar();
+}
+else
+	document.location.reload();
+//-->
+</script><style type="text/css">
+<!--
+.clsBtnNormal {
+padding:5px;
+cursor:hand;
+font-family:Arial;
+font-size:xx-small;
+color:#003063;}
+.clsNoBNormal {
+padding-left:2px;padding-right:2px;
+cursor:hand;
+font-family:Arial;
+font-size:xx-small;
+color:#003063;}
+.clsBtnDisable {
+padding:5px;
+cursor:default;
+font-family:Arial;
+font-size:xx-small;
+color:#003063;}
+.clsNoBDisable {
+padding-left:2px;padding-right:2px;
+cursor:default;
+font-family:Arial;
+font-size:xx-small;
+color:#003063;}
+.clsNotBtn {
+padding:5px;
+font-family:Arial;
+font-size:xx-small;
+color:#003063;}
+.clsBtnUp{
+padding:4px;
+border-bottom:#808080 1px solid;
+border-left:#FFFAFA 1px solid;
+border-right:#808080 1px solid;
+border-top:#FFFAFA 1px solid;
+cursor:hand;font-family:Arial;
+font-size:xx-small;
+color:#003063;}
+.clsNoBUp{
+padding-left:2px;padding-right:2px;
+cursor:hand;font-family:Arial;
+font-size:xx-small;
+color:#003063;}
+.clsBtnDown{
+padding:4px;
+border-bottom:#FFFAFA 1px solid;
+border-left:#808080 1px solid;
+border-right:#FFFAFA 1px solid;
+border-top:#808080 1px solid;
+color:#003063;
+cursor:hand;
+font-family:Arial;
+font-size:xx-small;}
+.clsNoBDown{
+padding-left:2px;padding-right:2px;
+cursor:hand;font-family:Arial;
+font-size:xx-small;
+color:#003063;}
+.btnseltoc{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:white;}.btntoc{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:#003063;}.btnselfts{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:white;}.btnfts{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:#003063;}.btnselglo{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:white;}.btnglo{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:#003063;}.btnselsearchform{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:white;}.btnsearchform{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:#003063;}.btnselbanner{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:white;}.btnbanner{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:#003063;}.btnselblankblock{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:white;}.btnblankblock{font-family:Verdana;font-size:8pt;font-style:normal;font-weight:normal;text-decoration:none;color:#003063;}.btntoc{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:White;}
+.btnseltoc{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:Lime;}
+.btnidx{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:White;}
+.btnselidx{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:Lime;}
+.btnfts{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:White;}
+.btnselfts{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:Lime;}
+.btnglo{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:White;}
+.btnselglo{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:Lime;}
+.btnwebsearch{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:White;}
+.btnselwebsearch{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:Lime;}
+.btnsearchform{font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:White;}
+.inputsearchform {font-family:Tahoma;font-size:8pt;font-style:Normal;font-weight:Bold;text-decoration:none;color:black;}
+.clsToolbarBackground{
+margin:2px;}
+-->
+ body {
+border-top:black 1px solid;}
+-->
+</style>
+<table class="clsToolbarBackground" border="0" cellpadding="0" cellspacing="0" height="28" width="1676"><tbody><tr><td style="background-color: Black;" class="clsBtnDown" state="down" onclick="onBtnClick(event);return false;" onmousedown="onBtnMouseDown(event, 0);" onmouseup="onBtnMouseUp(event, 0);" onmouseover="onBtnMouseOver(event, 0);" onmouseout="onBtnMouseOut(event, 0);" align="center" nowrap="nowrap" valign="middle"><a title="Contents" id="btntoc" class="btnseltoc" href="javascript:void(0);" onclick="showToc();return false;"><img alt="Contents" src="whskin_tbars_data/red_nav_contents.gif" border="0" align="absmiddle">&nbsp;Contents</a></td><td class="clsBtnNormal" state="up" onclick="onBtnClick(event);return false;" onmousedown="onBtnMouseDown(event, 1);" onmouseup="onBtnMouseUp(event, 1);" onmouseover="onBtnMouseOver(event, 1);" onmouseout="onBtnMouseOut(event, 1);" align="center" nowrap="nowrap" valign="middle"><a title="Search" id="btnfts" class="btnfts" href="javascript:void(0);" onclick="showFts();return false;"><img alt="Search" src="whskin_tbars_data/red_nav_search.gif" border="0" align="absmiddle">&nbsp;Search</a></td><td class="clsBtnNormal" state="up" onclick="onBtnClick(event);return false;" onmousedown="onBtnMouseDown(event, 2);" onmouseup="onBtnMouseUp(event, 2);" onmouseover="onBtnMouseOver(event, 2);" onmouseout="onBtnMouseOut(event, 2);" align="center" nowrap="nowrap" valign="middle"><a title="Glossary" id="btnglo" class="btnglo" href="javascript:void(0);" onclick="showGlossary();return false;"><img alt="Glossary" src="whskin_tbars_data/red_nav_glossary.gif" border="0" align="absmiddle">&nbsp;Glossary</a></td><td width="100%"></td><td align="center" nowrap="nowrap" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="showBanner();return false;"><img alt="About WebHelp" src="whskin_tbars_data/point_black.gif" border="0" align="absmiddle"></a></td></tr></tbody></table>
+
+</body></html>
