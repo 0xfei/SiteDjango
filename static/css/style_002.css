@@ -754,11 +754,11 @@ pre {
     word-wrap: break-word;
     border: solid 1px lightgrey;
     padding: 5px;
-	width: 95%;
+	width: 97%;
 }
 
 code{
-	width: 95%
+	width: 97%
 }
 
 @media screen and (max-width: 980px) 
