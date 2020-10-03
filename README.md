@@ -1,6 +1,6 @@
 ##Description
 
-It's a project with django. Try to own a blog simply and make it easy to use.
+#It's a project with django. Try to own a blog simply and make it easy to use.
 
 ##File tree of the project.
 
